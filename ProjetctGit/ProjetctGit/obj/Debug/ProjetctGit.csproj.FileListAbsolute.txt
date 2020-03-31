@@ -1,0 +1,7 @@
+D:\IPCA\AULAS\LP2\Slides\Workshop de Git\Guião\VI\ProjetctGit\ProjetctGit\bin\Debug\ProjetctGit.exe.config
+D:\IPCA\AULAS\LP2\Slides\Workshop de Git\Guião\VI\ProjetctGit\ProjetctGit\bin\Debug\ProjetctGit.exe
+D:\IPCA\AULAS\LP2\Slides\Workshop de Git\Guião\VI\ProjetctGit\ProjetctGit\bin\Debug\ProjetctGit.pdb
+D:\IPCA\AULAS\LP2\Slides\Workshop de Git\Guião\VI\ProjetctGit\ProjetctGit\obj\Debug\ProjetctGit.csprojAssemblyReference.cache
+D:\IPCA\AULAS\LP2\Slides\Workshop de Git\Guião\VI\ProjetctGit\ProjetctGit\obj\Debug\ProjetctGit.csproj.CoreCompileInputs.cache
+D:\IPCA\AULAS\LP2\Slides\Workshop de Git\Guião\VI\ProjetctGit\ProjetctGit\obj\Debug\ProjetctGit.exe
+D:\IPCA\AULAS\LP2\Slides\Workshop de Git\Guião\VI\ProjetctGit\ProjetctGit\obj\Debug\ProjetctGit.pdb
