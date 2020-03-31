@@ -16,6 +16,8 @@ namespace ProjetctGit
             
             Console.WriteLine("Estamos a trabalhar de casa");
 
+            Console.WriteLine("Tutorial Git");
+
             Console.ReadKey();
         }
     }
