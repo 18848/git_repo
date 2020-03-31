@@ -6,12 +6,10 @@
 #include "headers\readFile.h"
 
 int main(){
-    //ReadPath* lst = NULL;
-    //lst = newList();
+    DataList* lst = newList();
 
-    //insert(lst, readFile());
-    //showList(lst);
-    readFile();
+    insert(lst, readFile());
+    // showList(lst);
 
     system("pause");
     return 0;

@@ -1,23 +1,22 @@
 #ifndef READFILE_H_
 #define READFILE_H_
 
-//    #define readPath "files\\slate-tagged"
-    #define readPath "C:\\codigo\\files\\slate-tagged"
-    #define readMethod "%s %s %s %lf\n"
+    #define readPath "files\\slate-tagged"
+    #define readMethod "%s %s %s %f\n"
 
-	typedef struct ReadPath{
+	typedef struct _dataList{
 		char* original;
 		char* root;
 		char* morphology;
-		double assurance;
-		struct ReadPath *next;
-		struct ReadPath *previous;
+		float assurance;
 
-	}ReadPath;
+		struct _dataList *next;
+		struct _dataList *previous;
+	}DataList;
 
-    ReadPath *newList();
-	ReadPath *insert(ReadPath *lst, ReadPath *value);
-	ReadPath *readFile();
-	void showList(ReadPath *lst);
+    DataList *newList();
+	DataList *insert();
+	DataList *readFile();
+	void showList(DataList* lst);
 
 #endif

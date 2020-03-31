@@ -5,15 +5,15 @@
 #include "headers\readFile.h"
 
 //Iniciar lista vazia
-ReadPath *newList(){
-    ReadPath *new = (ReadPath*) malloc(sizeof(ReadPath));
+DataList *newList(){
+    DataList *new = (DataList*) malloc(sizeof(DataList));
     new->next = new->previous = new;
     return new;
 }
 
 //Insercao a cabeca
-ReadPath *insert (ReadPath *lst, ReadPath *value){
-    ReadPath *new = (ReadPath*) malloc(sizeof(ReadPath));
+DataList *insert (DataList *lst, DataList *value){
+    DataList *new = (DataList*) malloc(sizeof(DataList));
 
 // Values
     new = value;
@@ -27,32 +27,21 @@ ReadPath *insert (ReadPath *lst, ReadPath *value){
     return lst ;
 }
 
-//Leitura de linha do ficheiro
-ReadPath *readLine(FILE* slate) {
-    ReadPath* aux = newList();
-
-    fscanf(slate, readMethod, aux->original,
-                                aux->root,
-                                aux->morphology,
-                                &aux->assurance);
-
-    return aux;
-}
-
 //Leitura do ficheiro
-ReadPath *readFile() {
-    ReadPath* aux = newList();
+DataList *readFile() {
+    DataList* aux = newList();
     FILE* slate = NULL;
 
     slate = fopen(readPath, "r");
     rewind(slate);
-    while( 
     fscanf(slate, readMethod, aux->original,
                                 aux->root,
                                 aux->morphology,
-                                &aux->assurance) ) {
+                                &aux->assurance);
+    /* while( 
+                                 ) {
         showList(aux);
-    }
+    } */
     printf("1");
     fclose(slate);
     return aux;
@@ -60,7 +49,7 @@ ReadPath *readFile() {
 
 
 //Apresentacao da lista
-void showList (ReadPath *lst){
-    ReadPath *aux = lst;
-    printf(readMethod, aux->original, aux->root, aux->morphology, aux->assurance);
-}
+void showList (DataList *lst){
+    DataList *aux = lst;
+    printf(readMethod, aux->original, aux->root, aux->morphology, aux->assurance );
+} 
