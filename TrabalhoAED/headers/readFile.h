@@ -2,13 +2,13 @@
 #define READFILE_H_
 
     #define readPath "files\\slate-tagged"
-    #define readMethod "%s %s %s %f\n"
+    #define readMethod "%s %s %s %lf\n"
 
 	typedef struct _dataList{
 		char* original;
 		char* root;
 		char* morphology;
-		float assurance;
+		double assurance;
 
 		struct _dataList *next;
 		struct _dataList *previous;

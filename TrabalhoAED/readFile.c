@@ -15,9 +15,9 @@ DataList *newList(){
 DataList *insert (DataList *lst, DataList *value){
     DataList *new = (DataList*) malloc(sizeof(DataList));
 
-// Values
+    // Values
     new = value;
-// Connections
+    // Connections
     new->next = lst->next;
     new->previous = lst;
     
@@ -30,18 +30,26 @@ DataList *insert (DataList *lst, DataList *value){
 //Leitura do ficheiro
 DataList *readFile() {
     DataList* aux = newList();
+    char word[100];
+    char root[100];
+    char morph[10];
+    int c;
     FILE* slate = NULL;
 
     slate = fopen(readPath, "r");
     rewind(slate);
-    fscanf(slate, readMethod, aux->original,
-                                aux->root,
-                                aux->morphology,
-                                &aux->assurance);
-    /* while( 
-                                 ) {
-        showList(aux);
-    } */
+
+    printf("1");
+    while ( fscanf(slate, readMethod, word, root, morph, &aux->assurance) )
+    {
+        aux->original = strdup(word);
+        aux->root = strdup(root);
+        aux->morphology = strdup(morph);
+        ++c;
+    }
+    
+    printf("%d", c);
+        
     printf("1");
     fclose(slate);
     return aux;
