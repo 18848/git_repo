@@ -1,0 +1,6 @@
+git add .
+git commit -m "..."
+git push git_repo
+
+git fetch git_repo
+git pull
