@@ -29,28 +29,25 @@ DataList *insert (DataList *lst, DataList *value){
 
 //Leitura do ficheiro
 DataList *readFile() {
+    Data var;
     DataList* aux = newList();
     char word[100];
     char root[100];
     char morph[10];
-    int c;
+    int c=0;
     FILE* slate = NULL;
 
     slate = fopen(readPath, "r");
     rewind(slate);
 
-    printf("1");
-    while ( fscanf(slate, readMethod, word, root, morph, &aux->assurance) )
+    while ( c = fscanf(slate, readMethod, word, root, morph, &var.assurance) != 0 && word !=  )
     {
-        aux->original = strdup(word);
-        aux->root = strdup(root);
-        aux->morphology = strdup(morph);
+        var.original = strdup(word);
+        var.root = strdup(root);
+        var.morphology = strdup(morph);
         ++c;
     }
     
-    printf("%d", c);
-        
-    printf("1");
     fclose(slate);
     return aux;
 }
@@ -59,5 +56,5 @@ DataList *readFile() {
 //Apresentacao da lista
 void showList (DataList *lst){
     DataList *aux = lst;
-    printf(readMethod, aux->original, aux->root, aux->morphology, aux->assurance );
+    printf(readMethod, aux->var.original, aux->var.root, aux->var.morphology, aux->var.assurance );
 } 

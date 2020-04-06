@@ -4,11 +4,18 @@
     #define readPath "files\\slate-tagged"
     #define readMethod "%s %s %s %lf\n"
 
-	typedef struct _dataList{
+	//Estrutura dos dados
+	typedef struct _data
+	{
 		char* original;
 		char* root;
 		char* morphology;
 		double assurance;
+	}Data;
+	
+	//Lista
+	typedef struct _dataList{
+		Data var;
 
 		struct _dataList *next;
 		struct _dataList *previous;
