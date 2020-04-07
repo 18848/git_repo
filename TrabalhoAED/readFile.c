@@ -6,55 +6,83 @@
 
 //Iniciar lista vazia
 DataList *newList(){
-    DataList *new = (DataList*) malloc(sizeof(DataList));
-    new->next = new->previous = new;
+    DataList *new = MALLOC(DataList);
+    new->next = NULL;
     return new;
 }
 
+/*
 //Insercao a cabeca
-DataList *insert (DataList *lst, DataList *value){
-    DataList *new = (DataList*) malloc(sizeof(DataList));
+DataList *insert (DataList *lst){
+    DataList *new = MALLOC(DataList);
 
     // Values
-    new = value;
+    //new->var = readFile();
+    
+    printf("\t%s\n", new->var.original);
+
     // Connections
-    new->next = lst->next;
-    new->previous = lst;
+    new->next = lst;
     
-    new->next->previous = new;
-    new->previous->next = new;
-    
-    return lst ;
+    return new;
 }
 
-//Leitura do ficheiro
-DataList *readFile() {
-    Data var;
-    DataList* aux = newList();
-    char word[100];
-    char root[100];
-    char morph[10];
-    int c=0;
-    FILE* slate = NULL;
+DataList* readFile(){
+    
+    FILE* fp;
+    Data data;
+    DataList* lista = newList();
 
-    slate = fopen(readPath, "r");
-    rewind(slate);
+    fp = fopen(readPath, "r");
 
-    while ( c = fscanf(slate, readMethod, word, root, morph, &var.assurance) != 0 && word !=  )
-    {
-        var.original = strdup(word);
-        var.root = strdup(root);
-        var.morphology = strdup(morph);
-        ++c;
+    while (fscanf (fp, readMethod, data.original, data.root, data.morphology, &data.assurance) != EOF){
+        lista->var = data;
+        lista = insert(lista);
     }
-    
-    fclose(slate);
-    return aux;
+
+    fclose(fp);
+
+    return(lista);
 }
+
+*/
+
+DataList *insert (DataList *lst){
+    DataList *new = MALLOC(DataList);
+    //Data value;
+
+    new->var = readFile();
+    new->next = lst;
+    return new ;
+}
+
+Data readFile(){
+
+    FILE* fp;
+    Data data;
+
+    fp = fopen(readPath, "r");
+
+    while (fscanf (fp, readMethod, data.original, data.root, data.morphology, &data.assurance) != EOF){
+        if(data.morphology[0] != 'F'){
+            
+        }
+            //printf(readMethod, data.original, data.root, data.morphology, data.assurance);
+    }
+    printf("done");
+
+    fclose(fp);
+
+    return(data);
+}
+
 
 
 //Apresentacao da lista
 void showList (DataList *lst){
-    DataList *aux = lst;
-    printf(readMethod, aux->var.original, aux->var.root, aux->var.morphology, aux->var.assurance );
-} 
+    printf(readMethod, lst->var.original, lst->var.root, lst->var.morphology, lst->var.assurance);
+
+    if (lst->next != NULL){
+        showList(lst->next);
+    }
+}
