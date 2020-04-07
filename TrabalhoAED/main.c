@@ -8,7 +8,7 @@
 int main(){
     DataList* lst = newList();
 
-    insert(lst);
+    lst = readFile();
     showList(lst);
 
     system("pause");

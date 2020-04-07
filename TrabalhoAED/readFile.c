@@ -47,17 +47,17 @@ DataList* readFile(){
 
 */
 
-DataList *insert (DataList *lst){
+DataList *insert(DataList *lst, Data value){
     DataList *new = MALLOC(DataList);
     //Data value;
 
-    new->var = readFile();
+    new->var = value;
     new->next = lst;
     return new ;
 }
 
-Data readFile(){
-
+DataList* readFile(){
+    DataList *new = MALLOC(DataList);
     FILE* fp;
     Data data;
 
@@ -65,15 +65,15 @@ Data readFile(){
 
     while (fscanf (fp, readMethod, data.original, data.root, data.morphology, &data.assurance) != EOF){
         if(data.morphology[0] != 'F'){
-            
+            new = insert(new, data);
         }
-            //printf(readMethod, data.original, data.root, data.morphology, data.assurance);
+        // printf(readMethod, data.original, data.root, data.morphology, data.assurance);
     }
     printf("done");
 
     fclose(fp);
 
-    return(data);
+    return(new);
 }
 
 

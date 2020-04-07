@@ -22,8 +22,8 @@
 
 
 	DataList *newList();
-	DataList *insert(DataList *lst);
-	Data readFile();
+	DataList *insert(DataList *lst, Data value);
+	DataList *readFile();
 	void showList(DataList* lst);
 
 #endif
