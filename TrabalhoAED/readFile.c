@@ -6,7 +6,9 @@
 
 //Iniciar lista vazia
 DataList *newList(){
-    DataList *new = MALLOC(DataList);
+    DataList *new = NULL;
+    new = MALLOC(DataList);
+
     new->next = NULL;
     return new;
 }
@@ -48,7 +50,7 @@ DataList* readFile(){
 */
 
 DataList *insert(DataList *lst, Data value){
-    DataList *new = MALLOC(DataList);
+    DataList *new = newList();
     //Data value;
 
     new->var = value;
@@ -57,11 +59,13 @@ DataList *insert(DataList *lst, Data value){
 }
 
 DataList* readFile(){
-    DataList *new = MALLOC(DataList);
+    DataList *new = newList();
     FILE* fp;
     Data data;
 
     fp = fopen(readPath, "r");
+
+    rewind(fp);
 
     while (fscanf (fp, readMethod, data.original, data.root, data.morphology, &data.assurance) != EOF){
         if(data.morphology[0] != 'F'){
@@ -69,7 +73,6 @@ DataList* readFile(){
         }
         // printf(readMethod, data.original, data.root, data.morphology, data.assurance);
     }
-    printf("done");
 
     fclose(fp);
 
@@ -81,7 +84,6 @@ DataList* readFile(){
 //Apresentacao da lista
 void showList (DataList *lst){
     printf(readMethod, lst->var.original, lst->var.root, lst->var.morphology, lst->var.assurance);
-
     if (lst->next != NULL){
         showList(lst->next);
     }
