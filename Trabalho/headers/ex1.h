@@ -1,5 +1,5 @@
-#ifndef Ex1_H_
-#define Ex1_H_
+#ifndef EX1_H_
+#define EX1_H_
 
 	#define readPath "files\\slate-tagged2"
 	#define readMethod "%s %s %s %lf\n"
