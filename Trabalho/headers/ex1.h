@@ -14,13 +14,13 @@
 		double assurance;
 	}Ex1;
 
-	/*estrutura de dados da lista*/
+	/*Estrutura de dados da lista*/
 	typedef struct _dataListEx1{
 		Ex1 var;
 		struct _dataListEx1 *next;
 	}DataListEx1;
 
-
+	/*Funcoes*/
 	DataListEx1 *newList1();
 	DataListEx1 *insert1(DataListEx1 *lst, Ex1 value);
 	DataListEx1 *readFile1();

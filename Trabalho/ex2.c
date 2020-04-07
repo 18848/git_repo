@@ -8,35 +8,37 @@
 //Iniciar lista vazia
 DataListEx2 *newList2(){
     DataListEx2 *new = MALLOC(DataListEx2);
+    new->var.absolut=0;
     new->next = NULL;
     return new;
 }
 
-DataListEx2 *insert2(DataListEx2 *lst, Ex2 value){
+DataListEx2 *insert2(DataListEx2 *lst, char value[]){
     DataListEx2 *new = newList2();
 
-    new->var = value;
+    strcpy(new->var.morphology, value);
+    new->var.absolut = 1;
     new->next = lst;
     return new ;
 }
 
-DataListEx2* readFile2(int *count){
-    DataListEx2 *new = newList2();
-    Ex2 data;
-
-    if(data.morphology[0] != 'F'){
-        (*count)++;
-        new = insert2(new, data);
+DataListEx2* search2 (DataListEx2 *lst, char value[]) {
+    int flag=0;
+    
+    if (!lst || !strcmp(lst->var.morphology, value)){
+        lst = insert2(lst, value);
+        return lst;
     }
 
-    return(new);
+    return search2 (lst->next, value);
 }
+
 
 //Apresentacao da lista
 void showList2 (DataListEx2 *lst){
 
-    /*if (lst->next){
-        showList(lst->next);
-        printf(readMethod, lst->var.original, lst->var.root, lst->var.morphology, lst->var.assurance);
-    }*/
+    if (lst->next){
+        showList2(lst->next);
+        printf("%s %d", lst->var.morphology, lst->var.absolut);
+    }
 }
