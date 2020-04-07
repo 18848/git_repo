@@ -1,7 +1,7 @@
 #ifndef EX1_H_
 #define EX1_H_
 
-	#define readPath "files\\slate-tagged2"
+	#define readPath "files\\slate-tagged"
 	#define readMethod "%s %s %s %lf\n"
 	#define MALLOC(t) (t*)malloc(sizeof(t))
 

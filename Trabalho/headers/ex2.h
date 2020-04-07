@@ -18,6 +18,8 @@
 	DataListEx2 *newList2();
 	DataListEx2 *insert2(DataListEx1 *lst, DataListEx2 *old);
 	DataListEx2* search2 (DataListEx1 *lst, char value[]);
+	DataListEx2* table2 (DataListEx1 *lst, DataListEx2 *lst2);
+
 	void showList2(DataListEx2* lst);
 
 #endif
