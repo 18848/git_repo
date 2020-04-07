@@ -3,15 +3,16 @@
 #include "conio.h"
 #include "string.h"
 
-#include "headers\readFile.h"
+#include "headers\Ex1.h"
+#include "headers\Ex2.h"
 
 int main(){
     int count=0;
 
-    DataList* lst = newList();
+    DataListEx1* lst1 = newList1();
 
-    lst = readFile(&count);
-    showList(lst);
+    lst1 = readFile1(&count);
+    showList1(lst1);
 
     printf("\t%d\n\n", count);
 
