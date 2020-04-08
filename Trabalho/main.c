@@ -20,7 +20,7 @@ int main(){
     printf("\t%d\n\n", count); */
 
 /* Criacao de lista */
-    lst2 = search2(lst1, "NN");
+    lst2 = table2(lst1, lst2);
     showList2(lst2);
 
     system("pause");

@@ -17,18 +17,16 @@ DataListEx2 *newList2(){
 DataListEx2 *insert2(DataListEx1 *lst, DataListEx2 *old){
     DataListEx2 *new = newList2();
 
-    printf("iii");
-    system("pause");
     strcpy(new->var.morphology, lst->var.morphology);
     new->var.absolut = 1;
     new->next = old;
     return new ;
 }
 
-/* Search for same morphology */
+/* Search for same morphology
 DataListEx2* search2 (DataListEx1 *lst, char value[]) {
     DataListEx2 *new = newList2();
-    /* int flag=0; */
+    int flag=0;
     
     if(!strcmp(lst->var.morphology, value))
     {
@@ -52,41 +50,47 @@ DataListEx2* search2 (DataListEx1 *lst, char value[]) {
 
     return search2 (lst->next, value);
 }
+ */
 
-/* Search for same morphology */
+
+/* Table for morphology and its quantity*/
 DataListEx2* table2 (DataListEx1 *lst, DataListEx2 *lst2) {
-    DataListEx1 *aux1 = lst;
-    DataListEx2 *aux2 = lst2;
+    DataListEx1 *aux1;
+    DataListEx2 *aux2;
     DataListEx2 *new = newList2();
     /* int flag=0; */
     
-    for(; !aux1 ; aux1 = aux1->next)
+    for(aux1 = lst ; aux1 ; aux1 = aux1->next)
     {
-        for(; !aux2 ; aux2 = aux2->next)
+        for(aux2 = lst2 ; aux2 ; aux2 = aux2->next)
         {
+            /* se iguais */
             if(!strcmp(aux1->var.morphology, aux2->var.morphology))
             {
-                puts("strcmp");
-                system("pause");
-                if(!new){
-                    puts("if null");
-                    system("pause");
-                    new = insert2(lst, new);
-                    return new;
-                }
-                else{
-                    puts("else");
-                    system("pause");
-                    new->var.absolut++; 
-                    return new;
-                }
+                aux2->var.absolut++;
+                continue;
             }
+            else
+                continue;
+            /* se nulo */
+            if(!aux2)
+            {
+                new = insert2(aux1, aux2);
+            }
+            
+        /* se nulo
+            if(!new){
+                new = insert2(lst, new);
+                return new;
+            }
+            else{
+                new->var.absolut++; 
+                return new;
+            } */
         }
     }
-    puts("out if");
-    system("pause");
 
-    return search2 (lst->next, lst2);
+    return lst2;
 }
 
 
