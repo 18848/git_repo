@@ -45,6 +45,9 @@ ListTabGra * insertListTabGra (ListTabGra *lst, TabGra data){
 		
 		if (tmp->next) tmp->next->previous = tmp;
 	}
+
+        printf(writeMethodTabGra, lst->dados.morphology, lst->dados.frequency);
+
 	return lst;
 }
 
@@ -59,7 +62,7 @@ ListTabGra *existsTabGra (ListTabGra *lst, TabGra data){
 			flag=1;
 			lst->dados.frequency++;
 			break;
-		} 
+		}
 	}
 
 	if(flag == 0){
