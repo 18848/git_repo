@@ -7,7 +7,7 @@
 
 int main(){
     List *lst;
-    ListTabGra *lstTabGra = newListTabGra();
+    ListTabGra *lstTabGra = NULL;
 
 #pragma region "readFile + exercicios"
     lst = readFile(lstTabGra);

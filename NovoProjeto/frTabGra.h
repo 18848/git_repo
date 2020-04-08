@@ -24,5 +24,6 @@
 	ListTabGra * insertListTabGra (ListTabGra *lst, TabGra data);
 	ListTabGra *existsTabGra (ListTabGra *lstTG, TabGra data);
 	void showListTabGra (ListTabGra *lst);
+	void show(ListTabGra *lst);
 
 #endif
