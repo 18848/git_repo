@@ -12,22 +12,55 @@ ListTabGra *newListTabGra(){
     return tmp;
 }
 
+/* see if it exists */
+/* if not, adds new */
+ListTabGra *existsTabGra (ListTabGra *lst, TabGra data){
+	ListTabGra *aux;
+	int flag=0;
 
+	/* navegar lista */
+	for (aux = lst ; aux; aux = aux->next)
+	{
+		#pragma region "se igual"
+		if (!strcmp(aux->dados.morphology, data.morphology)){
+			flag=1;					/* existe */
+			aux->dados.frequency++;	/* aumenta a freq. absoluta */
+			break;					/* encerra ciclo */
+		}
+		#pragma endregion
+	}
+
+	#pragma region "se não existe igual"
+	if(flag == 0){
+		/* e' novo */
+		data.frequency = 1; 				/* ocorreu pela primeira vez */
+		lst = insertListTabGra(lst, data);	/* insere novo elemento para o novo tipo */
+	}
+	#pragma endregion
+
+	return lst;
+}
+
+/* ordered insertion */
 ListTabGra * insertListTabGra (ListTabGra *lst, TabGra data){
     ListTabGra *tmp = MALLOC(ListTabGra);
 
     tmp->dados = data;
     tmp->next = tmp->previous = NULL;
 
-/* nao estava no PP 
- 	
+	puts("\toi");
+
+	#pragma region "escreveste mas nao estava no PP"
+	/*  	
     if(tmp->next)
     {
         tmp->next->previous = tmp;
         tmp->previous = NULL;
     }
  	*/
+ 	#pragma endregion
 
+	#pragma region "lst nula ou frequencia maior"
 	if ( !lst || lst->dados.frequency > data.frequency )
 	{
 		tmp->next = lst ;
@@ -51,34 +84,15 @@ ListTabGra * insertListTabGra (ListTabGra *lst, TabGra data){
 	return lst;
 }
 
-/*see if it exists*/
-ListTabGra *existsTabGra (ListTabGra *lst, TabGra data){
-	int flag=0;
-
-	for ( ; lst; lst = lst->next)
-	{
-		/* if equal */
-		if (!strcmp(lst->dados.morphology, data.morphology)){ 
-			flag=1;
-			lst->dados.frequency++;
-			break;
-		}
-	}
-
-	if(flag == 0){
-		/* it's new */
-		data.frequency = 1; //				?????????????????????????????????????
-		lst = insertListTabGra(lst, data);
-	}
-
-	return lst;
-}
 
 /*Apresentacao da lista*/
 void showListTabGra (ListTabGra *lst){
-
-    if (lst->next){
+    /* if (lst->next){
         showListTabGra(lst->next);
+    } */
+	ListTabGra *aux;
+	for(aux = lst ; aux ; aux = aux->next)
+	{
         printf(writeMethodTabGra, lst->dados.morphology, lst->dados.frequency);
-    }
+	}
 }

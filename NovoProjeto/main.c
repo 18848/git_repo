@@ -9,15 +9,20 @@ int main(){
     List *lst;
     ListTabGra *lstTabGra = newListTabGra();
 
+#pragma region "readFile + exercicios"
     lst = readFile(lstTabGra);
-    showList(lst);
+    /* showList(lst); */
     puts("\n\tfile read ");
     system("pause");
+#pragma endregion
 
+#pragma region "showlist"
     puts("\n\t table below ");
 	showListTabGra(lstTabGra);
     puts("\n\t table above ");
     system("pause");
+#pragma endregion
+
     return 0;
 }
 
