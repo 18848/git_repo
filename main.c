@@ -329,9 +329,6 @@ void listWordsFrequency(WordFrequency* lst){
 }
 
 
-
-
-
 #define FILE_NAME "slate-tagged"
 #define READ_LINE "%s %s %s %lf\n"
 

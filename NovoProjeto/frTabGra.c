@@ -24,45 +24,25 @@ ListTabGra *search(ListTabGra* lst, TabGra data, int *flag){
 	return search(lst->next, data, flag);
 }
 
-/* see if it exists */
-/* if not, adds new */
-ListTabGra *existsTabGra (ListTabGra *lst, TabGra data){
+/* checks existance */ 
+/* ? 1 : 0 */
+int existsTabGra (ListTabGra *lst, TabGra data){
 	int flag=0;
-		
-	#pragma region "ze isto é o search mas em iterativo o search nao funciona"
-	/* 	ListTabGra *aux;
-	 navegar lista  
+	ListTabGra *aux;
+	
+	/* navegar lista */
 	for(aux = lst ; aux; aux = aux->next)
 	{
 		#pragma region "se igual"
 		if (!strcmp(aux->dados.morphology, data.morphology)){
-			printf("\n\ta");
-			flag=1;					 existe 
-			aux->dados.frequency++;	 aumenta a freq. absoluta 
-			break;					 encerra ciclo 
+			flag=1;					 /* existe */ 
+			aux->dados.frequency++;	 /* aumenta a freq. absoluta */ 
+			break;					 /* encerra ciclo  */
 		}
 		#pragma endregion
 	}
- 	*/
- 	#pragma endregion
 	
-	/* ze isto é o search mas em iterativo o search nao funciona 
-	experimentei pq o frequency nao incrementava por algum motivo  */
-	printf("\n\ta");
-	lst = search(lst, data, &flag);
-	printf("\n\ta");
-
-	#pragma region "se não existe igual"
-	if(flag == 0){
-		printf("\n\tb");
-		/* e' novo */
-		data.frequency = 1; 				/* ocorreu pela primeira vez */
-		lst = insertListTabGra(lst, data);	/* insere novo elemento para o novo tipo */
-	}
-	#pragma endregion
-
-	show(lst);
-	return lst;
+	return flag;
 }
 
 void show(ListTabGra *lst)
@@ -74,6 +54,7 @@ void show(ListTabGra *lst)
 ListTabGra * insertListTabGra (ListTabGra *lst, TabGra data){
     ListTabGra *tmp = newListTabGra();
 
+	data.frequency = 1;
     tmp->dados = data;
 
 	#pragma region "escreveste mas nao estava no PP"

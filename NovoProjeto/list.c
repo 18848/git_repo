@@ -35,9 +35,7 @@ List *readFile(ListTabGra *lstTabGra)
             new = insert(new, data);
             #pragma region "tabela gramatical"
             strcpy(tabGra.morphology, data.morphology);
-            lstTabGra = existsTabGra(lstTabGra, tabGra);
-            #pragma endregion
-        }
+            if(!existsTabGra(lstTabGra, tabGra)) { lstTabGra = insertListTabGra(lstTabGra, tabGra); }
     }
     fclose(fp);
     #pragma endregion
