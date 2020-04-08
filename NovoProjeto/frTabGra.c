@@ -8,7 +8,7 @@
 /*new list*/
 ListTabGra *newListTabGra(){
     ListTabGra *tmp = MALLOC(ListTabGra);
-    tmp = NULL;
+    tmp->next = tmp->previous = NULL;
     return tmp;
 }
 
@@ -87,12 +87,12 @@ ListTabGra * insertListTabGra (ListTabGra *lst, TabGra data){
 
 /*Apresentacao da lista*/
 void showListTabGra (ListTabGra *lst){
-    /* if (lst->next){
+    if (lst->next){
         showListTabGra(lst->next);
-    } */
-	ListTabGra *aux;
+        printf(writeMethodTabGra, lst->dados.morphology, lst->dados.frequency);
+    } 
+	/* ListTabGra *aux;
 	for(aux = lst ; aux ; aux = aux->next)
 	{
-        printf(writeMethodTabGra, lst->dados.morphology, lst->dados.frequency);
-	}
+	} */
 }
