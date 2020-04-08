@@ -11,9 +11,12 @@ int main(){
 
     lst = readFile(lstTabGra);
     showList(lst);
+    puts("\n\tfile read ");
     system("pause");
 
+    puts("\n\t table below ");
 	showListTabGra(lstTabGra);
+    puts("\n\t table above ");
     system("pause");
     return 0;
 }
