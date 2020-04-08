@@ -72,6 +72,7 @@ ListTabGra * insertListTabGra (ListTabGra *lst, TabGra data){
 	{
 		tmp->next = lst ;
 		lst = tmp;
+        printf(writeMethodTabGra, lst->dados.morphology, lst->dados.frequency);
 		if (lst->next ) lst->next->previous = lst ;
 	}
 	else 
@@ -83,10 +84,10 @@ ListTabGra * insertListTabGra (ListTabGra *lst, TabGra data){
 		tmp->previous = aux;
 		aux->next = tmp;
 		
+        printf(writeMethodTabGra, lst->dados.morphology, lst->dados.frequency);
 		if (tmp->next) tmp->next->previous = tmp;
 	}
 
-        printf(writeMethodTabGra, lst->dados.morphology, lst->dados.frequency);
 
 	return lst;
 }

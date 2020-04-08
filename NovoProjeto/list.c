@@ -35,8 +35,12 @@ List *readFile(ListTabGra *lstTabGra)
             new = insert(new, data);
             #pragma region "tabela gramatical"
             strcpy(tabGra.morphology, data.morphology);
-            if(!existsTabGra(lstTabGra, tabGra)) { lstTabGra = insertListTabGra(lstTabGra, tabGra); }
-    }
+            if(!existsTabGra(lstTabGra, tabGra)) { 
+	printf(writeMethodTabGra, lstTabGra->dados.morphology, lstTabGra->dados.frequency);
+				
+				lstTabGra = insertListTabGra(lstTabGra, tabGra); }
+		}
+	}
     fclose(fp);
     #pragma endregion
 

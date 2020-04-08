@@ -22,8 +22,6 @@
     /*Funcoes*/
 	ListTabGra *newListTabGra();
 	ListTabGra * insertListTabGra (ListTabGra *lst, TabGra data);
-	int existsTabGra (ListTabGra *lst, TabGra data)
+	int existsTabGra (ListTabGra *lst, TabGra data);
 	void showListTabGra (ListTabGra *lst);
-	void show(ListTabGra *lst);
-
 #endif
