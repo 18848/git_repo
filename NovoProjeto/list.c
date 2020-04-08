@@ -15,27 +15,36 @@ List *newList(){
 }
 
 /*read file*/
-List *readFile(ListTabGra *lstTabGra){
-    List *lst = newList();
+List *readFile(ListTabGra *lstTabGra)
+{
+    #pragma region "variables"
+    List *new = newList();
 
     FILE *fp;
     Data data;
     TabGra tabGra;
+    #pragma endregion
+
+    #pragma region "reading file"
     
     fp=fopen(filePath, "r");
-
+	rewind(fp);
     while(fscanf(fp, readMethod, data.original, data.root, data.morphology, &data.assurance) != EOF){
 
         if(data.morphology[0] != 'F'){
-            lst = insert(lst, data);
+            new = insert(new, data);
+            #pragma region "tabela gramatical"
             strcpy(tabGra.morphology, data.morphology);
-            lstTabGra = existsTabGra(lstTabGra, tabGra);
-        }
-    }
-
+            if(!existsTabGra(lstTabGra, tabGra)) { 
+	printf(writeMethodTabGra, lstTabGra->dados.morphology, lstTabGra->dados.frequency);
+				
+				lstTabGra = insertListTabGra(lstTabGra, tabGra); }
+		}
+	}
     fclose(fp);
+    #pragma endregion
 
-    return(lst);
+    return(new);
 }
 
 /*head insert*/

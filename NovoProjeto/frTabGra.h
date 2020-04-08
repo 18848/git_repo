@@ -3,7 +3,7 @@
 
     /*constantes*/
 	#define MALLOC(t) (t*)malloc(sizeof(t))
-	#define writeMethodTabGra "%s %d\n"
+	#define writeMethodTabGra "%-5s %d\n"
 
     /*structs*/
     typedef struct _tabGra
@@ -13,16 +13,15 @@
     }TabGra;
 
     typedef struct _listTabGra
-   	{
-      TabGra dados;
-      struct _listTabGra *next;
-      struct _listTabGra *previous;
+	{
+		TabGra dados;
+		struct _listTabGra *next;
+		struct _listTabGra *previous;
     }ListTabGra;
 
     /*Funcoes*/
 	ListTabGra *newListTabGra();
 	ListTabGra * insertListTabGra (ListTabGra *lst, TabGra data);
-	ListTabGra *existsTabGra (ListTabGra *lstTG, TabGra data);
+	int existsTabGra (ListTabGra *lst, TabGra data);
 	void showListTabGra (ListTabGra *lst);
-
 #endif

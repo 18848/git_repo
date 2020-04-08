@@ -7,14 +7,22 @@
 
 int main(){
     List *lst;
-    ListTabGra *lstTabGra = newListTabGra();
+    ListTabGra *lstTabGra = NULL;
 
+#pragma region "readFile + exercicios"
     lst = readFile(lstTabGra);
-    showList(lst);
+    /* showList(lst); */
+    puts("\n\tfile read ");
     system("pause");
+#pragma endregion
 
-	//showListTabGra(lstTabGra);
+#pragma region "showlist"
+    puts("\n\t table below ");
+	showListTabGra(lstTabGra);
+    puts("\n\t table above ");
     system("pause");
+#pragma endregion
+
     return 0;
 }
 
