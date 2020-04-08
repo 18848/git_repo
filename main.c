@@ -378,7 +378,10 @@ int main()
                 system("cls");
                 printf("\n%.10f %%\n",((float)total_palavras/4276471)*100);
             }    */         
-            if(!search_type(type_lst,type,certain)){type_lst=insert_type(type_lst,type,certain);}
+            if(!search_type(type_lst,type,certain))
+            {
+                type_lst=insert_type(type_lst,type,certain);
+            }
             if(!search_size_word(sizeWord_lst,strlen(original))){sizeWord_lst=insert_size_word(sizeWord_lst,strlen(original));}
             if(!search_wordFrequency(sorted_wordFrequency_list,original)){sorted_wordFrequency_list=insert_wordFrequency(sorted_wordFrequency_list,original);}                  
         }        
@@ -398,7 +401,7 @@ int main()
     system("cls");
     show_size_word_table(sorted_sizeWord_lst,total_palavras);
     printf("\n\n\n");
-    show_type_table(sorted_type_lst,total_palavras);
+    show_tuj(sorted_type_lst,total_palavras);
     printf("\n\n\n");
     list_types_avg(sorted_type_lst);
      printf("\n\n\n");
