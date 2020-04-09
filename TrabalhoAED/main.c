@@ -2,10 +2,11 @@
 #include "conio.h"
 #include "stdlib.h"
 #include "string.h"
+#include "math.h"
 #include "headers/list.h"
 #include "headers/readFile.h"
-#include "headers/frTabGra.h"
 #include "headers/frTabPal.h"
+#include "headers/frTabGra.h"
 
 int main(){
 
@@ -22,7 +23,10 @@ int main(){
 /*Vars*/
     FILE *fp;
     int countList=0;
-    
+
+/*Program*/
+    printf("\tTrabalho 1 AED II\n\t\tAndre Cardoso n\n\t\tJose Cosgrove n18826\n\n");
+
     fp=fopen(filePath, "r");
 
     while(fscanf(fp, readMethod, data.original, data.root, data.morphology, &data.assurance) != EOF){
@@ -31,8 +35,10 @@ int main(){
         /*1*/
             lst = insert(lst, data);
             
-        /*2*/
+        /*2 e 4*/
             strcpy(tabGra.morphology, data.morphology);
+            tabGra.assurance = data.assurance;
+            tabGra.variance = pow(data.assurance, 2);
             lstTabGra = existsTabGra(lstTabGra, tabGra);
 
         /*3*/
@@ -62,6 +68,14 @@ int main(){
     printf("Total\t\t%d\t\t    1 \t\t    %d\t      1\n\n\n", countList, countList);
     system("pause");
 /*---------------------------------------------------------------------------------------------*/
+
+/*Ex4------------------------------------------------------------------------------------------*/
+    
+    printf("\n\n (ex4)\n\n");
+    printf("Cat Gram\tMedia\t\tDesvio Padrao\n");
+	calculateMesuresTabGra(lstTabGra);
+    system("pause");
+/*---------------------------------------------------------------------------------------------*/
     
     return 0;
 }
@@ -69,4 +83,5 @@ int main(){
 /*
 To do:
 - ordenar lista exercicio 2
+- calcular desvio padrao ex 4
 */

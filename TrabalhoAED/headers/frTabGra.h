@@ -4,12 +4,16 @@
     /*constantes*/
 	#define MALLOC(t) (t*)malloc(sizeof(t))
 	#define writeMethodTabGra " %s\t\t%d\t\t%lf\t    %d\t  %lf\n"
+	#define writeMethodTabGraCalc " %s\t       %lf\t\t  %lf\n"
 
     /*structs*/
     typedef struct _tabGra
     {
       	char morphology[5];
       	int frequency;
+		double assurance;
+		double variance;
+		//assurance/frequency
     }TabGra;
 
     typedef struct _listTabGra
@@ -24,5 +28,6 @@
 	ListTabGra *existsTabGra (ListTabGra *lstTG, TabGra data);
 	ListTabGra *orderTabGra (ListTabGra *lst, TabGra data);
 	void showListTabGra (ListTabGra *lst, int total);
+	void calculateMesuresTabGra(ListTabGra *lst);
 
 #endif

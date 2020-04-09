@@ -2,6 +2,7 @@
 #include "conio.h"
 #include "stdlib.h"
 #include "string.h"
+#include "math.h"
 #include "headers/list.h"
 #include "headers/frTabGra.h"
 
@@ -31,6 +32,8 @@ ListTabGra *existsTabGra (ListTabGra *lst, TabGra data){
 	{
 		if (strcmp(tmp->dados.morphology, data.morphology) == 0){
 			(tmp->dados.frequency)++;
+			(tmp->dados.assurance) = (tmp->dados.assurance) + (data.assurance);
+			(tmp->dados.variance) = (tmp->dados.variance) + (data.variance);
 			flag=1;
 			break;
 		}
@@ -69,5 +72,13 @@ void showListTabGra (ListTabGra *lst, int total){
 		countAbs = countAbs + lst->dados.frequency;
 		countRel = countRel + (float)(lst->dados.frequency)/total;
 		printf(writeMethodTabGra, lst->dados.morphology, lst->dados.frequency, (float)(lst->dados.frequency)/total, countAbs, (float)countRel);
+	}
+}
+
+void calculateMesuresTabGra(ListTabGra *lst){
+	double dp = (lst->dados.variance)-pow((lst->dados.assurance)/lst->dados.frequency, 2);
+
+	for ( ; lst; lst=lst->next){
+		printf(writeMethodTabGraCalc, lst->dados.morphology, (lst->dados.assurance)/lst->dados.frequency, sqrt(dp));
 	}
 }
