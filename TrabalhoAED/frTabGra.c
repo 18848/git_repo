@@ -49,16 +49,21 @@ ListTabGra *existsTabGra (ListTabGra *lst, TabGra data){
 	return lst;
 }
 
-ListTabGra *orderTabGra (ListTabGra *lst, TabGra data){
-
-	if(!lst || lst->dados.frequency){
+ListTabGra *orderTabGra (ListTabGra *lst, TabGra data, int *flag){
+	if(!lst || lst->dados.frequency > data.frequency){
 		ListTabGra *tmp = MALLOC(ListTabGra);
 		tmp->dados=data;
 		tmp->next = lst;
 		lst = tmp;
+		if(!(lst->next))
+		{
+			(*flag) = 1;
+		}
+		else	
+			lst->next->next = lst->next->next->next;
 	}
 	else{
-		lst->next = orderTabGra(lst->next, data);
+		lst->next = orderTabGra(lst->next, lst->next->next->dados, flag);
 	}
 
 	return lst;

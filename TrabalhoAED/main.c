@@ -23,6 +23,7 @@ int main(){
 /*Vars*/
     FILE *fp;
     int countList=0;
+    int flag = 0;
 
 /*Program*/
     printf("\tTrabalho 1 AED II\n\t\tAndre Cardoso n18848\n\t\tJose Cosgrove n18826\n\n");
@@ -53,7 +54,12 @@ int main(){
     
     printf("\n\nTabela de frequencia referente a categoria gramatical usada (ex2)\n\n");
     printf("Cat Gram\tFreq Abs\tFreq Rel\tFreq Abs Ac\tFreq Rel Ac\n");
-	showListTabGra(lstTabGra, countList);
+    do
+    {
+        lstTabGra = orderTabGra(lstTabGra, lstTabGra->next->dados, &flag);
+        printf("%d", flag);
+    }while (flag == 0);
+    showListTabGra(lstTabGra, countList);
     printf("Total\t\t%d\t\t    1 \t\t    %d\t      1\n\n\n", countList, countList);
     system("pause");
 

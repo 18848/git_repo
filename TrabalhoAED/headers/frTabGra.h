@@ -26,7 +26,7 @@
 	ListTabGra *newListTabGra();
 	ListTabGra * insertListTabGra (ListTabGra *lst, TabGra data);
 	ListTabGra *existsTabGra (ListTabGra *lstTG, TabGra data);
-	ListTabGra *orderTabGra (ListTabGra *lst, TabGra data);
+	ListTabGra *orderTabGra (ListTabGra *lst, TabGra data, int *flag);
 	void showListTabGra (ListTabGra *lst, int total);
 	void calculateMesuresTabGra(ListTabGra *lst, int total);
 
