@@ -62,10 +62,12 @@ ListTabGra *orderTabGra (ListTabGra *lst, TabGra data){
 }
 
 void showListTabGra (ListTabGra *lst, int total){
-	int count=0;
+	int countAbs=0;
+	double countRel=0;
 
 	for ( ; lst; lst=lst->next){
-		count = count + lst->dados.frequency;
-		printf(writeMethodTabGra, lst->dados.morphology, lst->dados.frequency, (float)(lst->dados.frequency)/total, count);
+		countAbs = countAbs + lst->dados.frequency;
+		countRel = countRel + (float)(lst->dados.frequency)/total;
+		printf(writeMethodTabGra, lst->dados.morphology, lst->dados.frequency, (float)(lst->dados.frequency)/total, countAbs, (float)countRel);
 	}
 }

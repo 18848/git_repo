@@ -37,7 +37,7 @@ int main(){
 
     /*Ex2------------------------------------------------------------------------------------------*/
 
-    printf("Cat Gram\tFreq Abs\tFreq Rel\tFreq Abs Ac\n");
+    printf("Cat Gram\tFreq Abs\tFreq Rel\tFreq Abs Ac\tFreq Rel Ac\n");
 	showListTabGra(lstTabGra, countList);
     printf("  Total\t\t  %d\t\t    1 \t\t    %d\n", countList, countList);
     system("pause");

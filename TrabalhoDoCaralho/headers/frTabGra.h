@@ -3,7 +3,7 @@
 
     /*constantes*/
 	#define MALLOC(t) (t*)malloc(sizeof(t))
-	#define writeMethodTabGra "   %s\t\t   %d\t\t%lf\t    %d\n"
+	#define writeMethodTabGra "   %s\t\t   %d\t\t%lf\t    %d\t\t%lf\n"
 
     /*structs*/
     typedef struct _tabGra
