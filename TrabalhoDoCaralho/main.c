@@ -12,7 +12,7 @@ int main(){
     List *lst = newList();
     ListTabGra *lstTabGra = newListTabGra();
 
-    /*Strucs*/
+    /*Structs*/
     Data data;
     TabGra tabGra;
 
@@ -37,7 +37,7 @@ int main(){
 
     /*Ex2------------------------------------------------------------------------------------------*/
 
-    printf("Cat Gram\tFreq Abs\tFreq Rel\tFreq Abs Ac\tFreq Rel Ac\n");
+    printf("%-10s\t%-10s\t%-10s\t%-12s\t%-12s\n", "Cat Gram", "Freq Abs", "Freq Rel", "Freq Abs Ac", "Freq Rel Ac");
 	showListTabGra(lstTabGra, countList);
     printf("  Total\t\t  %d\t\t    1 \t\t    %d\n", countList, countList);
     system("pause");
