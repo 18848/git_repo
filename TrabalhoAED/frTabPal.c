@@ -59,6 +59,7 @@ void showListTabPal (ListTabPal *lst, int total){
 	for ( ; lst; lst=lst->next){
 		countAbs = countAbs + lst->dados.frequency;
 		countRel = countRel + (float)(lst->dados.frequency)/total;
-		printf(writeMethodTabPal, lst->dados.size, lst->dados.frequency, (float)(lst->dados.frequency)/total, countAbs, (float)countRel);
+		printf(writeMethodTabPal, lst->dados.size, lst->dados.frequency, 
+		(float)(lst->dados.frequency)/total, countAbs, (float)countRel);
 	}
 }

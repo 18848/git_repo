@@ -3,7 +3,7 @@
 
     /*constantes*/
 	#define MALLOC(t) (t*)malloc(sizeof(t))
-	#define writeMethodTabGra " %s\t\t%d\t\t%lf\t    %d\t  %lf\n"
+	#define writeMethodTabGra " %s\t\t%-8d\t%-8lf\t%-8d\t%lf\n"
 	#define writeMethodTabGraCalc " %s\t       %lf\t\t  %lf\n"
 
     /*structs*/
@@ -28,6 +28,6 @@
 	ListTabGra *existsTabGra (ListTabGra *lstTG, TabGra data);
 	ListTabGra *orderTabGra (ListTabGra *lst, TabGra data);
 	void showListTabGra (ListTabGra *lst, int total);
-	void calculateMesuresTabGra(ListTabGra *lst);
+	void calculateMesuresTabGra(ListTabGra *lst, int total);
 
 #endif

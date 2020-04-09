@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"header.h": "c",
+		"list.h": "c",
+		"readfile.h": "c"
+	}
+}

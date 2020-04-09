@@ -25,7 +25,7 @@ int main(){
     int countList=0;
 
 /*Program*/
-    printf("\tTrabalho 1 AED II\n\t\tAndre Cardoso n\n\t\tJose Cosgrove n18826\n\n");
+    printf("\tTrabalho 1 AED II\n\t\tAndre Cardoso n18848\n\t\tJose Cosgrove n18826\n\n");
 
     fp=fopen(filePath, "r");
 
@@ -40,7 +40,6 @@ int main(){
             tabGra.assurance = data.assurance;
             tabGra.variance = pow(data.assurance, 2);
             lstTabGra = existsTabGra(lstTabGra, tabGra);
-
         /*3*/
             tabPal.size = countTabPal(data.original);
             lstTabPal = existsTabPal(lstTabPal, tabPal);
@@ -73,7 +72,7 @@ int main(){
     
     printf("\n\n (ex4)\n\n");
     printf("Cat Gram\tMedia\t\tDesvio Padrao\n");
-	calculateMesuresTabGra(lstTabGra);
+	calculateMesuresTabGra(lstTabGra, countList);
     system("pause");
 /*---------------------------------------------------------------------------------------------*/
     
@@ -83,5 +82,7 @@ int main(){
 /*
 To do:
 - ordenar lista exercicio 2
-- calcular desvio padrao ex 4
+---------------------------------
+- calcular desvio padrao ex 4   -> penso estar resolvido verifica
+---------------------------------
 */
