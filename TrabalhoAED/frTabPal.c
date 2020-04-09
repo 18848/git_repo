@@ -62,3 +62,14 @@ void showListTabPal (ListTabPal *lst, int total){
 		printf(writeMethodTabPal, lst->dados.size, lst->dados.frequency, (float)(lst->dados.frequency)/total, countAbs, (float)countRel);
 	}
 }
+
+void calculateMesuresTabPal(ListTabPal *lst, int total){
+
+	for ( ; lst; lst=lst->next){
+		//printf(writeMethodTabPalCalc, /*media, mediana, moda, desvio*/
+			/*lst->dados.morphology,
+			lst->dados.assurance/lst->dados.frequency,
+			sqrt(lst->dados.variance/lst->dados.frequency-pow(lst->dados.assurance/lst->dados.frequency, 2))*/
+		//);
+	}
+}

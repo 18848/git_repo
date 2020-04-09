@@ -76,9 +76,12 @@ void showListTabGra (ListTabGra *lst, int total){
 }
 
 void calculateMesuresTabGra(ListTabGra *lst){
-	double dp = (lst->dados.variance)-pow((lst->dados.assurance)/lst->dados.frequency, 2);
 
 	for ( ; lst; lst=lst->next){
-		printf(writeMethodTabGraCalc, lst->dados.morphology, (lst->dados.assurance)/lst->dados.frequency, sqrt(dp));
+		printf(writeMethodTabGraCalc, 
+			lst->dados.morphology,
+			lst->dados.assurance/lst->dados.frequency,
+			sqrt(lst->dados.variance/lst->dados.frequency-pow(lst->dados.assurance/lst->dados.frequency, 2))
+		);
 	}
 }
