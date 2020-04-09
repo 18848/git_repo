@@ -24,6 +24,7 @@
 	ListTabPal * insertListTabPal (ListTabPal *lst, TabPal data);
 	ListTabPal *existsTabPal (ListTabPal *lstTG, TabPal data);
     int countTabPal (char word[]);
+    ListTabPal *orderTabPal (ListTabPal *lst, TabPal data);
 	void showListTabPal (ListTabPal *lst, int total);
     void calculateMesuresTabPal(ListTabPal *lst, int total);
 

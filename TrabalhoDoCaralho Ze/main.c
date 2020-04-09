@@ -13,7 +13,9 @@ int main(){
 /*Listas*/
     List *lst = newList();
     ListTabGra *lstTabGra = newListTabGra();
+    ListTabGra *lstTabGraSort = NULL;
     ListTabPal *lstTabPal = newListTabPal();
+    ListTabPal *lstTabPalSort = NULL;
 
 /*Strucs*/
     Data data;
@@ -50,11 +52,20 @@ int main(){
     }   
     fclose(fp);
 
+    /*ordenar tabelas*/
+    for( ; lstTabGra; lstTabGra=lstTabGra->next){
+        lstTabGraSort = orderTabGra(lstTabGraSort, lstTabGra->dados);
+    }
+
+    for( ; lstTabPal; lstTabPal=lstTabPal->next){
+        lstTabPalSort = orderTabPal(lstTabPalSort, lstTabPal->dados);
+    }
+
 /*Ex2------------------------------------------------------------------------------------------*/
     
     printf("\n\nTabela de frequencia referente a categoria gramatical usada (ex2)\n\n");
     printf("Cat Gram\tFreq Abs\tFreq Rel\tFreq Abs Ac\tFreq Rel Ac\n");
-	showListTabGra(lstTabGra, countList);
+	showListTabGra(lstTabGraSort, countList);
     printf("Total\t\t%d\t\t    1 \t\t    %d\t      1\n\n\n", countList, countList);
     system("pause");
 
@@ -64,7 +75,7 @@ int main(){
     
     printf("\n\nTabela de frequencia referente ao tamanho das palavras existentes no texto (ex3)\n\n");
     printf("Num Cara\tFreq Abs\tFreq Rel\tFreq Abs Ac\tFreq Rel Ac\n");
-	showListTabPal(lstTabPal, countList);
+	showListTabPal(lstTabPalSort, countList);
     printf("Total\t\t%d\t\t    1 \t\t    %d\t      1\n\n\n", countList, countList);
     system("pause");
 /*---------------------------------------------------------------------------------------------*/
@@ -73,14 +84,14 @@ int main(){
     
     printf("\n\n (ex4)\n\n");
     printf("Cat Gram\tMedia\t\tDesvio Padrao\n");
-	calculateMesuresTabGra(lstTabGra);
+	calculateMesuresTabGra(lstTabGraSort);
     system("pause");
 /*---------------------------------------------------------------------------------------------*/
 
 /*Ex5------------------------------------------------------------------------------------------*/
     
     printf("\n\n (ex5)\n\n");
-	calculateMesuresTabPal(lstTabPal, countList);
+	calculateMesuresTabPal(lstTabPalSort, countList);
     system("pause");
 /*---------------------------------------------------------------------------------------------*/
     

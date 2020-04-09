@@ -51,7 +51,7 @@ ListTabGra *existsTabGra (ListTabGra *lst, TabGra data){
 
 ListTabGra *orderTabGra (ListTabGra *lst, TabGra data){
 
-	if(!lst || lst->dados.frequency){
+	if(!lst || lst->dados.frequency > data.frequency){
 		ListTabGra *tmp = MALLOC(ListTabGra);
 		tmp->dados=data;
 		tmp->next = lst;

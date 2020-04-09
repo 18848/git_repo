@@ -2,6 +2,7 @@
 #include "conio.h"
 #include "stdlib.h"
 #include "string.h"
+#include "math.h"
 #include "headers/list.h"
 #include "headers/frTabPal.h"
 
@@ -52,6 +53,21 @@ int countTabPal (char word[]){
 	return i;
 }
 
+ListTabPal *orderTabPal (ListTabPal *lst, TabPal data){
+
+	if(!lst || lst->dados.size > data.size){
+		ListTabPal *tmp = MALLOC(ListTabPal);
+		tmp->dados=data;
+		tmp->next = lst;
+		lst = tmp;
+	}
+	else{
+		lst->next = orderTabPal(lst->next, data);
+	}
+
+	return lst;
+}
+
 void showListTabPal (ListTabPal *lst, int total){
 	int countAbs=0;
 	double countRel=0;
@@ -64,12 +80,23 @@ void showListTabPal (ListTabPal *lst, int total){
 }
 
 void calculateMesuresTabPal(ListTabPal *lst, int total){
+	float media=0.0, variance=0.0;
+	int moda=0, frModa=0;
 
 	for ( ; lst; lst=lst->next){
-		//printf(writeMethodTabPalCalc, /*media, mediana, moda, desvio*/
-			/*lst->dados.morphology,
-			lst->dados.assurance/lst->dados.frequency,
-			sqrt(lst->dados.variance/lst->dados.frequency-pow(lst->dados.assurance/lst->dados.frequency, 2))*/
-		//);
+		media = media + (float)(lst->dados.frequency*lst->dados.size);
+		variance = variance + pow(lst->dados.size, 2) * lst->dados.frequency;
+
+		if(lst->dados.frequency > frModa){
+			moda=lst->dados.size;
+			frModa=lst->dados.frequency;
+		}
 	}
+
+	printf(writeMethodTabPalCalc, /*media, mediana, moda, desvio*/
+		media/(float)total,
+		0.0,
+		moda,
+		sqrt(variance/total-pow(media/total, 2))
+	);
 }
