@@ -81,7 +81,7 @@ void showListTabPal (ListTabPal *lst, int total){
 
 void calculateMesuresTabPal(ListTabPal *lst, int total){
 	float media=0.0, variance=0.0;
-	int moda=0, frModa=0, count=0, mediana;
+	int moda=0, frModa=0, mediana;
 	int sum=0, flag =0;
 
 	for ( ; lst; lst=lst->next){
@@ -96,12 +96,11 @@ void calculateMesuresTabPal(ListTabPal *lst, int total){
 		}
 		if((sum > total/2 || sum== total/2) && flag==0 ){
 			flag = 1;
-			count = total/2;
-			if(total%2 == 0 || lst->dados.frequency > (total/2-sum))
+			if(total%2 == 0 || lst->dados.frequency > ((total/2)-sum))
 			{
 				mediana=lst->dados.size;
 			}
-			else
+			else if(total%2 == 1)
 			{
 				mediana=lst->next->dados.size;
 			}
