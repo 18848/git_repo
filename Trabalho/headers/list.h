@@ -22,5 +22,6 @@
     /*Funcoes*/
     List *newList();
     List *insert (List *lst, Data data);
+    List *orderLst (List *lst, Data data);
 
 #endif

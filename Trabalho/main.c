@@ -7,11 +7,13 @@
 #include "headers/readFile.h"
 #include "headers/frTabPal.h"
 #include "headers/frTabGra.h"
+#include "headers/histograma.h"
 
 int main(){
 
 /*Listas*/
     List *lst = newList();
+    List *lstSort = NULL;
     ListTabGra *lstTabGra = newListTabGra();
     ListTabGra *lstTabGraSort = NULL;
     ListTabPal *lstTabPal = newListTabPal();
@@ -53,6 +55,10 @@ int main(){
     fclose(fp);  
 
     /*ordenar tabelas*/
+    for( ; lst; lst=lst->next){
+        lstSort = orderLst(lstSort, lst->dados);
+    }
+
     for( ; lstTabGra; lstTabGra=lstTabGra->next){
         lstTabGraSort = orderTabGra(lstTabGraSort, lstTabGra->dados);
     }
@@ -91,6 +97,13 @@ int main(){
     
     printf("\n\n (ex5)\n\n");
 	calculateMesuresTabPal(lstTabPalSort, countList);
+    system("pause");
+/*---------------------------------------------------------------------------------------------*/
+
+/*Ex7------------------------------------------------------------------------------------------*/
+    
+    printf("\n\n (ex7)\n\n");
+	histograma(lstSort, countList);
     system("pause");
 /*---------------------------------------------------------------------------------------------*/
     
