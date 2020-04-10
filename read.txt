@@ -4,3 +4,9 @@ git push git_repo
 
 git fetch git_repo
 git pull
+
+#quando disser que estás atrás no tempo:
+#			-foram feitas atualizações que não guardaste
+#	faz
+#	git stash
+#
