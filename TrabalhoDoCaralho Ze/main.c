@@ -27,7 +27,7 @@ int main(){
     int countList=0;
 
 /*Program*/
-    printf("\tTrabalho 1 AED II\n\t\tAndre Cardoso n\n\t\tJose Cosgrove n18826\n\n");
+    printf("\tTrabalho 1 AED II\n\t\tAndre Cardoso n18848\n\t\tJose Cosgrove n18826\n\n");
 
     fp=fopen(filePath, "r");
 
@@ -50,7 +50,7 @@ int main(){
             countList++;
         }
     }   
-    fclose(fp);
+    fclose(fp);  
 
     /*ordenar tabelas*/
     for( ; lstTabGra; lstTabGra=lstTabGra->next){
@@ -68,7 +68,6 @@ int main(){
 	showListTabGra(lstTabGraSort, countList);
     printf("Total\t\t%d\t\t    1 \t\t    %d\t      1\n\n\n", countList, countList);
     system("pause");
-
 /*---------------------------------------------------------------------------------------------*/
 
 /*Ex3------------------------------------------------------------------------------------------*/
