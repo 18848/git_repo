@@ -55,7 +55,7 @@ int countTabPal (char word[]){
 
 ListTabPal *orderTabPal (ListTabPal *lst, TabPal data){
 
-	if(!lst || lst->dados.size > data.size){
+	if(!lst || lst->dados.size < data.size){
 		ListTabPal *tmp = MALLOC(ListTabPal);
 		tmp->dados=data;
 		tmp->next = lst;
@@ -80,15 +80,12 @@ void showListTabPal (ListTabPal *lst, int total){
 }
 
 void calculateMesuresTabPal(ListTabPal *lst, int total){
-	float media=0.0, variance=0.0, mediana=0.0;
-	int moda=0, frModa=0, count=0;
+	float media=0.0, variance=0.0;
+	int moda=0, frModa=0, count=0, mediana;
 
-	if (total%2 == 1){
-		count = total/2;
-	}
-	else{
-		count = total/2;
-	}
+	count = total/2;
+
+	printf("\n\n\t%d\n\n", count);
 
 	for ( ; lst; lst=lst->next){
 		media = media + (float)(lst->dados.frequency*lst->dados.size);
@@ -98,13 +95,13 @@ void calculateMesuresTabPal(ListTabPal *lst, int total){
 			moda=lst->dados.size;
 			frModa=lst->dados.frequency;
 		}
-		if(count==0){
+		if(count == total/2){
 			mediana=lst->dados.size;
+			printf("\n\n\t%d\n\n", count);
 		}
+
 		count++;
 	}
-	
-			printf("\n\n\t%d\n\n\n", total/2);
 
 	printf(writeMethodTabPalCalc, /*media, mediana, moda, desvio*/
 		media/(float)total,

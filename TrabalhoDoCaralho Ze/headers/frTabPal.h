@@ -4,7 +4,7 @@
     /*constantes*/
 	#define MALLOC(t) (t*)malloc(sizeof(t))
 	#define writeMethodTabPal " %d\t\t%d\t\t%lf\t    %d\t  %lf\n"
-    #define writeMethodTabPalCalc "Media: %lf\nMediana %f\nModa: %d\nDesvio Padrao: %lf\n"
+    #define writeMethodTabPalCalc "Media: %lf\nMediana %d\nModa: %d\nDesvio Padrao: %lf\n"
 
     /*structs*/
     typedef struct _tabPal
