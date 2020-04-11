@@ -18,6 +18,7 @@ int main(){
     ListTabGra *lstTabGraSort = NULL;
     ListTabPal *lstTabPal = newListTabPal();
     ListTabPal *lstTabPalSort = NULL;
+    ListHistograma *lstHistograma = NULL;
 
 /*Strucs*/
     Data data;
@@ -58,14 +59,15 @@ int main(){
     for( ; lst; lst=lst->next){
         lstSort = orderLst(lstSort, lst->dados);
     }
-
     for( ; lstTabGra; lstTabGra=lstTabGra->next){
         lstTabGraSort = orderTabGra(lstTabGraSort, lstTabGra->dados);
     }
-
     for( ; lstTabPal; lstTabPal=lstTabPal->next){
         lstTabPalSort = orderTabPal(lstTabPalSort, lstTabPal->dados);
     }
+
+    /*7*/
+	lstHistograma = histograma(lstSort, countList);
 
 /*Ex2------------------------------------------------------------------------------------------*/
     
@@ -103,7 +105,8 @@ int main(){
 /*Ex7------------------------------------------------------------------------------------------*/
     
     printf("\n\n (ex7)\n\n");
-	histograma(lstSort, countList);
+    showListHistograma(lstHistograma);
+    printf("Total\t\t%d", countList);
     system("pause");
 /*---------------------------------------------------------------------------------------------*/
     

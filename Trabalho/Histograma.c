@@ -24,23 +24,20 @@ ListHistograma * insertListHistograma (ListHistograma *lst, Histograma data){
 }
 
 void showListHistograma (ListHistograma *lst){
-	int countAbs=0;
-	double countRel=0;
 
 	for ( ; lst; lst=lst->next){
-		/*countAbs = countAbs + lst->dados.frequency;
-		countRel = countRel + (float)(lst->dados.frequency)/total;
-		printf(writeMethodTabGra, lst->dados.morphology, lst->dados.frequency, (float)(lst->dados.frequency)/total, countAbs, (float)countRel);*/
+		printf(writeMethodHistograma, lst->dados.inferior, lst->dados.superior, lst->dados.frequency);
 	}
 }
 
-void histograma(List *lst, int count){
+ListHistograma *histograma(List *lst, int count){
 	ListHistograma *histLst = newListHistograma();
 	List *aux = lst;
 
 	Histograma histograma;
 
-	int k = 1+log(count)/log(2), i, j;
+	int k = 1+log(count)/log(2), i;
+	printf("\n\n\t%d %d\n", k, count);
 	double h;
 	double maior = lst->dados.assurance, menor = lst->dados.assurance;
 
@@ -54,21 +51,36 @@ void histograma(List *lst, int count){
 	}
 
 	h = (maior-menor)/k;
-	aux = lst;
 
-	for (i=0; i<k; i++){
+	for (i=k; i>0; i--){
 
-		histograma.inferior = maior;
-		histograma.superior = maior-h;
+		histograma.superior = maior;
+		histograma.inferior = maior-h;
 		histograma.frequency = 0;
 
-		for( ; aux; aux=aux->next){
-			if((histLst->dados.inferior < aux->dados.assurance) && (histLst->dados.superior > aux->dados.assurance)){
+		for(aux=lst ; aux; aux=aux->next){
+			
+			if(i==1){
+				histograma.inferior = menor;
+
+				if((histograma.inferior <= aux->dados.assurance) && (histograma.superior >= aux->dados.assurance)){
 				(histograma.frequency)++;
+				}
 			}
+			else if(i==k){
+				if((histograma.inferior <= aux->dados.assurance) && (histograma.superior >= aux->dados.assurance)){
+				(histograma.frequency)++;
+				}
+			}
+			else{
+				if((histograma.inferior <= aux->dados.assurance) && (histograma.superior > aux->dados.assurance)){
+					(histograma.frequency)++;
+				}
+			}
+			//printf("\n\n\t%lf %lf %lf %d\n", histograma.inferior, aux->dados.assurance, histograma.superior, histograma.frequency);
 		}
-		
 		histLst = insertListHistograma(histLst, histograma);
 		maior=maior - h;
 	}
+	return histLst;
 }

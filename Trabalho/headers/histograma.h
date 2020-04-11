@@ -1,9 +1,11 @@
 #ifndef HISTOGRAMA_H_
 #define HISTOGRAMA_H_
 
+	#include "list.h"
+
     /*constantes*/
 	#define MALLOC(t) (t*)malloc(sizeof(t))
-	#define writeMethodHistograma ""
+	#define writeMethodHistograma "[%lf; %lf[ -> %d\n"
 
     /*structs*/
     typedef struct _histograma
@@ -24,6 +26,6 @@
 	ListHistograma *newListHistograma();
 	ListHistograma * insertListHistograma (ListHistograma *lst, Histograma data);
 	void showListHistograma (ListHistograma *lst);
-	void histograma(List *lst, int count);
+	ListHistograma *histograma(List *lst, int count);
 
 #endif
