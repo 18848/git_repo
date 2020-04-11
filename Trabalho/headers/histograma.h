@@ -13,7 +13,6 @@
 		double inferior;
 		double superior;
 		int frequency;
-		//assurance/frequency
     }Histograma;
 
     typedef struct _listHistograma
