@@ -13,7 +13,6 @@
       	int frequency;
 		double assurance;
 		double variance;
-		//assurance/frequency
     }TabGra;
 
     typedef struct _listTabGra

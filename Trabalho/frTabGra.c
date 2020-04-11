@@ -44,8 +44,6 @@ ListTabGra *existsTabGra (ListTabGra *lst, TabGra data){
 		lst = insertListTabGra(lst, data);
 	}
 
-	//lst = orderTabGra(lst, data);
-
 	return lst;
 }
 

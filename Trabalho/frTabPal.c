@@ -80,15 +80,14 @@ void showListTabPal (ListTabPal *lst, int total){
 }
 
 void calculateMesuresTabPal(ListTabPal *lst, int total){
-	float media=0.0, variance=0.0;
-	int moda=0, frModa=0, mediana;
-	int sum=0, flag =0;
+	float media=0, variance=0;
+	int sum=0, flag=0, frModa=0, moda, mediana;
 
 	for ( ; lst; lst=lst->next){
 		media = media + (float)(lst->dados.frequency*lst->dados.size);
 		variance = variance + pow(lst->dados.size, 2) * lst->dados.frequency;
 
-		sum+=lst->dados.frequency;
+		sum=sum + lst->dados.frequency;
 
 		if(lst->dados.frequency > frModa){
 			moda=lst->dados.size;
@@ -107,7 +106,7 @@ void calculateMesuresTabPal(ListTabPal *lst, int total){
 		}
 	}
 
-	printf(writeMethodTabPalCalc, /*media, mediana, moda, desvio*/
+	printf(writeMethodTabPalCalc,
 		media/(float)total,
 		mediana,
 		moda,

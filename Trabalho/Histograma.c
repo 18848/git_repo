@@ -37,7 +37,7 @@ ListHistograma *histograma(List *lst, int count){
 	Histograma histograma;
 
 	int k = 1+log(count)/log(2), i;
-	printf("\n\n\t%d %d\n", k, count);
+	
 	double h;
 	double maior = lst->dados.assurance, menor = lst->dados.assurance;
 
@@ -77,7 +77,6 @@ ListHistograma *histograma(List *lst, int count){
 					(histograma.frequency)++;
 				}
 			}
-			//printf("\n\n\t%lf %lf %lf %d\n", histograma.inferior, aux->dados.assurance, histograma.superior, histograma.frequency);
 		}
 		histLst = insertListHistograma(histLst, histograma);
 		maior=maior - h;
