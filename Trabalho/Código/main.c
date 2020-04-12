@@ -35,7 +35,7 @@ int main(){
     char word[100];
 
 /*Program*/
-    printf("\tTrabalho 1 AED II\n\t\tAndre Cardoso n18848\n\t\tJose Cosgrove n18826\n\n");
+    printf("\tTrabalho 1 AED II\n\t\ta18826 Jose Cosgrove\n\t\ta18848 Andre Cardoso\n\n");
 
     fp=fopen(filePath, "r");
 
@@ -125,6 +125,6 @@ int main(){
     printf("Total\t\t%d", countList);
 /*---------------------------------------------------------------------------------------------*/
     
-    system("pause");
+    getchar();
     return 0;
 }

@@ -11,7 +11,7 @@
     typedef struct _countPal
     {   
 		char original[100];
-      	int frequency;
+    	int frequency;
     }CountPal;
 
     typedef struct _listCountPal
