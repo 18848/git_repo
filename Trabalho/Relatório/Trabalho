@@ -2,9 +2,9 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{hyperref}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 
-\title{Relatório Trabalho AED II}
+\title{Relat�rio Trabalho AED II}
 \author{
   José Cosgrove\\
   \texttt{a18826}
