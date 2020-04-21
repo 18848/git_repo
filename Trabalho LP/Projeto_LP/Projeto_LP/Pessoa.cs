@@ -20,9 +20,9 @@ namespace Projeto_LP
     public class Pessoa
     {
         #region Attributes
+        DateTime birth;
         int height;
         int weight;
-        int age;
         string name;
         #endregion
 
@@ -35,9 +35,9 @@ namespace Projeto_LP
         /// </summary>
         public Pessoa()
         {
+            birth = new DateTime(2000, 1, 1);
             height = -1;
             weight = -1;
-            age = -1;
             name = "N/A";
         }
 
@@ -47,12 +47,12 @@ namespace Projeto_LP
         /// <param name="n">name</param>
         /// <param name="h">height</param>
         /// <param name="w">weight</param>
-        /// <param name="a">age</param>
-        public Pessoa(string n, int h, int w, int a) 
+        /// <param name="b">birth</param>
+        public Pessoa(string n, int h, int w, DateTime b) 
         {
+            birth = b;
             height = h;
             weight = w;
-            age = a;
             name = n;
         }
 
@@ -60,8 +60,6 @@ namespace Projeto_LP
 
         #region Properties
         #endregion
-
-
 
         #region Overrides
         #endregion
@@ -73,9 +71,9 @@ namespace Projeto_LP
         /// <summary>
         /// The destructor.
         /// </summary>
-        ~Pessoa()
-        {
-        }
+        //~Pessoa()
+        //{
+        //}
         #endregion
 
         #endregion
