@@ -3,7 +3,7 @@
 *		Copyright (c) 2020 All Rights Reserved
 *	</copyright>
 * 	<author>Andre</author>
-*   <date>4/20/2020 10:06:20 PM</date>
+*   <date>4/21/2020 2:53:33 PM</date>
 *	<description></description>
 **/
 using System;
@@ -13,17 +13,15 @@ namespace Projeto_LP
     /// <summary>
     /// Purpose:
     /// Created by: Andre
-    /// Created on: 4/20/2020 10:06:20 PM
+    /// Created on: 4/21/2020 2:53:33 PM
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Arbitros : Arbitro
+    public class Jogadores : Jogador
     {
         #region Attributes
-        Arbitro[] arbitro;
-        string academy;
-        string rank;
-        string league;
+        Jogador[] player;
+        string role;
         #endregion
 
         #region Methods
@@ -33,27 +31,23 @@ namespace Projeto_LP
         /// <summary>
         /// The default Constructor.
         /// </summary>
-        public Arbitros()
+        public Jogadores()
         {
-            arbitro = new Arbitro[1];
-            academy = "N/A";
-            league = "N/A";
-            rank = "N/A";
+            role = "N/A";
+            player = new Jogador[1];
         }
 
         /// <summary>
-        /// Constructor with given data.
+        /// Constructor by given data.
         /// </summary>
-        /// <param name="s"> 0->academy; 1->league; 2->rank; 3->size of array; </param>
-        public Arbitros(string[] s)
+        /// <param name="s"> 0->role; 1->size; </param>
+        public Jogadores(string[] s)
         {
-            academy = s[0];
-            league = s[1];
-            rank = s[2];
+            role = s[0];
             //Attempt to convert string to int
             //If it works, assign value to size; Else, assign 1;
-            int size = ( int.TryParse(s[3], out size) ? size : 1 );
-            arbitro = new Arbitro[ size ];
+            int size = (int.TryParse(s[2], out size) ? size : 1);
+            player = new Jogador[size];
         }
 
         #endregion
@@ -73,9 +67,9 @@ namespace Projeto_LP
         /// <summary>
         /// The destructor.
         /// </summary>
-        ~Arbitros()
-        {
-        }
+        //~Jogadores()
+        //{
+        //}
         #endregion
 
         #endregion

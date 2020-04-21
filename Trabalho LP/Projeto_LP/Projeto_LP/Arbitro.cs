@@ -17,7 +17,7 @@ namespace Projeto_LP
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Arbitro:Pessoa
+    public class Arbitro : Pessoa
     {
         #region Attributes
         //probably a better way to place these variables
@@ -27,6 +27,8 @@ namespace Projeto_LP
         int gamesRound;
         int cardsYellow;
         int cardsRed;
+        double salary;
+        static DateTime formation;
         #endregion
 
         #region Methods
@@ -43,6 +45,8 @@ namespace Projeto_LP
             gamesRound = 0;
             cardsYellow = 0;
             cardsRed = 0;
+            salary = 0;
+            formation = new DateTime(1975, 1, 1);
         }
 
         /// <summary>
@@ -50,13 +54,17 @@ namespace Projeto_LP
         /// </summary>
         /// <param name="games"> 0->total; 1->season; 2->round </param>
         /// <param name="cards"> 0->yellow; 1-> red; </param>
-        public Arbitro(int[] games, int[] cards)
+        /// <param name="s"> salary </param>
+        /// <param name="d"> formation date </param>
+        public Arbitro(int[] games, int[] cards, double s, DateTime d)
         {
             gamesTotal = games[0];
             gamesSeason = games[1];
             gamesRound = games[2];
             cardsYellow = cards[0];
             cardsRed = cards[1];
+            salary = s;
+            formation =  d;
         }
 
         #endregion

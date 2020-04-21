@@ -3,7 +3,7 @@
 *		Copyright (c) 2020 All Rights Reserved
 *	</copyright>
 * 	<author>Andre</author>
-*   <date>4/20/2020 10:06:20 PM</date>
+*   <date>4/21/2020 2:46:55 PM</date>
 *	<description></description>
 **/
 using System;
@@ -13,17 +13,15 @@ namespace Projeto_LP
     /// <summary>
     /// Purpose:
     /// Created by: Andre
-    /// Created on: 4/20/2020 10:06:20 PM
+    /// Created on: 4/21/2020 2:46:55 PM
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Arbitros : Arbitro
+    public class Jogador : Pessoa
     {
         #region Attributes
-        Arbitro[] arbitro;
-        string academy;
-        string rank;
-        string league;
+        int number;
+        string nickname;
         #endregion
 
         #region Methods
@@ -33,27 +31,21 @@ namespace Projeto_LP
         /// <summary>
         /// The default Constructor.
         /// </summary>
-        public Arbitros()
+        public Jogador()
         {
-            arbitro = new Arbitro[1];
-            academy = "N/A";
-            league = "N/A";
-            rank = "N/A";
+            number = 0;
+            nickname = "N/A";
         }
 
         /// <summary>
-        /// Constructor with given data.
+        /// Construcor by given data.
         /// </summary>
-        /// <param name="s"> 0->academy; 1->league; 2->rank; 3->size of array; </param>
-        public Arbitros(string[] s)
+        /// <param name="num"> Number. </param>
+        /// <param name="name"> Nickname. </param>
+        public Jogador(int num, string name)
         {
-            academy = s[0];
-            league = s[1];
-            rank = s[2];
-            //Attempt to convert string to int
-            //If it works, assign value to size; Else, assign 1;
-            int size = ( int.TryParse(s[3], out size) ? size : 1 );
-            arbitro = new Arbitro[ size ];
+            number = num;
+            nickname = name;
         }
 
         #endregion
@@ -73,9 +65,9 @@ namespace Projeto_LP
         /// <summary>
         /// The destructor.
         /// </summary>
-        ~Arbitros()
-        {
-        }
+        //~Jogador()
+        //{
+        //}
         #endregion
 
         #endregion

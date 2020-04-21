@@ -3,7 +3,7 @@
 *		Copyright (c) 2020 All Rights Reserved
 *	</copyright>
 * 	<author>Andre</author>
-*   <date>4/20/2020 10:06:20 PM</date>
+*   <date>4/21/2020 3:06:32 PM</date>
 *	<description></description>
 **/
 using System;
@@ -13,17 +13,16 @@ namespace Projeto_LP
     /// <summary>
     /// Purpose:
     /// Created by: Andre
-    /// Created on: 4/20/2020 10:06:20 PM
+    /// Created on: 4/21/2020 3:06:32 PM
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Arbitros : Arbitro
+    public class Equipas : Equipa
     {
         #region Attributes
-        Arbitro[] arbitro;
-        string academy;
-        string rank;
+        Equipa[] team;
         string league;
+        string lastChampeon;
         #endregion
 
         #region Methods
@@ -33,27 +32,30 @@ namespace Projeto_LP
         /// <summary>
         /// The default Constructor.
         /// </summary>
-        public Arbitros()
+        public Equipas()
         {
-            arbitro = new Arbitro[1];
-            academy = "N/A";
             league = "N/A";
-            rank = "N/A";
+            lastChampeon = "N/A";
+            team = new Equipa[1];
         }
 
         /// <summary>
-        /// Constructor with given data.
+        /// Constructor by given data.
         /// </summary>
-        /// <param name="s"> 0->academy; 1->league; 2->rank; 3->size of array; </param>
-        public Arbitros(string[] s)
+        /// <param name="s"> 0->league; 1->lastChampeon; 2->size of array; </param>
+        /// <param name="t"> array of Equipa </param>
+        public Equipas(string[] s, Equipa[] t)
         {
-            academy = s[0];
-            league = s[1];
-            rank = s[2];
+            league = s[0];
+            lastChampeon = s[1];
             //Attempt to convert string to int
             //If it works, assign value to size; Else, assign 1;
-            int size = ( int.TryParse(s[3], out size) ? size : 1 );
-            arbitro = new Arbitro[ size ];
+            int size = (int.TryParse(s[2], out size) ? size : 1);
+            team = new Equipa[size];
+            for(int i=0; i<size; i++)
+            {
+                team[i] = t[i];
+            }
         }
 
         #endregion
@@ -73,9 +75,9 @@ namespace Projeto_LP
         /// <summary>
         /// The destructor.
         /// </summary>
-        ~Arbitros()
-        {
-        }
+        //~Equipas()
+        //{
+        //}
         #endregion
 
         #endregion
