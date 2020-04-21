@@ -3,7 +3,7 @@
 *		Copyright (c) 2020 All Rights Reserved
 *	</copyright>
 * 	<author>Andre</author>
-*   <date>4/20/2020 10:08:16 PM</date>
+*   <date>4/20/2020 11:05:17 PM</date>
 *	<description></description>
 **/
 using System;
@@ -13,20 +13,17 @@ namespace Projeto_LP
     /// <summary>
     /// Purpose:
     /// Created by: Andre
-    /// Created on: 4/20/2020 10:08:16 PM
+    /// Created on: 4/20/2020 11:05:17 PM
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Arbitro:Pessoa
+    public class Pessoa
     {
         #region Attributes
-        //probably a better way to place these variables
-        //array or class maybe
-        int gamesTotal;
-        int gamesSeason;
-        int gamesRound;
-        int cardsYellow;
-        int cardsRed;
+        int height;
+        int weight;
+        int age;
+        string name;
         #endregion
 
         #region Methods
@@ -36,27 +33,27 @@ namespace Projeto_LP
         /// <summary>
         /// The default Constructor.
         /// </summary>
-        public Arbitro()
+        public Pessoa()
         {
-            gamesTotal = 0;
-            gamesSeason = 0;
-            gamesRound = 0;
-            cardsYellow = 0;
-            cardsRed = 0;
+            height = -1;
+            weight = -1;
+            age = -1;
+            name = "N/A";
         }
 
         /// <summary>
         /// Constructor by given data.
         /// </summary>
-        /// <param name="games"> 0->total; 1->season; 2->round </param>
-        /// <param name="cards"> 0->yellow; 1-> red; </param>
-        public Arbitro(int[] games, int[] cards)
+        /// <param name="n">name</param>
+        /// <param name="h">height</param>
+        /// <param name="w">weight</param>
+        /// <param name="a">age</param>
+        public Pessoa(string n, int h, int w, int a) 
         {
-            gamesTotal = games[0];
-            gamesSeason = games[1];
-            gamesRound = games[2];
-            cardsYellow = cards[0];
-            cardsRed = cards[1];
+            height = h;
+            weight = w;
+            age = a;
+            name = n;
         }
 
         #endregion
@@ -76,7 +73,9 @@ namespace Projeto_LP
         /// <summary>
         /// The destructor.
         /// </summary>
-        //~Arbitro() { }
+        ~Pessoa()
+        {
+        }
         #endregion
 
         #endregion

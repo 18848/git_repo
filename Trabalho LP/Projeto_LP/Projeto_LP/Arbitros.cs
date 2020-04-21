@@ -20,7 +20,6 @@ namespace Projeto_LP
     public class Arbitros
     {
         #region Attributes
-        Arbitro[] arbitro;
         string academy;
         string rank;
         string league;
