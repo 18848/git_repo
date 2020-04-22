@@ -22,6 +22,7 @@ namespace Projeto_LP
         #region Attributes
         int number;
         string nickname;
+        string role;
         #endregion
 
         #region Methods
@@ -35,6 +36,7 @@ namespace Projeto_LP
         {
             number = 0;
             nickname = "N/A";
+            role = "N/A";
         }
 
         /// <summary>
@@ -42,10 +44,11 @@ namespace Projeto_LP
         /// </summary>
         /// <param name="num"> Number. </param>
         /// <param name="name"> Nickname. </param>
-        public Jogador(int num, string name)
+        public Jogador(int num, string name, string r)
         {
             number = num;
             nickname = name;
+            role = r;
         }
 
         #endregion
