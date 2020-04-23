@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GandaProjetoLP.Classes;
 
 namespace GandaProjetoLP
 {
@@ -18,6 +19,10 @@ namespace GandaProjetoLP
     {
         static void Main(string[] args)
         {
+            Pessoa pessoa = new Pessoa();
+
+            Console.WriteLine("Ai Lmao");
+            Console.ReadLine();
         }
     }
 }

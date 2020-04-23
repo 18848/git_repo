@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace GandaProjetoLP.Classes
 {
+    #region ENUMS
+    #endregion
+
     class Pessoa
     {
-        #region ENUMS
-        #endregion
-
-
         #region MEMBER VARIABLES
         private string nome;
         private string nacionalidade;
@@ -38,6 +37,20 @@ namespace GandaProjetoLP.Classes
             this.altura = altura;
             this.peso = peso;
         }
+
+
+        /// <summary>
+        /// Construtor sem dados
+        /// </summary>
+        public Pessoa()
+        {
+            this.nome = "";
+            this.nacionalidade = "";
+            this.dataNascimento = DateTime.Now;
+            this.altura = 0;
+            this.peso = 0;
+        }
+        #endregion
 
 
         #region PROPERTIES
@@ -77,10 +90,36 @@ namespace GandaProjetoLP.Classes
                 }
             }
         }
+
+
+        /// <summary>
+        /// Manipula o atributo "altura"
+        /// string nome;
+        /// </summary>
+        public float Altura
+        {
+            get { return altura; }
+            set { altura = value; }
+        }
+
+
+        /// <summary>
+        /// Manipula o atributo "altura"
+        /// string nome;
+        /// </summary>
+        public float Peso
+        {
+            get { return peso; }
+            set { peso = value; }
+        }
         #endregion
 
 
         #region FUNCTIONS
+        #endregion
+
+
+        #region OVERIDES
         #endregion
     }
 }
