@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace GandaProjetoLP.Classes
 {
-
     #region ENUMS
     /// <summary>
     /// Enumerado para Resultado de Operação
     /// </summary>
     enum POSICAO
     {
-        ND = 0,
-        GuardaRedes = 1,
+        ND,
+        GuardaRedes,
         Defesa,
         Medio,
         Avancado
@@ -32,13 +31,34 @@ namespace GandaProjetoLP.Classes
 
         #region CONSTRUCTORS
         /// <summary>
-        /// Construtor sem dados
+        /// Construtor cheio
         /// </summary>
         public Jogador(string nome, string nacionalidade, DateTime dataNascimento, float altura, float peso, string alcunha, int numero, POSICAO posicao) : base(nome, nacionalidade, dataNascimento, altura, peso)
         {
             this.alcunha = alcunha;
             this.numero = numero;
             this.posicao = posicao;
+            base.Nome = nome;
+            base.Nacionalidade = nacionalidade;
+            base.DataNascimento = dataNascimento;
+            base.Altura = altura;
+            base.Peso = peso;
+        }
+
+
+        /// <summary>
+        /// Construtor vazio
+        /// </summary>
+        public Jogador()
+        {
+            this.alcunha = "";
+            this.numero = 0;
+            this.posicao = POSICAO.ND;
+            base.Nome = "";
+            base.Nacionalidade = "";
+            base.DataNascimento = DateTime.Now;
+            base.Altura = 0;
+            base.Peso = 0;
         }
         #endregion
 
@@ -59,7 +79,11 @@ namespace GandaProjetoLP.Classes
         public int Numero
         {
             get { return numero; }
-            set { numero = value; }
+            set
+            {
+                if ((value > 0) && (value < 99))
+                    numero = value;
+            }
         }
 
 

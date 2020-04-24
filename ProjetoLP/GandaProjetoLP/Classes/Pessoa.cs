@@ -56,7 +56,6 @@ namespace GandaProjetoLP.Classes
         #region PROPERTIES
         /// <summary>
         /// Manipula o atributo "nome"
-        /// string nome;
         /// </summary>
         public string Nome
         {
@@ -66,7 +65,6 @@ namespace GandaProjetoLP.Classes
 
         /// <summary>
         /// Manipula o atributo "nacionalidade"
-        /// string nome;
         /// </summary>
         public string Nacionalidade
         {
@@ -76,7 +74,7 @@ namespace GandaProjetoLP.Classes
 
 
         /// <summary>
-        /// Data de Nascimento
+        /// Manipula o atributo "dataNascimento"
         /// </summary>
         public DateTime DataNascimento
         {
@@ -94,7 +92,6 @@ namespace GandaProjetoLP.Classes
 
         /// <summary>
         /// Manipula o atributo "altura"
-        /// string nome;
         /// </summary>
         public float Altura
         {
@@ -104,8 +101,7 @@ namespace GandaProjetoLP.Classes
 
 
         /// <summary>
-        /// Manipula o atributo "altura"
-        /// string nome;
+        /// Manipula o atributo "peso"
         /// </summary>
         public float Peso
         {
