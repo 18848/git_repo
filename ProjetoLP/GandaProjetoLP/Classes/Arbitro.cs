@@ -50,6 +50,14 @@ namespace GandaProjetoLP.Classes
         /// <summary>
         /// Construtor cheio
         /// </summary>
+        /// <param name="nome">Nome do Arbitro</param>
+        /// <param name="nacionalidade">Nacionalidade do Arbitro</param>
+        /// <param name="dataNascimento">Data de Nascimento do Arbitro</param>
+        /// <param name="altura">Aktura do Arbitro</param>
+        /// <param name="peso">Peso do Arbitro</param>
+        /// <param name="formacao">Data a que o Arbitro de Formou</param>
+        /// <param name="categoria">Categoria do Arbitro</param>
+        /// <param name="associacao">Local onde o Arbitro se Formou</param>
         public Arbitro(string nome, string nacionalidade, DateTime dataNascimento, float altura, float peso, DateTime formacao, CATEGORIA categoria, ASSOCIACAO associacao) : base(nome, nacionalidade, dataNascimento, altura, peso)
         {
             this.formacao = formacao;

@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 
 namespace GandaProjetoLP.Classes
 {
-    #region ENUMS
-    /// <summary>
-    /// 
-    /// </summary>
-    /// 
+    #region ENUMS 
     #endregion
 
     class Equipa
@@ -19,8 +15,7 @@ namespace GandaProjetoLP.Classes
         #region MEMBER VARIABLES
         private string nome;
         private DateTime fundacao;
-        static Jogador[] jogadores;
-        int totJogadores = 0;
+        Jogador[] jogadores = new Jogador[20];
         int max;
         #endregion
 
@@ -29,12 +24,18 @@ namespace GandaProjetoLP.Classes
         /// <summary>
         /// Construtor cheio
         /// </summary>
-        public Equipa(string nome, DateTime fundacao, int max)
+        /// <param name="nome">Nome da Equipa</param>
+        /// <param name="fundacao">Data de Fundacao</param>
+        /// <param name="jogador">Array de Jogadores</param>
+        public Equipa(string nome, DateTime fundacao, Jogador[] jogador)
         {
             this.nome = nome;
             this.fundacao = fundacao;
-            this.max = max;
-            jogadores = new Jogador[max];
+
+            for(int i=0; i<this.jogadores.Length; i++)
+            {
+                this.jogadores[i] = jogador[i];
+            }
         }
 
 
@@ -44,7 +45,12 @@ namespace GandaProjetoLP.Classes
         public Equipa()
         {
             this.nome = "";
-            this.fundacao = DateTime.Now;
+            this.fundacao = DateTime.Now; 
+            
+            for (int i = 0; i < this.jogadores.Length; i++)
+            {
+                this.jogadores[i] = null;
+            }
         }
         #endregion
 
@@ -69,12 +75,12 @@ namespace GandaProjetoLP.Classes
         }
 
         /// <summary>
-        /// Manipula o atributo "max"
+        /// Manipula o atributo "jogador"
         /// </summary>
-        public int Max
+        public Jogador[] Jogador
         {
-            get { return max; }
-            set { max = value; }
+            get { return jogador[]; }
+            set { jogador[] = value; }
         }
         #endregion
 

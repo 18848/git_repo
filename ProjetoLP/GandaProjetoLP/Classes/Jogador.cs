@@ -33,6 +33,14 @@ namespace GandaProjetoLP.Classes
         /// <summary>
         /// Construtor cheio
         /// </summary>
+        /// <param name="nome">Nome do Jogador</param>
+        /// <param name="nacionalidade">Nacionalidade do Jogador</param>
+        /// <param name="dataNascimento">Data de Nascimento do jogador</param>
+        /// <param name="altura">Altura do jogador</param>
+        /// <param name="peso">peso do jogador</param>
+        /// <param name="alcunha">alcunha do jogador</param>
+        /// <param name="numero">numero do jogador</param>
+        /// <param name="posicao">posicao do jogador</param>
         public Jogador(string nome, string nacionalidade, DateTime dataNascimento, float altura, float peso, string alcunha, int numero, POSICAO posicao) : base(nome, nacionalidade, dataNascimento, altura, peso)
         {
             this.alcunha = alcunha;
