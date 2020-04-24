@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -84,7 +85,7 @@ namespace GandaProjetoLP.Classes
         /// </summary>
         /// <param name="jogador"></param>
         /// <returns></returns>
-        public static int InserirJogador(Jogador jogador)
+        public int InserirJogador(Jogador jogador)
         {
             if (totJogadores >= max) return 0;
 
