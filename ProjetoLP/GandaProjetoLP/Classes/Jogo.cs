@@ -7,10 +7,6 @@ using System.Threading.Tasks;
 namespace GandaProjetoLP.Classes
 {
     #region ENUMS
-    /// <summary>
-    /// 
-    /// </summary>
-    /// 
     #endregion
 
     class Jogo
@@ -24,8 +20,11 @@ namespace GandaProjetoLP.Classes
 
         #region CONSTRUCTORS
         /// <summary>
-        /// Construtor cheio
+        /// Construtor Cheio
         /// </summary>
+        /// <param name="equipaA">Equipa A</param>
+        /// <param name="equipaB">Equipa B</param>
+        /// <param name="arbitros">Equipa de Arbitros</param>
         public Jogo(Equipa equipaA, Equipa equipaB, Arbitro[] arbitros)
         {
             this.equipaA = equipaA;

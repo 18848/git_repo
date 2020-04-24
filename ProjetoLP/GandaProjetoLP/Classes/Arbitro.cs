@@ -30,10 +30,27 @@ namespace GandaProjetoLP.Classes
     {
         ND,
         Algarve,
+        Angra_Heroismo,
+        Aveiro,
+        Beja,
         Braga,
         Braganca,
+        Castelo_Branco,
+        Coimbra,
+        Evora,
+        Guarda,
+        Horta,
+        Leiria,
         Lisboa,
-        Porto
+        Madeira,
+        Ponta_Delgada,
+        Portalegre,
+        Porto,
+        Santarem,
+        Setubal,
+        Viana_Castelo,
+        Vila_Real,
+        Viseu
     }
     #endregion
 
@@ -63,27 +80,17 @@ namespace GandaProjetoLP.Classes
             this.formacao = formacao;
             this.categoria = categoria;
             this.associacao = associacao;
-            base.Nome = nome;
-            base.Nacionalidade = nacionalidade;
-            base.DataNascimento = dataNascimento;
-            base.Altura = altura;
-            base.Peso = peso;
         }
 
 
         /// <summary>
         /// Construtor vazio
         /// </summary>
-        public Arbitro()
+        public Arbitro() : base()
         {
             this.formacao = DateTime.Now;
             this.categoria = CATEGORIA.ND;
             this.associacao = ASSOCIACAO.ND;
-            base.Nome = "";
-            base.Nacionalidade = "";
-            base.DataNascimento = DateTime.Now;
-            base.Altura = 0;
-            base.Peso = 0;
         }
         #endregion
 

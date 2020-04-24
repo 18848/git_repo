@@ -7,16 +7,12 @@ using System.Threading.Tasks;
 namespace GandaProjetoLP.Classes
 {
     #region ENUMS
-    /// <summary>
-    /// 
-    /// </summary>
-    /// 
     #endregion
 
     class Competicao
     {
         #region MEMBER VARIABLES
-        static Equipa[] equipa ;
+        private Equipa[] equipa;
         private DateTime inicio;
         private DateTime fim;
         #endregion
@@ -26,10 +22,12 @@ namespace GandaProjetoLP.Classes
         /// <summary>
         /// Construtor cheio
         /// </summary>
+        /// <param name="inicio">Inicio da competicao</param>
+        /// <param name="max"></param>
         public Competicao(DateTime inicio, int max)
         {
             this.inicio = inicio;
-            //equipa = new Equipa[max];
+            equipa = new Equipa[max];
         }
 
 
@@ -38,7 +36,6 @@ namespace GandaProjetoLP.Classes
         /// </summary>
         public Competicao()
         {
-
         }
         #endregion
 
@@ -70,5 +67,13 @@ namespace GandaProjetoLP.Classes
 
         #region OVERIDES
         #endregion
+        /// <summary>
+        /// Destructor -> Termina e apresenta a data do fim do campeonato.
+        /// </summary>
+        ~Competicao()
+        {
+            Fim = DateTime.Now;
+            Console.WriteLine($"A competição terminou: {this.fim}");
+        }
     }
 }

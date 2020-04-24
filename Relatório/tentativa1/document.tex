@@ -1,0 +1,52 @@
+\documentclass[a4paper, 12pt]{report}
+
+\usepackage[UTF8]{inputenc}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+
+\input{000.definitions.tex}
+
+\pagenumbering{roman}
+
+\begin{document}
+	\selectlanguage{portuguese}
+	
+	%
+	% PDF Options
+	%
+	\hypersetup{
+		colorlinks=false,
+		citecolor=red,
+		breaklinks=true,
+		bookmarksnumbered=true,
+		bookmarksopen=true,
+		pdftitle={<Título do Trabalho>},
+		pdfauthor={<Nome do Mestrando>},
+		%pdfsubject={<Assunto do Trabalho>},
+		pdfcreator={<Nome do Mestrando>}}
+	
+	%
+	% Title and author
+	%
+	\makeatletter
+	\setlength{\@fptop}{0pt}
+	\makeatother
+		
+	%Imagem do IPCA
+	\begin{figure}[t!]
+		\centering
+		\includegraphics[keepaspectratio, width=\textwidth]{./Figures/ipca.jpg}
+		\label{fig:ipca}
+	\end{figure}
+	Olá
+
+\title{
+	\textbf{\Large{\textcolor{lightBlue}{Licenciatura em Engenharia de Sistemas Informáticos}}}\\
+	\bigskip
+	\Large{\textcolor{lightBlue}{Relatório do Trabalho Prático}}\\
+	\bigskip
+	\textbf{\Huge{\textcolor{lightBlue}{Linguagens de Programação II}}}
+}
+
+\date{\textcolor{darkBlue}{Barcelos, \today}}
+
+\end{document}

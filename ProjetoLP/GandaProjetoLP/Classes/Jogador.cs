@@ -46,27 +46,17 @@ namespace GandaProjetoLP.Classes
             this.alcunha = alcunha;
             this.numero = numero;
             this.posicao = posicao;
-            base.Nome = nome;
-            base.Nacionalidade = nacionalidade;
-            base.DataNascimento = dataNascimento;
-            base.Altura = altura;
-            base.Peso = peso;
         }
 
 
         /// <summary>
         /// Construtor vazio
         /// </summary>
-        public Jogador()
+        public Jogador() : base()
         {
             this.alcunha = "";
             this.numero = 0;
             this.posicao = POSICAO.ND;
-            base.Nome = "";
-            base.Nacionalidade = "";
-            base.DataNascimento = DateTime.Now;
-            base.Altura = 0;
-            base.Peso = 0;
         }
         #endregion
 
@@ -93,7 +83,7 @@ namespace GandaProjetoLP.Classes
                     numero = value;
             }
         }
-
+ 
 
         /// <summary>
         /// Manipula o atributo "posicao"

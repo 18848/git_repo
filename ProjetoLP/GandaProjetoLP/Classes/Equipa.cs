@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GandaProjetoLP.Classes
 {
@@ -15,8 +10,9 @@ namespace GandaProjetoLP.Classes
         #region MEMBER VARIABLES
         private string nome;
         private DateTime fundacao;
-        Jogador[] jogadores = new Jogador[20];
-        int max;
+        private Jogador[] jogadores = new Jogador[20];
+        const int max = 100; //<<<<<<<<<<< que achas?
+        int totJogadores;
         #endregion
 
 
@@ -79,8 +75,8 @@ namespace GandaProjetoLP.Classes
         /// </summary>
         public Jogador[] Jogador
         {
-            get { return jogador[]; }
-            set { jogador[] = value; }
+            get { return this.jogadores; }
+            set { this.jogadores = value; }
         }
         #endregion
 
@@ -89,19 +85,19 @@ namespace GandaProjetoLP.Classes
         /// <summary>
         /// Registar um jogador novo na equipa
         /// </summary>
-        /// <param name="jogador"></param>
+        /// <param name="jogador">Novo jogador.</param>
         /// <returns></returns>
         public int InserirJogador(Jogador jogador)
         {
-            if (totJogadores >= max) return 0;
+            if (this.totJogadores >= max) return 0;
 
-            jogadores[totJogadores++] = jogador;
+            jogadores[this.totJogadores++] = jogador;
             return 1;
         }
         #endregion
 
 
-        #region OVERIDES
+        #region OVERRIDES
         #endregion
     }
 }
