@@ -18,7 +18,7 @@ namespace GandaProjetoLP.Classes
         #region MEMBER VARIABLES
         Equipa equipaA = new Equipa();
         Equipa equipaB = new Equipa();
-        //Arbitro arbitros[4] = new Arbitro();
+        Arbitro[] arbitros = new Arbitro[4];
         #endregion
 
 
@@ -26,11 +26,14 @@ namespace GandaProjetoLP.Classes
         /// <summary>
         /// Construtor cheio
         /// </summary>
-        public Jogo(Equipa equipaA, Equipa equipaB, Arbitro a, Arbitro aa1, Arbitro aa2, Arbitro qa)
+        public Jogo(Equipa equipaA, Equipa equipaB, Arbitro[] arbitros)
         {
             this.equipaA = equipaA;
             this.equipaB = equipaB;
-            //this.arbitros[0] = a;
+            for (int i = 0; i < this.arbitros.Length; i++)
+            {
+                this.arbitros[i] = arbitros[i];
+            }
         }
 
 
@@ -39,7 +42,6 @@ namespace GandaProjetoLP.Classes
         /// </summary>
         public Jogo()
         {
-
         }
         #endregion
 
@@ -50,8 +52,8 @@ namespace GandaProjetoLP.Classes
         /// </summary>
         public Equipa EquipaA
         {
-            get { return equipaA; }
-            set { equipaA = value; }
+            get;
+            set;
         }
 
         /// <summary>
@@ -59,8 +61,8 @@ namespace GandaProjetoLP.Classes
         /// </summary>
         public Equipa EquipaB
         {
-            get { return equipaB; }
-            set { equipaB = value; }
+            get;
+            set;
         }
         #endregion
 
