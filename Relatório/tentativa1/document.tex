@@ -5,7 +5,7 @@
 
 \input{000.definitions.tex}
 
-\pagenumbering{roman}
+\pagenumbering{arabic}
 
 \begin{document}
 	\selectlanguage{portuguese}
@@ -14,15 +14,15 @@
 	% PDF Options
 	%
 	\hypersetup{
-		colorlinks=false,
 		citecolor=red,
 		breaklinks=true,
 		bookmarksnumbered=true,
 		bookmarksopen=true,
-		pdftitle={<Título do Trabalho>},
-		pdfauthor={<Nome do Mestrando>},
+		pdftitle={Relatório Trabalho Prático},
+		pdfauthor={André Cardoso e José Cosgrove},
 		%pdfsubject={<Assunto do Trabalho>},
-		pdfcreator={<Nome do Mestrando>}}
+		pdfcreator={André Cardoso e José Cosgrove}
+	}
 	
 	%
 	% Title and author
@@ -37,16 +37,49 @@
 		\includegraphics[keepaspectratio, width=\textwidth]{./Figures/ipca.jpg}
 		\label{fig:ipca}
 	\end{figure}
-	Olá
 
-\title{
-	\textbf{\Large{\textcolor{lightBlue}{Licenciatura em Engenharia de Sistemas Informáticos}}}\\
+	\title{
+		\textbf{\Large{\textcolor{lightBlue}{Licenciatura em Engenharia de Sistemas Informáticos}}}\\
+		\bigskip
+		\Large{\textcolor{lightBlue}{Relatório de Trabalho Prático para}}\\
+		\bigskip
+		\textbf{\Huge{\textcolor{lightBlue}{Linguagens de Progamação II}}}
+	}
+	
+	
+	\author{
+		\bigskip
+		\huge{\textcolor{lightBlue}{André Cardoso \& José Cosgrove}}\\
+		\huge{\textcolor{lightBlue}{18848 \& 18826}}\\
+		\textcolor{darkBlue}{Trabalho realizado sob a orientação de:}\\
+		\textcolor{darkBlue}{Luís Ferreira}\\
+	}
+	\date{\textcolor{darkBlue}{Barcelos, \today}}
+	
+	\maketitle
+	
 	\bigskip
-	\Large{\textcolor{lightBlue}{Relatório do Trabalho Prático}}\\
-	\bigskip
-	\textbf{\Huge{\textcolor{lightBlue}{Linguagens de Programação II}}}
-}
-
-\date{\textcolor{darkBlue}{Barcelos, \today}}
-
+	
+	%Índice de conteúdos
+	\tableofcontents
+	
+	%
+	% Article Text Body
+	%	
+	\input{010.introdution}
+	\input{011.motivation}
+%	\input{012.objective}
+%	\input{013.documentStructure}
+%	\input{020.theoreticalFramework}
+%	\input{030.researchMethodology}
+%	\input{040.workPlan}
+	
+	
+	%
+	% Bibliography
+	%
+	\bibliographystyle{apacite}
+	\bibliography{Proposal}
+	
+		
 \end{document}
