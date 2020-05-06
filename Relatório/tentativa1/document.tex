@@ -1,18 +1,34 @@
-\documentclass[a4paper, 12pt]{report}
+\documentclass[a4paper, 12pt, twoside, openright]{report}
 
 \usepackage[UTF8]{inputenc}
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 
 \input{000.definitions.tex}
 
-\pagenumbering{arabic}
+\pagenumbering{roman}
+
+\title{
+	\textbf{\Large{\textcolor{lightBlue}{Licenciatura em Engenharia de Sistemas Informáticos}}}\\
+	\bigskip
+	\Large{\textcolor{lightBlue}{Relatório de Trabalho Prático para}}\\
+	\bigskip
+	\textbf{\Huge{\textcolor{lightBlue}{Linguagens de Progamação II}}}
+}
+
+\author{
+	\bigskip
+	\huge{\textcolor{lightBlue}{André Cardoso \& José Cosgrove}}\\
+	\huge{\textcolor{lightBlue}{18848 \& 18826}}\\
+	\textcolor{darkBlue}{Trabalho realizado sob a orientação de:}\\
+	\textcolor{darkBlue}{Luís Ferreira}\\
+}
+
+\date{\textcolor{darkBlue}{Barcelos, \today}}
 
 \begin{document}
 	\selectlanguage{portuguese}
 	
-	%
 	% PDF Options
-	%
 	\hypersetup{
 		citecolor=red,
 		breaklinks=true,
@@ -24,9 +40,7 @@
 		pdfcreator={André Cardoso e José Cosgrove}
 	}
 	
-	%
 	% Title and author
-	%
 	\makeatletter
 	\setlength{\@fptop}{0pt}
 	\makeatother
@@ -37,24 +51,6 @@
 		\includegraphics[keepaspectratio, width=\textwidth]{./Figures/ipca.jpg}
 		\label{fig:ipca}
 	\end{figure}
-
-	\title{
-		\textbf{\Large{\textcolor{lightBlue}{Licenciatura em Engenharia de Sistemas Informáticos}}}\\
-		\bigskip
-		\Large{\textcolor{lightBlue}{Relatório de Trabalho Prático para}}\\
-		\bigskip
-		\textbf{\Huge{\textcolor{lightBlue}{Linguagens de Progamação II}}}
-	}
-	
-	
-	\author{
-		\bigskip
-		\huge{\textcolor{lightBlue}{André Cardoso \& José Cosgrove}}\\
-		\huge{\textcolor{lightBlue}{18848 \& 18826}}\\
-		\textcolor{darkBlue}{Trabalho realizado sob a orientação de:}\\
-		\textcolor{darkBlue}{Luís Ferreira}\\
-	}
-	\date{\textcolor{darkBlue}{Barcelos, \today}}
 	
 	\maketitle
 	
@@ -62,24 +58,23 @@
 	
 	%Índice de conteúdos
 	\tableofcontents
-	
-	%
+		
 	% Article Text Body
-	%	
 	\input{010.introdution}
-	\input{011.motivation}
+	\pagenumbering{arabic}
+	\input{011.motivation}								
 %	\input{012.objective}
 %	\input{013.documentStructure}
-%	\input{020.theoreticalFramework}
+	\input{020.enumeraveis}								%feito
+	\input{030.classes}									%feito
+	\input{031.pessoa}									%feito
+	\input{032.jogador e arbitro}						%feito
+	\input{033.equipaJogoCompeticao}
 %	\input{030.researchMethodology}
 %	\input{040.workPlan}
 	
-	
-	%
 	% Bibliography
-	%
 	\bibliographystyle{apacite}
 	\bibliography{Proposal}
-	
 		
 \end{document}

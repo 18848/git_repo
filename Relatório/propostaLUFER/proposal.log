@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.4.11)  25 APR 2020 18:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.4.11)  26 APR 2020 21:00
 entering extended mode
 **./proposal.tex
 (proposal.tex
@@ -1243,11 +1243,11 @@ l.1 ...MARK [0][]{chapter.1}{1 Introdu\347\343o}{}
 
  
 Here is how much of TeX's memory you used:
- 12660 strings out of 480896
- 184408 string characters out of 2908245
- 497137 words of memory out of 3000000
- 28274 multiletter control sequences out of 15000+200000
+ 12649 strings out of 480896
+ 184201 string characters out of 2908245
+ 495768 words of memory out of 3000000
+ 28263 multiletter control sequences out of 15000+200000
  534745 words of font info for 26 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
- 44i,1n,47p,322b,175s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,1n,47p,322b,77s stack positions out of 5000i,500n,10000p,200000b,50000s
 !  ==> Fatal error occurred, no output PDF file produced!

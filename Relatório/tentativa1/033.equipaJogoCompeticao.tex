@@ -1,0 +1,31 @@
+\section{Equipa, Jogo e Competição}
+Estas 3 classes são solitárias, não herdam nem são herança de nem para classe alguma.
+A única relação entre elas e as classes que já falamos é a existência de objetos gerados por elas.
+\text{Nota:} Nas próximas classes, será possível encontrar arrays, pelo que os construtores de cada classe contêm um ciclo que lhes permite acessar todas as posições, que é utilizado na construção do objeto.
+\linebreak
+\subsection{Equipa}
+Membros: 
+\begin{itemize}
+	\item[\textbf{string}] nome
+	\item[\textbf{DateTime}] fundacao
+	\item[\textbf{Jogador[]}] jogadores
+	\item[\textbf{const int}] max
+	\item[\textbf{int}] totJogadores
+\end{itemize}
+
+\subsection{Jogo}
+Membros: 
+\begin{itemize}
+	\item[\textbf{Equipa}] equipaA
+	\item[\textbf{Equipa}] equipaB
+	\item[\textbf{Arbitro[]}] arbitros
+\end{itemize}
+
+\subsection{Competição}
+
+Membros: 
+\begin{itemize}
+	\item[\textbf{Equipa[]}] equipas
+	\item[\textbf{DateTime}] inicio
+	\item[\textbf{DateTime}] fim
+\end{itemize}

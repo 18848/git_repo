@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.4.11)  25 APR 2020 19:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7380 64-bit) (preloaded format=pdflatex 2020.4.11)  26 APR 2020 23:01
 entering extended mode
 **./document.tex
 (document.tex
@@ -1137,22 +1137,22 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 (document.aux)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1161,7 +1161,7 @@ LaTeX Font Info:    ... okay on input line 10.
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
+* modes: twoside 
 * h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
 * v-part:(T,H,B)=(85.35826pt, 702.78308pt, 56.9055pt)
 * \paperwidth=597.50787pt
@@ -1175,7 +1175,7 @@ LaTeX Font Info:    ... okay on input line 10.
 * \headsep=25.0pt
 * \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=35.0pt
+* \marginparwidth=85.0pt
 * \marginparsep=10.0pt
 * \columnsep=20.0pt
 * \skip\footins=10.8pt plus 4.0pt minus 2.0pt
@@ -1183,8 +1183,8 @@ LaTeX Font Info:    ... okay on input line 10.
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
+* \@twosidetrue
+* \@mparswitchtrue
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
@@ -1215,7 +1215,7 @@ Package: ltcaption 2018/08/26 v1.4a longtable captions (AR)
 )
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box110
-Package hyperref Info: Link coloring OFF on input line 10.
+Package hyperref Info: Link coloring OFF on input line 28.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1228,9 +1228,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count343
 )
-LaTeX Info: Redefining \ref on input line 10.
-LaTeX Info: Redefining \pageref on input line 10.
-LaTeX Info: Redefining \nameref on input line 10.
+LaTeX Info: Redefining \ref on input line 28.
+LaTeX Info: Redefining \pageref on input line 28.
+LaTeX Info: Redefining \nameref on input line 28.
 
 (document.out) (document.out)
 \@outlinefile=\write3
@@ -1243,27 +1243,27 @@ File: english.apc 2013/07/21 v6.03 apacite language file
 LaTeX Info: Redefining \BPBI on input line 129.
 LaTeX Info: Redefining \BHBI on input line 130.
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 25.
-Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 25.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 25.
-<./Figures/ipca.jpg, id=15, 567.648pt x 159.3225pt>
+Package hyperref Info: Option `breaklinks' set `true' on input line 41.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 41.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 41.
+<./Figures/ipca.jpg, id=55, 567.648pt x 159.3225pt>
 File: ./Figures/ipca.jpg Graphic file (type jpg)
 <use ./Figures/ipca.jpg>
-Package pdftex.def Info: ./Figures/ipca.jpg  used on input line 37.
+Package pdftex.def Info: ./Figures/ipca.jpg  used on input line 51.
 (pdftex.def)             Requested size: 483.69687pt x 135.76265pt.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 60
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 56
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 60.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 56.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 60.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
@@ -1271,54 +1271,87 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/Users/andre/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./Figures/i
-pca.jpg>]
+pca.jpg>] [2
+
+]
 (document.toc)
 \tf@toc=\write4
 \openout4 = `document.toc'.
 
- (010.introdution.texpdfTeX warning (ext4): destination with the same identifie
-r (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1 \chapter
-            {Introdução} [1
+ (010.introdution.tex [3] [4
 
 ]
 Cap\'{\i }tulo 1.
-[2
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 5
+.
+("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ts1ptm.fd"
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)) (011.motivation.tex) (020.enumeraveis.tex [1] [2
 
-]) (011.motivation.tex) (document.bbl [3]
+]
+Cap\'{\i }tulo 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--9
+
+ []
+
+) (030.classes.tex [3] [4
+
+]
+Cap\'{\i }tulo 3.
+) (031.pessoa.tex) ("032.jogador e arbitro.tex"
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+) (033.equipaJogoCompeticao.tex [5]
+Underfull \hbox (badness 10000) in paragraph at lines 2--6
+
+ []
+
+[6]) (document.bbl [7] [8
+
+]
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
- [4
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 80.
+ [9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 80.
  (document.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 80.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 80.
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 56891B731BAA6FAB2F5039A4BCBA97B6;163.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
+(rerunfilecheck)             Checksum: 99AA2B4286D99E20A7C35B116A9BDAA8;791.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 80.
  ) 
 Here is how much of TeX's memory you used:
- 12844 strings out of 480896
- 187251 string characters out of 2908245
- 499108 words of memory out of 3000000
- 28380 multiletter control sequences out of 15000+200000
- 569149 words of font info for 94 fonts, out of 3000000 for 9000
+ 12935 strings out of 480896
+ 188724 string characters out of 2908245
+ 501530 words of memory out of 3000000
+ 28422 multiletter control sequences out of 15000+200000
+ 575114 words of font info for 99 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
- 44i,8n,47p,326b,426s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,8n,47p,329b,458s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
-times/utmr8a.pfb>
-Output written on document.pdf (5 pages, 74966 bytes).
+times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb
+>
+Output written on document.pdf (13 pages, 105475 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 10 named destinations out of 1000 (max. 500000)
- 30 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 153 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
+ 110 words of extra memory for PDF output out of 10000 (max. 10000000)
 
