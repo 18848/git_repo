@@ -6,44 +6,46 @@
 *   <date>5/18/2020 5:20:23 PM</date>
 *	<description></description>
 **/
-using GandaProjetoLP.Models;
 using System;
+using ProjetoLP.Controllers;
+using ProjetoLP.Models;
 
-namespace GandaProjetoLP.View
+namespace ProjetoLP.View
 {
     public interface IArbitroView
     {
-        void Formacao();
-        void Categoria();
-        void Associacao();
+        void SetFormacao();
+        void SetCategoria();
+        void SetAssociacao();
+
+        void ShowData();
     }
 
     /// <summary>
-    /// 
+    /// Arbitro View.
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
     public class ArbitroView : IArbitroView
     {
-        #region Attributes
         private IArbitroController controller;
-        #endregion
-
-        #region Methods
 
         #region Constructors
 
         /// <summary>
-        /// The default Constructor.
+        /// View Constructor. Sets |Controller - View| relationship.
         /// </summary>
-        public ArbitroView()
+        /// <param name="aC"> Controller. </param>
+        public ArbitroView(IArbitroController aC)
         {
+            controller = aC;
+            controller.SetView(this);
         }
 
         #endregion
 
         #region Properties
-        public void Formacao()
+        public void SetFormacao()
         {
             string aux;
             DateTime f;
@@ -52,12 +54,12 @@ namespace GandaProjetoLP.View
             aux = Console.ReadLine();
             
             if ( DateTime.TryParse(aux, out f) )
-                controller.Formacao(f);
+                controller.SetFormacao(f);
             
             ///else throw exception
         }
 
-        public void Categoria()
+        public void SetCategoria()
         {
             string aux;
             CATEGORIA c;
@@ -74,10 +76,10 @@ namespace GandaProjetoLP.View
             aux = Console.ReadLine();
 
             if (CATEGORIA.TryParse(aux, out c))
-                controller.Categoria(c);
+                controller.SetCategoria(c);
         }
 
-        public void Associacao()
+        public void SetAssociacao()
         {
             string aux;
             ASSOCIACAO a;
@@ -94,7 +96,7 @@ namespace GandaProjetoLP.View
             aux = Console.ReadLine();
 
             if ( ASSOCIACAO.TryParse(aux, out a) )
-                controller.Associacao(a);
+                controller.SetAssociacao(a);
         }
         #endregion
 
@@ -103,9 +105,15 @@ namespace GandaProjetoLP.View
         #endregion
 
         #region OtherMethods
-        #endregion
-
-        
+        /// <summary>
+        /// Presents Data to Screen.
+        /// </summary>
+        public void ShowData()
+        {
+            Console.WriteLine("Formação:" + controller.GetFormacao());
+            Console.WriteLine("Categoria:" + controller.GetCategoria());
+            Console.WriteLine("Associação:" + controller.GetAssociacao());
+        }
         #endregion
     }
 }

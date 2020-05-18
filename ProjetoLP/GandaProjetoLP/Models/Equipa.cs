@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GandaProjetoLP.Models
+namespace ProjetoLP.Models
 {
     #region ENUMS 
     #endregion

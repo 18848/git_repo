@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GandaProjetoLP.Models
+namespace ProjetoLP.Models
 {
     #region ENUMS
     /// <summary>
@@ -54,6 +54,9 @@ namespace GandaProjetoLP.Models
     }
     #endregion
 
+    /// <summary>
+    /// Interface Model: Arbitro
+    /// </summary>
     public interface IArbitroModel
     {
         DateTime Formacao { get; set; }
