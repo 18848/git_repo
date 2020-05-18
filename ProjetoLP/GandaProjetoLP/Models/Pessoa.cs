@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace GandaProjetoLP.Classes
+namespace GandaProjetoLP.Models
 {
     #region ENUMS
     #endregion
 
-    class Pessoa
+    public class Pessoa
     {
         #region MEMBER VARIABLES
         private string nome;

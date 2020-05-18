@@ -4,57 +4,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GandaProjetoLP.Classes
+namespace GandaProjetoLP.Models
 {
     #region ENUMS
     /// <summary>
     /// Enumerado para as possiveis categorias
     /// </summary>
-    enum CATEGORIA
+    public enum CATEGORIA
     {
-        ND,
-        Internacional,
+        ND = 0,
+        INTERNACIONAL,
         C1,
         C2,
         C3,
         C4,
         C5,
         C6,
-        Estagiario
+        ESTAGIARIO
     }
 
     /// <summary>
     /// Enumerado para as possiveis associacoes (distrito)
     /// </summary>
-    enum ASSOCIACAO
+    public enum ASSOCIACAO
     {
-        ND,
-        Algarve,
-        Angra_Heroismo,
-        Aveiro,
-        Beja,
-        Braga,
-        Braganca,
-        Castelo_Branco,
-        Coimbra,
-        Evora,
-        Guarda,
-        Horta,
-        Leiria,
-        Lisboa,
-        Madeira,
-        Ponta_Delgada,
-        Portalegre,
-        Porto,
-        Santarem,
-        Setubal,
-        Viana_Castelo,
-        Vila_Real,
-        Viseu
+        ND = 0,
+        ALGARVE,
+        ANGRA_HEROISMO,
+        AVEIRO,
+        BEJA,
+        BRAGA,
+        BRAGANCA,
+        CASTELO_BRANCO,
+        COIMBRA,
+        EVORA,
+        GUARDA,
+        HORTA,
+        LEIRIA,
+        LISBOA,
+        MADEIRA,
+        PONTA_DELGADA,
+        PORTALEGRE,
+        PORTO,
+        SANTAREM,
+        SETUBAL,
+        VIANA_CASTELO,
+        VILA_REAL,
+        VISEU
     }
     #endregion
 
-    class Arbitro : Pessoa
+    public interface IArbitroModel
+    {
+        DateTime Formacao { get; set; }
+        CATEGORIA Categoria { get; set; }
+        ASSOCIACAO Associacao { get; set; }
+    }
+
+    public class Arbitro : Pessoa, IArbitroModel
     {
         #region MEMBER VARIABLES
         private DateTime formacao;

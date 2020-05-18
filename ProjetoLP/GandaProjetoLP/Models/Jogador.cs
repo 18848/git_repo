@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GandaProjetoLP.Classes
+namespace GandaProjetoLP.Models
 {
     #region ENUMS
     /// <summary>
