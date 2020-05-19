@@ -34,7 +34,7 @@ namespace ProjetoLP.Controllers
 
 	public class ArbitroController : IArbitroController
 	{
-		private IArbitroModel arbitro;
+		private IArbitroModel model;
 		private IArbitroView view;
 
 		//public int Criar()
@@ -46,11 +46,11 @@ namespace ProjetoLP.Controllers
 		/// <summary>
 		/// MVC Constructor.
 		/// </summary>
-		/// <param name="model"> Model. </param>
+		/// <param name="m"> Model. </param>
 		/// <param name="v"> View. </param>
-		public ArbitroController(IArbitroModel model, IArbitroView v)
+		public ArbitroController(IArbitroModel m, IArbitroView v)
 		{
-			arbitro = model;
+			model = m;
 			view = v;
 		}
 
@@ -59,7 +59,7 @@ namespace ProjetoLP.Controllers
 		/// </summary>
 		public ArbitroController()
 		{
-			arbitro = new Arbitro();
+			model = new Arbitro();
 
 			#region VIEW
 			view = new ArbitroView(this);
@@ -81,22 +81,22 @@ namespace ProjetoLP.Controllers
 		/// <param name="aModel"> Model. </param>
 		public void SetModel(IArbitroModel aModel)
 		{
-			this.arbitro = aModel;
+			this.model = aModel;
 		}
 
         #region Set Data.
         public void SetFormacao(DateTime f)
 		{
-			arbitro.Formacao = f;
+			model.Formacao = f;
 		}
 
 		public void SetCategoria(CATEGORIA c)
 		{
-			arbitro.Categoria = c;
+			model.Categoria = c;
 		}
 		public void SetAssociacao(ASSOCIACAO a)
 		{
-			arbitro.Associacao = a;
+			model.Associacao = a;
 		}
         #endregion
         
@@ -107,7 +107,7 @@ namespace ProjetoLP.Controllers
 		/// <returns> Data de Formacao. </returns>
 		public DateTime GetFormacao()
 		{
-			return arbitro.Formacao;
+			return model.Formacao;
 		}
 
 		/// <summary>
@@ -116,7 +116,7 @@ namespace ProjetoLP.Controllers
 		/// <returns> Categoria Atual. </returns>
 		public CATEGORIA GetCategoria()
 		{
-			return arbitro.Categoria;
+			return model.Categoria;
 		}
 
 		/// <summary>
@@ -125,7 +125,7 @@ namespace ProjetoLP.Controllers
 		/// <returns> Associacao Atual. </returns>
 		public ASSOCIACAO GetAssociacao()
 		{
-			return arbitro.Associacao;
+			return model.Associacao;
 		}
 
         #endregion

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ArbitroController.cs" />
+    <Compile Include="Controllers\PessoaController.cs" />
     <Compile Include="Models\Arbitro.cs" />
     <Compile Include="Models\Competicao.cs" />
     <Compile Include="Models\Equipa.cs" />

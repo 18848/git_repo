@@ -13,9 +13,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GandaProjetoLP.Classes;
+using ProjetoLP.Controllers;
 
-namespace GandaProjetoLP
+namespace ProjetoLP
 {
     class Program
     {

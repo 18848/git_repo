@@ -5,7 +5,16 @@ namespace ProjetoLP.Models
     #region ENUMS
     #endregion
 
-    public class Pessoa
+    public interface IPessoaModel
+    {
+        string Nome { get; set; }
+        string Nacionalidade { get; set; }
+        DateTime DataNascimento { get; set; }
+        float Altura { get; set; }
+        float Peso { get; set; }
+    }
+
+    public class Pessoa : IPessoaModel
     {
         #region MEMBER VARIABLES
         private string nome;
