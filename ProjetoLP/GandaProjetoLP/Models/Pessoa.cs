@@ -51,7 +51,7 @@ namespace ProjetoLP.Models
         {
             this.nome = "";
             this.nacionalidade = "";
-            this.dataNascimento = DateTime.Now;
+            this.dataNascimento = DateTime.Now.Date;
             this.altura = 0;
             this.peso = 0;
         }

@@ -6,21 +6,14 @@ using System.Threading.Tasks;
 
 namespace ProjetoLP.Models
 {
-    #region ENUMS
-    /// <summary>
-    /// Enumerado para Resultado de Operação
-    /// </summary>
-    enum POSICAO
+    public interface IJogadorModel
     {
-        ND,
-        GuardaRedes,
-        Defesa,
-        Medio,
-        Avancado
+        string Alcunha { get; set; }
+        int Numero { get; set; }
+        POSICAO Posicao { get; set; }
     }
-    #endregion
 
-    class Jogador : Pessoa
+    class Jogador : Pessoa, IJogadorModel
     {
         #region MEMBER VARIABLES
         private string alcunha;

@@ -17,6 +17,73 @@ using ProjetoLP.Controllers;
 
 namespace ProjetoLP
 {
+
+    #region ENUMS
+
+    #region ARBITRO
+    /// <summary>
+    /// Enumerado para as possiveis CATEGORIAS
+    /// </summary>
+    public enum CATEGORIA
+    {
+        ND = 0,
+        INTERNACIONAL,
+        C1,
+        C2,
+        C3,
+        C4,
+        C5,
+        C6,
+        ESTAGIARIO
+    }
+
+    /// <summary>
+    /// Enumerador para as possiveis ASSOCIACOES (distritos)
+    /// </summary>
+    public enum ASSOCIACAO
+    {
+        ND = 0,
+        ALGARVE,
+        ANGRA_HEROISMO,
+        AVEIRO,
+        BEJA,
+        BRAGA,
+        BRAGANCA,
+        CASTELO_BRANCO,
+        COIMBRA,
+        EVORA,
+        GUARDA,
+        HORTA,
+        LEIRIA,
+        LISBOA,
+        MADEIRA,
+        PONTA_DELGADA,
+        PORTALEGRE,
+        PORTO,
+        SANTAREM,
+        SETUBAL,
+        VIANA_CASTELO,
+        VILA_REAL,
+        VISEU
+    }
+    #endregion
+
+    #region JOGADOR
+    /// <summary>
+    /// Enumerador para POSICAO
+    /// </summary>
+    public enum POSICAO
+    {
+        ND,
+        GUARDA_REDES,
+        DEFESA,
+        MEDIO,
+        AVANCADO
+    }
+    #endregion
+
+    #endregion
+
     class Program
     {
         static void Main(string[] args)

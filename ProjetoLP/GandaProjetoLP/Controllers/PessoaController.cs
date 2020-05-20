@@ -9,6 +9,7 @@
 using System;
 using ProjetoLP.View;
 using ProjetoLP.Models;
+using System.Data;
 
 namespace GandaProjetoLP.Controllers
 {
@@ -19,13 +20,18 @@ namespace GandaProjetoLP.Controllers
         void SetNome(string n);
         void SetNacionalidade(string n);
         void SetDataNascimento(DateTime d);
-        void SetAltura(float h);
+        void SetAltura(float a);
+        void SetPeso(float p);
 
         string GetNome();
         string GetNacionalidade();
         DateTime GetDataNascimento();
         float GetAltura();
         float GetPeso();
+
+
+        void AskAltura();
+        void AskPeso();
     }
 
     /// <summary>
@@ -60,6 +66,8 @@ namespace GandaProjetoLP.Controllers
             model = new Pessoa();
 
             #region VIEW
+            view = new PessoaView(this);
+
             view.SetNome();
             view.SetDataNascimento();
             view.SetNacionalidade();
@@ -142,6 +150,20 @@ namespace GandaProjetoLP.Controllers
         }
 
         #endregion
+
+        public void AskAltura()
+        {
+            if (view != null)
+                view.SetAltura();
+        }
+
+        public void AskPeso()
+        {
+            if (view != null)
+                view.SetPeso();
+                view.SetPeso();
+        }
+
         #endregion
 
         #endregion

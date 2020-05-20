@@ -6,8 +6,8 @@
 *   <date>5/18/2020 7:18:33 PM</date>
 *	<description></description>
 **/
-using GandaProjetoLP.Controllers;
 using System;
+using GandaProjetoLP.Controllers;
 
 namespace ProjetoLP.View
 {
@@ -23,9 +23,7 @@ namespace ProjetoLP.View
     }
 
     /// <summary>
-    /// Purpose:
-    /// Created by: Andre
-    /// Created on: 5/18/2020 7:18:33 PM
+    /// Pessoa View.
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
@@ -88,14 +86,17 @@ namespace ProjetoLP.View
         #endregion
 
 
-
         #region Overrides
         #endregion
 
         #region OtherMethods
         public void ShowData()
         {
-            //Console.WriteLine("Nome: " + controller.Get)
+            Console.WriteLine("Nome: " + controller.GetNome());
+            Console.WriteLine("Idade: " + (DateTime.Today.Year - controller.GetDataNascimento().Year ));
+            Console.WriteLine("Nacionalidade: " + controller.GetNacionalidade());
+            Console.WriteLine("Altura: " + controller.GetAltura());
+            Console.WriteLine("Peso: " + controller.GetPeso());
         }
         #endregion
 

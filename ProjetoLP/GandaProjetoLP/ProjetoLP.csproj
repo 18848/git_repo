@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0E62424F-D992-4578-B854-CDC441BAFE82}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>GandaProjetoLP</RootNamespace>
-    <AssemblyName>GandaProjetoLP</AssemblyName>
+    <RootNamespace>ProjetoLP</RootNamespace>
+    <AssemblyName>ProjetoLP</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ArbitroController.cs" />
+    <Compile Include="Controllers\JogadorController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
     <Compile Include="Models\Arbitro.cs" />
     <Compile Include="Models\Competicao.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\ArbitroView.cs" />
+    <Compile Include="View\JogadorView.cs" />
     <Compile Include="View\PessoaView.cs" />
   </ItemGroup>
   <ItemGroup>

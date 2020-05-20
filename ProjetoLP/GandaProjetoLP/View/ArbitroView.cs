@@ -7,8 +7,8 @@
 *	<description></description>
 **/
 using System;
+using ProjetoLP;
 using ProjetoLP.Controllers;
-using ProjetoLP.Models;
 
 namespace ProjetoLP.View
 {
@@ -50,7 +50,7 @@ namespace ProjetoLP.View
             string aux;
             DateTime f;
 
-            Console.WriteLine("Data de Formação: ");
+            Console.Write("Data de Formação: ");
             aux = Console.ReadLine();
             
             if ( DateTime.TryParse(aux, out f) )
@@ -72,7 +72,7 @@ namespace ProjetoLP.View
             Console.WriteLine("6 -> C5");
             Console.WriteLine("7 -> C6");
             Console.WriteLine("8 -> ESTAGIARIO");
-            Console.WriteLine("Categoria: ");
+            Console.Write("Categoria: ");
             aux = Console.ReadLine();
 
             if (CATEGORIA.TryParse(aux, out c))
@@ -83,20 +83,38 @@ namespace ProjetoLP.View
         {
             string aux;
             ASSOCIACAO a;
-
-            Console.WriteLine("1 -> ALGARVE");
-            //Console.WriteLine("2 -> BRAGA");
-            //Console.WriteLine("3 -> C2");
-            //Console.WriteLine("4 -> C3");
-            //Console.WriteLine("5 -> C4");
-            //Console.WriteLine("6 -> C5");
-            //Console.WriteLine("7 -> C6");
-            Console.WriteLine("8 -> VISEU");
-            Console.WriteLine("Categoria: ");
+            #region WriteLine
+            Console.WriteLine(" 1 -> ALGARVE");
+            Console.WriteLine(" 2 -> ANGRA_HEROISMO");
+            Console.WriteLine(" 3 -> AVEIRO");
+            Console.WriteLine(" 4 -> BEJA");
+            Console.WriteLine(" 5 -> BRAGA");
+            Console.WriteLine(" 6 -> BRAGANCA");
+            Console.WriteLine(" 7 -> CASTELO_BRANCO");
+            Console.WriteLine(" 8 -> COIMBRA");
+            Console.WriteLine(" 9 -> EVORA");
+            Console.WriteLine("10 -> GUARDA");
+            Console.WriteLine("11 -> HORTA");
+            Console.WriteLine("12 -> LEIRIA");
+            Console.WriteLine("13 -> LISBOA");
+            Console.WriteLine("14 -> MADEIRA");
+            Console.WriteLine("15 -> PONTA_DELGADA");
+            Console.WriteLine("16 -> COIMBRA");
+            Console.WriteLine("17 -> PORTALEGRE");
+            Console.WriteLine("18 -> PORTO");
+            Console.WriteLine("19 -> SANTAREM");
+            Console.WriteLine("20 -> SETUBAL");
+            Console.WriteLine("21 -> VIANA_CASTELO");
+            Console.WriteLine("22 -> VILA_REAL");
+            Console.WriteLine("23 -> VISEU");
+            #endregion
+            Console.Write("Categoria: ");
             aux = Console.ReadLine();
 
-            if ( ASSOCIACAO.TryParse(aux, out a) )
+            if (ASSOCIACAO.TryParse(aux, out a))
                 controller.SetAssociacao(a);
+            //else
+                //Console.WriteLine(Exception e);
         }
         #endregion
 
@@ -110,7 +128,7 @@ namespace ProjetoLP.View
         /// </summary>
         public void ShowData()
         {
-            Console.WriteLine("Formação:" + controller.GetFormacao());
+            Console.WriteLine("Formação:" + controller.GetFormacao().Date);
             Console.WriteLine("Categoria:" + controller.GetCategoria());
             Console.WriteLine("Associação:" + controller.GetAssociacao());
         }

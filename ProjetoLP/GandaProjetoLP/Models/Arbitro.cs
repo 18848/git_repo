@@ -6,54 +6,6 @@ using System.Threading.Tasks;
 
 namespace ProjetoLP.Models
 {
-    #region ENUMS
-    /// <summary>
-    /// Enumerado para as possiveis categorias
-    /// </summary>
-    public enum CATEGORIA
-    {
-        ND = 0,
-        INTERNACIONAL,
-        C1,
-        C2,
-        C3,
-        C4,
-        C5,
-        C6,
-        ESTAGIARIO
-    }
-
-    /// <summary>
-    /// Enumerado para as possiveis associacoes (distrito)
-    /// </summary>
-    public enum ASSOCIACAO
-    {
-        ND = 0,
-        ALGARVE,
-        ANGRA_HEROISMO,
-        AVEIRO,
-        BEJA,
-        BRAGA,
-        BRAGANCA,
-        CASTELO_BRANCO,
-        COIMBRA,
-        EVORA,
-        GUARDA,
-        HORTA,
-        LEIRIA,
-        LISBOA,
-        MADEIRA,
-        PONTA_DELGADA,
-        PORTALEGRE,
-        PORTO,
-        SANTAREM,
-        SETUBAL,
-        VIANA_CASTELO,
-        VILA_REAL,
-        VISEU
-    }
-    #endregion
-
     /// <summary>
     /// Interface Model: Arbitro
     /// </summary>

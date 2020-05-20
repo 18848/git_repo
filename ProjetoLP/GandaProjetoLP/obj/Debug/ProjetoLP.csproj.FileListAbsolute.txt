@@ -1,7 +1,7 @@
 D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\obj\Debug\ProjetoLP.csprojAssemblyReference.cache
 D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\obj\Debug\ProjetoLP.csproj.CoreCompileInputs.cache
-D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\obj\Debug\GandaProjetoLP.exe
-D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\obj\Debug\GandaProjetoLP.pdb
-D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\bin\Debug\GandaProjetoLP.exe.config
-D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\bin\Debug\GandaProjetoLP.exe
-D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\bin\Debug\GandaProjetoLP.pdb
+D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\bin\Debug\ProjetoLP.exe.config
+D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\bin\Debug\ProjetoLP.exe
+D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\bin\Debug\ProjetoLP.pdb
+D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\obj\Debug\ProjetoLP.exe
+D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\obj\Debug\ProjetoLP.pdb
