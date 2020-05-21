@@ -104,7 +104,6 @@ namespace ProjetoLP.View
         }
         #endregion
 
-
         #region Overrides
         #endregion
 

@@ -5,3 +5,9 @@ D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\bin\Debug\ProjetoLP.exe
 D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\bin\Debug\ProjetoLP.pdb
 D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\obj\Debug\ProjetoLP.exe
 D:\Universidade\GIT\trabalhos\ProjetoLP\GandaProjetoLP\obj\Debug\ProjetoLP.pdb
+D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP\GandaProjetoLP\bin\Debug\ProjetoLP.exe.config
+D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP\GandaProjetoLP\bin\Debug\ProjetoLP.exe
+D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP\GandaProjetoLP\bin\Debug\ProjetoLP.pdb
+D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP\GandaProjetoLP\obj\Debug\ProjetoLP.csprojAssemblyReference.cache
+D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP\GandaProjetoLP\obj\Debug\ProjetoLP.exe
+D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP\GandaProjetoLP\obj\Debug\ProjetoLP.pdb

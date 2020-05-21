@@ -16,6 +16,7 @@ namespace ProjetoLP.Models
         ASSOCIACAO Associacao { get; set; }
     }
 
+
     public class Arbitro : Pessoa, IArbitroModel
     {
         #region MEMBER VARIABLES

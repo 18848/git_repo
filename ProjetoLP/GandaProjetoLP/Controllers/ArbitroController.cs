@@ -12,35 +12,39 @@ namespace ProjetoLP.Controllers
 {
 	public interface IArbitroController
 	{
-		void SetModel(IArbitroModel aModel);
-
-		//  Data Setters.
-		void SetFormacao(DateTime f);
+        #region Data Setters.
+        void SetFormacao(DateTime f);
 		void SetCategoria(CATEGORIA c);
 		void SetAssociacao(ASSOCIACAO a);
+		#endregion
 
-		//  Data Getters.
+		#region Data Getters.
 		DateTime GetFormacao();
 		CATEGORIA GetCategoria();
 		ASSOCIACAO GetAssociacao();
+		#endregion
 
-		//  View Setter.
-		void SetView(IArbitroView v);
-
-		//  Data Update. (??)
+		#region Data Update.
 		void AskCategoria();
 		void AskAssociacao();
+		#endregion
+
+		#region Data Delete.
+		#endregion
+
+		#region View Setter.
+		void SetView(IArbitroView v);
+		#endregion
+
+		#region Model Setter.
+		void SetModel(IArbitroModel aModel);
+		#endregion
 	}
 
 	public class ArbitroController : IArbitroController
 	{
 		private IArbitroModel model;
 		private IArbitroView view;
-
-		//public int Criar()
-		//{
-
-		//}
 
 		#region Constructors
 		/// <summary>
@@ -59,10 +63,12 @@ namespace ProjetoLP.Controllers
 		/// </summary>
 		public ArbitroController()
 		{
-			model = new Arbitro();
+            #region Model
+            model = new Arbitro();
+            #endregion
 
-			#region VIEW
-			view = new ArbitroView(this);
+            #region VIEW
+            view = new ArbitroView(this);
 
 			view.SetFormacao();
 			view.SetCategoria();
@@ -164,6 +170,5 @@ namespace ProjetoLP.Controllers
 		#endregion
 
 		#endregion
-
 	}
 }

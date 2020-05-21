@@ -15,23 +15,33 @@ namespace GandaProjetoLP.Controllers
 {
     public interface IPessoaController
     {
-        void SetView(IPessoaView v);
-
+        #region Data Setters.
         void SetNome(string n);
         void SetNacionalidade(string n);
         void SetDataNascimento(DateTime d);
         void SetAltura(float a);
         void SetPeso(float p);
+        #endregion
 
+        #region Data Getters.
         string GetNome();
         string GetNacionalidade();
         DateTime GetDataNascimento();
         float GetAltura();
         float GetPeso();
+        #endregion
 
-
+        #region Data Update.
         void AskAltura();
         void AskPeso();
+        #endregion
+
+        #region Data Delete.
+        #endregion
+
+        #region View Setter.
+        void SetView(IPessoaView v);
+        #endregion
     }
 
     /// <summary>

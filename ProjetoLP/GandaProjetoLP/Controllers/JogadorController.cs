@@ -14,20 +14,30 @@ namespace ProjetoLP.Controllers
 {
     public interface IJogadorController
     {
-        void SetView(IJogadorView v);
-
-        //Set Data
+        #region Data Setters.
         void SetAlcunha(string a);
         void SetNumero(int n);
         void SetPosicao(POSICAO p);
+        #endregion
 
+        #region Data Getters.
         string GetAlcunha();
         int GetNumero();
         POSICAO GetPosicao();
+        #endregion
 
+        #region Data Update.
         void AskAlcunha();
         void AskNumero();
         void AskPosicao();
+        #endregion
+
+        #region Data Delete.
+        #endregion
+
+        #region View Setter.
+        void SetView(IJogadorView v);
+        #endregion
     }
 
     /// <summary>
