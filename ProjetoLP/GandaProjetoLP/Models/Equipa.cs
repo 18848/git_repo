@@ -2,36 +2,31 @@
 
 namespace ProjetoLP.Models
 {
-    #region ENUMS 
-    #endregion
+    public interface IEquipaModel
+    {
+        string Nome { get; set; }
+        DateTime Fundacao { get; set; }
+        List<Jogador> Jogadores { get; set; }
+    }
 
-    class Equipa
+    public class Equipa
     {
         #region MEMBER VARIABLES
         private string nome;
         private DateTime fundacao;
-        private Jogador[] jogadores = new Jogador[20];
+        private List<Jogador> jogadores;
         const int max = 100; //<<<<<<<<<<< que achas?
         int totJogadores;
         #endregion
 
 
         #region CONSTRUCTORS
-        /// <summary>
-        /// Construtor cheio
-        /// </summary>
-        /// <param name="nome">Nome da Equipa</param>
-        /// <param name="fundacao">Data de Fundacao</param>
-        /// <param name="jogador">Array de Jogadores</param>
-        public Equipa(string nome, DateTime fundacao, Jogador[] jogador)
+        ///
+        public Equipa(string n, DateTime f, List<Jogador> j)
         {
-            this.nome = nome;
-            this.fundacao = fundacao;
-
-            for(int i=0; i<this.jogadores.Length; i++)
-            {
-                this.jogadores[i] = jogador[i];
-            }
+            this.nome = n;
+            this.fundacao = f;
+            this.jogadores.
         }
 
 

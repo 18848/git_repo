@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace ProjetoLP.Models
 {
-    #region ENUMS
-    #endregion
+    public interface ICompeticaoModel
+    {
+        List<Equipa> Equipas { get; set; }
+        DateTime Inicio { get; set; }
+        DateTime Fim { get; set; }
+    }
 
-    class Competicao
+    class Competicao : ICompeticaoModel
     {
         #region MEMBER VARIABLES
-        private Equipa[] equipa;
+        private List<Equipa> equipas;
         private DateTime inicio;
         private DateTime fim;
         #endregion
@@ -23,11 +27,11 @@ namespace ProjetoLP.Models
         /// Construtor cheio
         /// </summary>
         /// <param name="inicio">Inicio da competicao</param>
-        /// <param name="max"></param>
+        /// <param name="max">Numero maximo de elementos da competicao</param>
         public Competicao(DateTime inicio, int max)
         {
             this.inicio = inicio;
-            equipa = new Equipa[max];
+            equipas = new List<Equipa>(max);
         }
 
 
@@ -36,11 +40,19 @@ namespace ProjetoLP.Models
         /// </summary>
         public Competicao()
         {
+            this.inicio = DateTime.Now;
+            equipas = new List<Equipa>();
         }
         #endregion
 
 
         #region PROPERTIES
+        public List<Equipa> Equipas
+        {
+            get { return equipas; }
+            set { equipas = value; }
+        }
+
         /// <summary>
         /// Manipula o atributo "inicio"
         /// </summary>
@@ -67,6 +79,7 @@ namespace ProjetoLP.Models
 
         #region OVERIDES
         #endregion
+
         /// <summary>
         /// Destructor -> Termina e apresenta a data do fim do campeonato.
         /// </summary>
