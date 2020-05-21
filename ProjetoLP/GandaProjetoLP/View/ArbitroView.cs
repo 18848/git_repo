@@ -47,13 +47,8 @@ namespace ProjetoLP.View
         #region Properties
         public void SetFormacao()
         {
-            string aux;
-            DateTime f;
-
             Console.Write("Data de Formação: ");
-            aux = Console.ReadLine();
-            
-            if ( DateTime.TryParse(aux, out f) )
+            if ( DateTime.TryParse(Console.ReadLine(), out DateTime f) )
                 controller.SetFormacao(f);
             
             ///else throw exception
@@ -61,9 +56,6 @@ namespace ProjetoLP.View
 
         public void SetCategoria()
         {
-            string aux;
-            CATEGORIA c;
-
             Console.WriteLine("1 -> INTERNATIONAL");
             Console.WriteLine("2 -> C1");
             Console.WriteLine("3 -> C2");
@@ -73,16 +65,12 @@ namespace ProjetoLP.View
             Console.WriteLine("7 -> C6");
             Console.WriteLine("8 -> ESTAGIARIO");
             Console.Write("Categoria: ");
-            aux = Console.ReadLine();
-
-            if (CATEGORIA.TryParse(aux, out c))
+            if (CATEGORIA.TryParse(Console.ReadLine(), out CATEGORIA c))
                 controller.SetCategoria(c);
         }
 
         public void SetAssociacao()
         {
-            string aux;
-            ASSOCIACAO a;
             #region WriteLine
             Console.WriteLine(" 1 -> ALGARVE");
             Console.WriteLine(" 2 -> ANGRA_HEROISMO");
@@ -109,9 +97,7 @@ namespace ProjetoLP.View
             Console.WriteLine("23 -> VISEU");
             #endregion
             Console.Write("Categoria: ");
-            aux = Console.ReadLine();
-
-            if (ASSOCIACAO.TryParse(aux, out a))
+            if (ASSOCIACAO.TryParse(Console.ReadLine(), out ASSOCIACAO a))
                 controller.SetAssociacao(a);
             //else
                 //Console.WriteLine(Exception e);

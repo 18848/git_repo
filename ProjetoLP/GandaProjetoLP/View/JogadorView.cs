@@ -29,7 +29,7 @@ namespace ProjetoLP.View
     /// <example></example>
     public class JogadorView : IJogadorView
     {
-        IJogadorController controller;
+        private IJogadorController controller;
 
         #region Methods
 
@@ -52,18 +52,14 @@ namespace ProjetoLP.View
         }
         public void SetNumero()
         {
-            int aux;
-
             Console.Write("Número: ");
-            if( int.TryParse(Console.ReadLine(), out aux) )
+            if( int.TryParse(Console.ReadLine(), out int aux) )
                 controller.SetNumero(aux);
         }
         public void SetPosicao()
         {
-            POSICAO aux;
-
             Console.Write("Posição: ");
-            if (POSICAO.TryParse(Console.ReadLine(), out aux))
+            if (POSICAO.TryParse(Console.ReadLine(), out POSICAO aux))
                 controller.SetPosicao(aux);
         }
         
