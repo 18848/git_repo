@@ -1,5 +1,5 @@
 ﻿/*
-*	<copyright file="GandaProjetoLP.View.cs" company="IPCA">
+*	<copyright file="ProjetoLP.View.cs" company="IPCA">
 *		Copyright (c) 2020 All Rights Reserved
 *	</copyright>
 * 	<author>Andre</author>
@@ -7,7 +7,7 @@
 *	<description></description>
 **/
 using System;
-using GandaProjetoLP.Controllers;
+using ProjetoLP.Controllers;
 
 namespace ProjetoLP.View
 {

@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace ProjetoLP.Models
 {
-    /// <summary>
-    /// Interface Model: Arbitro
-    /// </summary>
     public interface IArbitroModel
     {
         DateTime Formacao { get; set; }

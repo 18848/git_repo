@@ -1,5 +1,5 @@
 ﻿/*
-*	<copyright file="GandaProjetoLP.Controllers.cs" company="IPCA">
+*	<copyright file="ProjetoLP.Controllers.cs" company="IPCA">
 *		Copyright (c) 2020 All Rights Reserved
 *	</copyright>
 * 	<author>Andre</author>
@@ -11,7 +11,7 @@ using ProjetoLP.View;
 using ProjetoLP.Models;
 using System.Data;
 
-namespace GandaProjetoLP.Controllers
+namespace ProjetoLP.Controllers
 {
     public interface IPessoaController
     {

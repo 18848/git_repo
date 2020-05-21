@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+*	<copyright file="ProjetoLP.Controllers.cs" company="IPCA">
+*		Copyright (c) 2020 All Rights Reserved
+*	</copyright>
+* 	<author>Andre</author>
+*   <date>5/21/2020 6:55:01 PM</date>
+*	<description></description>
+**/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

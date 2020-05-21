@@ -43,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auxilliary\EquipaAuxilliary.cs" />
     <Compile Include="Controllers\ArbitroController.cs" />
+    <Compile Include="Controllers\CompeticaoController.cs" />
+    <Compile Include="Controllers\EquipaController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
     <Compile Include="Models\Arbitro.cs" />
@@ -55,6 +58,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\ArbitroView.cs" />
+    <Compile Include="View\CompeticaoView.cs" />
+    <Compile Include="View\EquipaView.cs" />
     <Compile Include="View\JogadorView.cs" />
     <Compile Include="View\PessoaView.cs" />
   </ItemGroup>

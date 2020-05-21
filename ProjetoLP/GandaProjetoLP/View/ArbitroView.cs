@@ -1,5 +1,5 @@
 ﻿/*
-*	<copyright file="GandaProjetoLP.View.cs" company="IPCA">
+*	<copyright file="ProjetoLP.View.cs" company="IPCA">
 *		Copyright (c) 2020 All Rights Reserved
 *	</copyright>
 * 	<author>Andre</author>
@@ -28,10 +28,9 @@ namespace ProjetoLP.View
     /// <example></example>
     public class ArbitroView : IArbitroView
     {
-        private IArbitroController controller;
+        private readonly IArbitroController controller;
 
         #region Constructors
-
         /// <summary>
         /// View Constructor. Sets |Controller - View| relationship.
         /// </summary>
@@ -41,7 +40,6 @@ namespace ProjetoLP.View
             controller = aC;
             controller.SetView(this);
         }
-
         #endregion
 
         #region Properties

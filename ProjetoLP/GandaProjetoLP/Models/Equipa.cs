@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ProjetoLP.Models
 {
@@ -9,14 +10,12 @@ namespace ProjetoLP.Models
         List<Jogador> Jogadores { get; set; }
     }
 
-    public class Equipa
+    public class Equipa : IEquipaModel
     {
         #region MEMBER VARIABLES
         private string nome;
         private DateTime fundacao;
         private List<Jogador> jogadores;
-        const int max = 100; //<<<<<<<<<<< que achas?
-        int totJogadores;
         #endregion
 
 
@@ -26,7 +25,8 @@ namespace ProjetoLP.Models
         {
             this.nome = n;
             this.fundacao = f;
-            this.jogadores.
+            foreach(Jogador jog in j)
+                this.jogadores.Add(jog);
         }
 
 
@@ -36,12 +36,8 @@ namespace ProjetoLP.Models
         public Equipa()
         {
             this.nome = "";
-            this.fundacao = DateTime.Now; 
-            
-            for (int i = 0; i < this.jogadores.Length; i++)
-            {
-                this.jogadores[i] = null;
-            }
+            this.fundacao = DateTime.Now;
+            jogadores = null;
         }
         #endregion
 
@@ -68,7 +64,7 @@ namespace ProjetoLP.Models
         /// <summary>
         /// Manipula o atributo "jogador"
         /// </summary>
-        public Jogador[] Jogador
+        public List<Jogador> Jogadores
         {
             get { return this.jogadores; }
             set { this.jogadores = value; }
@@ -77,18 +73,6 @@ namespace ProjetoLP.Models
 
 
         #region FUNCTIONS
-        /// <summary>
-        /// Registar um jogador novo na equipa
-        /// </summary>
-        /// <param name="jogador">Novo jogador.</param>
-        /// <returns></returns>
-        public int InserirJogador(Jogador jogador)
-        {
-            if (this.totJogadores >= max) return 0;
-
-            jogadores[this.totJogadores++] = jogador;
-            return 1;
-        }
         #endregion
 
 

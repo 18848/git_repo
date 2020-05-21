@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using ProjetoLP.Models;
+using ProjetoLP.View;
+
 namespace ProjetoLP.Models
 {
     public interface ICompeticaoModel
@@ -33,7 +36,6 @@ namespace ProjetoLP.Models
             this.inicio = inicio;
             equipas = new List<Equipa>(max);
         }
-
 
         /// <summary>
         /// Construtor vazio
@@ -78,8 +80,6 @@ namespace ProjetoLP.Models
 
 
         #region OVERIDES
-        #endregion
-
         /// <summary>
         /// Destructor -> Termina e apresenta a data do fim do campeonato.
         /// </summary>
@@ -88,5 +88,6 @@ namespace ProjetoLP.Models
             Fim = DateTime.Now;
             Console.WriteLine($"A competição terminou: {this.fim}");
         }
+        #endregion
     }
 }

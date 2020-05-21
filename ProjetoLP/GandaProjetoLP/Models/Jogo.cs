@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 
 namespace ProjetoLP.Models
 {
-    #region ENUMS
-    #endregion
+    public interface IJogoModel
+    {
+        Equipa EquipaA { get; set; }
+        Equipa EquipaB { get; set; }
+        List<Arbitro> Arbitros { get; set; }
+    }
 
-    class Jogo
+    class Jogo : IJogoModel
     {
         #region MEMBER VARIABLES
-        Equipa equipaA = new Equipa();
-        Equipa equipaB = new Equipa();
-        Arbitro[] arbitros = new Arbitro[4];
+        private Equipa equipaA;
+        private Equipa equipaB;
+        private List<Arbitro> arbitros;
         #endregion
 
 
@@ -25,14 +29,11 @@ namespace ProjetoLP.Models
         /// <param name="equipaA">Equipa A</param>
         /// <param name="equipaB">Equipa B</param>
         /// <param name="arbitros">Equipa de Arbitros</param>
-        public Jogo(Equipa equipaA, Equipa equipaB, Arbitro[] arbitros)
+        public Jogo(Equipa equipaA, Equipa equipaB, List<Arbitro> arbitros)
         {
             this.equipaA = equipaA;
             this.equipaB = equipaB;
-            for (int i = 0; i < this.arbitros.Length; i++)
-            {
-                this.arbitros[i] = arbitros[i];
-            }
+            this.arbitros = arbitros;
         }
 
 
@@ -51,8 +52,8 @@ namespace ProjetoLP.Models
         /// </summary>
         public Equipa EquipaA
         {
-            get;
-            set;
+            get { return equipaA; }
+            set { equipaA = value; }
         }
 
         /// <summary>
@@ -60,8 +61,17 @@ namespace ProjetoLP.Models
         /// </summary>
         public Equipa EquipaB
         {
-            get;
-            set;
+            get { return equipaB; }
+            set { equipaB = value; }
+        }
+
+        /// <summary>
+        /// Manipula o atributo "Arbitros"
+        /// </summary>
+        public List<Arbitro> Arbitros
+        {
+            get { return arbitros; }
+            set { arbitros = value; }
         }
         #endregion
 

@@ -13,7 +13,7 @@ namespace ProjetoLP.Models
         POSICAO Posicao { get; set; }
     }
 
-    class Jogador : Pessoa, IJogadorModel
+    public class Jogador : Pessoa, IJogadorModel
     {
         #region MEMBER VARIABLES
         private string alcunha;
