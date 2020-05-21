@@ -17,7 +17,7 @@ namespace ProjetoLP.View
     {
         void SetNome();
         void SetFundacao();
-        void SetJogador();
+        bool SetJogador();
         void SetJogadores();
     }
 
@@ -48,35 +48,37 @@ namespace ProjetoLP.View
         #endregion
 
         #region Properties
-        void SetNome()
+        public void SetNome()
         {
             Console.Write("Nome: ");
             controller.SetNome(Console.ReadLine());
         }
-        void SetFundacao()
+        public void SetFundacao()
         {
             DateTime aux;
             Console.Write("Data de Fundação: ");
             if (DateTime.TryParse(Console.ReadLine(), out aux))
                 controller.SetFundacao(aux);
         }
-        void SetJogador()
+
+        public bool SetJogador(List<Jogador>)
         {
-            Console.WriteLine("Insira Jogador.");
-            controller.SetJogador();
+            IJogadorController jC = new JogadorController();
+            IJogadorView jV = new JogadorView(jC);
+
+            Console.WriteLine("Alcunha: ");
+            jV.SetAlcunha();
+            Console.WriteLine("Numero: ");
+            jV.SetNumero();
+            Console.WriteLine("Posicao: ");
+            jV.SetPosicao();
+            
         }
 
-        void SetJogadores()
+        public void SetJogadores()
         {
-            Jogador j;
-            bool b;
-            Console.WriteLine("Insira Jogadores.");
-            do
-            {
-                b = controller.SetJogador();
-                j = controller.GetJogador(j.GetIndex);
-            } while (b);
-            controller.SetJogadores()
+            Console.WriteLine("Jogadores.");
+            while(SetJogador())
         }
         #endregion
 

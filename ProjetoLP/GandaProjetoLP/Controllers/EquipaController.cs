@@ -20,7 +20,6 @@ namespace ProjetoLP.Controllers
 
         void SetNome(string n);
         void SetFundacao(DateTime f);
-        bool SetJogador();
         void SetJogadores(Jogador j);
         
         string GetNome();
@@ -43,7 +42,6 @@ namespace ProjetoLP.Controllers
     {
         private IEquipaView view;
         private IEquipaModel model;
-        private IJogadorView jogador;
 
         #region Methods
 
@@ -61,9 +59,7 @@ namespace ProjetoLP.Controllers
 
             view.SetNome();
             view.SetFundacao();
-            view.SetJogador();
             view.SetJogadores();
-
 
             #endregion
         }
@@ -82,25 +78,6 @@ namespace ProjetoLP.Controllers
         {
             model.Fundacao = f;
         }
-        //public Jogador SetJogador()
-        //{
-        //    Jogador jogador;
-        //    try
-        //    {
-        //        jogador.SetAlcunha();
-        //        jogador.SetNumero();
-        //        jogador.SetPosicao();
-        //    }
-        //    catch(FormatException e)
-        //    {
-        //        return null;
-        //    }
-        //    catch(Exception e)
-        //    {
-        //        throw e;
-        //    }
-        //    return jogador;
-        //}
         public void SetJogadores(Jogador j)
         {
             model.Jogadores.Add(j);
