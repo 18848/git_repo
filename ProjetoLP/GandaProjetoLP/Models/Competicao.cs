@@ -12,6 +12,7 @@ namespace ProjetoLP.Models
     public interface ICompeticaoModel
     {
         List<Equipa> Equipas { get; set; }
+        List<Arbitro> Arbitros { get; set; }
         DateTime Inicio { get; set; }
         DateTime Fim { get; set; }
     }
@@ -20,23 +21,14 @@ namespace ProjetoLP.Models
     {
         #region MEMBER VARIABLES
         private List<Equipa> equipas;
+        private List<Arbitro> arbitros;
         private DateTime inicio;
         private DateTime fim;
         #endregion
 
 
         #region CONSTRUCTORS
-        /// <summary>
-        /// Construtor cheio
-        /// </summary>
-        /// <param name="inicio">Inicio da competicao</param>
-        /// <param name="max">Numero maximo de elementos da competicao</param>
-        public Competicao(DateTime inicio, int max)
-        {
-            this.inicio = inicio;
-            equipas = new List<Equipa>(max);
-        }
-
+        
         /// <summary>
         /// Construtor vazio
         /// </summary>
@@ -44,15 +36,23 @@ namespace ProjetoLP.Models
         {
             this.inicio = DateTime.Now;
             equipas = new List<Equipa>();
+            arbitros = new List<Arbitro>();
         }
         #endregion
 
 
         #region PROPERTIES
+        
         public List<Equipa> Equipas
         {
             get { return equipas; }
             set { equipas = value; }
+        }
+
+        public List<Arbitro> Arbitros
+        {
+            get;
+            set;
         }
 
         /// <summary>

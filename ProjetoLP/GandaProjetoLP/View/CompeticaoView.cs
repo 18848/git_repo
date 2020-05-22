@@ -16,6 +16,7 @@ namespace ProjetoLP.View
     public interface ICompeticaoView
     {
         void SetEquipas();
+        void SetArbitros();
         void SetInicio();
         void SetFim();
 
@@ -50,20 +51,38 @@ namespace ProjetoLP.View
         #endregion
 
         #region Properties
+        private bool SetEquipa(IEquipaView eV)
+        {
+            Console.WriteLine("Equipa Nova.");
+            try
+            {
+                eV.SetFundacao();                
+                eV.SetNome();                
+                eV.SetJogadores();      
+            }
+            catch(FormatException e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            catch(OverflowException e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            return true
+        }
+
         public void SetEquipas()
         {
-            List<Equipa> equipas = new List<Equipa>();
-            Equipa equipa = new Equipa();
+            IEquipaController eC = new EquipaController();
+            IEquipaView eV = new EquipaView(eC);
+            Console.WriteLine("Insira as equipas. ('.' para parar)")
+            while(SetEquipa(eV)) { }
+        }
 
-            for (int i=0; i<10; i++) //Nao Definir por 10 --Bad Programming
-            {
-                Console.Write("Insira a " + (i+1).ToString() + "a Equipa: ");
+        public void SetArbitros()
+        {
 
-                equipa.Nome = Console.ReadLine();
-                equipas.Add(equipa);
-            }
-
-            controller.SetEquipas(equipas);
         }
 
         public void SetInicio()

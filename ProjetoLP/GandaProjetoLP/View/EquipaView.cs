@@ -61,17 +61,15 @@ namespace ProjetoLP.View
                 controller.SetFundacao(aux);
         }
 
-        public bool SetJogador(IJogadorView jV)
+        private bool SetJogador(JogadorView jV, out Jogador j)
         {
             Console.WriteLine("Jogador Novo.");
             try
             {
-                Console.WriteLine("Alcunha: ");
                 jV.SetAlcunha();
-                Console.WriteLine("Numero: ");
                 jV.SetNumero();
-                Console.WriteLine("Posicao: ");
                 jV.SetPosicao();
+                j = GetJogador();
             }
             catch(FormatException e)
             {
@@ -91,7 +89,7 @@ namespace ProjetoLP.View
             IJogadorController jC = new JogadorController();
             IJogadorView jV = new JogadorView(jC);
             Console.WriteLine("Jogadores.");
-            while(SetJogador(jV)) { }
+            while(SetJogador(jV)) { controller.}
         }
         #endregion
 
