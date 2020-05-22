@@ -33,7 +33,7 @@ namespace ProjetoLP.Models
         {
             this.equipaA = equipaA;
             this.equipaB = equipaB;
-            this.arbitros = arbitros;
+            this.arbitros = arbitros; 
         }
 
 

@@ -23,8 +23,6 @@ namespace ProjetoLP.Auxilliary
     /// <example></example>
     public class EquipaAuxilliary : IEquipaAuxilliary
     {
-
-
         #region Methods
 
         #region Constructors
