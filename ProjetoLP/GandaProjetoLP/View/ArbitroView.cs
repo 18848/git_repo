@@ -17,6 +17,7 @@ namespace ProjetoLP.View
         void SetFormacao();
         void SetCategoria();
         void SetAssociacao();
+        void SetId();
 
         void ShowData();
     }
@@ -100,6 +101,12 @@ namespace ProjetoLP.View
             //else
                 //Console.WriteLine(Exception e);
         }
+        
+        public void SetId()
+        {
+
+        }
+
         #endregion
 
         #region Overrides

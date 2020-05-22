@@ -24,12 +24,14 @@ namespace ProjetoLP.Controllers
         void SetFormacao(DateTime f);
 		void SetCategoria(CATEGORIA c);
 		void SetAssociacao(ASSOCIACAO a);
+        void SetId(ID id);
 		#endregion
 
 		#region Data Getters.
 		DateTime GetFormacao();
 		CATEGORIA GetCategoria();
 		ASSOCIACAO GetAssociacao();
+        ID GetId();
 		#endregion
 
 		#region Data Update.
@@ -81,6 +83,7 @@ namespace ProjetoLP.Controllers
 			view.SetFormacao();
 			view.SetCategoria();
 			view.SetAssociacao();
+            view.SetId();
 
 			view.ShowData();
 			#endregion

@@ -17,6 +17,7 @@ namespace ProjetoLP.Controllers
     {
         #region Data Setters.
         void SetEquipas(List<Equipa> e);
+        void SetArbitros(List<Arbitro> a);
         void SetInicio(DateTime i);
         void SetFim(DateTime f);
         #endregion

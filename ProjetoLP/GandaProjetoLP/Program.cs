@@ -22,6 +22,13 @@ namespace ProjetoLP
     #region ENUMS
 
     #region ARBITRO
+    struct ID
+    {
+        ASSOCIACAO a;
+        CATEGORIA c;
+        int num;
+    }
+
     /// <summary>
     /// Enumerado para as possiveis CATEGORIAS
     /// </summary>

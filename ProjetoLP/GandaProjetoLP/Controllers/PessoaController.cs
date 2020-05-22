@@ -94,29 +94,28 @@ namespace ProjetoLP.Controllers
         #region Setters
         public void SetNome(string n)
         {
-            
+            model.Nome = n;
         }
         public void SetNacionalidade(string n)
         {
-
+            model.Nacionalidade = n;
         }
         public void SetDataNascimento(DateTime d)
         {
-
+            model.DataNascimento = d;
         }
         public void SetAltura(float a)
         {
-
+            model.Altura = a;
         }
         public void SetPeso(float p)
         {
-
+            model.Peso = p;
         }
 
         #endregion
 
         #region Getters
-
         public string GetNome()
         {
             return model.Nome;

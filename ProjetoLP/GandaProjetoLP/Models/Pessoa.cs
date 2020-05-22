@@ -26,23 +26,6 @@ namespace ProjetoLP.Models
 
 
         #region CONSTRUCTORS
-        /// <summary>
-        /// Construtor com dados vindos do exterior
-        /// </summary>
-        /// <param name="nome">Nome da Pessoa</param>
-        /// <param name="nacionalidade">Nacionalidade da Pessoa</param>
-        /// <param name="dataNascimento">DataNascimento da Pessoa</param>
-        /// <param name="altura">Altura da Pessoa</param>
-        /// <param name="peso">Peso da Pessoa</param>
-        public Pessoa(string nome, string nacionalidade, DateTime dataNascimento, float altura, float peso)
-        {
-            this.nome = nome;
-            this.nacionalidade = nacionalidade;
-            this.dataNascimento = dataNascimento;
-            this.altura = altura;
-            this.peso = peso;
-        }
-
 
         /// <summary>
         /// Construtor sem dados
@@ -55,6 +38,7 @@ namespace ProjetoLP.Models
             this.altura = 0;
             this.peso = 0;
         }
+
         #endregion
 
 
