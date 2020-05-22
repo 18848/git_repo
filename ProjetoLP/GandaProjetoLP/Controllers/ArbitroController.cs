@@ -49,7 +49,7 @@ namespace ProjetoLP.Controllers
 		#endregion
 	}
 
-	public class ArbitroController : IArbitroController
+	public class ArbitroController : PessoaController, IArbitroController
 	{
 		private IArbitroModel model;
 		private IArbitroView view;
@@ -60,7 +60,7 @@ namespace ProjetoLP.Controllers
 		/// </summary>
 		/// <param name="m"> Model. </param>
 		/// <param name="v"> View. </param>
-		public ArbitroController(IArbitroModel m, IArbitroView v)
+		public ArbitroController(IArbitroModel m, IArbitroView v) : base()
 		{
 			model = m;
 			view = v;
@@ -69,7 +69,7 @@ namespace ProjetoLP.Controllers
 		/// <summary>
 		/// Default Constructor.
 		/// </summary>
-		public ArbitroController()
+		public ArbitroController() : base()
 		{
             #region Model
             model = new Arbitro();

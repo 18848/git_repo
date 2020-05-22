@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjetoLP.Controllers;
+using ProjetoLP.View;
 
 namespace ProjetoLP
 {
@@ -88,7 +89,9 @@ namespace ProjetoLP
     {
         static void Main(string[] args)
         {
-            Console.ReadLine();
+            MenuView menu = new MenuView();
+
+            menu.MainMenu();
         }
     }
 }

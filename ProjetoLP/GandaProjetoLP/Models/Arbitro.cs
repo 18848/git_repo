@@ -14,7 +14,7 @@ namespace ProjetoLP.Models
     }
 
 
-    public class Arbitro : Pessoa, IArbitroModel
+    public class Arbitro : Pessoa, IArbitroModel, IPessoaModel
     {
         #region MEMBER VARIABLES
         private DateTime formacao;
