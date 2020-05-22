@@ -35,7 +35,7 @@ namespace ProjetoLP.View
         /// View Constructor. Sets |Controller - View| relationship.
         /// </summary>
         /// <param name="jC"> Controller. </param>
-        public JogoView(IJogoView jC)
+        public JogoView(IJogoController jC)
         {
             controller = jC;
             controller.SetView(this);

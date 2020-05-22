@@ -63,6 +63,7 @@
     <Compile Include="View\EquipaView.cs" />
     <Compile Include="View\JogadorView.cs" />
     <Compile Include="View\JogoView.cs" />
+    <Compile Include="View\MenuView.cs" />
     <Compile Include="View\PessoaView.cs" />
   </ItemGroup>
   <ItemGroup>
