@@ -11,6 +11,7 @@ namespace ProjetoLP.Models
         DateTime Formacao { get; set; }
         CATEGORIA Categoria { get; set; }
         ASSOCIACAO Associacao { get; set; }
+
         ID
     }
 
@@ -26,10 +27,7 @@ namespace ProjetoLP.Models
 
 
         #region CONSTRUCTORS
-
-
-        public Arbitro(DateTime f, CATEGORIA c, ASSOCIACAO a, 
-            string nome, string nac, DateTime d, float altura, float peso) 
+        public Arbitro(DateTime f, CATEGORIA c, ASSOCIACAO a, string nome, string nac, DateTime d, float altura, float peso) 
             : base(nome, nac, d, altura, peso)
         {
             formacao = f;

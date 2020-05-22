@@ -1,0 +1,102 @@
+%
+% Thesis Proposal Template
+% Author: Michael Matias
+% Version: 1.0
+% Note: Use with associated 000.definitions.tex file
+%
+% This Template is based in the Template for Article for Physics Thesis by J. Seixas
+%
+
+\documentclass[10pt,a4paper,twoside,openright]{report}
+
+\input{000.definitions}
+
+\pagenumbering{roman}
+
+\begin{document}
+
+% language selection
+\selectlanguage{portuguese}
+
+%
+% PDF Options
+%
+\hypersetup{
+	colorlinks=false,
+	citecolor=red,
+	breaklinks=true,
+	bookmarksnumbered=true,
+	bookmarksopen=true,
+	pdftitle={<Gestão de Competição Desportiva>},
+	pdfauthor={<José Cosgrove & André Cardoso>},
+	%pdfsubject={<Assunto do Trabalho>},
+	pdfcreator={<Nome do Mestrando>}}
+
+%
+% Title and author
+%
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+
+\begin{figure}[t!]
+	\centering
+	\includegraphics[keepaspectratio, width=\textwidth]{./Figures/ipca.jpg}
+	%\caption{IPCA}
+	\label{fig:ipca}
+  \end{figure}
+
+\title{
+	\textbf{\Large{\textcolor{lightBlue}{Licenciatura em Engenharia de Sistemas Informáticos}}}\\
+	\bigskip
+	\Large{\textcolor{lightBlue}{PROPOSTA DE PROJECTO}}\\
+	\bigskip
+	\textbf{\Huge{\textcolor{lightBlue}{<Gestão de Competição Desportiva>}}}
+}
+
+
+\author{
+	\bigskip
+	\huge{\textcolor{lightBlue}{<Linguagens de Programação II>}}\\
+	\textcolor{darkBlue}{Trabalho realizado sob a orientação de:}\\
+	\textcolor{darkBlue}{<Luís G. M. Ferreira>}\\
+}
+\date{\textcolor{darkBlue}{Barcelos, \today}}
+
+\maketitle
+
+%
+% Keywords
+%
+\bigskip
+\textbf{\Large Keywords:} <Keyword1>, <Keyword2>
+\bigskip
+
+%Índice de conteúdos
+\tableofcontents
+
+%
+% Article Text Body
+%
+
+\input{010.introdution}
+\pagenumbering{arabic}
+\input{011.motivation}
+\input{012.objective}
+\input{013.documentStructure}
+\input{020.classes}
+\input{021.pessoa}
+\input{022.arbitroJogador}
+\input{023.equipaJogoCompeticao}
+\input{030.listas}
+\input{040.arquitetura}
+\input{050.interface}
+
+
+%
+% Bibliography
+%
+\bibliographystyle{apacite}
+\bibliography{Proposal}
+
+\end{document}
