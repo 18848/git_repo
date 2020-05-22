@@ -60,38 +60,44 @@ namespace ProjetoLP.View
             if (DateTime.TryParse(Console.ReadLine(), out aux))
                 controller.SetFundacao(aux);
         }
+        //#region SetJogadores
+        //private bool SetJogador(int id, out )
+        //{
+        //    Console.WriteLine("Equipa Nova.");
+        //    try
+        //    {
+        //        //newJogador = new JogadorController();
+        //    }
+        //    catch (FormatException e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //        newJogador = null;
+        //        return false;
+        //    }
+        //    catch (OverflowException e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //        newJogador = null;
+        //        return false;
+        //    }
+        //    return true;
+        //}
+        //public void SetJogadores()
+        //{
+        //    List<Jogador> jogadorList = new List<Jogador>();
+        //    Console.WriteLine("Insira os arbitros. ('.' para parar)");
+        //    JogadorController newJogador;
+        //    while (SetJogador(1, out newJogador))
+        //    {
+        //        Jogador aux = new Jogador(newJogador.GetAlcunha(), newJogador.GetNumero(),
+        //            newJogador.GetPosicao(), newJogador.GetNome(), newJogador.GetNacionalidade(),
+        //            newJogador.GetDataNascimento(), newJogador.GetAltura(), newJogador.GetPeso());
+        //        jogadorList.Add(aux);
+        //    }
+        //    controller.SetJogadores(jogadorList);
+        //}
 
-        private bool SetJogador(JogadorView jV, out Jogador j)
-        {
-            Console.WriteLine("Jogador Novo.");
-            try
-            {
-                jV.SetAlcunha();
-                jV.SetNumero();
-                jV.SetPosicao();
-                j = GetJogador();
-            }
-            catch(FormatException e)
-            {
-                Console.WriteLine(e.Message);
-                return false;
-            }
-            catch (OverflowException e)
-            {
-                Console.WriteLine(e.Message);
-                return false;
-            }
-            return true;
-        }
-
-        public void SetJogadores()
-        {
-            IJogadorController jC = new JogadorController();
-            IJogadorView jV = new JogadorView(jC);
-            Console.WriteLine("Jogadores.");
-            while(SetJogador(jV)) { controller.}
-        }
-        #endregion
+        //#endregion
 
 
         #region Overrides
@@ -99,7 +105,7 @@ namespace ProjetoLP.View
 
         #region OtherMethods
         #endregion
-                
+
         #endregion
     }
 }

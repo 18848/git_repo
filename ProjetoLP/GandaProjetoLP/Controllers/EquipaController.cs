@@ -20,7 +20,6 @@ namespace ProjetoLP.Controllers
 
         void SetNome(string n);
         void SetFundacao(DateTime f);
-        void SetJogador(Jogador j);
         void SetJogadores(List<Jogador> j);
         
         string GetNome();
@@ -79,7 +78,7 @@ namespace ProjetoLP.Controllers
         {
             model.Fundacao = f;
         }
-        private void SetJogador(object j)
+        private void SetJogador(Jogador j)
         {
             model.Jogadores.Add(j);
         }
@@ -88,6 +87,9 @@ namespace ProjetoLP.Controllers
             foreach (Jogador jog in j)
                 SetJogador(jog);
         }
+
+        #endregion
+
         #endregion
 
         #region Getters.

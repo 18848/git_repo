@@ -13,7 +13,7 @@ namespace ProjetoLP.Models
         POSICAO Posicao { get; set; }
     }
 
-    public class Jogador : Pessoa, IJogadorModel
+    public class Jogador : Pessoa, IJogadorModel, IPessoaModel
     {
         #region MEMBER VARIABLES
         private string alcunha;
@@ -23,7 +23,16 @@ namespace ProjetoLP.Models
 
 
         #region CONSTRUCTORS
-        
+
+        public Jogador(string a, int n, POSICAO p, 
+            string nome, string nac, DateTime d, float altura, float peso) 
+            : base(nome, nac, d ,altura, peso)
+        {
+            this.alcunha = a;
+            this.numero = n;
+            this.posicao = p;
+        }
+
         /// <summary>
         /// Construtor vazio
         /// </summary>

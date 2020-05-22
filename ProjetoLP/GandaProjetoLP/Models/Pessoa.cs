@@ -27,6 +27,15 @@ namespace ProjetoLP.Models
 
         #region CONSTRUCTORS
 
+        public Pessoa(string nome, string nac, DateTime d, float a, float p)
+        {
+            this.nome = nome;
+            nacionalidade = nac;
+            dataNascimento = d;
+            altura = a;
+            peso = p;
+        }
+
         /// <summary>
         /// Construtor sem dados
         /// </summary>

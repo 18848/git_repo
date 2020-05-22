@@ -18,6 +18,7 @@ namespace ProjetoLP.Controllers
         #region Data Setters.
         void SetEquipas(List<Equipa> e);
         void SetArbitros(List<Arbitro> a);
+        void SetJogadores(List<Jogador> j);
         void SetInicio(DateTime i);
         void SetFim(DateTime f);
         #endregion
@@ -58,6 +59,8 @@ namespace ProjetoLP.Controllers
         private ICompeticaoModel model;
         private ICompeticaoView view;
 
+        private IEquipaController equipaController;
+
         #region Constructors
         /// <summary>
         /// MVC Constructor.
@@ -75,6 +78,10 @@ namespace ProjetoLP.Controllers
         /// </summary>
         public CompeticaoController()
         {
+            #region Equipa
+            equipaController = new EquipaController();
+            #endregion
+
             #region Model
             model = new Competicao();
             #endregion
@@ -106,6 +113,14 @@ namespace ProjetoLP.Controllers
         public void SetEquipas(List<Equipa> e)
         {
             model.Equipas = e;
+        }
+        public void SetArbitros(List<Arbitro> a)
+        {
+            model.Arbitros = a;
+        }
+        public void SetJogadores(List<Jogador> j)
+        {
+            model.Jogadores = j;
         }
 
         public void SetInicio(DateTime i)

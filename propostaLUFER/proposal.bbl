@@ -1,0 +1,31 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Inform%
+\ \BBA {} De%
+}{%
+Inform%
+\ \BBA {} De%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+Inform}
+\APACinsertmetastar {%
+Inform}%
+\begin{APACrefauthors}%
+Inform, E.%
+\BCBT {}\ \BBA {} De, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{{\textless} T{\'{i}}tulo do Trabalho {\textgreater}
+  {\textless} Nome do Mestrando {\textgreater}}} {{{\textless} T{\'{i}}tulo do
+  Trabalho {\textgreater} {\textless} Nome do Mestrando
+  {\textgreater}}}.{\BBCQ}
+\newblock
+
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

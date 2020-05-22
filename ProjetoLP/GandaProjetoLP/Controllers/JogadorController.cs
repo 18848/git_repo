@@ -47,7 +47,7 @@ namespace ProjetoLP.Controllers
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class JogadorController : IJogadorController
+    public class JogadorController : PessoaController, IJogadorController, IPessoaController
     {
         IJogadorModel model;
         IJogadorView view;

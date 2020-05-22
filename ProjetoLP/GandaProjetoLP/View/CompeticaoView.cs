@@ -51,39 +51,119 @@ namespace ProjetoLP.View
         #endregion
 
         #region Properties
-        private bool SetEquipa(IEquipaView eV)
+
+        #region SetEquipa
+        private bool SetEquipa(out EquipaController newEquipa)
         {
             Console.WriteLine("Equipa Nova.");
             try
             {
-                eV.SetFundacao();                
-                eV.SetNome();                
-                eV.SetJogadores();      
+                newEquipa = new EquipaController();
             }
-            catch(FormatException e)
+            catch (FormatException e)
             {
                 Console.WriteLine(e.Message);
-                return false;
-            catch(OverflowException e)
-            {
-                Console.WriteLine(e.Message);
+                newEquipa = null;
                 return false;
             }
-            return true
+            catch (OverflowException e)
+            {
+                Console.WriteLine(e.Message);
+                newEquipa = null;
+                return false;
+            }
+            return true;
         }
-
         public void SetEquipas()
         {
-            IEquipaController eC = new EquipaController();
-            IEquipaView eV = new EquipaView(eC);
-            Console.WriteLine("Insira as equipas. ('.' para parar)")
-            while(SetEquipa(eV)) { }
+            List<Equipa> equipaList = new List<Equipa>();
+            Console.WriteLine("Insira as equipas. ('.' para parar)");
+            EquipaController newEquipa;
+            while(SetEquipa(out newEquipa)) 
+            {
+                Equipa aux = new Equipa(newEquipa.GetNome(), newEquipa.GetFundacao(), newEquipa.GetJogadores());
+                equipaList.Add(aux); 
+            }
+            controller.SetEquipas(equipaList);
         }
+        #endregion
 
+        #region SetArbitro
+        private bool SetArbitro(out ArbitroController newArbitro)
+        {
+            Console.WriteLine("Equipa Nova.");
+            try
+            {
+                newArbitro= new ArbitroController();
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+                newArbitro= null;
+                return false;
+            }
+            catch (OverflowException e)
+            {
+                Console.WriteLine(e.Message);
+                newArbitro = null;
+                return false;
+            }
+            return true;
+        }
         public void SetArbitros()
         {
-
+            List<Arbitro> arbitroList = new List<Arbitro>();
+            Console.WriteLine("Insira os arbitros. ('.' para parar)");
+            ArbitroController newArbitro;
+            while (SetArbitro(out newArbitro))
+            {
+                Arbitro aux = new Arbitro(newArbitro.GetFormacao(), newArbitro.GetCategoria(), 
+                    newArbitro.GetAssociacao(), newArbitro.GetNome(), newArbitro.GetNacionalidade(),
+                    newArbitro.GetDataNascimento(), newArbitro.GetAltura(), newArbitro.GetPeso());
+                arbitroList.Add(aux);
+            }
+            controller.SetArbitros(arbitroList);
         }
+        #endregion
+
+        #region SetJogadores
+        private bool SetJogador(out JogadorController newJogador)
+        {
+            Console.WriteLine("Equipa Nova.");
+            try
+            {
+                newJogador = new JogadorController();
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+                newJogador = null;
+                return false;
+            }
+            catch (OverflowException e)
+            {
+                Console.WriteLine(e.Message);
+                newJogador = null;
+                return false;
+            }
+            return true;
+        }
+        public void SetJogadores()
+        {
+            List<Jogador> jogadorList = new List<Jogador>();
+            Console.WriteLine("Insira os arbitros. ('.' para parar)");
+            JogadorController newJogador;
+            while (SetJogador(out newJogador))
+            {
+                Jogador aux = new Jogador(newJogador.GetAlcunha(), newJogador.GetNumero(),
+                    newJogador.GetPosicao(), newJogador.GetNome(), newJogador.GetNacionalidade(),
+                    newJogador.GetDataNascimento(), newJogador.GetAltura(), newJogador.GetPeso());
+                jogadorList.Add(aux);
+            }
+            controller.SetJogadores(jogadorList);
+        }
+        #endregion
+
 
         public void SetInicio()
         {

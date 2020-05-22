@@ -13,6 +13,7 @@ namespace ProjetoLP.Models
     {
         List<Equipa> Equipas { get; set; }
         List<Arbitro> Arbitros { get; set; }
+        List<Jogador> Jogadores { get; set; }
         DateTime Inicio { get; set; }
         DateTime Fim { get; set; }
     }
@@ -22,6 +23,7 @@ namespace ProjetoLP.Models
         #region MEMBER VARIABLES
         private List<Equipa> equipas;
         private List<Arbitro> arbitros;
+        private List<Jogador> jogadores;
         private DateTime inicio;
         private DateTime fim;
         #endregion
@@ -48,8 +50,12 @@ namespace ProjetoLP.Models
             get { return equipas; }
             set { equipas = value; }
         }
-
         public List<Arbitro> Arbitros
+        {
+            get;
+            set;
+        }
+        public List<Jogador> Jogadores
         {
             get;
             set;

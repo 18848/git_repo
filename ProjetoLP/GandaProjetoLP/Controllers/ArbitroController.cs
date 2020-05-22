@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using ProjetoLP;
 using ProjetoLP.Models;
 using ProjetoLP.View;
 
@@ -115,35 +116,31 @@ namespace ProjetoLP.Controllers
 		{
 			model.Associacao = a;
 		}
+
+		public void SetId(ID id)
+        {
+			model.Id = id;
+        }
         #endregion
         
 		#region Get Data.
-        /// <summary>
-		/// Encontra Data de Formacao.
-		/// </summary>
-		/// <returns> Data de Formacao. </returns>
+
 		public DateTime GetFormacao()
 		{
 			return model.Formacao;
 		}
-
-		/// <summary>
-		/// Encontra Categoria.
-		/// </summary>
-		/// <returns> Categoria Atual. </returns>
 		public CATEGORIA GetCategoria()
 		{
 			return model.Categoria;
 		}
-
-		/// <summary>
-		/// Encontra Associacao.
-		/// </summary>
-		/// <returns> Associacao Atual. </returns>
 		public ASSOCIACAO GetAssociacao()
 		{
 			return model.Associacao;
 		}
+		public ID GetId()
+        {
+			return model.Id;
+        }
 
         #endregion
 

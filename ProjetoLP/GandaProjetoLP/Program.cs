@@ -22,7 +22,7 @@ namespace ProjetoLP
     #region ENUMS
 
     #region ARBITRO
-    struct ID
+    public struct ID
     {
         ASSOCIACAO a;
         CATEGORIA c;
