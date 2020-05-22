@@ -88,7 +88,7 @@ namespace ProjetoLP.Controllers
         /// Model.
         /// </summary>
         /// <param name="jModel"> Model. </param>
-        public void SetModel(ICompeticaoModel jModel)
+        public void SetModel(IJogoModel jModel)
         {
             this.model = jModel;
         }
@@ -143,6 +143,8 @@ namespace ProjetoLP.Controllers
 
         #region Data Update.
         #endregion
+
+        
 
         #endregion
     }

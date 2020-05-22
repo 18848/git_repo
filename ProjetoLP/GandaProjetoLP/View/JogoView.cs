@@ -17,6 +17,8 @@ namespace ProjetoLP.View
         void GetEquipaA();
         void GetEquipaB();
         void GetArbitros();
+
+        void ShowData();
     }
 
     /// <summary>
@@ -35,7 +37,7 @@ namespace ProjetoLP.View
         /// View Constructor. Sets |Controller - View| relationship.
         /// </summary>
         /// <param name="jC"> Controller. </param>
-        public JogoView(IJogoView jC)
+        public JogoView(IJogoController jC)
         {
             controller = jC;
             controller.SetView(this);
@@ -93,6 +95,11 @@ namespace ProjetoLP.View
             {
                 Console.WriteLine(arbitro.Nome);
             });
+        }
+
+        public void ShowData()
+        {
+
         }
         #endregion
 

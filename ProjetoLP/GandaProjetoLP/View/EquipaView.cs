@@ -17,7 +17,7 @@ namespace ProjetoLP.View
     {
         void SetNome();
         void SetFundacao();
-        bool SetJogador();
+        bool SetJogador(IJogadorView jC);
         void SetJogadores();
     }
 
@@ -61,24 +61,37 @@ namespace ProjetoLP.View
                 controller.SetFundacao(aux);
         }
 
-        public bool SetJogador(List<Jogador>)
+        public bool SetJogador(IJogadorView jV)
         {
-            IJogadorController jC = new JogadorController();
-            IJogadorView jV = new JogadorView(jC);
-
-            Console.WriteLine("Alcunha: ");
-            jV.SetAlcunha();
-            Console.WriteLine("Numero: ");
-            jV.SetNumero();
-            Console.WriteLine("Posicao: ");
-            jV.SetPosicao();
-            
+            Console.WriteLine("Jogador Novo.");
+            try
+            {
+                Console.WriteLine("Alcunha: ");
+                jV.SetAlcunha();
+                Console.WriteLine("Numero: ");
+                jV.SetNumero();
+                Console.WriteLine("Posicao: ");
+                jV.SetPosicao();
+            }
+            catch(FormatException e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            catch (OverflowException e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            return true;
         }
 
         public void SetJogadores()
         {
+            IJogadorController jC = new JogadorController();
+            IJogadorView jV = new JogadorView(jC);
             Console.WriteLine("Jogadores.");
-            while(SetJogador())
+            while(SetJogador(jV)) { }
         }
         #endregion
 
@@ -88,16 +101,7 @@ namespace ProjetoLP.View
 
         #region OtherMethods
         #endregion
-
-        #region Destructor
-        /// <summary>
-        /// The destructor.
-        /// </summary>
-        ~EquipaView()
-        {
-        }
-        #endregion
-
+                
         #endregion
     }
 }
