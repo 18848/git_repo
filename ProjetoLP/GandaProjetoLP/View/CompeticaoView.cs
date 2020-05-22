@@ -15,13 +15,15 @@ namespace ProjetoLP.View
 {
     public interface ICompeticaoView
     {
-        void SetEquipa();
+        void SetEquipas();
         void SetInicio();
         void SetFim();
 
         void GetEquipas();
         void GetInicio();
         void GetFim();
+
+        void ShowData();
     }
 
     /// <summary>
@@ -48,12 +50,12 @@ namespace ProjetoLP.View
         #endregion
 
         #region Properties
-        public void SetEquipa()
+        public void SetEquipas()
         {
             List<Equipa> equipas = new List<Equipa>();
             Equipa equipa = new Equipa();
 
-            for(int i=0; i<10; i++)
+            for (int i=0; i<10; i++) //Nao Definir por 10 --Bad Programming
             {
                 Console.Write("Insira a " + (i+1).ToString() + "a Equipa: ");
 
@@ -94,6 +96,10 @@ namespace ProjetoLP.View
         public void GetFim()
         {
             Console.WriteLine(controller.GetFim().ToString());
+        }
+
+        public void ShowData()
+        {
         }
 
         #endregion

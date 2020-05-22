@@ -48,6 +48,7 @@
     <Compile Include="Controllers\CompeticaoController.cs" />
     <Compile Include="Controllers\EquipaController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
+    <Compile Include="Controllers\JogoController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
     <Compile Include="Models\Arbitro.cs" />
     <Compile Include="Models\Competicao.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="View\CompeticaoView.cs" />
     <Compile Include="View\EquipaView.cs" />
     <Compile Include="View\JogadorView.cs" />
+    <Compile Include="View\JogoView.cs" />
     <Compile Include="View\PessoaView.cs" />
   </ItemGroup>
   <ItemGroup>
