@@ -11,16 +11,31 @@ namespace ProjetoLP.View
     public interface IMenuView
     {
         void MainMenu();
-        void ArbitroMenu();
+        void ClassificacaoMenu();
+        void EstatisticasMenu();
+        void ArbitrosMenu();
+        void JogadoresMenu();
+        void EquipasMenu();
+        void JogosMenu();
+        void CompeticaoMenu();
     }
 
     class MenuView : IMenuView
     {
 
         private ArbitroController arbitroController;
+        private JogadorController jogadorController;
+        private EquipaController equipaController;
+        private CompeticaoController competicaoController;
 
         #region Constructor
-        public MenuView(){}
+        public MenuView()
+        {
+            //arbitroController = new ArbitroController();
+            //jogadorController = new JogadorController();
+            //equipaController = new EquipaController();
+            //competicaoController = new CompeticaoController();
+        }
         #endregion
 
 
@@ -31,6 +46,7 @@ namespace ProjetoLP.View
 
             do
             {
+                
                 try
                 {
                     Console.Clear();
@@ -43,7 +59,7 @@ namespace ProjetoLP.View
                     Console.WriteLine("6: Competicao");
                     Console.WriteLine("7: Jogo");
                     Console.WriteLine("0: Sair");
-                    Console.WriteLine("Opcao: ");
+                    Console.Write("Opcao: ");
                     int.TryParse(Console.ReadLine(), out op);
                 }
                 catch (FormatException e)
@@ -58,14 +74,49 @@ namespace ProjetoLP.View
                 switch (op)
                 {
                     case 1:
-                        ArbitroMenu();
+                        ClassificacaoMenu();
                         break;
+                    case 2:
+                        EstatisticasMenu();
+                        break;
+                    case 3:
+                        ArbitrosMenu();
+                        break;
+                    case 4:
+                        JogadoresMenu();
+                        break;
+                    case 5:
+                        EquipasMenu();
+                        break;
+                    case 6:
+                        JogosMenu();
+                        break;
+                    case 7:
+                        CompeticaoMenu();
+                        break;
+                    //case 0:
+                    //    MainMenu();
+                    //    break;
                 }
-
             } while (op != 0);
         }
 
-        public void ArbitroMenu()
+
+
+        public void ClassificacaoMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Classificacao");
+            Console.ReadLine();
+        }
+        public void EstatisticasMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Estatisticas");
+            Console.ReadLine();
+        }
+                
+        public void ArbitrosMenu()
         {
             int op = 0;
 
@@ -119,6 +170,91 @@ namespace ProjetoLP.View
                             arbitro.Nome = Console.ReadLine();
 
                             //Associar o arbitro ao controller Not Done
+                            Console.WriteLine("Nome: " + arbitroController.GetNome());
+                            Console.WriteLine("Data Nascimento: " + arbitroController.GetDataNascimento());
+                            Console.WriteLine("Nacionalidade: " + arbitroController.GetNacionalidade());
+                            Console.WriteLine("Altura: " + arbitroController.GetAltura());
+                            Console.WriteLine("Peso: " + arbitroController.GetPeso());
+                            Console.WriteLine("Associacao: " + arbitroController.GetAssociacao());
+                            Console.WriteLine("Categoria: " + arbitroController.GetCategoria());
+                            Console.WriteLine("Data de Formacao: " + arbitroController.GetFormacao());
+                            
+                        }
+                        catch (NullReferenceException e)
+                        {
+                            Console.WriteLine(e.Message);
+                            Console.ReadLine();
+                        }
+                        catch (FormatException e)
+                        {
+                            Console.WriteLine("Erro - " + e);
+                        }
+                        catch (OverflowException e)
+                        {
+                            Console.WriteLine("Erro - " + e);
+                        }
+                        break;
+                }
+
+                Console.ReadKey();
+
+            } while (op != 0);
+        }
+        public void JogadoresMenu()
+        {
+            int op = 0;
+
+            do
+            {
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("1: Lista de Jogadores");
+                    Console.WriteLine("2: Jogador Especifico");
+                    Console.WriteLine("3: Adicionar Jogador");
+                    Console.WriteLine("4: Editar Jogador");
+                    Console.WriteLine("5: Remover Jogador");
+                    Console.WriteLine("6: Transferir Jogador");
+                    Console.WriteLine("0: Voltar");
+                    Console.WriteLine("Opcao: ");
+                    int.TryParse(Console.ReadLine(), out op);
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Erro - " + e);
+                }
+                catch (OverflowException e)
+                {
+                    Console.WriteLine("Erro - " + e);
+                }
+
+                Console.Clear();
+                switch (op)
+                {
+                    case 1:
+                        try
+                        {
+                            //Console.WriteLine(arbitro.GetNome());
+                        }
+                        catch (FormatException e)
+                        {
+                            Console.WriteLine("Erro - " + e);
+                        }
+                        catch (OverflowException e)
+                        {
+                            Console.WriteLine("Erro - " + e);
+                        }
+                        break;
+
+                    case 2:
+                        try
+                        {
+                            List<Jogador> jogadores = new List<Jogador>(); //Carregar apartir de um getter
+                            Jogador jogador = new Jogador();
+                            //Console.WriteLine("Insira o nome do arbitro");
+                            //arbitro.Nome = Console.ReadLine();
+
+                            //Associar o arbitro ao controller Not Done
 
                             Console.WriteLine("Nome: " + arbitroController.GetNome());
                             Console.WriteLine("Data Nascimento: " + arbitroController.GetDataNascimento());
@@ -144,6 +280,27 @@ namespace ProjetoLP.View
 
             } while (op != 0);
         }
+        public void EquipasMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Equipas");
+            Console.ReadLine();
+        }
+        public void JogosMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Jogos");
+            Console.ReadLine();
+        }
+        public void CompeticaoMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Competicao");
+            Console.ReadLine();
+        }
+
+
+
         #endregion
     }
 }

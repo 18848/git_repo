@@ -59,7 +59,7 @@ namespace ProjetoLP.Controllers
 
             view.SetNome();
             view.SetFundacao();
-            view.SetJogadores();
+            //view.SetJogadores();
 
             #endregion
         }
@@ -136,6 +136,6 @@ namespace ProjetoLP.Controllers
             this.view = v;
         }
         #endregion
-        #endregion
+
     }
 }

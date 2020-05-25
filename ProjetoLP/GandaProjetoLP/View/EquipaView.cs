@@ -17,8 +17,7 @@ namespace ProjetoLP.View
     {
         void SetNome();
         void SetFundacao();
-        bool SetJogador(IJogadorView jC);
-        void SetJogadores();
+        //void SetJogadores();
     }
 
     /// <summary>
@@ -97,7 +96,7 @@ namespace ProjetoLP.View
         //    controller.SetJogadores(jogadorList);
         //}
 
-        //#endregion
+        #endregion
 
 
         #region Overrides

@@ -11,7 +11,7 @@ namespace ProjetoLP.Models
         DateTime Formacao { get; set; }
         CATEGORIA Categoria { get; set; }
         ASSOCIACAO Associacao { get; set; }
-        ID
+        ID Id { get; set; }
     }
 
 
