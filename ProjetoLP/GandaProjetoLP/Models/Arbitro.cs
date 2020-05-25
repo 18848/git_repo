@@ -11,7 +11,12 @@ namespace ProjetoLP.Models
         DateTime Formacao { get; set; }
         CATEGORIA Categoria { get; set; }
         ASSOCIACAO Associacao { get; set; }
+<<<<<<< HEAD
         ID Id { get; set; }
+=======
+
+        ID
+>>>>>>> refs/remotes/git_repo/master
     }
 
 
@@ -26,10 +31,7 @@ namespace ProjetoLP.Models
 
 
         #region CONSTRUCTORS
-
-
-        public Arbitro(DateTime f, CATEGORIA c, ASSOCIACAO a, 
-            string nome, string nac, DateTime d, float altura, float peso) 
+        public Arbitro(DateTime f, CATEGORIA c, ASSOCIACAO a, string nome, string nac, DateTime d, float altura, float peso) 
             : base(nome, nac, d, altura, peso)
         {
             formacao = f;
