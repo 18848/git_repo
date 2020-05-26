@@ -147,53 +147,74 @@ namespace ProjetoLP.View
                 switch (op)
                 {
                     case 1:
-                        try
                         {
-                            //Console.WriteLine(arbitro.GetNome());
+                            try
+                            {
+                                //Console.WriteLine(arbitro.GetNome());
+                            }
+                            catch (FormatException e)
+                            {
+                                Console.WriteLine("Erro - " + e);
+                            }
+                            catch (OverflowException e)
+                            {
+                                Console.WriteLine("Erro - " + e);
+                            }
+                            break;
                         }
-                        catch (FormatException e)
-                        {
-                            Console.WriteLine("Erro - " + e);
-                        }
-                        catch (OverflowException e)
-                        {
-                            Console.WriteLine("Erro - " + e);
-                        }
-                        break;
-
+                        
                     case 2:
-                        try
                         {
-                            List<Arbitro> arbitros = new List<Arbitro>(); //Carregar apartir de um getter
-                            Arbitro arbitro = new Arbitro();
-                            Console.WriteLine("Insira o nome do arbitro");
-                            arbitro.Nome = Console.ReadLine();
+                            try
+                            {
+                                List<Arbitro> arbitros = new List<Arbitro>(); //Carregar apartir de um getter
+                                Arbitro arbitro = new Arbitro();
+                                Console.WriteLine("Insira o nome do arbitro");
+                                arbitro.Nome = Console.ReadLine();
 
-                            //Associar o arbitro ao controller Not Done
-                            Console.WriteLine("Nome: " + arbitroController.GetNome());
-                            Console.WriteLine("Data Nascimento: " + arbitroController.GetDataNascimento());
-                            Console.WriteLine("Nacionalidade: " + arbitroController.GetNacionalidade());
-                            Console.WriteLine("Altura: " + arbitroController.GetAltura());
-                            Console.WriteLine("Peso: " + arbitroController.GetPeso());
-                            Console.WriteLine("Associacao: " + arbitroController.GetAssociacao());
-                            Console.WriteLine("Categoria: " + arbitroController.GetCategoria());
-                            Console.WriteLine("Data de Formacao: " + arbitroController.GetFormacao());
-                            
+                                //Associar o arbitro ao controller Not Done
+                                Console.WriteLine("Nome: " + arbitroController.GetNome());
+                                Console.WriteLine("Data Nascimento: " + arbitroController.GetDataNascimento());
+                                Console.WriteLine("Nacionalidade: " + arbitroController.GetNacionalidade());
+                                Console.WriteLine("Altura: " + arbitroController.GetAltura());
+                                Console.WriteLine("Peso: " + arbitroController.GetPeso());
+                                Console.WriteLine("Associacao: " + arbitroController.GetAssociacao());
+                                Console.WriteLine("Categoria: " + arbitroController.GetCategoria());
+                                Console.WriteLine("Data de Formacao: " + arbitroController.GetFormacao());
+
+                            }
+                            catch (NullReferenceException e)
+                            {
+                                Console.WriteLine(e.Message);
+                                Console.ReadLine();
+                            }
+                            catch (FormatException e)
+                            {
+                                Console.WriteLine("Erro - " + e);
+                            }
+                            catch (OverflowException e)
+                            {
+                                Console.WriteLine("Erro - " + e);
+                            }
+                            break;
                         }
-                        catch (NullReferenceException e)
+                        
+                    
+                    case 3:
                         {
-                            Console.WriteLine(e.Message);
-                            Console.ReadLine();
+                            try
+                            {
+                                ArbitroController controller = new ArbitroController();
+                                ArbitroView view = new ArbitroView(controller);
+
+                                //view.SetAssociacao();
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine(e.Message);
+                            }
+                            break;
                         }
-                        catch (FormatException e)
-                        {
-                            Console.WriteLine("Erro - " + e);
-                        }
-                        catch (OverflowException e)
-                        {
-                            Console.WriteLine("Erro - " + e);
-                        }
-                        break;
                 }
 
                 Console.ReadKey();

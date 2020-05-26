@@ -11,12 +11,7 @@ namespace ProjetoLP.Models
         DateTime Formacao { get; set; }
         CATEGORIA Categoria { get; set; }
         ASSOCIACAO Associacao { get; set; }
-<<<<<<< HEAD
         ID Id { get; set; }
-=======
-
-        ID
->>>>>>> refs/remotes/git_repo/master
     }
 
 

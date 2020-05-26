@@ -6,9 +6,8 @@
 *   <date>5/18/2020 5:20:23 PM</date>
 *	<description></description>
 **/
-using System;
-using ProjetoLP;
 using ProjetoLP.Controllers;
+using System;
 
 namespace ProjetoLP.View
 {
@@ -55,14 +54,10 @@ namespace ProjetoLP.View
 
         public void SetCategoria()
         {
-            Console.WriteLine("1 -> INTERNATIONAL");
-            Console.WriteLine("2 -> C1");
-            Console.WriteLine("3 -> C2");
-            Console.WriteLine("4 -> C3");
-            Console.WriteLine("5 -> C4");
-            Console.WriteLine("6 -> C5");
-            Console.WriteLine("7 -> C6");
-            Console.WriteLine("8 -> ESTAGIARIO");
+            foreach (CATEGORIA foo in Enum.GetValues(typeof(CATEGORIA)))
+            {
+                Console.WriteLine(foo + " = " + ((int)foo).ToString());
+            }
             Console.Write("Categoria: ");
             if (CATEGORIA.TryParse(Console.ReadLine(), out CATEGORIA c))
                 controller.SetCategoria(c);
@@ -70,31 +65,10 @@ namespace ProjetoLP.View
 
         public void SetAssociacao()
         {
-            #region WriteLine
-            Console.WriteLine(" 1 -> ALGARVE");
-            Console.WriteLine(" 2 -> ANGRA_HEROISMO");
-            Console.WriteLine(" 3 -> AVEIRO");
-            Console.WriteLine(" 4 -> BEJA");
-            Console.WriteLine(" 5 -> BRAGA");
-            Console.WriteLine(" 6 -> BRAGANCA");
-            Console.WriteLine(" 7 -> CASTELO_BRANCO");
-            Console.WriteLine(" 8 -> COIMBRA");
-            Console.WriteLine(" 9 -> EVORA");
-            Console.WriteLine("10 -> GUARDA");
-            Console.WriteLine("11 -> HORTA");
-            Console.WriteLine("12 -> LEIRIA");
-            Console.WriteLine("13 -> LISBOA");
-            Console.WriteLine("14 -> MADEIRA");
-            Console.WriteLine("15 -> PONTA_DELGADA");
-            Console.WriteLine("16 -> COIMBRA");
-            Console.WriteLine("17 -> PORTALEGRE");
-            Console.WriteLine("18 -> PORTO");
-            Console.WriteLine("19 -> SANTAREM");
-            Console.WriteLine("20 -> SETUBAL");
-            Console.WriteLine("21 -> VIANA_CASTELO");
-            Console.WriteLine("22 -> VILA_REAL");
-            Console.WriteLine("23 -> VISEU");
-            #endregion
+            foreach (ASSOCIACAO foo in Enum.GetValues(typeof(ASSOCIACAO)))
+            {
+                Console.WriteLine(foo + " = " + ((int)foo).ToString());
+            }
             Console.Write("Categoria: ");
             if (ASSOCIACAO.TryParse(Console.ReadLine(), out ASSOCIACAO a))
                 controller.SetAssociacao(a);

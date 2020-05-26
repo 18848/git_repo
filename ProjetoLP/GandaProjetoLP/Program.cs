@@ -96,6 +96,8 @@ namespace ProjetoLP
     {
         static void Main(string[] args)
         {
+            //List<Arbitro> listaArbitros = Ficheiro.Buscar();
+
             MenuView menu = new MenuView();
 
             menu.MainMenu();

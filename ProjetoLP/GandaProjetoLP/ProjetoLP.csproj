@@ -53,6 +53,7 @@
     <Compile Include="Models\Arbitro.cs" />
     <Compile Include="Models\Competicao.cs" />
     <Compile Include="Models\Equipa.cs" />
+    <Compile Include="Models\Ficheiro.cs" />
     <Compile Include="Models\Jogador.cs" />
     <Compile Include="Models\Jogo.cs" />
     <Compile Include="Models\Pessoa.cs" />
