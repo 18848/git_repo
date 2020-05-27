@@ -16,6 +16,7 @@ namespace ProjetoLP.Models
         private string nome;
         private DateTime fundacao;
         private List<Jogador> jogadores;
+        private int totalJogadores;
         #endregion
 
 
@@ -35,9 +36,9 @@ namespace ProjetoLP.Models
         /// </summary>
         public Equipa()
         {
-            this.nome = "";
-            this.fundacao = DateTime.Now;
-            jogadores = null;
+            nome = "";
+            fundacao = DateTime.Now;
+            totalJogadores = jogadores.Count;
         }
         #endregion
 
@@ -62,17 +63,19 @@ namespace ProjetoLP.Models
         }
 
         /// <summary>
-        /// Manipula o atributo "jogador"
+        /// Manipula o atributo "jogadores"
         /// </summary>
         public List<Jogador> Jogadores
         {
-            get { return this.jogadores; }
-            set { this.jogadores = value; }
+            get { return jogadores; }
+            set { jogadores = value; }
         }
+
         #endregion
 
 
         #region FUNCTIONS
+        
         #endregion
 
 

@@ -11,7 +11,7 @@ namespace ProjetoLP.Models
         DateTime Formacao { get; set; }
         CATEGORIA Categoria { get; set; }
         ASSOCIACAO Associacao { get; set; }
-        ID Id { get; set; }
+        //ID Id { get; set; }
     }
 
 
@@ -21,7 +21,7 @@ namespace ProjetoLP.Models
         private DateTime formacao;
         private CATEGORIA categoria;
         private ASSOCIACAO associacao;
-        private ID id;
+        private int id;
         #endregion
 
 
@@ -74,11 +74,16 @@ namespace ProjetoLP.Models
             set { associacao = value; }
         }
 
-        public ID Id
+        public int Id
         {
-            get { return id; }
-            set { id = value; }
+            get; set;
         }
+
+        //public ID Id
+        //{
+        //    get { return id; }
+        //    set { id = value; }
+        //}
         #endregion
 
 

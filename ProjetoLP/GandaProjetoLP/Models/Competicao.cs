@@ -13,7 +13,7 @@ namespace ProjetoLP.Models
     {
         List<Equipa> Equipas { get; set; }
         List<Arbitro> Arbitros { get; set; }
-        List<Jogador> Jogadores { get; set; }
+        //List<Jogador> Jogadores { get; set; }
         DateTime Inicio { get; set; }
         DateTime Fim { get; set; }
     }
@@ -23,9 +23,12 @@ namespace ProjetoLP.Models
         #region MEMBER VARIABLES
         private List<Equipa> equipas;
         private List<Arbitro> arbitros;
-        private List<Jogador> jogadores;
+        //private List<Jogador> jogadores;
         private DateTime inicio;
         private DateTime fim;
+        private int totalArbitros;
+        private int totalEquipas;
+        //private int totalJogadores;
         #endregion
 
 
@@ -36,9 +39,11 @@ namespace ProjetoLP.Models
         /// </summary>
         public Competicao()
         {
-            this.inicio = DateTime.Now;
+            inicio = DateTime.Now;
             equipas = new List<Equipa>();
             arbitros = new List<Arbitro>();
+            totalArbitros = arbitros.Count;
+            totalEquipas = equipas.Count;
         }
         #endregion
 
@@ -55,11 +60,11 @@ namespace ProjetoLP.Models
             get;
             set;
         }
-        public List<Jogador> Jogadores
-        {
-            get;
-            set;
-        }
+        //public List<Jogador> Jogadores
+        //{
+        //    get;
+        //    set;
+        //}
 
         /// <summary>
         /// Manipula o atributo "inicio"
@@ -77,6 +82,14 @@ namespace ProjetoLP.Models
         {
             get { return fim; }
             set { fim = value; }
+        }
+
+        /// <summary>
+        /// Manipula o atributo "totalArbitros"
+        /// </summary>
+        public int TotalArbitros
+        {
+            get; set;
         }
         #endregion
 

@@ -25,7 +25,7 @@ namespace ProjetoLP.Controllers
         string GetNome();
         DateTime GetFundacao();
         List<Jogador> GetJogadores();
-        Jogador GetJogador(int index);
+        Jogador GetJogador(int id);
 
         void ShowData();
 
@@ -80,6 +80,7 @@ namespace ProjetoLP.Controllers
         }
         private void SetJogador(Jogador j)
         {
+            j.Id = model.Jogadores.Count + 1;
             model.Jogadores.Add(j);
         }
         public void SetJogadores(List<Jogador> j)

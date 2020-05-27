@@ -11,6 +11,7 @@ namespace ProjetoLP.Models
         string Alcunha { get; set; }
         int Numero { get; set; }
         POSICAO Posicao { get; set; }
+        int Id { get; set; }
     }
 
     public class Jogador : Pessoa, IJogadorModel, IPessoaModel
@@ -19,6 +20,7 @@ namespace ProjetoLP.Models
         private string alcunha;
         private int numero;
         private POSICAO posicao;
+        private int id;
         #endregion
 
 
@@ -28,8 +30,8 @@ namespace ProjetoLP.Models
             string nome, string nac, DateTime d, float altura, float peso) 
             : base(nome, nac, d ,altura, peso)
         {
-            this.alcunha = a;
-            this.numero = n;
+            alcunha = a;
+            numero = n;
             this.posicao = p;
         }
 
@@ -76,6 +78,11 @@ namespace ProjetoLP.Models
         {
             get { return posicao; }
             set { posicao = value; }
+        }
+
+        public int Id
+        {
+            get; set;
         }
         #endregion
 

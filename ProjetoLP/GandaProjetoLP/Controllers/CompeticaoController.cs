@@ -18,13 +18,25 @@ namespace ProjetoLP.Controllers
         #region Data Setters.
         void SetEquipas(List<Equipa> e);
         void SetArbitros(List<Arbitro> a);
-        void SetJogadores(List<Jogador> j);
+        //void SetJogadores(List<Jogador> j);
         void SetInicio(DateTime i);
         void SetFim(DateTime f);
         #endregion
 
         #region Data Getters.
+        // Present Equipa both individually and as a whole.
         List<Equipa> GetEquipas();
+        Equipa GetEquipa(string n);
+        
+        // Present Arbitro both individually and as a whole.
+        List<Arbitro> GetArbitros();
+        Arbitro GetArbitro(int id);
+
+        //// Present Jogador both individually and as a whole.
+        //List<Jogador> GetJogadores();
+        //Jogador GetJogador(string n);
+        
+        //
         DateTime GetInicio();
         DateTime GetFim();
         #endregion
@@ -59,7 +71,9 @@ namespace ProjetoLP.Controllers
         private ICompeticaoModel model;
         private ICompeticaoView view;
 
-        private IEquipaController equipaController;
+        private EquipaController equipaController;
+        private ArbitroController arbitroController;
+        private JogadorController jogadorController;
 
         #region Constructors
         /// <summary>
@@ -90,6 +104,8 @@ namespace ProjetoLP.Controllers
             view = new CompeticaoView(this);
 
             view.SetEquipas();
+            view.SetArbitros();
+            //view.SetJogadores();
             view.SetInicio();
             view.SetFim();
 
@@ -118,10 +134,10 @@ namespace ProjetoLP.Controllers
         {
             model.Arbitros = a;
         }
-        public void SetJogadores(List<Jogador> j)
-        {
-            model.Jogadores = j;
-        }
+        //public void SetJogadores(List<Jogador> j)
+        //{
+        //    model.Jogadores = j;
+        //}
 
         public void SetInicio(DateTime i)
         {
@@ -135,22 +151,92 @@ namespace ProjetoLP.Controllers
         #endregion
 
         #region Get Data.
+        #region Equipa(s)
+        /// <summary>
+        /// Return List of Equipas.
+        /// </summary>
+        /// <returns></returns>
         public List<Equipa> GetEquipas()
         {
             return model.Equipas;
         }
+        /// <summary>
+        /// Return Specified Equipa.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public Equipa GetEquipa(string n)
+        {
+            foreach (Equipa e in model.Equipas)
+                if (e.Nome == n) return e;
+            return null;
+        }
+        #endregion
 
+        //#region Jogador(es)
+        ///// <summary>
+        ///// Return List of Jogadores in Competicao.
+        ///// </summary>
+        ///// <returns></returns>
+        //public List<Jogador> GetJogadores()
+        //{
+        //    return model.Jogadores;
+        //}
+        ///// <summary>
+        ///// Return Specified Jogador.
+        ///// </summary>
+        ///// <param name="n"></param>
+        ///// <returns></returns>
+        //public Jogador GetJogador(string n)
+        //{
+        //    foreach (Jogador j in model.Jogadores)
+        //        if (j.Nome == n) return j;
+        //    return null;
+        //}
+        //#endregion
+
+        #region Arbitro(s)
+        /// <summary>
+        /// Return List of Arbitros.
+        /// </summary>
+        /// <returns></returns>
+        public List<Arbitro> GetArbitros()
+        {
+            return model.Arbitros;
+        }
+        /// <summary>
+        /// Return Specified Arbitro.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public Arbitro GetArbitro(int id)
+        {
+            foreach (Arbitro a in model.Arbitros)
+                if (a.Id == id) return a;
+            return null;
+        }
+        #endregion
+
+        /// <summary>
+        /// Return Data de Inicio.
+        /// </summary>
+        /// <returns></returns>
         public DateTime GetInicio()
         {
             return model.Inicio;
         }
-
+        /// <summary>
+        /// Return Data de Fim.
+        /// </summary>
+        /// <returns></returns>
         public DateTime GetFim()
         {
             return model.Fim;
         }
 
         #endregion
+
+        
 
         #endregion
 

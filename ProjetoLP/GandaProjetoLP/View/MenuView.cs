@@ -23,15 +23,15 @@ namespace ProjetoLP.View
     class MenuView : IMenuView
     {
 
-        private ArbitroController arbitroController;
-        private JogadorController jogadorController;
-        private EquipaController equipaController;
-        private CompeticaoController competicaoController;
+        //private ArbitroController controller;
+        //private JogadorController jogadorController;
+        //private EquipaController equipaController;
+        //private CompeticaoController competicaoController;
 
         #region Constructor
         public MenuView()
         {
-            //arbitroController = new ArbitroController();
+            //controller = new ArbitroController();
             //jogadorController = new JogadorController();
             //equipaController = new EquipaController();
             //competicaoController = new CompeticaoController();
@@ -150,7 +150,14 @@ namespace ProjetoLP.View
                         {
                             try
                             {
-                                //Console.WriteLine(arbitro.GetNome());
+                                CompeticaoController comp = new CompeticaoController();
+                                List<Arbitro> arbitros = new List<Arbitro>();
+                                arbitros = comp.GetArbitros();
+                                Console.WriteLine("Nomes: ");
+                                foreach (Arbitro a in arbitros)
+                                {
+                                    Console.WriteLine($"\t- {a.Nome} - {a.Formacao.ToString()}");
+                                }                                 
                             }
                             catch (FormatException e)
                             {
@@ -168,19 +175,22 @@ namespace ProjetoLP.View
                             try
                             {
                                 List<Arbitro> arbitros = new List<Arbitro>(); //Carregar apartir de um getter
-                                Arbitro arbitro = new Arbitro();
+                                CompeticaoController compController = new CompeticaoController();
+                                ArbitroController controller = new ArbitroController();
+                                ArbitroView arbitro = new ArbitroView(controller);
                                 Console.WriteLine("Insira o nome do arbitro");
-                                arbitro.Nome = Console.ReadLine();
+                                string nome = Console.ReadLine();
 
                                 //Associar o arbitro ao controller Not Done
-                                Console.WriteLine("Nome: " + arbitroController.GetNome());
-                                Console.WriteLine("Data Nascimento: " + arbitroController.GetDataNascimento());
-                                Console.WriteLine("Nacionalidade: " + arbitroController.GetNacionalidade());
-                                Console.WriteLine("Altura: " + arbitroController.GetAltura());
-                                Console.WriteLine("Peso: " + arbitroController.GetPeso());
-                                Console.WriteLine("Associacao: " + arbitroController.GetAssociacao());
-                                Console.WriteLine("Categoria: " + arbitroController.GetCategoria());
-                                Console.WriteLine("Data de Formacao: " + arbitroController.GetFormacao());
+                                //compController.
+                                Console.WriteLine("Nome: " + controller.GetNome());
+                                Console.WriteLine("Data Nascimento: " + controller.GetDataNascimento());
+                                Console.WriteLine("Nacionalidade: " + controller.GetNacionalidade());
+                                Console.WriteLine("Altura: " + controller.GetAltura());
+                                Console.WriteLine("Peso: " + controller.GetPeso());
+                                Console.WriteLine("Associacao: " + controller.GetAssociacao());
+                                Console.WriteLine("Categoria: " + controller.GetCategoria());
+                                Console.WriteLine("Data de Formacao: " + controller.GetFormacao());
 
                             }
                             catch (NullReferenceException e)
@@ -206,8 +216,6 @@ namespace ProjetoLP.View
                             {
                                 ArbitroController controller = new ArbitroController();
                                 ArbitroView view = new ArbitroView(controller);
-
-                                //view.SetAssociacao();
                             }
                             catch (Exception e)
                             {
@@ -252,6 +260,7 @@ namespace ProjetoLP.View
                 Console.Clear();
                 switch (op)
                 {
+                    //Carregar Jogadores
                     case 1:
                         try
                         {
@@ -266,25 +275,32 @@ namespace ProjetoLP.View
                             Console.WriteLine("Erro - " + e);
                         }
                         break;
-
+                        //Carregar Jogador
                     case 2:
                         try
                         {
                             List<Jogador> jogadores = new List<Jogador>(); //Carregar apartir de um getter
                             Jogador jogador = new Jogador();
+                            
                             //Console.WriteLine("Insira o nome do arbitro");
                             //arbitro.Nome = Console.ReadLine();
 
-                            //Associar o arbitro ao controller Not Done
+                        }
+                        catch (FormatException e)
+                        {
+                            Console.WriteLine("Erro - " + e);
+                        }
+                        catch (OverflowException e)
+                        {
+                            Console.WriteLine("Erro - " + e);
+                        }
+                        break;
 
-                            Console.WriteLine("Nome: " + arbitroController.GetNome());
-                            Console.WriteLine("Data Nascimento: " + arbitroController.GetDataNascimento());
-                            Console.WriteLine("Nacionalidade: " + arbitroController.GetNacionalidade());
-                            Console.WriteLine("Altura: " + arbitroController.GetAltura());
-                            Console.WriteLine("Peso: " + arbitroController.GetPeso());
-                            Console.WriteLine("Associacao: " + arbitroController.GetAssociacao());
-                            Console.WriteLine("Categoria: " + arbitroController.GetCategoria());
-                            Console.WriteLine("Data de Formacao: " + arbitroController.GetFormacao());
+                        //Adicionar Jogador
+                    case 3:
+                        try
+                        {
+                            //JogadorController controller;
                         }
                         catch (FormatException e)
                         {
