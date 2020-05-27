@@ -6,9 +6,9 @@
 *   <date>5/20/2020 6:27:26 PM</date>
 *	<description></description>
 **/
+using System.Collections.Generic;
 using ProjetoLP.View;
 using ProjetoLP.Models;
-using System;
 
 namespace ProjetoLP.Controllers
 {
@@ -26,10 +26,18 @@ namespace ProjetoLP.Controllers
         POSICAO GetPosicao();
         #endregion
 
-        #region Data Update.
-        void AskAlcunha();
-        void AskNumero();
-        void AskPosicao();
+        //#region Data Update.
+        //void AskAlcunha();
+        //void AskNumero();
+        //void AskPosicao();
+        //#endregion
+
+        #region File Management.
+        bool AddJogador();
+        bool SaveJogadores();
+        bool LoadJogadores();
+        bool RemoveJogador(int id);
+        List<IJogadorModel> GetJogadores();
         #endregion
 
         #region View Setter.
@@ -46,8 +54,11 @@ namespace ProjetoLP.Controllers
     /// <example></example>
     public class JogadorController : PessoaController, IJogadorController, IPessoaController
     {
-        IJogadorModel model;
-        IJogadorView view;
+        private IJogadorModel model;
+        private IJogadorView view;
+        private string filePath = "../Files/Jogador.dat";
+
+        private GuardarJogador ficheiro = new GuardarJogador();
 
         #region Methods
 
@@ -107,6 +118,29 @@ namespace ProjetoLP.Controllers
         }
         #endregion
 
+        #region File Management.
+        public bool AddJogador()
+        {
+            return ficheiro.AddJogador(model);
+        }
+        public bool SaveJogadores()
+        {
+            return ficheiro.SaveJogadores(@filePath);
+        }
+        public bool LoadJogadores()
+        {
+            return ficheiro.LoadJogadores(@filePath);
+        }
+        public bool RemoveJogador(int id)
+        {
+            return ficheiro.RemoveJogador(id);
+        }
+        public List<IJogadorModel> GetJogadores()
+        {
+            return ficheiro.GetJogadores();
+        }
+        #endregion
+
         #endregion
 
 
@@ -120,21 +154,22 @@ namespace ProjetoLP.Controllers
         }
 
 
-        public void AskAlcunha()
-        {
-            if (view != null)
-                view.SetAlcunha();
-        }
-        public void AskNumero()
-        {
-            if (view != null)
-                view.SetNumero();
-        }
-        public void AskPosicao()
-        {
-            if (view != null)
-                view.SetPosicao();
-        }
+        //public void AskAlcunha()
+        //{
+        //    if (view != null)
+        //        view.SetAlcunha();
+        //    view.Set
+        //}
+        //public void AskNumero()
+        //{
+        //    if (view != null)
+        //        view.SetNumero();
+        //}
+        //public void AskPosicao()
+        //{
+        //    if (view != null)
+        //        view.SetPosicao();
+        //}
 
         #endregion
 

@@ -16,6 +16,8 @@ namespace ProjetoLP.View
         void SetAlcunha();
         void SetNumero();
         void SetPosicao();
+        void AddJogador();
+        void EditJogador();
 
         void ShowData();
     }
@@ -45,22 +47,34 @@ namespace ProjetoLP.View
 
         #region Properties
         
-        public void SetAlcunha()
+        private void SetAlcunha()
         {
             Console.Write("Alcunha: ");
             controller.SetAlcunha(Console.ReadLine());
         }
-        public void SetNumero()
+        private void SetNumero()
         {
             Console.Write("Número: ");
             if( int.TryParse(Console.ReadLine(), out int aux) )
                 controller.SetNumero(aux);
         }
-        public void SetPosicao()
+        private void SetPosicao()
         {
             Console.Write("Posição: ");
             if (POSICAO.TryParse(Console.ReadLine(), out POSICAO aux))
                 controller.SetPosicao(aux);
+        }
+
+        public void AddJogador()
+        {
+            SetAlcunha();
+            SetNumero();
+            SetPosicao();
+            controller.AddJogador();
+        }
+
+        public void EditJogador()
+        {
         }
         
         #endregion

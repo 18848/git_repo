@@ -3,39 +3,34 @@
 *		Copyright (c) 2020 All Rights Reserved
 *	</copyright>
 * 	<author>Andre</author>
-*   <date>5/27/2020 7:50:41 PM</date>
+*   <date>5/27/2020 11:06:21 PM</date>
 *	<description></description>
 **/
-using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Security.Cryptography.X509Certificates;
 
 namespace ProjetoLP.Models
 {
-    public interface IGuardarJogador
+    public interface IGuardarArbitro
     {
-        bool AddJogador(IJogadorModel j);
-        bool SaveJogadores(string file);
-        bool LoadJogadores(string file);
-        bool RemoveJogador(int id);
-        List<IJogadorModel> GetJogadores();
+        bool AddArbitro(IArbitroModel a);
+        bool SaveArbitros(string file);
+        bool LoadArbitros(string file);
+        bool RemoveArbitros(int id);
     }
 
-    [Serializable]
     /// <summary>
     /// Purpose:
     /// Created by: Andre
-    /// Created on: 5/27/2020 7:50:41 PM
+    /// Created on: 5/27/2020 11:06:21 PM
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class GuardarJogador : IGuardarJogador
+    public class GuardarArbitro : IGuardarArbitro
     {
         #region Attributes
-        List<IJogadorModel> jogadores;
+        private List<IArbitroModel> arbitros;
         #endregion
 
         #region Methods
@@ -45,51 +40,51 @@ namespace ProjetoLP.Models
         /// <summary>
         /// The default Constructor.
         /// </summary>
-        public GuardarJogador()
+        public GuardarArbitro()
         {
-            jogadores = new List<IJogadorModel>();
+            arbitros = new List<IArbitroModel>();
         }
 
         #endregion
 
         #region Properties
-        public bool AddJogador(IJogadorModel j)
+        public bool AddArbitro(IArbitroModel a)
         {
-            if(jogadores != null)
+            if (arbitros != null)
             {
-                if (jogadores.Contains(j))
+                if (arbitros.Contains(a))
                 {
                     return false;
                 }
                 else
                 {
-                    j.Id = jogadores.Count + 1;
-                    j.Active = true;
-                    jogadores.Add(j);
+                    a.Id = arbitros.Count + 1;
+                    a.Active = true;
+                    arbitros.Add(a);
                     return true;
                 }
             }
             else
             {
-                jogadores = new List<IJogadorModel>();
-                jogadores.Add(j);
+                arbitros = new List<IArbitroModel>();
+                arbitros.Add(a);
                 return true;
             }
         }
 
-        public bool SaveJogadores(string file)
+        public bool SaveArbitros(string file)
         {
-            if(jogadores != null)
+            if (arbitros != null)
             {
                 try
                 {
                     Stream stream = File.Open(file, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                     BinaryFormatter bin = new BinaryFormatter();
-                    bin.Serialize(stream, jogadores);
+                    bin.Serialize(stream, arbitros);
                     stream.Close();
                     return true;
                 }
-                catch(IOException e)
+                catch (IOException e)
                 {
                     throw e;
                 }
@@ -97,32 +92,32 @@ namespace ProjetoLP.Models
             return true;
         }
 
-        public bool LoadJogadores(string file)
+        public bool LoadArbitros(string file)
         {
             if (File.Exists(file))
             {
                 Stream stream = File.Open(file, FileMode.Open);
                 BinaryFormatter bin = new BinaryFormatter();
-                jogadores = (List<IJogadorModel>)bin.Deserialize(stream);
+                arbitros = (List<IArbitroModel>)bin.Deserialize(stream);
                 stream.Close();
                 return true;
-            }            
+            }
             return true;
         }
-        public bool RemoveJogador(int id)
+        public bool RemoveArbitros(int id)
         {
-            foreach(Jogador j in jogadores)
-                if (j.Id == id && j.Active)
+            foreach (Arbitro a in arbitros)
+                if (a.Id == id && a.Active)
                 {
-                    j.Active = false;
+                    a.Active = false;
                     return true;
                 }
             return false;
         }
 
-        public List<IJogadorModel> GetJogadores()
+        public List<IArbitroModel> GetArbitro()
         {
-            return jogadores;
+            return arbitros;
         }
         #endregion
 
