@@ -26,8 +26,7 @@ namespace ProjetoLP.Models
         {
             this.nome = n;
             this.fundacao = f;
-            foreach(Jogador jog in j)
-                this.jogadores.Add(jog);
+            jogadores = j;
         }
 
 
@@ -38,7 +37,10 @@ namespace ProjetoLP.Models
         {
             nome = "";
             fundacao = DateTime.Now;
-            totalJogadores = jogadores.Count;
+            if (jogadores != null)
+                totalJogadores = jogadores.Count;
+            else
+                totalJogadores = 0;
         }
         #endregion
 

@@ -44,8 +44,8 @@ namespace ProjetoLP.Models
         /// 
         /// </summary>
         /// <param name="ficheiro">Path do ficheiro</param>
-        /*public static array Buscar(string ficheiro)
-        {
+        public static array Buscar(string ficheiro)
+        /*{
             if (File.Exists(ficheiro))
             {
                 try

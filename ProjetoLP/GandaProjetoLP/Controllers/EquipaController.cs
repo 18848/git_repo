@@ -43,6 +43,8 @@ namespace ProjetoLP.Controllers
         private IEquipaView view;
         private IEquipaModel model;
 
+        private CompeticaoController competicao;
+
         #region Methods
 
         #region Constructors
@@ -50,8 +52,10 @@ namespace ProjetoLP.Controllers
         /// <summary>
         /// The default Constructor.
         /// </summary>
-        public EquipaController()
+        public EquipaController(CompeticaoController comp)
         {
+            competicao = comp;
+
             model = new Equipa();
 
             #region View
@@ -59,7 +63,7 @@ namespace ProjetoLP.Controllers
 
             view.SetNome();
             view.SetFundacao();
-            //view.SetJogadores();
+            view.SetJogadores();
 
             #endregion
         }
@@ -85,8 +89,7 @@ namespace ProjetoLP.Controllers
         }
         public void SetJogadores(List<Jogador> j)
         {
-            foreach (Jogador jog in j)
-                SetJogador(jog);
+            model.Jogadores = j;
         }
 
         #endregion

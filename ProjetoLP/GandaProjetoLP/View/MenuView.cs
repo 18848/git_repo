@@ -153,11 +153,15 @@ namespace ProjetoLP.View
                                 CompeticaoController comp = new CompeticaoController();
                                 List<Arbitro> arbitros = new List<Arbitro>();
                                 arbitros = comp.GetArbitros();
-                                Console.WriteLine("Nomes: ");
+                                Console.WriteLine("Arbitros: ");
                                 foreach (Arbitro a in arbitros)
                                 {
-                                    Console.WriteLine($"\t- {a.Nome} - {a.Formacao.ToString()}");
-                                }                                 
+                                    Console.WriteLine($"\t- {a.Id} - {a.Nome} - {a.Formacao.Date.ToString()}");
+                                }
+                                Console.Write("Insira o Id do Respetivo Arbitro: ");
+                                int id;
+                                if (int.TryParse(Console.ReadLine(), out id))
+                                    comp.GetArbitro(id);
                             }
                             catch (FormatException e)
                             {
@@ -174,23 +178,18 @@ namespace ProjetoLP.View
                         {
                             try
                             {
-                                List<Arbitro> arbitros = new List<Arbitro>(); //Carregar apartir de um getter
-                                CompeticaoController compController = new CompeticaoController();
-                                ArbitroController controller = new ArbitroController();
-                                ArbitroView arbitro = new ArbitroView(controller);
-                                Console.WriteLine("Insira o nome do arbitro");
-                                string nome = Console.ReadLine();
-
-                                //Associar o arbitro ao controller Not Done
-                                //compController.
-                                Console.WriteLine("Nome: " + controller.GetNome());
-                                Console.WriteLine("Data Nascimento: " + controller.GetDataNascimento());
-                                Console.WriteLine("Nacionalidade: " + controller.GetNacionalidade());
-                                Console.WriteLine("Altura: " + controller.GetAltura());
-                                Console.WriteLine("Peso: " + controller.GetPeso());
-                                Console.WriteLine("Associacao: " + controller.GetAssociacao());
-                                Console.WriteLine("Categoria: " + controller.GetCategoria());
-                                Console.WriteLine("Data de Formacao: " + controller.GetFormacao());
+                                CompeticaoController comp = new CompeticaoController();
+                                List<Arbitro> arbitros = new List<Arbitro>();
+                                arbitros = comp.GetArbitros();
+                                Console.WriteLine("Arbitros: ");
+                                foreach (Arbitro a in arbitros)
+                                {
+                                    Console.WriteLine($"\t- {a.Id} - {a.Nome} - {a.Formacao.ToString()}");
+                                }
+                                Console.Write("Insira o Id do Respetivo Arbitro: ");
+                                int id;
+                                if (int.TryParse(Console.ReadLine(), out id))
+                                    comp.GetArbitro(id);
 
                             }
                             catch (NullReferenceException e)

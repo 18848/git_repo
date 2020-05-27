@@ -25,14 +25,14 @@ namespace ProjetoLP.Controllers
         void SetFormacao(DateTime f);
 		void SetCategoria(CATEGORIA c);
 		void SetAssociacao(ASSOCIACAO a);
-        void SetId(ID id);
+        //void SetId(ID id);
 		#endregion
 
 		#region Data Getters.
 		DateTime GetFormacao();
 		CATEGORIA GetCategoria();
 		ASSOCIACAO GetAssociacao();
-        ID GetId();
+        //ID GetId();
 		#endregion
 
 		#region Data Update.
@@ -117,10 +117,10 @@ namespace ProjetoLP.Controllers
 			model.Associacao = a;
 		}
 
-		public void SetId(ID id)
-        {
-			model.Id = id;
-        }
+		//public void SetId(ID id)
+  //      {
+		//	model.Id = id;
+  //      }
         #endregion
         
 		#region Get Data.
@@ -137,10 +137,10 @@ namespace ProjetoLP.Controllers
 		{
 			return model.Associacao;
 		}
-		public ID GetId()
-        {
-			return model.Id;
-        }
+		//public ID GetId()
+  //      {
+		//	return model.Id;
+  //      }
 
         #endregion
 

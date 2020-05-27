@@ -18,7 +18,7 @@ namespace ProjetoLP.Controllers
         #region Data Setters.
         void SetEquipas(List<Equipa> e);
         void SetArbitros(List<Arbitro> a);
-        //void SetJogadores(List<Jogador> j);
+        void SetJogadores(List<Jogador> j);
         void SetInicio(DateTime i);
         void SetFim(DateTime f);
         #endregion
@@ -33,9 +33,9 @@ namespace ProjetoLP.Controllers
         Arbitro GetArbitro(int id);
 
         //// Present Jogador both individually and as a whole.
-        //List<Jogador> GetJogadores();
-        //Jogador GetJogador(string n);
-        
+        List<Jogador> GetJogadores();
+        Jogador GetJogador(string n);
+
         //
         DateTime GetInicio();
         DateTime GetFim();
@@ -92,9 +92,9 @@ namespace ProjetoLP.Controllers
         /// </summary>
         public CompeticaoController()
         {
-            #region Equipa
-            equipaController = new EquipaController();
-            #endregion
+            equipaController = new EquipaController(this);
+            arbitroController = new ArbitroController();
+
 
             #region Model
             model = new Competicao();
@@ -105,7 +105,7 @@ namespace ProjetoLP.Controllers
 
             view.SetEquipas();
             view.SetArbitros();
-            //view.SetJogadores();
+            view.SetJogadores();
             view.SetInicio();
             view.SetFim();
 
@@ -122,7 +122,7 @@ namespace ProjetoLP.Controllers
         /// <param name="cModel"> Model. </param>
         public void SetModel(ICompeticaoModel cModel)
         {
-            this.model = cModel;
+            model = cModel;
         }
 
         #region Set Data.
@@ -134,10 +134,10 @@ namespace ProjetoLP.Controllers
         {
             model.Arbitros = a;
         }
-        //public void SetJogadores(List<Jogador> j)
-        //{
-        //    model.Jogadores = j;
-        //}
+        public void setJogadores(int equipaID, List<Jogador> j)
+        {
+            model.Equipas[equipaID].Jogadores = j;
+        }
 
         public void SetInicio(DateTime i)
         {

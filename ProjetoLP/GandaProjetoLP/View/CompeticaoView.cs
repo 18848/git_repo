@@ -152,8 +152,8 @@ namespace ProjetoLP.View
         {
             List<Jogador> jogadorList = new List<Jogador>();
             Console.WriteLine("Insira os arbitros. ('.' para parar)");
-            JogadorController newJogador;
-            while (SetJogador(out newJogador))
+
+            while (SetJogador(out JogadorController newJogador))
             {
                 Jogador aux = new Jogador(newJogador.GetAlcunha(), newJogador.GetNumero(),
                     newJogador.GetPosicao(), newJogador.GetNome(), newJogador.GetNacionalidade(),

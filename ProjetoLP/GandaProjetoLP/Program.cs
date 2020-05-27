@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjetoLP.Controllers;
+using ProjetoLP.Models;
 using ProjetoLP.View;
 
 namespace ProjetoLP
@@ -96,7 +97,8 @@ namespace ProjetoLP
     {
         static void Main(string[] args)
         {
-            //List<Arbitro> listaArbitros = Ficheiro.Buscar();
+            //if(Ficheiro != null)
+                CompeticaoController competicao = new CompeticaoController();
 
             MenuView menu = new MenuView();
 
