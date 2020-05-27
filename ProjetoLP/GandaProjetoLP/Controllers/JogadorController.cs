@@ -32,9 +32,6 @@ namespace ProjetoLP.Controllers
         void AskPosicao();
         #endregion
 
-        #region Data Delete.
-        #endregion
-
         #region View Setter.
         void SetView(IJogadorView v);
         #endregion
@@ -71,7 +68,7 @@ namespace ProjetoLP.Controllers
             view.SetNumero();
             view.SetPosicao();
 
-            view.ShowData();
+            //view.ShowData();
 
             #endregion
         }

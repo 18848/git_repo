@@ -21,6 +21,7 @@ namespace ProjetoLP.Models
         bool SaveJogadores(string file);
         bool LoadJogadores(string file);
         bool RemoveJogador(int id);
+        List<IJogadorModel> GetJogadores();
     }
 
     [Serializable]
@@ -34,7 +35,7 @@ namespace ProjetoLP.Models
     public class GuardarJogador
     {
         #region Attributes
-        List<IJogadorModel> jogadores
+        List<IJogadorModel> jogadores;
         #endregion
 
         #region Methods
@@ -62,6 +63,8 @@ namespace ProjetoLP.Models
                 }
                 else
                 {
+                    j.Id = jogadores.Count + 1;
+                    j.Active = true;
                     jogadores.Add(j);
                     return true;
                 }
@@ -103,16 +106,23 @@ namespace ProjetoLP.Models
                 jogadores = (List<IJogadorModel>)bin.Deserialize(stream);
                 stream.Close();
                 return true;
-            }
-
-            public bool RemoveJogador()
-            {
-
-                return false;
-            }
+            }            
             return true;
         }
-
+        public bool RemoveJogador(int id)
+        {
+            foreach(Jogador j in jogadores)
+                if (j.Id == id && j.Active)
+                {
+                    j.Active = false;
+                    return true;
+                }
+            return false;
+        }
+        List<IJogadorModel> GetJogadores()
+        {
+            return jogadores;
+        }
         #endregion
 
 

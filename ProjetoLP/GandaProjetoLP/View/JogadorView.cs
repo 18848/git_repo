@@ -30,7 +30,7 @@ namespace ProjetoLP.View
     public class JogadorView : IJogadorView
     {
         private IJogadorController controller;
-
+        
         #region Methods
 
         #region Constructors

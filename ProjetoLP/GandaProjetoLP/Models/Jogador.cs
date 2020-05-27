@@ -12,6 +12,7 @@ namespace ProjetoLP.Models
         int Numero { get; set; }
         POSICAO Posicao { get; set; }
         int Id { get; set; }
+        bool Active { get; set; }
     }
 
     public class Jogador : Pessoa, IJogadorModel, IPessoaModel
@@ -32,7 +33,7 @@ namespace ProjetoLP.Models
         {
             alcunha = a;
             numero = n;
-            this.posicao = p;
+            posicao = p;
         }
 
         /// <summary>
@@ -84,6 +85,9 @@ namespace ProjetoLP.Models
         {
             get; set;
         }
+        
+        public bool Active { get; set; }
+
         #endregion
 
 
