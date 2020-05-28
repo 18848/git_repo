@@ -13,13 +13,10 @@ namespace ProjetoLP.View
 {
     public interface IJogadorView
     {
-        void SetAlcunha();
-        void SetNumero();
-        void SetPosicao();
         void AddJogador();
         void EditJogador();
 
-        void ShowData();
+        //void ShowData();
     }
 
     /// <summary>
@@ -85,7 +82,7 @@ namespace ProjetoLP.View
         #endregion
 
         #region OtherMethods
-        public void ShowData()
+        public void ShowData(int id)
         {
             Console.WriteLine("Alcunha: " + controller.GetAlcunha() );
             Console.WriteLine("Número: " + controller.GetNumero() );

@@ -19,6 +19,7 @@ namespace ProjetoLP.Models
         bool LoadArbitros(string file);
         bool RemoveArbitros(int id);
         List<IArbitroModel> GetArbitros();
+        IArbitroModel GetArbitro(int id);
     }
 
     /// <summary>
@@ -76,9 +77,14 @@ namespace ProjetoLP.Models
             }
         }
         
-        List<IArbitroModel> GetArbitros()
+        public List<IArbitroModel> GetArbitros()
         {
             return arbitros;
+        }
+        
+        public IArbitroModel GetArbitro(int id)
+        {
+            return arbitros[id];
         }
 
         public bool SaveArbitros(string file)
@@ -123,11 +129,6 @@ namespace ProjetoLP.Models
                     return true;
                 }
             return false;
-        }
-
-        public List<IArbitroModel> GetArbitros()
-        {
-            return arbitros;
         }
 
         #endregion

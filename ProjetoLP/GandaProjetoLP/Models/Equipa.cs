@@ -8,6 +8,8 @@ namespace ProjetoLP.Models
         string Nome { get; set; }
         DateTime Fundacao { get; set; }
         List<Jogador> Jogadores { get; set; }
+        int Id { get; set; }
+        bool Active { get; set; }
     }
 
     public class Equipa : IEquipaModel
@@ -22,14 +24,6 @@ namespace ProjetoLP.Models
 
 
         #region CONSTRUCTORS
-        ///
-        public Equipa(string n, DateTime f, List<Jogador> j)
-        {
-            this.nome = n;
-            this.fundacao = f;
-            jogadores = j;
-        }
-
 
         /// <summary>
         /// Construtor vazio

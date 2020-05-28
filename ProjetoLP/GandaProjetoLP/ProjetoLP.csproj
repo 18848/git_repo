@@ -55,6 +55,7 @@
     <Compile Include="Models\Equipa.cs" />
     <Compile Include="Models\Ficheiro.cs" />
     <Compile Include="Models\GuardarArbitro.cs" />
+    <Compile Include="Models\GuardarCompeticao.cs" />
     <Compile Include="Models\GuardarEquipa.cs" />
     <Compile Include="Models\GuardarJogador.cs" />
     <Compile Include="Models\Jogador.cs" />

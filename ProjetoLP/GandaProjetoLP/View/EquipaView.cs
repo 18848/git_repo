@@ -15,9 +15,7 @@ namespace ProjetoLP.View
 {
     public interface IEquipaView
     {
-        void SetNome();
-        void SetFundacao();
-        void SetJogadores();
+        void SetEquipas();
     }
 
     /// <summary>
@@ -30,7 +28,8 @@ namespace ProjetoLP.View
     public class EquipaView : IEquipaView
     {
         IEquipaController controller;
-        CompeticaoController compController = new CompeticaoController();
+        IJogadorController jController;
+        IJogadorView jView;
 
         #region Methods
 
@@ -41,8 +40,8 @@ namespace ProjetoLP.View
         /// </summary>
         public EquipaView(IEquipaController c)
         {
-            this.controller = c;
-            this.controller.SetView(this);
+            controller = c;
+            controller.SetView(this);
         }
 
         #endregion
@@ -53,7 +52,7 @@ namespace ProjetoLP.View
             Console.Write("Nome: ");
             controller.SetNome(Console.ReadLine());
         }
-        public void SetFundacao()
+        private void SetFundacao()
         {
             DateTime aux;
             Console.Write("Data de Fundação: ");
@@ -61,10 +60,18 @@ namespace ProjetoLP.View
                 controller.SetFundacao(aux);
         }
         
-        public void SetJogadores()
+        //private void SetJogadores()
+        //{
+        //    Console.WriteLine("Insira Jogadores: ");
+            
+        //    //jController.
+        //}
+
+        public void SetEquipas()
         {
-            Console.WriteLine("Insira Jogadores: ");
-            compController.
+            SetNome();
+            SetFundacao();
+            //SetJogadores();
         }
 
         #endregion
