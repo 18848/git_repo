@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoLP.Models
 {
-    public interface IArbitroModel
+    public interface IArbitroModel : IPessoaModel
     {
         DateTime Formacao { get; set; }
         CATEGORIA Categoria { get; set; }

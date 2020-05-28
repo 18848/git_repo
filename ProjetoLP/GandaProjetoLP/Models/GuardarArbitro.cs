@@ -12,12 +12,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ProjetoLP.Models
 {
-    public interface IGuardarArbitro
+    public interface IGuardarArbitro 
     {
         bool AddArbitro(IArbitroModel a);
         bool SaveArbitros(string file);
         bool LoadArbitros(string file);
         bool RemoveArbitros(int id);
+        List<IArbitroModel> GetArbitros();
     }
 
     /// <summary>
@@ -30,7 +31,9 @@ namespace ProjetoLP.Models
     public class GuardarArbitro : IGuardarArbitro
     {
         #region Attributes
+
         private List<IArbitroModel> arbitros;
+
         #endregion
 
         #region Methods
@@ -48,6 +51,7 @@ namespace ProjetoLP.Models
         #endregion
 
         #region Properties
+
         public bool AddArbitro(IArbitroModel a)
         {
             if (arbitros != null)
@@ -70,6 +74,11 @@ namespace ProjetoLP.Models
                 arbitros.Add(a);
                 return true;
             }
+        }
+        
+        List<IArbitroModel> GetArbitros()
+        {
+            return arbitros;
         }
 
         public bool SaveArbitros(string file)
@@ -104,6 +113,7 @@ namespace ProjetoLP.Models
             }
             return true;
         }
+
         public bool RemoveArbitros(int id)
         {
             foreach (Arbitro a in arbitros)
@@ -115,10 +125,11 @@ namespace ProjetoLP.Models
             return false;
         }
 
-        public List<IArbitroModel> GetArbitro()
+        public List<IArbitroModel> GetArbitros()
         {
             return arbitros;
         }
+
         #endregion
 
 

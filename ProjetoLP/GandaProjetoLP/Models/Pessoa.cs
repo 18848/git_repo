@@ -2,9 +2,6 @@
 
 namespace ProjetoLP.Models
 {
-    #region ENUMS
-    #endregion
-
     public interface IPessoaModel
     {
         string Nome { get; set; }

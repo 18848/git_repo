@@ -7,6 +7,7 @@
 *	<description></description>
 **/
 using ProjetoLP.Controllers;
+using ProjetoLP.Models;
 using System;
 
 namespace ProjetoLP.View
@@ -18,7 +19,8 @@ namespace ProjetoLP.View
         void SetAssociacao();
         void SetId();
 
-        void ShowData();
+        void ShowArbitro(IArbitroModel i);
+        void ShowData(IArbitroModel i);
     }
 
     /// <summary>
@@ -80,6 +82,21 @@ namespace ProjetoLP.View
         {
 
         }
+        /// <summary>
+        /// Apresentar um arbitro especifico
+        /// </summary>
+        /// <param name="i">Modelo da classe arbitro</param>
+        public void ShowArbitro(IArbitroModel i)
+        {
+            Console.WriteLine("Nome: " + i.Nome);
+            Console.WriteLine("Nacionalidade: " + i.Nacionalidade);
+            Console.WriteLine("Associacao: " + i.Associacao);
+            Console.WriteLine("Data de Nascimento: " + i.DataNascimento.ToString());
+            Console.WriteLine("Altura: " + i.Altura.ToString());
+            Console.WriteLine("Peso: " + i.Peso.ToString());
+            Console.WriteLine("Categoria: " + i.Categoria);
+            Console.WriteLine("Data de Formacao: " + i.Formacao.ToString());
+        }
 
         #endregion
 
@@ -90,11 +107,16 @@ namespace ProjetoLP.View
         /// <summary>
         /// Presents Data to Screen.
         /// </summary>
-        public void ShowData()
+        public void ShowData(IArbitroModel i)
         {
-            Console.WriteLine("Formação:" + controller.GetFormacao().Date);
-            Console.WriteLine("Categoria:" + controller.GetCategoria());
-            Console.WriteLine("Associação:" + controller.GetAssociacao());
+            Console.WriteLine("Nome: " + i.Nome);
+            Console.WriteLine("Nacionalidade: " + i.Nacionalidade);
+            Console.WriteLine("Associacao: " + i.Associacao);
+            Console.WriteLine("Data de Nascimento: " + i.DataNascimento.ToString());
+            Console.WriteLine("Altura: " + i.Altura.ToString());
+            Console.WriteLine("Peso: " + i.Peso.ToString());
+            Console.WriteLine("Categoria: " + i.Categoria);
+            Console.WriteLine("Data de Formacao: " + i.Formacao.ToString());
         }
         #endregion
     }

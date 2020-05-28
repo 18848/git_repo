@@ -25,7 +25,9 @@ namespace ProjetoLP.Controllers
         void SetFormacao(DateTime f);
 		void SetCategoria(CATEGORIA c);
 		void SetAssociacao(ASSOCIACAO a);
-        //void SetId(ID id);
+		void GetAllArbitros();
+		void GetArbitro(int id);
+		//void SetId(ID id);
 		#endregion
 
 		#region Data Getters.
@@ -56,6 +58,7 @@ namespace ProjetoLP.Controllers
 	{
 		private IArbitroModel model;
 		private IArbitroView view;
+		private IGuardarArbitro guardar;
 
 		#region Constructors
 		/// <summary>
@@ -174,6 +177,42 @@ namespace ProjetoLP.Controllers
 		{
 			if (view != null)
 				view.SetAssociacao();
+		}
+
+		public void GetAllArbitros()
+		{
+			List<IArbitroModel> arbitros = guardar.GetArbitros();
+			if (view != null)
+			{
+				if (arbitros != null)
+				{
+					foreach (IArbitroModel i in arbitros)
+					{
+						view.ShowData(i);
+					}
+					Console.ReadKey();
+				}
+
+			}
+
+		}
+		public void GetArbitro(int id)
+		{
+			List<IArbitroModel> arbitros = guardar.GetArbitros();
+			if (view != null)
+			{
+				if (arbitros != null)
+				{
+					foreach (IArbitroModel i in arbitros)
+					{
+						if(id == i.IndexOf(id))
+						view.ShowData(i);
+					}
+					Console.ReadKey();
+				}
+
+			}
+
 		}
 		#endregion
 

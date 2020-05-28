@@ -46,7 +46,6 @@ namespace ProjetoLP.View
 
             do
             {
-                
                 try
                 {
                     Console.Clear();
@@ -94,9 +93,9 @@ namespace ProjetoLP.View
                     case 7:
                         CompeticaoMenu();
                         break;
-                    //case 0:
-                    //    MainMenu();
-                    //    break;
+                    default:
+                        MainMenu();
+                        break;
                 }
             } while (op != 0);
         }
@@ -119,62 +118,32 @@ namespace ProjetoLP.View
         public void ArbitrosMenu()
         {
             int op = 0;
+            ArbitroController arbitroController = new ArbitroController();
 
             do
             {
                 try
                 {
                     Console.Clear();
-                    Console.WriteLine("1: Lista de Arbitros");
-                    Console.WriteLine("2: Arbitro Especifico");
-                    Console.WriteLine("3: Adicionar Arbitro");
-                    Console.WriteLine("4: Editar Arbitro");
-                    Console.WriteLine("5: Remover Arbitro");
+
+                    arbitroController.GetAllArbitros();
+                    Console.WriteLine("1: Arbitro Especifico");
+                    Console.WriteLine("2: Adicionar Arbitro");
+                    Console.WriteLine("3: Editar Arbitro");
+                    Console.WriteLine("4: Remover Arbitro");
                     Console.WriteLine("0: Voltar");
                     Console.WriteLine("Opcao: ");
                     int.TryParse(Console.ReadLine(), out op);
                 }
-                catch (FormatException e)
+                catch (Exception e)
                 {
-                    Console.WriteLine("Erro - " + e);
-                }
-                catch (OverflowException e)
-                {
-                    Console.WriteLine("Erro - " + e);
+                    Console.WriteLine("Erro - " + e.Message);
                 }
 
                 Console.Clear();
                 switch (op)
                 {
                     case 1:
-                        {
-                            try
-                            {
-                                CompeticaoController comp = new CompeticaoController();
-                                List<Arbitro> arbitros = new List<Arbitro>();
-                                arbitros = comp.GetArbitros();
-                                Console.WriteLine("Arbitros: ");
-                                foreach (Arbitro a in arbitros)
-                                {
-                                    Console.WriteLine($"\t- {a.Id} - {a.Nome} - {a.Formacao.Date.ToString()}");
-                                }
-                                Console.Write("Insira o Id do Respetivo Arbitro: ");
-                                int id;
-                                if (int.TryParse(Console.ReadLine(), out id))
-                                    comp.GetArbitro(id);
-                            }
-                            catch (FormatException e)
-                            {
-                                Console.WriteLine("Erro - " + e);
-                            }
-                            catch (OverflowException e)
-                            {
-                                Console.WriteLine("Erro - " + e);
-                            }
-                            break;
-                        }
-                        
-                    case 2:
                         {
                             try
                             {
@@ -209,7 +178,7 @@ namespace ProjetoLP.View
                         }
                         
                     
-                    case 3:
+                    case 2:
                         {
                             try
                             {

@@ -16,6 +16,7 @@ namespace ProjetoLP.Models
         private string nome;
         private DateTime fundacao;
         private List<Jogador> jogadores;
+        private bool id;
         private int totalJogadores;
         #endregion
 
@@ -71,6 +72,18 @@ namespace ProjetoLP.Models
         {
             get { return jogadores; }
             set { jogadores = value; }
+        }
+
+        public int Id
+        {
+            get;
+            set;
+        }
+
+        public bool Active
+        {
+            get;
+            set;
         }
 
         #endregion

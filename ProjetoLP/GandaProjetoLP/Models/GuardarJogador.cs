@@ -35,7 +35,9 @@ namespace ProjetoLP.Models
     public class GuardarJogador : IGuardarJogador
     {
         #region Attributes
+
         List<IJogadorModel> jogadores;
+
         #endregion
 
         #region Methods
@@ -53,6 +55,7 @@ namespace ProjetoLP.Models
         #endregion
 
         #region Properties
+
         public bool AddJogador(IJogadorModel j)
         {
             if(jogadores != null)
@@ -94,7 +97,7 @@ namespace ProjetoLP.Models
                     throw e;
                 }
             }
-            return true;
+            return false;
         }
 
         public bool LoadJogadores(string file)
@@ -107,11 +110,12 @@ namespace ProjetoLP.Models
                 stream.Close();
                 return true;
             }            
-            return true;
+            return false;
         }
+
         public bool RemoveJogador(int id)
         {
-            foreach(Jogador j in jogadores)
+            foreach(IJogadorModel j in jogadores)
                 if (j.Id == id && j.Active)
                 {
                     j.Active = false;
