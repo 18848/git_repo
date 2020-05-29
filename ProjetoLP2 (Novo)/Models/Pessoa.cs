@@ -1,28 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ProjetoLP.Models
+namespace ProjetoLP2.Models
 {
-    public interface IPessoaModel
+    public interface IPessoa
     {
         string Nome { get; set; }
         string Nacionalidade { get; set; }
         DateTime DataNascimento { get; set; }
         float Altura { get; set; }
         float Peso { get; set; }
+        bool Active { get; set; }
+
+        void UpdateCliente(IPessoa pessoa);
     }
 
-    public class Pessoa : IPessoaModel
+    [Serializable]
+    class Pessoa : IPessoa
     {
-        #region MEMBER VARIABLES
+        #region Member Values
         private string nome;
         private string nacionalidade;
         private DateTime dataNascimento;
         private float altura;
         private float peso;
+        private bool active;
         #endregion
 
-
-        #region CONSTRUCTORS
+        #region Constructors
         public Pessoa(string nome, string nac, DateTime d, float a, float p)
         {
             this.nome = nome;
@@ -32,9 +40,6 @@ namespace ProjetoLP.Models
             peso = p;
         }
 
-        /// <summary>
-        /// Construtor sem dados
-        /// </summary>
         public Pessoa()
         {
             this.nome = "";
@@ -45,30 +50,17 @@ namespace ProjetoLP.Models
         }
         #endregion
 
-
-        #region PROPERTIES
-        /// <summary>
-        /// Manipula o atributo "nome"
-        /// </summary>
+        #region Properties
         public string Nome
         {
             get { return nome; }
             set { nome = value; }
         }
-
-        /// <summary>
-        /// Manipula o atributo "nacionalidade"
-        /// </summary>
         public string Nacionalidade
         {
             get { return nacionalidade; }
             set { nacionalidade = value; }
         }
-
-
-        /// <summary>
-        /// Manipula o atributo "dataNascimento"
-        /// </summary>
         public DateTime DataNascimento
         {
             get { return dataNascimento; }
@@ -81,34 +73,32 @@ namespace ProjetoLP.Models
                 }
             }
         }
-
-
-        /// <summary>
-        /// Manipula o atributo "altura"
-        /// </summary>
         public float Altura
         {
             get { return altura; }
             set { altura = value; }
         }
-
-
-        /// <summary>
-        /// Manipula o atributo "peso"
-        /// </summary>
         public float Peso
         {
             get { return peso; }
             set { peso = value; }
         }
+        public bool Active
+        {
+            get { return active; }
+            set { active = value; }
+        }
         #endregion
 
-
-        #region FUNCTIONS
-        #endregion
-
-
-        #region OVERIDES
+        #region Functions
+        public void UpdateCliente(IPessoa pessoa)
+        {
+            Nome = pessoa.Nome;
+            Nacionalidade = pessoa.Nacionalidade;
+            DataNascimento = pessoa.DataNascimento;
+            Altura = pessoa.Altura;
+            Peso = pessoa.Peso;
+        }
         #endregion
     }
 }

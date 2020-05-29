@@ -4,39 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoLP.Models
+namespace ProjetoLP2.Models
 {
-    public interface IArbitroModel : IPessoaModel
+    public interface IArbitro : IPessoa
     {
         DateTime Formacao { get; set; }
         CATEGORIA Categoria { get; set; }
         ASSOCIACAO Associacao { get; set; }
-        int Id { get; set; }
-        bool Active { get; set; }
     }
 
-
-    public class Arbitro : Pessoa, IArbitroModel, IPessoaModel
+    class Arbitro : Pessoa, IArbitro
     {
-        #region MEMBER VARIABLES
+        #region Member Values
         private DateTime formacao;
         private CATEGORIA categoria;
         private ASSOCIACAO associacao;
-        private int id;
         #endregion
 
-
-        #region CONSTRUCTORS
-        public Arbitro(DateTime f, CATEGORIA c, ASSOCIACAO a, string nome, string nac, DateTime d, float altura, float peso) 
+        #region Constructor
+        public Arbitro(DateTime f, CATEGORIA c, ASSOCIACAO a, string nome, string nac, DateTime d, float altura, float peso)
             : base(nome, nac, d, altura, peso)
         {
             formacao = f;
             categoria = c;
             associacao = a;
         }
-            /// <summary>
-            /// Construtor vazio
-            /// </summary>
         public Arbitro() : base()
         {
             this.formacao = DateTime.Now;
@@ -45,53 +37,22 @@ namespace ProjetoLP.Models
         }
         #endregion
 
-
-        #region PROPERTIES
-        /// <summary>
-        /// Manipula o atributo "formacao"
-        /// </summary>
+        #region Properties
         public DateTime Formacao
         {
             get { return formacao; }
             set { formacao = value; }
         }
-
-        /// <summary>
-        /// Manipula o atributo "categoria"
-        /// </summary>
         public CATEGORIA Categoria
         {
             get { return categoria; }
             set { categoria = value; }
         }
-
-
-        /// <summary>
-        /// Manipula o atributo "associacao"
-        /// </summary>
         public ASSOCIACAO Associacao
         {
             get { return associacao; }
             set { associacao = value; }
         }
-
-        public int Id
-        {
-            get; set;
-        }
-
-        public bool Active
-        {
-            get; set;
-        }
-        #endregion
-
-
-        #region FUNCTIONS
-        #endregion
-
-
-        #region OVERIDES
         #endregion
     }
 }
