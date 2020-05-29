@@ -11,6 +11,7 @@ namespace ProjetoLP.Models
 {
     public interface ICompeticaoModel
     {
+        string Name { get; set; }
         DateTime Inicio { get; set; }
         DateTime Fim { get; set; }
         int Id { get; set; }
@@ -20,6 +21,7 @@ namespace ProjetoLP.Models
     class Competicao : ICompeticaoModel
     {
         #region MEMBER VARIABLES
+        private string name;
         private DateTime inicio;
         private DateTime fim;
         #endregion
@@ -38,7 +40,13 @@ namespace ProjetoLP.Models
 
 
         #region PROPERTIES
-        
+
+        public string Name
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Manipula o atributo "inicio"
         /// </summary>

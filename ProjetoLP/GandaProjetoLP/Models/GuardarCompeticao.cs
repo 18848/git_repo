@@ -15,9 +15,9 @@ namespace ProjetoLP.Models
     public interface IGuardarCompeticao
     {
         bool AddCompeticao(ICompeticaoModel e);
-        bool SaveCompeticao(string file);
-        bool LoadCompeticao(string file);
-        bool RemoveCompeticaos(int id);
+        bool SaveCompeticoes(string file);
+        bool LoadCompeticoes(string file);
+        bool RemoveCompeticao(int id);
         List<ICompeticaoModel> GetCompeticoes();
         ICompeticaoModel GetCompeticao(int id);
     }
@@ -33,7 +33,10 @@ namespace ProjetoLP.Models
     {
         #region Attributes
 
+        IGuardarEquipa gEquipa;
+
         private List<ICompeticaoModel> competicoes;
+        private List<IEquipaModel> equipas;
 
         #endregion
 
@@ -47,6 +50,7 @@ namespace ProjetoLP.Models
         public GuardarCompeticao()
         {
             competicoes = new List<ICompeticaoModel>();
+            equipas = gEquipa.GetEquipas();
         }
 
         #endregion
@@ -123,7 +127,7 @@ namespace ProjetoLP.Models
             return false;
         }
 
-        public List<ICompeticaoModel> GetCompeticao()
+        public List<ICompeticaoModel> GetCompeticoes()
         {
             return competicoes;
         }

@@ -18,7 +18,8 @@ namespace ProjetoLP.Models
     {
         #region Attributes
 
-        List<IEquipaModel> equipas;
+
+        private List<IEquipaModel> equipas;
 
         #endregion
 
