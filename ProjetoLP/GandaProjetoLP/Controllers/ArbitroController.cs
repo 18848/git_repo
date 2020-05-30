@@ -89,7 +89,7 @@ namespace ProjetoLP.Controllers
 			view.SetAssociacao();
             view.SetId();
 
-			view.ShowData();
+			//view.ShowData();
 			#endregion
 		}
         #endregion
@@ -205,7 +205,7 @@ namespace ProjetoLP.Controllers
 				{
 					foreach (IArbitroModel i in arbitros)
 					{
-						if(id == i.IndexOf(id))
+						if(id == arbitros.IndexOf(i))
 						view.ShowData(i);
 					}
 					Console.ReadKey();

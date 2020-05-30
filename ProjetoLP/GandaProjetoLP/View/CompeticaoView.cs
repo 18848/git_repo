@@ -37,6 +37,8 @@ namespace ProjetoLP.View
     public class CompeticaoView : ICompeticaoView
     {
         private readonly ICompeticaoController controller;
+        private IGuardarEquipa equipa;
+
 
         #region Constructors
         /// <summary>
@@ -58,6 +60,7 @@ namespace ProjetoLP.View
             Console.WriteLine("Equipa Nova.");
             try
             {
+                controller.
                 newEquipa = new EquipaController();
             }
             catch (FormatException e)
@@ -76,15 +79,14 @@ namespace ProjetoLP.View
         }
         public void SetEquipas()
         {
-            List<Equipa> equipaList = new List<Equipa>();
             Console.WriteLine("Insira as equipas. ('.' para parar)");
             EquipaController newEquipa;
             while(SetEquipa(out newEquipa)) 
             {
-                Equipa aux = new Equipa(newEquipa.GetNome(), newEquipa.GetFundacao(), newEquipa.GetJogadores());
-                equipaList.Add(aux); 
+                IEquipaModel aux = new Equipa();
+                equipa.AddEquipa(aux); 
+
             }
-            controller.SetEquipas(equipaList);
         }
         #endregion
 
@@ -160,7 +162,7 @@ namespace ProjetoLP.View
                     newJogador.GetDataNascimento(), newJogador.GetAltura(), newJogador.GetPeso());
                 jogadorList.Add(aux);
             }
-            controller.SetJogadores(jogadorList);
+            //controller.SetJogadores(jogadorList);
         }
         #endregion
 
@@ -181,10 +183,16 @@ namespace ProjetoLP.View
 
         public void GetEquipas()
         {
-            controller.GetEquipas().ForEach(delegate (Equipa equipa)
+            List<IEquipaModel> equipas = controller.GetEquipas();
+            foreach(IEquipaModel e in equipas)
             {
-                Console.WriteLine(equipa.Nome);
-            });
+                Console.WriteLine("Nome: " + e.Nome);
+                Console.WriteLine("Fundacao: " + e.Fundacao.Date.ToString());
+                Console.WriteLine("Jogadores: ");
+                List<IJogadorModel> jogadores = controller.GetJogadores();
+                foreach (IJogadorModel j in jogadores)
+                    j.ToString();
+            }
         }
 
         public void GetInicio()

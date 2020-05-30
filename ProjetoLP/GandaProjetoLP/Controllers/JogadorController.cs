@@ -71,17 +71,7 @@ namespace ProjetoLP.Controllers
         {
             model = new Jogador();
 
-            #region VIEW
-
             view = new JogadorView(this);
-
-            view.SetAlcunha();
-            view.SetNumero();
-            view.SetPosicao();
-
-            //view.ShowData();
-
-            #endregion
         }
 
         #endregion

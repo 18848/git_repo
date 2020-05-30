@@ -3,41 +3,40 @@
 *		Copyright (c) 2020 All Rights Reserved
 *	</copyright>
 * 	<author>Andre</author>
-*   <date>5/27/2020 7:50:41 PM</date>
+*   <date>5/28/2020 3:49:21 PM</date>
 *	<description></description>
 **/
-using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Security.Cryptography.X509Certificates;
 
 namespace ProjetoLP.Models
 {
-    public interface IGuardarJogador
+    public interface IGuardarCompeticao
     {
-        bool AddJogador(IJogadorModel j);
-        bool SaveJogadores(string file);
-        bool LoadJogadores(string file);
-        bool RemoveJogador(int id);
-        List<IJogadorModel> GetJogadores();
-        IJogadorModel GetJogador(int id);
+        bool AddCompeticao(ICompeticaoModel e);
+        bool SaveCompeticoes(string file);
+        bool LoadCompeticoes(string file);
+        bool RemoveCompeticao(int id);
+        List<ICompeticaoModel> GetCompeticoes();
+        ICompeticaoModel GetCompeticao(int id);
     }
 
-    [Serializable]
     /// <summary>
     /// Purpose:
     /// Created by: Andre
-    /// Created on: 5/27/2020 7:50:41 PM
+    /// Created on: 5/28/2020 3:49:21 PM
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class GuardarJogador : IGuardarJogador
+    public class GuardarCompeticao : IGuardarCompeticao
     {
         #region Attributes
 
-        List<IJogadorModel> jogadores;
+        IGuardarEquipa gEquipa;
+
+        private List<ICompeticaoModel> competicoes;
+        private List<IEquipaModel> equipas;
 
         #endregion
 
@@ -48,52 +47,55 @@ namespace ProjetoLP.Models
         /// <summary>
         /// The default Constructor.
         /// </summary>
-        public GuardarJogador()
+        public GuardarCompeticao()
         {
-            jogadores = new List<IJogadorModel>();
+            competicoes = new List<ICompeticaoModel>();
+            equipas = gEquipa.GetEquipas();
         }
 
         #endregion
 
         #region Properties
 
-        public bool AddJogador(IJogadorModel j)
+        public bool AddCompeticao(ICompeticaoModel c)
         {
-            if(jogadores != null)
+            if (competicoes != null)
             {
-                if (jogadores.Contains(j))
+                if (competicoes.Contains(c))
                 {
                     return false;
                 }
                 else
                 {
-                    j.Id = jogadores.Count + 1;
-                    j.Active = true;
-                    jogadores.Add(j);
+                    c.Id = competicoes.Count + 1;
+                    c.Active = true;
+                    competicoes.Add(c);
                     return true;
                 }
             }
             else
             {
-                jogadores = new List<IJogadorModel>();
-                jogadores.Add(j);
+                competicoes = new List<ICompeticaoModel>();
+                c.Id = competicoes.Count + 1;
+                c.Active = true;
+                competicoes.Add(c);
                 return true;
             }
         }
 
-        public bool SaveJogadores(string file)
+        public bool SaveCompeticoes(string file)
         {
-            if(jogadores != null)
+            if (competicoes != null)
             {
                 try
                 {
                     Stream stream = File.Open(file, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                     BinaryFormatter bin = new BinaryFormatter();
-                    bin.Serialize(stream, jogadores);
+                    bin.Serialize(stream, competicoes);
                     stream.Close();
                     return true;
                 }
-                catch(IOException e)
+                catch (IOException e)
                 {
                     throw e;
                 }
@@ -101,44 +103,41 @@ namespace ProjetoLP.Models
             return false;
         }
 
-        public bool LoadJogadores(string file)
+        public bool LoadCompeticoes(string file)
         {
             if (File.Exists(file))
             {
                 Stream stream = File.Open(file, FileMode.Open);
                 BinaryFormatter bin = new BinaryFormatter();
-                jogadores = (List<IJogadorModel>)bin.Deserialize(stream);
+                competicoes = (List<ICompeticaoModel>)bin.Deserialize(stream);
                 stream.Close();
                 return true;
-            }            
+            }
             return false;
         }
 
-        public bool RemoveJogador(int id)
+        public bool RemoveCompeticao(int id)
         {
-            foreach(IJogadorModel j in jogadores)
-                if (j.Id == id && j.Active)
+            foreach (ICompeticaoModel c in competicoes)
+                if (c.Id == id && c.Active)
                 {
-                    j.Active = false;
+                    c.Active = false;
                     return true;
                 }
             return false;
         }
 
-        public List<IJogadorModel> GetJogadores()
+        public List<ICompeticaoModel> GetCompeticoes()
         {
-            return jogadores;
-        }
-        
-        public IJogadorModel GetJogador(int id)
-        {
-            return jogadores[id];
+            return competicoes;
         }
 
+        public ICompeticaoModel GetCompeticao(int id)
+        {
+            return competicoes[id];
+        }
 
         #endregion
-
-
 
         #region Overrides
         #endregion

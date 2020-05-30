@@ -6,22 +6,26 @@ using System.Threading.Tasks;
 
 namespace ProjetoLP.Models
 {
-    public interface IJogadorModel
+    public interface IJogadorModel : IPessoaModel
     {
         string Alcunha { get; set; }
         int Numero { get; set; }
         POSICAO Posicao { get; set; }
-        int Id { get; set; }
         bool Active { get; set; }
+        int Id { get; set; }
+        string GetEquipa(int id);
     }
 
     public class Jogador : Pessoa, IJogadorModel, IPessoaModel
     {
         #region MEMBER VARIABLES
+
         private string alcunha;
         private int numero;
         private POSICAO posicao;
-        private int id;
+        private IGuardarEquipa e ;
+        private IGuardarJogador j ;
+
         #endregion
 
 
@@ -41,9 +45,9 @@ namespace ProjetoLP.Models
         /// </summary>
         public Jogador() : base()
         {
-            this.alcunha = "";
-            this.numero = 0;
-            this.posicao = POSICAO.ND;
+            alcunha = "";
+            numero = 0;
+            posicao = POSICAO.ND;
         }
         #endregion
 
@@ -77,25 +81,35 @@ namespace ProjetoLP.Models
         /// </summary>
         public POSICAO Posicao
         {
-            get { return posicao; }
-            set { posicao = value; }
+            get;
+            set;
         }
-
-        public int Id
-        {
-            get; set;
-        }
+        public int Id { get; set; }
         
         public bool Active { get; set; }
+
 
         #endregion
 
 
         #region FUNCTIONS
+
+        public string GetEquipa(int id)
+        {
+            return e.GetEquipa(id).Nome;
+        }
+
         #endregion
 
 
         #region OVERIDES
+        public override string ToString()
+        {
+            string jogador = string.Format("\tNome: {0}\n\tAlcunha: {1}\n\tNúmero: {2}\n\tNacionalidade: {3}\n\tIdade: {4}\n\tAltura: {5}\n\tPeso: {6}" +
+                "\n\tEquipa: {7}\n\tPosição: {8} ", Nome, Alcunha, Numero, Nacionalidade, (DateTime.Now.Year - DataNascimento.Year).ToString(), 
+                Altura, Peso, GetEquipa(Id), Posicao);
+            return jogador;
+        }
         #endregion
     }
 }

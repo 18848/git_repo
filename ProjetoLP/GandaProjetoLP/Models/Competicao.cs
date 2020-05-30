@@ -11,24 +11,19 @@ namespace ProjetoLP.Models
 {
     public interface ICompeticaoModel
     {
-        List<Equipa> Equipas { get; set; }
-        List<Arbitro> Arbitros { get; set; }
-        //List<Jogador> Jogadores { get; set; }
+        string Name { get; set; }
         DateTime Inicio { get; set; }
         DateTime Fim { get; set; }
+        int Id { get; set; }
+        bool Active { get; set; }
     }
 
     class Competicao : ICompeticaoModel
     {
         #region MEMBER VARIABLES
-        private List<Equipa> equipas;
-        private List<Arbitro> arbitros;
-        //private List<Jogador> jogadores;
+        private string name;
         private DateTime inicio;
         private DateTime fim;
-        private int totalArbitros;
-        private int totalEquipas;
-        //private int totalJogadores;
         #endregion
 
 
@@ -40,31 +35,17 @@ namespace ProjetoLP.Models
         public Competicao()
         {
             inicio = DateTime.Now;
-            equipas = new List<Equipa>();
-            arbitros = new List<Arbitro>();
-            totalArbitros = arbitros.Count;
-            totalEquipas = equipas.Count;
         }
         #endregion
 
 
         #region PROPERTIES
-        
-        public List<Equipa> Equipas
-        {
-            get { return equipas; }
-            set { equipas = value; }
-        }
-        public List<Arbitro> Arbitros
+
+        public string Name
         {
             get;
             set;
         }
-        //public List<Jogador> Jogadores
-        //{
-        //    get;
-        //    set;
-        //}
 
         /// <summary>
         /// Manipula o atributo "inicio"
@@ -91,6 +72,8 @@ namespace ProjetoLP.Models
         {
             get; set;
         }
+        public int Id { get; set; }
+        public bool Active { get; set; }
         #endregion
 
 

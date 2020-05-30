@@ -1,32 +1,32 @@
-﻿using System;
+﻿using System.IO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ProjetoLP.Models
 {
     public interface IGuardarEquipa
     {
-        bool AddEquipa(Equipa e);
+        bool AddEquipa(IEquipaModel e);
         bool SaveEquipas(string file);
         bool LoadEquipas(string file);
         bool RemoveEquipa(int id);
-        List<IEquipaModel> GetEquipas(int id);
+        List<IEquipaModel> GetEquipas();
+        IEquipaModel GetEquipa(int id);
     }
 
     public class GuardarEquipa
     {
         #region Attributes
 
-        List<IEquipaModel> equipas;
+
+        private List<IEquipaModel> equipas;
 
         #endregion
 
 
         #region Properties
 
-        bool AddEquipa(Equipa e)
+        public bool AddEquipa(IEquipaModel e)
         {
             if (equipas != null)
             {
@@ -52,7 +52,7 @@ namespace ProjetoLP.Models
             }
         }
 
-        bool SaveEquipas(string file)
+        public bool SaveEquipas(string file)
         {
             if (equipas != null)
             {
@@ -72,7 +72,7 @@ namespace ProjetoLP.Models
             return false;
         }
 
-        bool LoadEquipas(string file)
+        public bool LoadEquipas(string file)
         {
             if (File.Exists(file))
             {
@@ -85,9 +85,9 @@ namespace ProjetoLP.Models
             return false;
         }
 
-        bool RemoveEquipa(int id)
+        public bool RemoveEquipa(int id)
         {
-            foreach (IEquipaModel in equipas)
+            foreach (IEquipaModel e in equipas)
                 if (e.Id == id && e.Active)
                 {
                     e.Active = false;
@@ -96,9 +96,14 @@ namespace ProjetoLP.Models
             return false;
         }
 
-        List<IEquipaModel> GetEquipas(int id)
+        public List<IEquipaModel> GetEquipas()
         {
             return equipas;
+        }
+        
+        public IEquipaModel GetEquipa(int id)
+        {
+            return equipas[id];
         }
 
         #endregion

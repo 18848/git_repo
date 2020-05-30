@@ -43,8 +43,6 @@ namespace ProjetoLP.Controllers
         private IEquipaView view;
         private IEquipaModel model;
 
-        private CompeticaoController competicao;
-
         #region Methods
 
         #region Constructors
@@ -52,18 +50,14 @@ namespace ProjetoLP.Controllers
         /// <summary>
         /// The default Constructor.
         /// </summary>
-        public EquipaController(CompeticaoController comp)
+        public EquipaController()
         {
-            competicao = comp;
-
             model = new Equipa();
 
             #region View
             view = new EquipaView(this);
 
-            view.SetNome();
-            view.SetFundacao();
-            view.SetJogadores();
+            view.SetEquipas();
 
             #endregion
         }
