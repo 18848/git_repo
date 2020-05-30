@@ -18,6 +18,7 @@ namespace ProjetoLP.Controllers
         void SetAlcunha(string a);
         void SetNumero(int n);
         void SetPosicao(POSICAO p);
+        void SetJogador();
         #endregion
 
         #region Data Getters.
@@ -26,11 +27,12 @@ namespace ProjetoLP.Controllers
         POSICAO GetPosicao();
         #endregion
 
-        //#region Data Update.
-        //void AskAlcunha();
-        //void AskNumero();
-        //void AskPosicao();
-        //#endregion
+        #region Data Update.
+        void AskAlcunha();
+        void AskNumero();
+        void AskPosicao();
+        void AskJogadores();
+        #endregion
 
         #region File Management.
         bool AddJogador();
@@ -91,9 +93,17 @@ namespace ProjetoLP.Controllers
         {
             model.Posicao = p;
         }
+        public void SetJogador()
+        {
+            AskAlcunha();
+            AskNumero();
+            AskPosicao();
+        }
+
         #endregion
 
         #region Getters
+        
         public string GetAlcunha()
         {
             return model.Alcunha;
@@ -106,6 +116,7 @@ namespace ProjetoLP.Controllers
         {
             return model.Posicao;
         }
+
         #endregion
 
         #region File Management.
@@ -144,22 +155,27 @@ namespace ProjetoLP.Controllers
         }
 
 
-        //public void AskAlcunha()
-        //{
-        //    if (view != null)
-        //        view.SetAlcunha();
-        //    view.Set
-        //}
-        //public void AskNumero()
-        //{
-        //    if (view != null)
-        //        view.SetNumero();
-        //}
-        //public void AskPosicao()
-        //{
-        //    if (view != null)
-        //        view.SetPosicao();
-        //}
+        public void AskAlcunha()
+        {
+            if (view != null)
+                view.SetAlcunha();
+        }
+        public void AskNumero()
+        {
+            if (view != null)
+                view.SetNumero();
+        }
+        public void AskPosicao()
+        {
+            if (view != null)
+                view.SetPosicao();
+        }
+
+        public void AskJogadores()
+        {
+            if (view != null)
+                view.AddJogadores();
+        }
 
         #endregion
 
