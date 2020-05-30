@@ -14,13 +14,15 @@ namespace ProjetoLP2.Controllers
         void SetModel(IGuardaPessoa m);
         void SetModel(IPessoa m);
         void GetAll();
+        bool ProcurarPessoa(int id);
         void SetPessoa();
         void Add(IPessoa pessoa);
         void GetPessoa();
         void Find(int id);
         void UpdatePessoa();
-        bool ProcurarCliente(int id);
         void Update(IPessoa pessoa);
+        void DeletePessoa();
+        void Delete();
     }
 
     class PessoaController : IPessoaController
@@ -81,7 +83,21 @@ namespace ProjetoLP2.Controllers
                 }
             }
         }
+        public bool ProcurarPessoa(int id)
+        {
+            IPessoa pessoa;
+            if (list != null)
+            {
+                pessoa = list.Find(id);
 
+                if (pessoa != null)
+                {
+                    SetModel(pessoa);
+                    return true;
+                }
+            }
+            return false;
+        }
         public void SetPessoa()
         {
             if (view != null)
@@ -115,26 +131,25 @@ namespace ProjetoLP2.Controllers
                 view.UpdatePessoa();
             }
         }
-        public bool ProcurarCliente(int id)
-        {
-            IPessoa pessoa;
-            if (list != null)
-            {
-                pessoa = list.Find(id);
-
-                if (pessoa != null)
-                {
-                    SetModel(pessoa);
-                    return true;
-                }
-            }
-            return false;
-        }
         public void Update(IPessoa pessoa)
         {
             if (list != null)
             {
-                model.UpdateCliente(pessoa);
+                model.UpdatePessoa(pessoa);
+            }
+        }
+        public void DeletePessoa()
+        {
+            if (view != null)
+            {
+                view.DeletePessoa();
+            }
+        }
+        public void Delete()
+        {
+            if (list != null)
+            {
+                model.DeletePessoa();
             }
         }
         #endregion
