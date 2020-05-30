@@ -15,6 +15,7 @@ namespace ProjetoLP2.Views
         void AddPessoa();
         void GetPessoa(); 
         void UpdatePessoa();
+        void DeletePessoa();
     }
 
     class PessoaView : IPessoaView
@@ -90,7 +91,6 @@ namespace ProjetoLP2.Views
         {
             try
             {
-                Console.WriteLine("Pesquisar Pessoa:");
                 Console.WriteLine("ID: ");
                 int.TryParse(Console.ReadLine(), out int id);
 
@@ -114,10 +114,9 @@ namespace ProjetoLP2.Views
 
             try
             {
-                Console.WriteLine("Editar Pessoa:");
                 Console.WriteLine("ID: ");
                 int.TryParse(Console.ReadLine(), out int id);
-                validar = controller.ProcurarCliente(id);
+                validar = controller.ProcurarPessoa(id);
 
                 if (validar)
                 {
@@ -141,6 +140,32 @@ namespace ProjetoLP2.Views
                     x.Active = true;
 
                     controller.Update(x);
+                }
+
+            }
+            catch (FormatException e)
+            {
+                throw e;
+            }
+            catch (OverflowException e)
+            {
+                throw e;
+            }
+        }
+
+        public void DeletePessoa()
+        {
+            bool validar;
+
+            try
+            {
+                Console.WriteLine("ID: ");
+                int.TryParse(Console.ReadLine(), out int id);
+                validar = controller.ProcurarPessoa(id);
+
+                if (validar)
+                {
+                    controller.Delete();
                 }
 
             }

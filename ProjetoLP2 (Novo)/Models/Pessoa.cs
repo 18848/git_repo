@@ -15,7 +15,8 @@ namespace ProjetoLP2.Models
         float Peso { get; set; }
         bool Active { get; set; }
 
-        void UpdateCliente(IPessoa pessoa);
+        void UpdatePessoa(IPessoa pessoa);
+        void DeletePessoa();
     }
 
     [Serializable]
@@ -91,13 +92,17 @@ namespace ProjetoLP2.Models
         #endregion
 
         #region Functions
-        public void UpdateCliente(IPessoa pessoa)
+        public void UpdatePessoa(IPessoa pessoa)
         {
             Nome = pessoa.Nome;
             Nacionalidade = pessoa.Nacionalidade;
             DataNascimento = pessoa.DataNascimento;
             Altura = pessoa.Altura;
             Peso = pessoa.Peso;
+        }
+        public void DeletePessoa()
+        {
+            Active = false;
         }
         #endregion
     }

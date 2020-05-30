@@ -121,8 +121,11 @@ namespace ProjetoLP2.Views
                         pessoa.SetPessoa();
                         break;
                     case 4:
-                        //Console.WriteLine("Adicionar Arbitro:");
+                        Console.WriteLine("Adicionar Arbitro:");
                         pessoa.UpdatePessoa();
+                        break;
+                    case 5:
+                        pessoa.DeletePessoa();
                         break;
                     default:
                         ArbitrosMenu();
