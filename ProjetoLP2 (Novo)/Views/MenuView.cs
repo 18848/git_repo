@@ -60,6 +60,7 @@ namespace ProjetoLP2.Views
                 {
                     case 0:
                         pessoa.Save();
+                        op = 0;
                         break;
                     case 3:
                         ArbitrosMenu();
@@ -103,9 +104,6 @@ namespace ProjetoLP2.Views
 
                 switch (op)
                 {
-                    case 0:
-                        Menu();
-                        break;
                     case 1:
                         Console.WriteLine("Lista de Arbitros:");
                         pessoa.GetAll();
