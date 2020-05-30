@@ -38,10 +38,12 @@ namespace ProjetoLP.View
         /// <summary>
         /// The default Constructor.
         /// </summary>
-        public EquipaView(IEquipaController c)
+        public EquipaView(IEquipaController c, IJogadorController j)
         {
             controller = c;
             controller.SetView(this);
+
+            jController = j;
         }
 
         #endregion
@@ -59,19 +61,18 @@ namespace ProjetoLP.View
             if (DateTime.TryParse(Console.ReadLine(), out aux))
                 controller.SetFundacao(aux);
         }
-        
-        //private void SetJogadores()
-        //{
-        //    Console.WriteLine("Insira Jogadores: ");
-            
-        //    //jController.
-        //}
 
-        public void SetEquipas()
+        private void SetJogadores()
+        {
+            Console.WriteLine("Insira Jogadores: ");
+            jController.SetJogador();
+        }
+
+        public void SetEquipa()
         {
             SetNome();
             SetFundacao();
-            //SetJogadores();
+            SetJogadores();
         }
 
         #endregion

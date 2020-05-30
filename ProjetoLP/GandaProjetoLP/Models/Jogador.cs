@@ -23,31 +23,20 @@ namespace ProjetoLP.Models
         private string alcunha;
         private int numero;
         private POSICAO posicao;
+
         private IGuardarEquipa e ;
-        private IGuardarJogador j ;
+        //private IGuardarJogador j ;
 
         #endregion
 
 
         #region CONSTRUCTORS
 
-        public Jogador(string a, int n, POSICAO p, 
-            string nome, string nac, DateTime d, float altura, float peso) 
-            : base(nome, nac, d ,altura, peso)
-        {
-            alcunha = a;
-            numero = n;
-            posicao = p;
-        }
-
         /// <summary>
         /// Construtor vazio
         /// </summary>
         public Jogador() : base()
         {
-            alcunha = "";
-            numero = 0;
-            posicao = POSICAO.ND;
         }
         #endregion
 

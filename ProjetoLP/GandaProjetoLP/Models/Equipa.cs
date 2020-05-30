@@ -30,12 +30,6 @@ namespace ProjetoLP.Models
         /// </summary>
         public Equipa()
         {
-            nome = "";
-            fundacao = DateTime.Now;
-            if (jogadores != null)
-                totalJogadores = jogadores.Count;
-            else
-                totalJogadores = 0;
         }
         #endregion
 

@@ -97,12 +97,7 @@ namespace ProjetoLP
     {
         static void Main(string[] args)
         {
-            //if(Ficheiro != null)
-                CompeticaoController competicao = new CompeticaoController();
-
-            MenuView menu = new MenuView();
-
-            menu.MainMenu();
+            CompeticaoController competicao = new CompeticaoController();
         }
     }
 }

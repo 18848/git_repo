@@ -16,8 +16,8 @@ namespace ProjetoLP.Controllers
     public interface ICompeticaoController
     {
         #region Data Setters.
-        void SetEquipas(List<Equipa> e);
-        void SetArbitros(List<Arbitro> a);
+        //void SetEquipas(List<Equipa> e);
+        //void SetArbitros(List<Arbitro> a);
         //void SetJogadores(List<Jogador> j);
         void SetInicio(DateTime i);
         void SetFim(DateTime f);
@@ -25,16 +25,16 @@ namespace ProjetoLP.Controllers
 
         #region Data Getters.
         // Present Equipa both individually and as a whole.
-        List<IEquipaModel> GetEquipas();
-        IEquipaModel GetEquipa(int id);
+        //List<IEquipaModel> GetEquipas();
+        //IEquipaModel GetEquipa(int id);
         
         // Present Arbitro both individually and as a whole.
-        List<IArbitroModel> GetArbitros();
-        IArbitroModel GetArbitro(int id);
+        //List<IArbitroModel> GetArbitros();
+        //IArbitroModel GetArbitro(int id);
 
         //// Present Jogador both individually and as a whole.
-        List<IJogadorModel> GetJogadores();
-        IJogadorModel GetJogador(int id);
+        //List<IJogadorModel> GetJogadores();
+        //IJogadorModel GetJogador(int id);
 
         //
         DateTime GetInicio();
@@ -70,10 +70,10 @@ namespace ProjetoLP.Controllers
     {
         private ICompeticaoModel model;
         private ICompeticaoView view;
+        private IGuardarCompeticao guardar;
 
-        private IGuardarEquipa guardarEquipa;
-        private IGuardarArbitro guardarArbitro;
-        private IGuardarJogador guardarJogador;
+        IEquipaController equipa;
+
         
         #region Constructors
         /// <summary>
@@ -92,6 +92,7 @@ namespace ProjetoLP.Controllers
         /// </summary>
         public CompeticaoController()
         {
+            equipa = new EquipaController();
 
             #region Model
             model = new Competicao();
@@ -100,8 +101,6 @@ namespace ProjetoLP.Controllers
             #region VIEW
             view = new CompeticaoView(this);
 
-            view.SetEquipas();
-            view.SetArbitros();
             view.SetInicio();
             view.SetFim();
 
@@ -122,18 +121,18 @@ namespace ProjetoLP.Controllers
         }
 
         #region Set Data.
-        public void SetEquipas(List<Equipa> e)
-        {
-            model.Equipas = e;
-        }
-        public void SetArbitros(List<Arbitro> a)
-        {
-            model.Arbitros = a;
-        }
-        public void setJogadores(int equipaID, List<Jogador> j)
-        {
-            model.Equipas[equipaID].Jogadores = j;
-        }
+        //public void SetEquipas(List<Equipa> e)
+        //{
+        //    model.Equipas = e;
+        //}
+        //public void SetArbitros(List<Arbitro> a)
+        //{
+        //    model.Arbitros = a;
+        //}
+        //public void setJogadores(int equipaID, List<Jogador> j)
+        //{
+        //    model.Equipas[equipaID].Jogadores = j;
+        //}
 
         public void SetInicio(DateTime i)
         {
@@ -152,31 +151,31 @@ namespace ProjetoLP.Controllers
         /// Return List of Equipas.
         /// </summary>
         /// <returns></returns>
-        public List<IEquipaModel> GetEquipas()
-        {
-            return guardarEquipa.GetEquipas();
-        }
-        /// <summary>
-        /// Return Specified Equipa.
-        /// </summary>
-        /// <param name="n"></param>
-        /// <returns></returns>
-        public IEquipaModel GetEquipa(int id)
-        {
-            return guardarEquipa.GetEquipa(id);
-        }
+        //public List<IEquipaModel> GetEquipas()
+        //{
+        //    return guardarEquipa.GetEquipas();
+        //}
+        ///// <summary>
+        ///// Return Specified Equipa.
+        ///// </summary>
+        ///// <param name="n"></param>
+        ///// <returns></returns>
+        //public IEquipaModel GetEquipa(int id)
+        //{
+        //    return guardarEquipa.GetEquipa(id);
+        //}
         #endregion
 
         #region Jogador(es)
-        public List<IJogadorModel> GetJogadores()
-        {
-            return guardarJogador.GetJogadores();
-        }
+        //public List<IJogadorModel> GetJogadores()
+        //{
+        //    return guardarJogador.GetJogadores();
+        //}
 
-        public IJogadorModel GetJogador(int id)
-        {
-            return guardarJogador.GetJogador(id);
-        }
+        //public IJogadorModel GetJogador(int id)
+        //{
+        //    return guardarJogador.GetJogador(id);
+        //}
         
         #endregion
 
@@ -185,19 +184,19 @@ namespace ProjetoLP.Controllers
         /// Return List of Arbitros.
         /// </summary>
         /// <returns></returns>
-        public List<IArbitroModel> GetArbitros()
-        {
-            return guardarArbitro.GetArbitros();
-        }
+        //public List<IArbitroModel> GetArbitros()
+        //{
+        //    return guardarArbitro.GetArbitros();
+        //}
         /// <summary>
         /// Return Specified Arbitro.
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
-        public IArbitroModel GetArbitro(int id)
-        {
-            return guardarArbitro.GetArbitro(id);
-        }
+        //public IArbitroModel GetArbitro(int id)
+        //{
+        //    return guardarArbitro.GetArbitro(id);
+        //}
         #endregion
 
         /// <summary>

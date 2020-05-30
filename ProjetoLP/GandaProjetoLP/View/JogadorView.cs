@@ -13,8 +13,13 @@ namespace ProjetoLP.View
 {
     public interface IJogadorView
     {
-        void AddJogador();
+        void AddJogadores();
         void EditJogador();
+
+
+        void SetAlcunha();
+        void SetNumero();
+        void SetPosicao();
 
         //void ShowData();
     }
@@ -43,35 +48,58 @@ namespace ProjetoLP.View
         #endregion
 
         #region Properties
-        
-        private void SetAlcunha()
+
+        public void SetAlcunha()
         {
             Console.Write("Alcunha: ");
             controller.SetAlcunha(Console.ReadLine());
         }
-        private void SetNumero()
+        public void SetNumero()
         {
             Console.Write("Número: ");
             if( int.TryParse(Console.ReadLine(), out int aux) )
                 controller.SetNumero(aux);
         }
-        private void SetPosicao()
+        public void SetPosicao()
         {
             Console.Write("Posição: ");
             if (POSICAO.TryParse(Console.ReadLine(), out POSICAO aux))
                 controller.SetPosicao(aux);
         }
 
-        public void AddJogador()
+        public void AddJogadores()
         {
-            SetAlcunha();
-            SetNumero();
-            SetPosicao();
-            controller.AddJogador();
+                SetAlcunha();
+                SetNumero();
+                SetPosicao();
+                controller.AddJogador();
         }
 
         public void EditJogador()
         {
+            try
+            {
+                Console.Write("1->Alcunha\n2->numero\n3->posicao\nOPCAO: ");
+                switch (int.Parse(Console.ReadLine()))
+                {
+                    case 1:
+                        SetAlcunha();
+                        break;
+                    case 2:
+                        SetNumero();
+                        break;
+                    case 3:
+                        SetPosicao();
+                        break;
+                    default:
+                        EditJogador();
+                        break;
+                }
+            }
+            catch(FormatException e)
+            {
+                throw e;
+            }
         }
         
         #endregion
