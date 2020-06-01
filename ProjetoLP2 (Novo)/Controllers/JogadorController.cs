@@ -3,77 +3,77 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProjetoLP2.Models;
 using ProjetoLP2.Models.Guardar;
+using ProjetoLP2.Models;
 using ProjetoLP2.Views;
 
 namespace ProjetoLP2.Controllers
 {
-    public interface IPessoaController
+    public interface IJogadorController : IPessoaController
     {
-        void SetView(IPessoaView v);
-        void SetListModel(IGuardaPessoa m);
-        void SetModel(IPessoa m);
-        void GetAll();
-        bool ProcurarPessoa(int id);
-        void SetPessoa();
-        void Add(IPessoa pessoa);
-        void GetPessoa();
+        void SetView(IJogadorView v);
+        void SetModel(IGuardaJogador m);
+        void SetModel(IJogador m);
+        void GetAllJogadores();
+        bool ProcurarJogador(int id);
+        void SetJogador();
+        void Add(IJogador jogador);
+        void GetJogador();
         void Find(int id);
-        void UpdatePessoa();
-        void Update(IPessoa pessoa);
-        void DeletePessoa();
+        void UpdateJogador();
+        void Update(IJogador jogador);
+        void DeleteJogador();
         void Delete();
     }
-
-    class PessoaController : IPessoaController
+    
+    class JogadorController : IJogadorController
     {
         #region Member Values
-        private IPessoa model;
-        private IPessoaView view; 
-        private IGuardaPessoa list;
+        private IJogador model;
+        private IJogadorView view;
+        private IGuardaJogador list;
         #endregion
 
         #region Constructor
-        public PessoaController()
+        public JogadorController()
         {
-            list = new GuardaPessoa();
-            list.Load("pessoa.bin");
-            view = new PessoaView(this);
+            list = new GuardaJogador();
+            list.Load("jogador.bin");
+            view = new JogadorView(this);
         }
         #endregion
 
         #region View-Model-File
-        public void SetView(IPessoaView v)
+        public void SetView(IJogadorView v)
         {
             this.view = v;
         }
 
-        public void SetListModel(IGuardaPessoa m)
+        public void SetModel(IGuardaJogador m)
         {
             list = m;
         }
 
-        public void SetModel(IPessoa m)
+        public void SetModel(IJogador m)
         {
             model = m;
         }
 
         public void Save()
         {
-            list.Save("pessoa.bin");
+            list.Save("jogador.bin");
         }
         #endregion
 
         #region Functions
-        public void GetAll()
+        public void GetAllJogadores()
         {
             int index = 0;
             if (view != null)
             {
                 if (list != null)
                 {
-                    foreach (IPessoa i in list.GiveList())
+                    foreach (IJogador i in list.GiveList())
                     {
                         index++;
                         if (i.Active)
@@ -84,34 +84,34 @@ namespace ProjetoLP2.Controllers
                 }
             }
         }
-        public bool ProcurarPessoa(int id)
+        public bool ProcurarJogador(int id)
         {
-            IPessoa pessoa;
+            IJogador jogador;
             if (list != null)
             {
-                pessoa = list.Find(id);
+                jogador = list.Find(id);
 
-                if (pessoa != null)
+                if (jogador != null)
                 {
-                    SetModel(pessoa);
+                    SetModel(jogador);
                     return true;
                 }
             }
             return false;
         }
-        public void SetPessoa()
+        public void SetJogador()
         {
             if (view != null)
             {
-                view.AddPessoa();
+                view.AddJogador();
             }
         }
-        public void Add(IPessoa pessoa) // Recebe dados da view para enviar para o model adicionar um Cliente
+        public void Add(IJogador jogador)
         {
-            list.Add(pessoa);
+            list.Add(jogador);
         }
 
-        public void GetPessoa()
+        public void GetJogador()
         {
             if (view != null)
             {
@@ -125,32 +125,32 @@ namespace ProjetoLP2.Controllers
                 view.ShowOne(list.Find(id));
             }
         }
-        public void UpdatePessoa()
+        public void UpdateJogador()
         {
             if (view != null)
             {
-                view.UpdatePessoa();
+                view.UpdateJogador();
             }
         }
-        public void Update(IPessoa pessoa)
+        public void Update(IJogador jogador)
         {
             if (list != null)
             {
-                model.UpdatePessoa(pessoa);
+                model.UpdatePessoa(jogador);
             }
         }
-        public void DeletePessoa()
+        public void DeleteJogador()
         {
             if (view != null)
             {
-                view.DeletePessoa();
+                view.DeleteJogador();
             }
         }
         public void Delete()
         {
             if (list != null)
             {
-                model.DeletePessoa();
+                model.DeleteJogador();
             }
         }
         #endregion

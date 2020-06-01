@@ -18,6 +18,10 @@ namespace ProjetoLP2.Models
         void DeleteArbitro();
     }
 
+    /// <summary>
+    /// Class Responsible for Storing Arbitro's Data.
+    /// </summary>
+    [Serializable]
     class Arbitro : Pessoa, IArbitro
     {
         #region Member Values
@@ -27,18 +31,14 @@ namespace ProjetoLP2.Models
         #endregion
 
         #region Constructor
-        public Arbitro(DateTime f, CATEGORIA c, ASSOCIACAO a, string nome, string nac, DateTime d, float altura, float peso)
-            : base(nome, nac, d, altura, peso)
-        {
-            formacao = f;
-            categoria = c;
-            associacao = a;
-        }
+        /// <summary>
+        /// The Default Constructor.
+        /// </summary>
         public Arbitro() : base()
         {
-            this.formacao = DateTime.Now;
-            this.categoria = CATEGORIA.ND;
-            this.associacao = ASSOCIACAO.ND;
+            Formacao = DateTime.Now;
+            Categoria = CATEGORIA.ND;
+            Associacao = ASSOCIACAO.ND;
         }
         #endregion
 

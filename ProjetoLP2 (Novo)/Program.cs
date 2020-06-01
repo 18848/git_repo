@@ -49,7 +49,7 @@ namespace ProjetoLP2
     }
     public enum POSICAO
     {
-        ND,
+        ND= 0,
         GUARDA_REDES,
         DEFESA,
         MEDIO,
@@ -60,8 +60,9 @@ namespace ProjetoLP2
     {
         static void Main(string[] args)
         {
-            PessoaController pessoa = new PessoaController();
-            MenuView menu = new MenuView(pessoa);
+            JogadorController jogador = new JogadorController();
+            ArbitroController arbitro = new ArbitroController();
+            MenuView menu = new MenuView(jogador, arbitro);
 
             menu.Menu();
         }

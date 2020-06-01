@@ -20,7 +20,7 @@ namespace ProjetoLP2.Models
     }
 
     [Serializable]
-    class Pessoa : IPessoa
+    public class Pessoa : IPessoa
     {
         #region Member Values
         private string nome;
@@ -32,15 +32,9 @@ namespace ProjetoLP2.Models
         #endregion
 
         #region Constructors
-        public Pessoa(string nome, string nac, DateTime d, float a, float p)
-        {
-            this.nome = nome;
-            nacionalidade = nac;
-            dataNascimento = d;
-            altura = a;
-            peso = p;
-        }
-
+        /// <summary>
+        /// The Default Constructor.
+        /// </summary>
         public Pessoa()
         {
             this.nome = "";

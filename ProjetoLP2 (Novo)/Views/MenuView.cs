@@ -16,12 +16,15 @@ namespace ProjetoLP2.Views
     class MenuView : IMenuView
     {
         #region Member Values
-        private PessoaController pessoa;
+        private JogadorController jogador;
+        private ArbitroController arbitro;
         #endregion
 
         #region Constructor
-        public MenuView(PessoaController p) {
-            pessoa = p;
+        public MenuView(JogadorController j, ArbitroController a) 
+        {
+            jogador = j;
+            arbitro = a;
         }
         #endregion
 
@@ -49,11 +52,11 @@ namespace ProjetoLP2.Views
                 }
                 catch (FormatException e)
                 {
-                    Console.WriteLine("Erro - " + e.Message);
+                    throw e;
                 }
                 catch (OverflowException e)
                 {
-                    Console.WriteLine("Erro - " + e.Message);
+                    throw e;
                 }
 
                 switch (op)
@@ -62,6 +65,9 @@ namespace ProjetoLP2.Views
                         pessoa.Save();
                         break;
                     case 3:
+                        ArbitrosMenu();
+                        break;
+                    case 4:
                         ArbitrosMenu();
                         break;
                     default:
@@ -94,11 +100,11 @@ namespace ProjetoLP2.Views
                 }
                 catch (FormatException e)
                 {
-                    Console.WriteLine("Erro - " + e.Message);
+                    throw e;
                 }
                 catch (OverflowException e)
                 {
-                    Console.WriteLine("Erro - " + e.Message);
+                    throw e;
                 }
 
                 switch (op)
@@ -108,31 +114,89 @@ namespace ProjetoLP2.Views
                         break;
                     case 1:
                         Console.WriteLine("Lista de Arbitros:");
-                        pessoa.GetAll();
+                        arbitro.GetAllArbitros();
                         Console.ReadKey();
                         break;
                     case 2:
                         Console.WriteLine("Arbitro Especifico:");
-                        pessoa.GetPessoa();
+                        arbitro.GetArbitro();
                         Console.ReadKey();
                         break;
                     case 3:
                         Console.WriteLine("Adicionar Arbitro:");
-                        pessoa.SetPessoa();
+                        arbitro.SetArbitro();
                         break;
                     case 4:
-                        Console.WriteLine("Adicionar Arbitro:");
-                        pessoa.UpdatePessoa();
+                        Console.WriteLine("Editar Arbitro:");
+                        arbitro.UpdateArbitro();
                         break;
                     case 5:
-                        pessoa.DeletePessoa();
-                        break;
-                    default:
-                        ArbitrosMenu();
+                        Console.WriteLine("Remover Arbitro:");
+                        arbitro.DeleteArbitro();
                         break;
                 }
             } while (op != 0);
+        }
 
+        public void JogadorMenu()
+        {
+            int op = 0;
+
+            do
+            {
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("-------------------- Menu --------------------");
+                    Console.WriteLine("------------------ Jogador -------------------");
+                    Console.WriteLine("\n1: Ver Lista de Jogadores");
+                    Console.WriteLine("2: Ver Jogador Especifico");
+                    Console.WriteLine("3: Inserir Jogador");
+                    Console.WriteLine("4: Editar Jogador");
+                    Console.WriteLine("5: Remover Jogador");
+                    Console.WriteLine("0: Voltar");
+                    Console.Write("\nOpcao: ");
+                    int.TryParse(Console.ReadLine(), out op);
+                    Console.Clear();
+                }
+                catch (FormatException e)
+                {
+                    throw e;
+                }
+                catch (OverflowException e)
+                {
+                    throw e;
+                }
+
+                switch (op)
+                {
+                    case 0:
+                        Menu();
+                        break;
+                    case 1:
+                        Console.WriteLine("Lista de Jogadores:");
+                        jogador.GetAllJogadores();
+                        Console.ReadKey();
+                        break;
+                    case 2:
+                        Console.WriteLine("Jogador Especifico:");
+                        jogador.GetJogador();
+                        Console.ReadKey();
+                        break;
+                    case 3:
+                        Console.WriteLine("Adicionar Jogador:");
+                        jogador.SetJogador();
+                        break;
+                    case 4:
+                        Console.WriteLine("Editar Jogador:");
+                        jogador.UpdateJogador();
+                        break;
+                    case 5:
+                        Console.WriteLine("Remover Jogador:");
+                        jogador.DeleteJogador();
+                        break;
+                }
+            } while (op != 0);
         }
         #endregion
     }

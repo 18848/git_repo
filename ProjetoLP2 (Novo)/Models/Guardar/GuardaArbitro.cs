@@ -1,40 +1,37 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using ProjetoLP2.Models;
 
-namespace ProjetoLP2.Models
+
+namespace ProjetoLP2.Models.Guardar
 {
-    public interface IGuardaPessoa
+    public interface IGuardaArbitro
     {
-        bool Add(IPessoa i);
+        bool AddArbitro(IArbitro i);
         bool Save(string fileName);
         bool Load(string fileName);
-        //bool Remove(int id);
-        List<IPessoa> GiveList();
-        IPessoa Find(int id);
+        List<IArbitro> GiveList();
+        IArbitro Find(int id);
     }
-
-    [Serializable]
-    class GuardaPessoa : IGuardaPessoa
+    public class GuardaArbitro : IGuardaArbitro
     {
         #region Member Values
-        public List<IPessoa> list;
+        public List<IArbitro> list;
         #endregion
 
         #region Constructors
-        public GuardaPessoa()
+        public GuardaArbitro()
         {
-            list = new List<IPessoa>();
+            list = new List<IArbitro>();
         }
         #endregion
 
         #region Functions
-        public bool Add(IPessoa i)
+        public bool AddArbitro(IArbitro i)
         {
             if (list != null)
             {
@@ -50,7 +47,7 @@ namespace ProjetoLP2.Models
             }
             else
             {
-                list = new List<IPessoa>();
+                list = new List<IArbitro>();
                 list.Add(i);
                 return true;
             }
@@ -75,7 +72,7 @@ namespace ProjetoLP2.Models
             }
             return false;
         }
-
+        
         public bool Load(string fileName)
         {
             if (File.Exists(fileName))
@@ -84,7 +81,7 @@ namespace ProjetoLP2.Models
                 {
                     Stream stream = File.Open(fileName, FileMode.Open);
                     BinaryFormatter bin = new BinaryFormatter();
-                    list = (List<IPessoa>)bin.Deserialize(stream);
+                    list = (List<IArbitro>)bin.Deserialize(stream);
                     stream.Close();
                     return true;
                 }
@@ -96,38 +93,28 @@ namespace ProjetoLP2.Models
             return false;
         }
 
-        public IPessoa Find(int id)
+        public IArbitro Find(int id)
         {
             int index = 0;
-            IPessoa p = new Pessoa();
+            IArbitro a = new Arbitro();
 
-            foreach (IPessoa i in list)
+            foreach (IArbitro i in list)
             {
                 index++;
                 if (index == id)
                 {
-                    p = i;
+                    a = i;
+                    break;
                 }
             }
-            return p;
+            return a;
         }
 
-        public List<IPessoa> GiveList()
+        public List<IArbitro> GiveList()
         {
             return list;
         }
 
-
-        /*public bool Remove(int id)
-        {
-            IPessoa i = Find(id);
-            if (i != null)
-            {
-                i.IsAtivo = false;
-                return true;
-            }
-            return false;
-        }*/
         #endregion
     }
 }
