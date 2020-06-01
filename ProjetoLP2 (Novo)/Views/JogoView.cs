@@ -61,17 +61,17 @@ namespace ProjetoLP2.Views
         public void AddJogo()
         {
             IJogo x = new Jogo();
-            List<IEquipa> list = controller.GetEquipasList();
-            List<IArbitro> list = controller.GetArbitrosList();
+            List<IEquipa> equipas = controller.GetEquipasList();
+            List<IArbitro> arbitros = controller.GetArbitrosList();
             try
             {
                 do
                 {
-                    for(int c = 0; c < list.Count; c++)
+                    for(int c = 0; c < equipas.Count; c++)
                     {
-                        if (list[c].Active)
+                        if (equipas[c].Active)
                         {
-                            Console.WriteLine(c.ToString() + " - " + list[c].Nome);
+                            Console.WriteLine(c.ToString() + " - " + equipas[c].Nome);
                         }
                     }
                     Console.WriteLine("\nEquipa da Casa: ");
@@ -85,11 +85,13 @@ namespace ProjetoLP2.Views
                 do
                 {
                     int c = 0;
-                    for (int c = 0; c < list.Count; c++)
+                    for (int c = 0; c < arbitros.Count; c++)
                     {
-                        if (list[c].Active)
+                        if (arbitros[c].Active)
                         {
-                            Console.WriteLine(c.ToString() + " - " + list[c].Nome);
+                            Console.WriteLine(c.ToString() + " - " + arbitros[c].Nome);
+                            Console.WriteLine("\t- " + arbitros[c].Categoria);
+                            Console.WriteLine("\t- " + arbitros[c].Categoria + "\n");
                         }
                     }
                     Console.WriteLine();

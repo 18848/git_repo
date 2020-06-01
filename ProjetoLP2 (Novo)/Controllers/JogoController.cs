@@ -96,10 +96,15 @@ namespace ProjetoLP2.Controllers
             }
             return list;
         }
+        public List<IArbitro> GetArbitrosList()
+        {
+            IGuardaArbitro arbitro = new GuardaArbitro();
+            arbitro.Load("arbitro.bin");
+            return arbitro.GiveList();
+        }
         public List<IEquipa> GetEquipasList()
         {
-            List<IEquipa> list = new List<IEquipa>();
-            IGuardarEquipa equipas = new GuardarEquipa();
+            IGuardaEquipa equipas = new GuardaEquipa();
             equipas.Load("equipas.bin");
             return equipas.GiveList();
         }
