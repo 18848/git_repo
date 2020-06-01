@@ -8,12 +8,10 @@ namespace ProjetoLP2.Models
 {
     public interface IArbitro : IPessoa
     {
-        // Properties.
         DateTime Formacao { get; set; }
         CATEGORIA Categoria { get; set; }
         ASSOCIACAO Associacao { get; set; }
 
-        // Functions.
         void UpdateArbitro(IArbitro arbitro);
         void DeleteArbitro();
     }
