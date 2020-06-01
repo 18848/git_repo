@@ -34,7 +34,8 @@ namespace ProjetoLP2.Views
 
         #region Functions
         public void ShowAll(IPessoa i, int id)
-        {   if(i.Active == true)
+        {   
+            if(i.Active == true)
             {   
                 Console.WriteLine("\nID: " + id);
                 Console.WriteLine("Nome: " + i.Nome);
@@ -75,7 +76,6 @@ namespace ProjetoLP2.Views
                 x.Active = true;
 
                 controller.Add(x);
-
             }
             catch (FormatException e)
             {
