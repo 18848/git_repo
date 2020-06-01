@@ -98,7 +98,7 @@ namespace ProjetoLP2.Models
 
         public void DeleteEquipa()
         {
-
+            Active = false;
         }
 
         #endregion

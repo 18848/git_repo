@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjetoLP2.Models;
 
-namespace ProjetoLP.Models
+namespace ProjetoLP2.Models
 {
-    public interface IJogoModel
+    public interface IJogo
     {
         Equipa EquipaA { get; set; }
         Equipa EquipaB { get; set; }
-        List<int> Arbitros { get; set; }
+        List<IArbitro> Arbitros { get; set; }
 
-
+        void UpdatePessoa(IPessoa pessoa);
+        void DeletePessoa();
     }
 
-    class Jogo : IJogoModel
+    public class Jogo
     {
+
         #region MEMBER VARIABLES
         private Equipa equipaA;
         private Equipa equipaB;
@@ -25,7 +28,7 @@ namespace ProjetoLP.Models
 
 
         #region CONSTRUCTORS
-        
+
 
         /// <summary>
         /// The Default Constructur.
@@ -70,8 +73,19 @@ namespace ProjetoLP.Models
 
 
         #region FUNCTIONS
-        
 
+        public void UpdatePessoa(IPessoa pessoa)
+        {
+            Nome = pessoa.Nome;
+            Nacionalidade = pessoa.Nacionalidade;
+            DataNascimento = pessoa.DataNascimento;
+            Altura = pessoa.Altura;
+            Peso = pessoa.Peso;
+        }
+        public void DeletePessoa()
+        {
+            Active = false;
+        }
 
         #endregion
 
