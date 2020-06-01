@@ -8,3 +8,9 @@ D:\Universidade\GIT\trabalhos\ProjetoLP2 (Novo)\obj\Debug\ProjetoLP2.csprojAssem
 D:\Universidade\GIT\trabalhos\ProjetoLP2 (Novo)\obj\Debug\ProjetoLP2.csproj.CoreCompileInputs.cache
 D:\Universidade\GIT\trabalhos\ProjetoLP2 (Novo)\obj\Debug\ProjetoLP2.exe
 D:\Universidade\GIT\trabalhos\ProjetoLP2 (Novo)\obj\Debug\ProjetoLP2.pdb
+D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP2 (Novo)\obj\Debug\ProjetoLP2.csprojAssemblyReference.cache
+D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP2 (Novo)\obj\Debug\ProjetoLP2.exe
+D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP2 (Novo)\obj\Debug\ProjetoLP2.pdb
+D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP2 (Novo)\bin\Debug\ProjetoLP2.exe.config
+D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP2 (Novo)\bin\Debug\ProjetoLP2.exe
+D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP2 (Novo)\bin\Debug\ProjetoLP2.pdb

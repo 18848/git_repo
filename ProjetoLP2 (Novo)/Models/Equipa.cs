@@ -8,16 +8,14 @@ namespace ProjetoLP2.Models
 {
     public interface IEquipa
     {
-        // Data.
         string Nome { get; set; }
         DateTime Fundacao { get; set; }
         List<Jogador> Jogadores { get; set; }
         int Id { get; set; }
         bool Active { get; set; }
 
-        // Functions.
-        void UpdatePessoa(IPessoa pessoa);
-        void DeletePessoa();
+        void UpdateEquipa(IEquipa equipa);
+        void DeleteEquipa();
     }
 
     public class Equipa : IEquipa

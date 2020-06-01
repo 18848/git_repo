@@ -62,13 +62,14 @@ namespace ProjetoLP2.Views
                 switch (op)
                 {
                     case 0:
-                        pessoa.Save();
+                        arbitro.Save();
+                        jogador.Save();
                         break;
                     case 3:
                         ArbitrosMenu();
                         break;
                     case 4:
-                        ArbitrosMenu();
+                        JogadorMenu();
                         break;
                     default:
                         Menu();
@@ -109,9 +110,6 @@ namespace ProjetoLP2.Views
 
                 switch (op)
                 {
-                    case 0:
-                        Menu();
-                        break;
                     case 1:
                         Console.WriteLine("Lista de Arbitros:");
                         arbitro.GetAllArbitros();
@@ -170,9 +168,6 @@ namespace ProjetoLP2.Views
 
                 switch (op)
                 {
-                    case 0:
-                        Menu();
-                        break;
                     case 1:
                         Console.WriteLine("Lista de Jogadores:");
                         jogador.GetAllJogadores();
