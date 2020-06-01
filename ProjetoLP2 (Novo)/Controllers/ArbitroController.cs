@@ -9,7 +9,7 @@ using ProjetoLP2.Views;
 
 namespace ProjetoLP2.Controllers
 {
-    public interface IArbitroController
+    public interface IArbitroController 
     {
         void SetView(IArbitroView v);
         void SetListModel(IGuardaArbitro m);
