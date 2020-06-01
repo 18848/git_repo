@@ -9,8 +9,8 @@ namespace ProjetoLP2.Models
 {
     public interface IJogo
     {
-        Equipa EquipaA { get; set; }
-        Equipa EquipaB { get; set; }
+        int EquipaA { get; set; }
+        int EquipaB { get; set; }
         List<int> Arbitros { get; set; }
 
         void UpdateJogo(IJogo jogo);
@@ -21,8 +21,8 @@ namespace ProjetoLP2.Models
 
         #region MEMBER VARIABLES
         
-        private Equipa equipaA;
-        private Equipa equipaB;
+        private int equipaA;
+        private int equipaB;
         private List<int> arbitros;
         
         #endregion
@@ -35,8 +35,8 @@ namespace ProjetoLP2.Models
         /// </summary>
         public Jogo()
         {
-            EquipaA = null;
-            EquipaB = null;
+            EquipaA = 0;
+            EquipaB = 0;
             Arbitros = null;
         }
 
@@ -48,7 +48,7 @@ namespace ProjetoLP2.Models
         /// <summary>
         /// Manipula o atributo "equipaA"
         /// </summary>
-        public Equipa EquipaA
+        public int EquipaA
         {
             get { return equipaA; }
             set { equipaA = value; }
@@ -57,7 +57,7 @@ namespace ProjetoLP2.Models
         /// <summary>
         /// Manipula o atributo "EquipaB"
         /// </summary>
-        public Equipa EquipaB
+        public int EquipaB
         {
             get { return equipaB; }
             set { equipaB = value; }
