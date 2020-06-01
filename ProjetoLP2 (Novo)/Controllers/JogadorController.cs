@@ -9,7 +9,7 @@ using ProjetoLP2.Views;
 
 namespace ProjetoLP2.Controllers
 {
-    public interface IJogadorController : IPessoaController
+    public interface IJogadorController
     {
         void SetView(IJogadorView v);
         void SetModel(IGuardaJogador m);
@@ -26,7 +26,7 @@ namespace ProjetoLP2.Controllers
         void Delete();
     }
     
-    class JogadorController : IJogadorController
+    public class JogadorController : IJogadorController
     {
         #region Member Values
         private IJogador model;
@@ -115,7 +115,7 @@ namespace ProjetoLP2.Controllers
         {
             if (view != null)
             {
-                view.GetPessoa();
+                view.GetJogador();
             }
         }
         public void Find(int id)

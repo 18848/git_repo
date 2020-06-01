@@ -37,7 +37,7 @@ namespace ProjetoLP2.Controllers
         public ArbitroController()
         {
             list = new GuardaArbitro();
-            //list.Load("pessoa.bin");
+            list.Load("arbitro.bin");
             view = new ArbitroView(this);
         }
         #endregion
@@ -60,7 +60,7 @@ namespace ProjetoLP2.Controllers
 
         public void Save()
         {
-            //list.Save("pessoa.bin");
+            list.Save("arbitro.bin");
         }
         #endregion
 

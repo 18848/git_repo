@@ -12,7 +12,7 @@ namespace ProjetoLP2.Views
     {
         void ShowAll(IJogador i, int id);
         void ShowOne(IJogador i);
-        void AddJogadorPessoa();
+        void AddJogador();
         void GetJogador();
         void UpdateJogador();
         void DeleteJogador();
@@ -59,38 +59,47 @@ namespace ProjetoLP2.Views
 
             try
             {
-                Console.WriteLine("\nNome: ");
+                Console.Write("\nNome: ");
                 x.Nome = Console.ReadLine();
 
-                Console.WriteLine("Nacionalidade: ");
+                Console.Write("Nacionalidade: ");
                 x.Nacionalidade = Console.ReadLine();
 
-                Console.WriteLine("Data de Nascimento: ");
+                Console.Write("Data de Nascimento: ");
                 x.DataNascimento = DateTime.Parse(Console.ReadLine());
 
-                Console.WriteLine("Altura: ");
-                float.TryParse(Console.ReadLine(), out float altura);
-                x.Altura = altura;
-
-                Console.WriteLine("Peso: ");
-                float.TryParse(Console.ReadLine(), out float peso);
-                x.Peso = peso;
-
-                Console.WriteLine("Alcunha: ");
-                x.Alcunha = Console.ReadLine();
-
-                Console.WriteLine("Numero: ");
-                int.TryParse(Console.ReadLine(), out int numero);
-                x.Numero = numero;
-
-                foreach (string foo in Enum.GetNames(typeof(POSICAO)))
+                Console.Write("Altura: ");
+                if(float.TryParse(Console.ReadLine(), out float altura))
                 {
-                    Console.WriteLine(foo);
+                    x.Altura = altura;
                 }
 
-                Console.WriteLine("Posicao: ");
-                Enum.TryParse(Console.ReadLine(), out POSICAO posicao);
-                x.Posicao = posicao;
+                Console.Write("Peso: ");
+                if(float.TryParse(Console.ReadLine(), out float peso))
+                {
+                    x.Peso = peso;
+                }
+
+                Console.Write("Alcunha: ");
+                x.Alcunha = Console.ReadLine();
+
+                Console.Write("Numero: ");
+                if(int.TryParse(Console.ReadLine(), out int numero))
+                {
+                    x.Numero = numero;
+                }
+
+                Console.WriteLine("\nPosicoes: ");
+                foreach (string foo in Enum.GetNames(typeof(POSICAO)))
+                {
+                    Console.WriteLine("\t" + foo);
+                }
+
+                Console.Write("\nPosicao: ");
+                if(Enum.TryParse(Console.ReadLine(), out POSICAO posicao))
+                {
+                    x.Posicao = posicao;
+                }
 
                 x.Active = true;
 
@@ -106,7 +115,7 @@ namespace ProjetoLP2.Views
             }
         }
 
-        public void GetPessoa()
+        public void GetJogador()
         {
             try
             {
@@ -125,7 +134,7 @@ namespace ProjetoLP2.Views
             }
         }
 
-        public void UpdatePessoa()
+        public void UpdateJogador()
         {
             IJogador x = new Jogador();
             bool validar;
@@ -138,38 +147,48 @@ namespace ProjetoLP2.Views
 
                 if (validar)
                 {
-                    Console.WriteLine("\nNome: ");
+
+                    Console.Write("\nNome: ");
                     x.Nome = Console.ReadLine();
 
-                    Console.WriteLine("Nacionalidade: ");
+                    Console.Write("Nacionalidade: ");
                     x.Nacionalidade = Console.ReadLine();
 
-                    Console.WriteLine("Data de Nascimento: ");
+                    Console.Write("Data de Nascimento: ");
                     x.DataNascimento = DateTime.Parse(Console.ReadLine());
 
-                    Console.WriteLine("Altura: ");
-                    float.TryParse(Console.ReadLine(), out float altura);
-                    x.Altura = altura;
-
-                    Console.WriteLine("Peso: ");
-                    float.TryParse(Console.ReadLine(), out float peso);
-                    x.Peso = peso;
-
-                    Console.WriteLine("Alcunha: ");
-                    x.Alcunha = Console.ReadLine();
-
-                    Console.WriteLine("Numero: ");
-                    int.TryParse(Console.ReadLine(), out int numero);
-                    x.Numero = numero;
-
-                    foreach (string foo in Enum.GetNames(typeof(POSICAO)))
+                    Console.Write("Altura: ");
+                    if (float.TryParse(Console.ReadLine(), out float altura))
                     {
-                        Console.WriteLine(foo);
+                        x.Altura = altura;
                     }
 
-                    Console.WriteLine("Posicao: ");
-                    Enum.TryParse(Console.ReadLine(), out POSICAO posicao);
-                    x.Posicao = posicao;
+                    Console.Write("Peso: ");
+                    if (float.TryParse(Console.ReadLine(), out float peso))
+                    {
+                        x.Peso = peso;
+                    }
+
+                    Console.Write("Alcunha: ");
+                    x.Alcunha = Console.ReadLine();
+
+                    Console.Write("Numero: ");
+                    if (int.TryParse(Console.ReadLine(), out int numero))
+                    {
+                        x.Numero = numero;
+                    }
+
+                    Console.WriteLine("\nPosicoes: ");
+                    foreach (string foo in Enum.GetNames(typeof(POSICAO)))
+                    {
+                        Console.WriteLine("\t" + foo);
+                    }
+
+                    Console.Write("\nPosicao: ");
+                    if (Enum.TryParse(Console.ReadLine(), out POSICAO posicao))
+                    {
+                        x.Posicao = posicao;
+                    }
 
                     x.Active = true;
 
@@ -187,7 +206,7 @@ namespace ProjetoLP2.Views
             }
         }
 
-        public void DeletePessoa()
+        public void DeleteJogador()
         {
             bool validar;
 

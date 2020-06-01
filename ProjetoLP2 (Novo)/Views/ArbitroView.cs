@@ -86,13 +86,25 @@ namespace ProjetoLP2.Views
                     x.Formacao = formacao;
                 }
 
-                Console.Write("Categoria: ");
+                Console.WriteLine("\nCategorias: ");
+                foreach (string foo in Enum.GetNames(typeof(CATEGORIA)))
+                {
+                    Console.WriteLine("\t" + foo);
+                }
+
+                Console.Write("\nCategoria: ");
                 if ( Enum.TryParse(Console.ReadLine(), out CATEGORIA categoria))
                 {
                     x.Categoria = categoria;
                 }
 
-                Console.Write("Associação: ");
+                Console.WriteLine("\nAssociacoes: ");
+                foreach (string foo in Enum.GetNames(typeof(ASSOCIACAO)))
+                {
+                    Console.WriteLine("\t" + foo);
+                }
+
+                Console.Write("\nAssociação: ");
                 if (Enum.TryParse(Console.ReadLine(), out ASSOCIACAO associacao))
                 {
                     x.Associacao = associacao;
@@ -146,6 +158,7 @@ namespace ProjetoLP2.Views
                 
                 if (validar)
                 {
+
                     Console.Write("\nNome: ");
                     x.Nome = Console.ReadLine();
 
@@ -173,13 +186,25 @@ namespace ProjetoLP2.Views
                         x.Formacao = formacao;
                     }
 
-                    Console.Write("Categoria: ");
+                    Console.WriteLine("\nCategorias: ");
+                    foreach (string foo in Enum.GetNames(typeof(CATEGORIA)))
+                    {
+                        Console.WriteLine("\t" + foo);
+                    }
+
+                    Console.Write("\nCategoria: ");
                     if (Enum.TryParse(Console.ReadLine(), out CATEGORIA categoria))
                     {
                         x.Categoria = categoria;
                     }
 
-                    Console.Write("Associação: ");
+                    Console.WriteLine("\nAssociacoes: ");
+                    foreach (string foo in Enum.GetNames(typeof(ASSOCIACAO)))
+                    {
+                        Console.WriteLine("\t" + foo);
+                    }
+
+                    Console.Write("\nAssociação: ");
                     if (Enum.TryParse(Console.ReadLine(), out ASSOCIACAO associacao))
                     {
                         x.Associacao = associacao;
