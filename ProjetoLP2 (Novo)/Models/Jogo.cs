@@ -11,24 +11,24 @@ namespace ProjetoLP2.Models
     {
         Equipa EquipaA { get; set; }
         Equipa EquipaB { get; set; }
-        List<IArbitro> Arbitros { get; set; }
+        List<int> Arbitros { get; set; }
 
-        void UpdatePessoa(IPessoa pessoa);
-        void DeletePessoa();
+        void UpdateJogo(IJogo jogo);
     }
 
-    public class Jogo
+    public class Jogo : IJogo
     {
 
         #region MEMBER VARIABLES
+        
         private Equipa equipaA;
         private Equipa equipaB;
         private List<int> arbitros;
+        
         #endregion
 
 
         #region CONSTRUCTORS
-
 
         /// <summary>
         /// The Default Constructur.
@@ -39,10 +39,12 @@ namespace ProjetoLP2.Models
             EquipaB = null;
             Arbitros = null;
         }
+
         #endregion
 
 
         #region PROPERTIES
+        
         /// <summary>
         /// Manipula o atributo "equipaA"
         /// </summary>
@@ -69,22 +71,17 @@ namespace ProjetoLP2.Models
             get { return arbitros; }
             set { arbitros = value; }
         }
+        
         #endregion
 
 
         #region FUNCTIONS
 
-        public void UpdatePessoa(IPessoa pessoa)
+        public void UpdateJogo(IJogo jogo)
         {
-            Nome = pessoa.Nome;
-            Nacionalidade = pessoa.Nacionalidade;
-            DataNascimento = pessoa.DataNascimento;
-            Altura = pessoa.Altura;
-            Peso = pessoa.Peso;
-        }
-        public void DeletePessoa()
-        {
-            Active = false;
+            EquipaA = jogo.EquipaA;
+            EquipaB = jogo.EquipaB;
+            Arbitros = jogo.Arbitros;
         }
 
         #endregion
