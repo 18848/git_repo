@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ArbitroController.cs" />
+    <Compile Include="Controllers\EquipaController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
     <Compile Include="Controllers\PessoaController.cs" />
     <Compile Include="Models\Arbitro.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Models\Guardar\GuardaArbitro.cs" />
     <Compile Include="Models\Guardar\GuardaJogador.cs" />
     <Compile Include="Models\Guardar\GuardaPessoa.cs" />
+    <Compile Include="Models\Guardar\GuardarEquipa.cs" />
     <Compile Include="Models\Jogador.cs" />
     <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Program.cs" />

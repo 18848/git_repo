@@ -25,7 +25,6 @@ namespace ProjetoLP2.Models
         private DateTime fundacao;
         private List<Jogador> jogadores;
         private bool id;
-        private int totalJogadores;
         #endregion
 
 
@@ -36,6 +35,9 @@ namespace ProjetoLP2.Models
         /// </summary>
         public Equipa()
         {
+            Nome = "";
+            Fundacao = DateTime.Now;
+            Jogadores = null;
         }
         #endregion
 
@@ -88,7 +90,10 @@ namespace ProjetoLP2.Models
 
         public void UpdateEquipa(IEquipa equipa)
         {
-
+            Nome = equipa.Nome;
+            Fundacao = equipa.Fundacao;
+            Jogadores = equipa.Jogadores;
+            Id = equipa.Id;
         }
 
         public void DeleteEquipa()
