@@ -8,31 +8,32 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ProjetoLP2.Models.Guardar
 {
-    public interface IGuardaPessoa
+    public interface IGuardaEquipa
     {
-        bool Add(IPessoa i);
+        bool Add(IEquipa i);
         bool Save(string fileName);
         bool Load(string fileName);
-        List<IPessoa> GiveList();
-        IPessoa Find(int id);
+        IEquipa Find(int id);
+        List<IEquipa> GiveList();
     }
 
     [Serializable]
-    class GuardaPessoa : IGuardaPessoa
+    class GuardaEquipa : IGuardaEquipa
     {
+
         #region Member Values
-        public List<IPessoa> list;
+        public List<IEquipa> list;
         #endregion
 
         #region Constructors
-        public GuardaPessoa()
+        public GuardaEquipa()
         {
-            list = new List<IPessoa>();
+            list = new List<IEquipa>();
         }
         #endregion
 
         #region Functions
-        public bool Add(IPessoa i)
+        public bool Add(IEquipa i)
         {
             if (list != null)
             {
@@ -48,7 +49,7 @@ namespace ProjetoLP2.Models.Guardar
             }
             else
             {
-                list = new List<IPessoa>();
+                list = new List<IEquipa>();
                 list.Add(i);
                 return true;
             }
@@ -82,7 +83,7 @@ namespace ProjetoLP2.Models.Guardar
                 {
                     Stream stream = File.Open(fileName, FileMode.Open);
                     BinaryFormatter bin = new BinaryFormatter();
-                    list = (List<IPessoa>)bin.Deserialize(stream);
+                    list = (List<IEquipa>)bin.Deserialize(stream);
                     stream.Close();
                     return true;
                 }
@@ -94,23 +95,24 @@ namespace ProjetoLP2.Models.Guardar
             return false;
         }
 
-        public IPessoa Find(int id)
+        public IEquipa Find(int id)
         {
             int index = 0;
-            IPessoa p = new Pessoa();
+            IEquipa e = new Equipa();
 
-            foreach (IPessoa i in list)
+            foreach (IEquipa i in list)
             {
                 index++;
                 if (index == id)
                 {
-                    p = i;
+                    e = i;
+                    break;
                 }
             }
-            return p;
+            return e;
         }
 
-        public List<IPessoa> GiveList()
+        public List<IEquipa> GiveList()
         {
             return list;
         }

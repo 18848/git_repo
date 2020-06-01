@@ -44,14 +44,17 @@ namespace ProjetoLP2.Views
         }
         public void ShowOneArbitro(IArbitro i)
         {
-            Console.WriteLine("\nNome: " + i.Nome);
-            Console.WriteLine("Nacionalidade: " + i.Nacionalidade);
-            Console.WriteLine("Data de Nascimento: " + i.DataNascimento.Date.ToString());
-            Console.WriteLine("Altura: " + i.Altura);
-            Console.WriteLine("Peso: " + i.Peso.ToString());
-            Console.WriteLine("Data de Formação: " + i.Formacao.ToString());
-            Console.WriteLine("Categoria: " + i.Categoria);
-            Console.WriteLine("Associação: " + i.Associacao);
+            if (i.Active == true)
+            {
+                Console.WriteLine("\nNome: " + i.Nome);
+                Console.WriteLine("Nacionalidade: " + i.Nacionalidade);
+                Console.WriteLine("Data de Nascimento: " + i.DataNascimento.Date.ToString());
+                Console.WriteLine("Altura: " + i.Altura);
+                Console.WriteLine("Peso: " + i.Peso.ToString());
+                Console.WriteLine("Data de Formação: " + i.Formacao.ToString());
+                Console.WriteLine("Categoria: " + i.Categoria);
+                Console.WriteLine("Associação: " + i.Associacao);
+            }
         }
         public void AddArbitro()
         {

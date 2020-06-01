@@ -44,14 +44,17 @@ namespace ProjetoLP2.Views
         }
         public void ShowOne(IJogador i)
         {
-            Console.WriteLine("\nNome: " + i.Nome);
-            Console.WriteLine("Nacionalidade: " + i.Nacionalidade);
-            Console.WriteLine("Data de Nascimento: " + i.DataNascimento.Date.ToString());
-            Console.WriteLine("Altura: " + i.Altura);
-            Console.WriteLine("Peso: " + i.Peso.ToString());
-            Console.WriteLine("Alcunha: " + i.Alcunha);
-            Console.WriteLine("Numero: " + i.Numero.ToString());
-            Console.WriteLine("Posicao: " + i.Posicao);
+            if (i.Active == true)
+            {
+                Console.WriteLine("\nNome: " + i.Nome);
+                Console.WriteLine("Nacionalidade: " + i.Nacionalidade);
+                Console.WriteLine("Data de Nascimento: " + i.DataNascimento.Date.ToString());
+                Console.WriteLine("Altura: " + i.Altura);
+                Console.WriteLine("Peso: " + i.Peso.ToString());
+                Console.WriteLine("Alcunha: " + i.Alcunha);
+                Console.WriteLine("Numero: " + i.Numero.ToString());
+                Console.WriteLine("Posicao: " + i.Posicao);
+            }
         }
         public void AddJogador()
         {

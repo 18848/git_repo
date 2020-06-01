@@ -62,7 +62,10 @@ namespace ProjetoLP2
         {
             JogadorController jogador = new JogadorController();
             ArbitroController arbitro = new ArbitroController();
-            MenuView menu = new MenuView(jogador, arbitro);
+            EquipaController equipa = new EquipaController();
+            JogoController jogo = new JogoController();
+            CompeticaoController competicao = new CompeticaoController();
+            MenuView menu = new MenuView(jogador, arbitro, equipa, jogo, competicao);
 
             menu.Menu();
         }

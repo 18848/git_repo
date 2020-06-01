@@ -21,13 +21,19 @@ namespace ProjetoLP2.Views
         #region Member Values
         private JogadorController jogador;
         private ArbitroController arbitro;
+        private EquipaController equipa;
+        private JogoController jogo;
+        private CompeticaoController competicao;
         #endregion
 
         #region Constructor
-        public MenuView(JogadorController j, ArbitroController a) 
+        public MenuView(JogadorController j, ArbitroController a, EquipaController e, JogoController jo, CompeticaoController c) 
         {
             jogador = j;
             arbitro = a;
+            equipa = e;
+            jogo = jo;
+            competicao = c;
         }
         #endregion
 

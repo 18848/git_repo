@@ -60,20 +60,16 @@ namespace ProjetoLP2.Models
         #endregion
 
         #region FUNCTIONS
-
-
         public void UpdateEquipa(IEquipa equipa)
         {
             Nome = equipa.Nome;
             Fundacao = equipa.Fundacao;
-            Jogadores = equipa.Jogadores;
         }
 
         public void DeleteEquipa()
         {
             Active = false;
         }
-
         #endregion
     }
 }

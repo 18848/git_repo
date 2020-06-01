@@ -14,9 +14,6 @@ namespace ProjetoLP2.Models
         float Altura { get; set; }
         float Peso { get; set; }
         bool Active { get; set; }
-
-        void UpdatePessoa(IPessoa pessoa);
-        void DeletePessoa();
     }
 
     [Serializable]
@@ -82,21 +79,6 @@ namespace ProjetoLP2.Models
         {
             get { return active; }
             set { active = value; }
-        }
-        #endregion
-
-        #region Functions
-        public void UpdatePessoa(IPessoa pessoa)
-        {
-            Nome = pessoa.Nome;
-            Nacionalidade = pessoa.Nacionalidade;
-            DataNascimento = pessoa.DataNascimento;
-            Altura = pessoa.Altura;
-            Peso = pessoa.Peso;
-        }
-        public void DeletePessoa()
-        {
-            Active = false;
         }
         #endregion
     }
