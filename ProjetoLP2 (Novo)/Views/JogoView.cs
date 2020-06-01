@@ -37,7 +37,7 @@ namespace ProjetoLP2.Views
         // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         public void ShowAllJogos(IJogo i, int id)
         {
-            List<IArbitro> arbitros = controller.GetArbitrosJogo(i.Arbitros);
+            List<IArbitro> arbitros = controller.GetArbitrosList(i.Arbitros);
 
             Console.WriteLine("\nID: " + id);
 
@@ -49,38 +49,52 @@ namespace ProjetoLP2.Views
                 Console.WriteLine(i.Arbitros[c].ToString() + " - " + arbitros[c].Nome);
             }
         }
-        public void ShowOne(IPessoa i)
+        public void ShowOne(IJogo i)
         {
+            List<IEquipa> list = GetEquipasList();
             Console.WriteLine("\nNome: " + i.Nome);
             Console.WriteLine("Nacionalidade: " + i.Nacionalidade);
             Console.WriteLine("Data de Nascimento: " + i.DataNascimento.Date.ToString());
             Console.WriteLine("Altura: " + i.Altura);
             Console.WriteLine("Peso: " + i.Peso.ToString());
         }
-        public void AddPessoa()
+        public void AddJogo()
         {
-            IPessoa x = new Pessoa();
-
+            IJogo x = new Jogo();
+            List<IEquipa> list = controller.GetEquipasList();
+            List<IArbitro> list = controller.GetArbitrosList();
             try
             {
-                Console.WriteLine("\nNome: ");
-                x.Nome = Console.ReadLine();
+                do
+                {
+                    for(int c = 0; c < list.Count; c++)
+                    {
+                        if (list[c].Active)
+                        {
+                            Console.WriteLine(c.ToString() + " - " + list[c].Nome);
+                        }
+                    }
+                    Console.WriteLine("\nEquipa da Casa: ");
+                    x.EquipaA = int.Parse(Console.ReadLine());
+                    Console.WriteLine("\nEquipa Visitante: ");
+                    x.EquipaB = int.Parse(Console.ReadLine());
+                    if(x.EquipaA == x.EquipaB)
+                        Console.WriteLine("Equipas devem ser diferentes.");
+                } while (x.EquipaA == x.EquipaB);
 
-                Console.WriteLine("Nacionalidade: ");
-                x.Nacionalidade = Console.ReadLine();
+                do
+                {
+                    int c = 0;
+                    for (int c = 0; c < list.Count; c++)
+                    {
+                        if (list[c].Active)
+                        {
+                            Console.WriteLine(c.ToString() + " - " + list[c].Nome);
+                        }
+                    }
+                    Console.WriteLine();
 
-                Console.WriteLine("Data de Nascimento: ");
-                x.DataNascimento = DateTime.Parse(Console.ReadLine());
-
-                Console.WriteLine("Altura: ");
-                float.TryParse(Console.ReadLine(), out float altura);
-                x.Altura = altura;
-
-                Console.WriteLine("Peso: ");
-                float.TryParse(Console.ReadLine(), out float peso);
-                x.Peso = peso;
-
-                x.Active = true;
+                }while(c < 5)
 
                 controller.Add(x);
             }

@@ -15,7 +15,9 @@ namespace ProjetoLP2.Controllers
         void SetListModel(IGuardaJogo m);
         void SetModel(IJogo m);
         void GetAllJogos();
-        List<IArbitro> GetArbitrosJogo(List<int> id);
+        List<IArbitro> GetArbitros(List<int> id);
+        List<IEquipa> GetEquipasList();
+        List<IArbitro> GetArbitrosList();
         bool ProcurarJogo(int id);
         void SetJogo();
         void Add(IJogo jogo);
@@ -82,7 +84,7 @@ namespace ProjetoLP2.Controllers
                 }
             }
         }
-        public List<IArbitro> GetArbitrosJogo(List<int> id)
+        public List<IArbitro> GetArbitros(List<int> id)
         {
             List <IArbitro> list = new List<IArbitro>();
             IGuardaArbitro arbitros = new GuardaArbitro();
@@ -93,6 +95,13 @@ namespace ProjetoLP2.Controllers
                 list.Add(a);
             }
             return list;
+        }
+        public List<IEquipa> GetEquipasList()
+        {
+            List<IEquipa> list = new List<IEquipa>();
+            IGuardarEquipa equipas = new GuardarEquipa();
+            equipas.Load("equipas.bin");
+            return equipas.GiveList();
         }
         public bool ProcurarJogo(int id)
         {
