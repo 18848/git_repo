@@ -8,9 +8,14 @@ namespace ProjetoLP2.Models
 {
     public interface IArbitro : IPessoa
     {
+        // Properties.
         DateTime Formacao { get; set; }
         CATEGORIA Categoria { get; set; }
         ASSOCIACAO Associacao { get; set; }
+
+        // Functions.
+        void UpdateArbitro(IArbitro arbitro);
+        void DeleteArbitro();
     }
 
     class Arbitro : Pessoa, IArbitro
@@ -54,5 +59,31 @@ namespace ProjetoLP2.Models
             set { associacao = value; }
         }
         #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// Updates local Arbitro given external IArbitro.
+        /// </summary>
+        /// <param name="arbitro"></param>
+        public void UpdateArbitro(IArbitro arbitro)
+        {
+            IPessoa x = arbitro;
+            UpdatePessoa(x);
+            Formacao = arbitro.Formacao;
+            Categoria = arbitro.Categoria;
+            Associacao = arbitro.Associacao;
+        }
+        
+        /// <summary>
+        /// Logicly deletes Arbitro. (Removes Access.)
+        /// </summary>
+        public void DeleteArbitro()
+        {
+            Active = false;
+        }
+
+        #endregion
+
     }
 }
