@@ -73,6 +73,9 @@ namespace ProjetoLP2.Views
                     case 0:
                         arbitro.Save();
                         jogador.Save();
+                        equipa.Save();
+                        jogo.Save();
+                        //competicao.Save();
                         break;
                     case 3:
                         ArbitroMenu();
@@ -82,6 +85,13 @@ namespace ProjetoLP2.Views
                         break;
                     case 5:
                         EquipaMenu();
+                        break;
+                        break;
+                    case 6:
+                        //JogoMenu();
+                        break;
+                    case 7:
+                        //CompeticaoMenu();
                         break;
                     default:
                         Menu();
@@ -216,12 +226,13 @@ namespace ProjetoLP2.Views
                     Console.Clear();
                     Console.WriteLine("-------------------- Menu --------------------");
                     Console.WriteLine("------------------- Equipa -------------------");
-                    Console.WriteLine("\n1: Ver Lista de Jogadores da Equipa");
-                    Console.WriteLine("2: Inserir Equipa");
-                    Console.WriteLine("3: Inserir Jogador na Equipa");
-                    Console.WriteLine("4: Editar Equipa");
-                    Console.WriteLine("5: Remover Equipa");
-                    Console.WriteLine("6: Remover Jogadores da Equipa");
+                    Console.WriteLine("\n1: Ver Lista de Equipas");
+                    Console.WriteLine("2: Ver Plantel da Equipa");
+                    Console.WriteLine("3: Inserir Equipa");
+                    Console.WriteLine("4: Inserir Jogador na Equipa");
+                    Console.WriteLine("5: Editar Equipa");
+                    Console.WriteLine("6: Remover Equipa");
+                    Console.WriteLine("7: Remover Jogadores da Equipa");
                     Console.WriteLine("0: Voltar");
                     Console.Write("\nOpcao: ");
                     int.TryParse(Console.ReadLine(), out op);
@@ -239,26 +250,85 @@ namespace ProjetoLP2.Views
                 switch (op)
                 {
                     case 1:
-                        Console.WriteLine("Lista de Jogadores:");
-                        jogador.GetAllJogadores();
+                        Console.WriteLine("Lista de Equipas:");
+                        equipa.GetAllEquipas();
                         Console.ReadKey();
                         break;
                     case 2:
-                        Console.WriteLine("Jogador Especifico:");
-                        jogador.GetJogador();
+                        Console.WriteLine("Plantel da Equipa:");
+                        equipa.GetEquipa();
                         Console.ReadKey();
                         break;
                     case 3:
-                        Console.WriteLine("Adicionar Jogador:");
-                        jogador.SetJogador();
-                        break;
-                    case 4:
-                        Console.WriteLine("Editar Jogador:");
-                        jogador.UpdateJogador();
+                        Console.WriteLine("Adicionar Equipa:");
+                        equipa.SetEquipa();
                         break;
                     case 5:
-                        Console.WriteLine("Remover Jogador:");
-                        jogador.DeleteJogador();
+                        Console.WriteLine("Editar Equipa:");
+                        equipa.UpdateEquipa();
+                        break;
+                    case 6:
+                        Console.WriteLine("Remover Equipa:");
+                        equipa.DeleteEquipa();
+                        break;
+                }
+            } while (op != 0);
+        }
+        public void JogoMenu()
+        {
+            int op = 0;
+
+            do
+            {
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("-------------------- Menu --------------------");
+                    Console.WriteLine("------------------- Equipa -------------------");
+                    Console.WriteLine("\n1: Ver Lista de Equipas");
+                    Console.WriteLine("2: Ver Plantel da Equipa");
+                    Console.WriteLine("3: Inserir Equipa");
+                    Console.WriteLine("4: Inserir Jogador na Equipa");
+                    Console.WriteLine("5: Editar Equipa");
+                    Console.WriteLine("6: Remover Equipa");
+                    Console.WriteLine("7: Remover Jogadores da Equipa");
+                    Console.WriteLine("0: Voltar");
+                    Console.Write("\nOpcao: ");
+                    int.TryParse(Console.ReadLine(), out op);
+                    Console.Clear();
+                }
+                catch (FormatException e)
+                {
+                    throw e;
+                }
+                catch (OverflowException e)
+                {
+                    throw e;
+                }
+
+                switch (op)
+                {
+                    case 1:
+                        Console.WriteLine("Lista de Equipas:");
+                        equipa.GetAllEquipas();
+                        Console.ReadKey();
+                        break;
+                    case 2:
+                        Console.WriteLine("Plantel da Equipa:");
+                        equipa.GetEquipa();
+                        Console.ReadKey();
+                        break;
+                    case 3:
+                        Console.WriteLine("Adicionar Equipa:");
+                        equipa.SetEquipa();
+                        break;
+                    case 5:
+                        Console.WriteLine("Editar Equipa:");
+                        equipa.UpdateEquipa();
+                        break;
+                    case 6:
+                        Console.WriteLine("Remover Equipa:");
+                        equipa.DeleteEquipa();
                         break;
                 }
             } while (op != 0);
