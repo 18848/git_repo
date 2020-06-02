@@ -11,6 +11,10 @@ namespace ProjetoLP2.Controllers
 {
     public interface IEquipaController
     {
+        void SetView(IEquipaView v);
+        void SetModel(IGuardaEquipa m);
+        void SetModel(IEquipa m);
+
         void GetAllEquipas();
         bool ProcurarEquipa(int id);
         void SetEquipa();
@@ -50,7 +54,6 @@ namespace ProjetoLP2.Controllers
         {
             list = m;
         }
-
         public void SetModel(IEquipa m)
         {
             model = m;

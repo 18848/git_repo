@@ -66,8 +66,8 @@ namespace ProjetoLP2.Models
         /// <param name="arbitro"></param>
         public void UpdateArbitro(IArbitro arbitro)
         {
-            IPessoa x = arbitro;
-            UpdatePessoa(x);
+            IArbitro x = arbitro;
+            UpdateArbitro(x);
             Formacao = arbitro.Formacao;
             Categoria = arbitro.Categoria;
             Associacao = arbitro.Associacao;

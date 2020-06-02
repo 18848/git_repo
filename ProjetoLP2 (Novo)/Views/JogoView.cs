@@ -37,7 +37,7 @@ namespace ProjetoLP2.Views
         // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         public void ShowAllJogos(IJogo i, int id)
         {
-            List<IArbitro> arbitros = controller.GetArbitrosList(i.Arbitros);
+            List<IArbitro> arbitros = controller.GetArbitros(i.Arbitros);
 
             Console.WriteLine("\nID: " + id);
 
@@ -51,12 +51,26 @@ namespace ProjetoLP2.Views
         }
         public void ShowOne(IJogo i)
         {
-            List<IEquipa> list = GetEquipasList();
-            Console.WriteLine("\Equipa da Casa: " + i.Nome);
-            Console.WriteLine("Nacionalidade: " + i.Nacionalidade);
-            Console.WriteLine("Data de Nascimento: " + i.DataNascimento.Date.ToString());
-            Console.WriteLine("Altura: " + i.Altura);
-            Console.WriteLine("Peso: " + i.Peso.ToString());
+            Console.WriteLine("Equipas:");
+            List<IEquipa> listEquipas = controller.GetEquipas( i.EquipaA, i.EquipaB);
+            if (controller.CheckFirstEquipas( listEquipas, i.EquipaA, i.EquipaB) == 1)
+            {
+                Console.WriteLine("\tEquipa da Casa: " + i.EquipaA.ToString() + " - " + listEquipas[0].Nome);
+                Console.WriteLine("\tEquipa Visitante: " + i.EquipaB.ToString() + " - " + listEquipas[1].Nome);
+            }
+            else
+            {
+                Console.WriteLine("\tEquipa da Casa: " + i.EquipaA.ToString() + " - " + listEquipas[1].Nome);
+                Console.WriteLine("\tEquipa Visitante: " + i.EquipaB.ToString() + " - " + listEquipas[0].Nome);
+            }
+
+            Console.WriteLine("Arbitros:");
+            i.Arbitros.Sort();
+            List<IArbitro> listArbitros = controller.GetArbitros(i.Arbitros);
+            for (int c = 0; c < listArbitros.Count; c++)
+            {
+                Console.WriteLine("\t- " + i.Arbitros[c].ToString() + " - " + listArbitros[c].Nome + " - " + listArbitros[c].Categoria.ToString());
+            }
         }
         public void AddJogo()
         {
@@ -65,9 +79,10 @@ namespace ProjetoLP2.Views
             List<IArbitro> arbitros = controller.GetArbitrosList();
             try
             {
+                int c;
                 do
                 {
-                    for(int c = 0; c < equipas.Count; c++)
+                    for(c = 0; c < equipas.Count; c++)
                     {
                         if (equipas[c].Active)
                         {
@@ -84,8 +99,7 @@ namespace ProjetoLP2.Views
 
                 do
                 {
-                    int c = 0;
-                    for (int c = 0; c < arbitros.Count; c++)
+                    for (c = 0; c < arbitros.Count; c++)
                     {
                         if (arbitros[c].Active)
                         {
@@ -96,7 +110,7 @@ namespace ProjetoLP2.Views
                     }
                     Console.WriteLine();
 
-                }while(c < 5)
+                } while (c < 5);
 
                 controller.Add(x);
             }
@@ -110,7 +124,7 @@ namespace ProjetoLP2.Views
             }
         }
 
-        public void GetPessoa()
+        public void GetJogo()
         {
             try
             {

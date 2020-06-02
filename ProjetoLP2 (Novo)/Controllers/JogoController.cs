@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ProjetoLP2.Models.Guardar;
 using ProjetoLP2.Models;
 using ProjetoLP2.Views;
+using System.Data;
 
 namespace ProjetoLP2.Controllers
 {
@@ -15,9 +16,11 @@ namespace ProjetoLP2.Controllers
         void SetListModel(IGuardaJogo m);
         void SetModel(IJogo m);
         void GetAllJogos();
+        List<IArbitro> GetArbitrosList();
         List<IArbitro> GetArbitros(List<int> id);
         List<IEquipa> GetEquipasList();
-        List<IArbitro> GetArbitrosList();
+        List<IEquipa> GetEquipas(int idA, int idB);
+        int CheckFirstEquipas(List<IEquipa> list, int a, int b);
         bool ProcurarJogo(int id);
         void SetJogo();
         void Add(IJogo jogo);
@@ -96,6 +99,36 @@ namespace ProjetoLP2.Controllers
             }
             return list;
         }
+        public List<IEquipa> GetEquipas(int idA, int idB)
+        {
+            List <IEquipa> list = new List<IEquipa>();
+            IGuardaEquipa equipas = new GuardaEquipa();
+            equipas.Load("equipas.bin");
+            for (int c = idA; ; c = idB)
+            {
+                IEquipa e = equipas.Find(c);
+                list.Add(e);
+                if (list.Count == 2) break;
+            }
+            return list;
+        }
+        public int CheckFirstEquipas(List<IEquipa> list, int a, int b)
+        {
+            for(int c=0; c < list.Count; c++)
+            {
+                if(list[c] == list[a])
+                {
+                    return 1;
+                }
+                if (list[c] == list[b])
+                {
+                    return -1;
+                }
+                else continue;
+            }
+            return 0;
+        }
+
         public List<IArbitro> GetArbitrosList()
         {
             IGuardaArbitro arbitro = new GuardaArbitro();

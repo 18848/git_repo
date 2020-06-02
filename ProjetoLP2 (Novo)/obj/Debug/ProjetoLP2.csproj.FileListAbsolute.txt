@@ -14,3 +14,6 @@ D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP2 (Novo)\obj\Debug\ProjetoLP
 D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP2 (Novo)\bin\Debug\ProjetoLP2.exe.config
 D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP2 (Novo)\bin\Debug\ProjetoLP2.exe
 D:\Pessoal\IPCA\2_Semestre\GitHub\git_repo\ProjetoLP2 (Novo)\bin\Debug\ProjetoLP2.pdb
+D:\Universidade\GIT\trabalhos\ProjetoLP2 (Novo)\bin\Debug\ProjetoLP2.exe.config
+D:\Universidade\GIT\trabalhos\ProjetoLP2 (Novo)\bin\Debug\ProjetoLP2.exe
+D:\Universidade\GIT\trabalhos\ProjetoLP2 (Novo)\bin\Debug\ProjetoLP2.pdb

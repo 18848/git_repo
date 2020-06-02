@@ -44,12 +44,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ArbitroController.cs" />
+    <Compile Include="Controllers\CompeticaoController.cs" />
     <Compile Include="Controllers\EquipaController.cs" />
     <Compile Include="Controllers\JogadorController.cs" />
     <Compile Include="Controllers\JogoController.cs" />
     <Compile Include="Models\Arbitro.cs" />
+    <Compile Include="Models\Competicao.cs" />
     <Compile Include="Models\Equipa.cs" />
     <Compile Include="Models\Guardar\GuardaArbitro.cs" />
+    <Compile Include="Models\Guardar\GuardaCompeticao.cs" />
     <Compile Include="Models\Guardar\GuardaJogador.cs" />
     <Compile Include="Models\Guardar\GuardaJogo.cs" />
     <Compile Include="Models\Guardar\GuardaEquipa.cs" />

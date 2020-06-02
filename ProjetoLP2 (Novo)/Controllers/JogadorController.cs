@@ -136,7 +136,7 @@ namespace ProjetoLP2.Controllers
         {
             if (list != null)
             {
-                model.UpdatePessoa(jogador);
+                model.UpdateJogador(jogador);
             }
         }
         public void DeleteJogador()
