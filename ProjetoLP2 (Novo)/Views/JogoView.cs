@@ -52,7 +52,7 @@ namespace ProjetoLP2.Views
         public void ShowOne(IJogo i)
         {
             List<IEquipa> list = GetEquipasList();
-            Console.WriteLine("\nNome: " + i.Nome);
+            Console.WriteLine("\Equipa da Casa: " + i.Nome);
             Console.WriteLine("Nacionalidade: " + i.Nacionalidade);
             Console.WriteLine("Data de Nascimento: " + i.DataNascimento.Date.ToString());
             Console.WriteLine("Altura: " + i.Altura);
