@@ -56,6 +56,7 @@ namespace ProjetoLP2
         AVANCADO
     }
     #endregion
+
     class Program
     {
         static void Main(string[] args)

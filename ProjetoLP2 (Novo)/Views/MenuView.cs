@@ -83,8 +83,10 @@ namespace ProjetoLP2.Views
                     case 5:
                         EquipaMenu();
                         break;
-                    default:
-                        Menu();
+                    case 6:
+                        break;
+                    case 7:
+                        JogoMenu();
                         break;
                 }
             } while (op != 0);
@@ -222,6 +224,64 @@ namespace ProjetoLP2.Views
                     Console.WriteLine("4: Editar Equipa");
                     Console.WriteLine("5: Remover Equipa");
                     Console.WriteLine("6: Remover Jogadores da Equipa");
+                    Console.WriteLine("0: Voltar");
+                    Console.Write("\nOpcao: ");
+                    int.TryParse(Console.ReadLine(), out op);
+                    Console.Clear();
+                }
+                catch (FormatException e)
+                {
+                    throw e;
+                }
+                catch (OverflowException e)
+                {
+                    throw e;
+                }
+
+                switch (op)
+                {
+                    case 1:
+                        Console.WriteLine("Lista de Jogadores:");
+                        jogador.GetAllJogadores();
+                        Console.ReadKey();
+                        break;
+                    case 2:
+                        Console.WriteLine("Jogador Especifico:");
+                        jogador.GetJogador();
+                        Console.ReadKey();
+                        break;
+                    case 3:
+                        Console.WriteLine("Adicionar Jogador:");
+                        jogador.SetJogador();
+                        break;
+                    case 4:
+                        Console.WriteLine("Editar Jogador:");
+                        jogador.UpdateJogador();
+                        break;
+                    case 5:
+                        Console.WriteLine("Remover Jogador:");
+                        jogador.DeleteJogador();
+                        break;
+                }
+            } while (op != 0);
+        }
+        public void JogoMenu()
+        {
+            int op = 0;
+
+            do
+            {
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("-------------------- Menu --------------------");
+                    Console.WriteLine("_------------------- Jogo --------------------");
+                    Console.WriteLine("\n1: Ver Lista de Jogos da Competição");
+                    Console.WriteLine("2: Inserir Jogo");
+                    //Console.WriteLine("3: Inserir Jogo na Jornada");
+                    Console.WriteLine("4: Editar Jogo");
+                    //Console.WriteLine("5: Remover Equipa");
+                    //Console.WriteLine("6: Remover Jogadores da Equipa");
                     Console.WriteLine("0: Voltar");
                     Console.Write("\nOpcao: ");
                     int.TryParse(Console.ReadLine(), out op);
