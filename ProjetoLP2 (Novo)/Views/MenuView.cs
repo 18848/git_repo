@@ -274,6 +274,10 @@ namespace ProjetoLP2.Views
                         Console.WriteLine("Remover Equipa:");
                         equipa.DeleteEquipa();
                         break;
+                    case 7:
+                        Console.WriteLine("Remover Jogador da Equipa:");
+                        equipa.DeleteJogador();
+                        break;
                 }
             } while (op != 0);
         }

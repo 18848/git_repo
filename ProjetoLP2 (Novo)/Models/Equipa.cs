@@ -16,6 +16,7 @@ namespace ProjetoLP2.Models
         void UpdateEquipa(IEquipa equipa);
         void DeleteEquipa();
         void UpdateJogador(int id);
+        void DeleteJogador(int id);
     }
 
     [Serializable]
@@ -78,12 +79,15 @@ namespace ProjetoLP2.Models
             if(jogadores == null)
             {
                 jogadores = new List<int>();
-                Jogadores.Add(id);
             }
-            else
-            {
-                Jogadores.Add(id);
-            }
+            
+            Jogadores.Add(id);
+        }
+
+
+        public void DeleteJogador(int id)
+        {
+            Jogadores.Remove(id);
         }
         #endregion
     }
