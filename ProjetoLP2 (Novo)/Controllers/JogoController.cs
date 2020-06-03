@@ -13,15 +13,10 @@ namespace ProjetoLP2.Controllers
     public interface IJogoController
     {
         void SetView(IJogoView v);
-        void SetListModel(IGuardaJogo m);
+        void SetModel(IGuardaJogo m);
+        void SetModelArbitro(IGuardaArbitro m);
         void SetModel(IJogo m);
         void GetAllJogos();
-        List<IArbitro> GetArbitrosList();
-        List<IArbitro> GetArbitros(List<int> id);
-        List<IEquipa> GetEquipasList();
-        List<IEquipa> GetEquipas(int idA, int idB);
-        List<IJogador> GetJogadoresList();
-        int CheckFirstEquipas(List<IEquipa> list, int a, int b);
         bool ProcurarJogo(int id);
         void SetJogo();
         void Add(IJogo jogo);
@@ -29,176 +24,191 @@ namespace ProjetoLP2.Controllers
         void Find(int id);
         void UpdateJogo();
         void Update(IJogo jogo);
+        void UpdateArbitro();
+        void UpdateArbitroModel(int id);
+        void DeleteArbitro();
+        void DeleteArbitroModel(int id);
+        bool ProcurarArbitro(int id);
     }
+    
 
     public class JogoController : IJogoController
+{
+    #region Member Values
+    private IJogo model;
+    private IJogoView view;
+    private IGuardaJogo list;
+    private IGuardaArbitro listArbitro;
+    #endregion
+
+    #region Constructor
+    public JogoController()
     {
-        #region Member Values
-        
-        private IJogo model;
-        private IJogoView view;
-        private IGuardaJogo list;
-        
-        #endregion
+        list = new GuardaJogo();
+        list.Load("jogo.bin");
+        listArbitro = new GuardaArbitro();
+        listArbitro.Load("arbitro.bin");
 
-        #region Constructor
-        public JogoController()
-        {
-            list = new GuardaJogo();
-            list.Load("jogo.bin");
-            view = new JogoView(this);
-        }
-        #endregion
+        view = new JogoView(this);
+    }
+    #endregion
 
-        #region View-Model-File
-        public void SetView(IJogoView v)
-        {
-            view = v;
-        }
+    #region View-Model-File
+    public void SetView(IJogoView v)
+    {
+        this.view = v;
+    }
 
-        public void SetListModel(IGuardaJogo m)
-        {
-            list = m;
-        }
+    public void SetModel(IGuardaJogo m)
+    {
+        list = m;
+    }
+    public void SetModelArbitro(IGuardaArbitro m)
+    {
+            listArbitro = m;
+    }
+    public void SetModel(IJogo m)
+    {
+        model = m;
+    }
 
-        public void SetModel(IJogo m)
-        {
-            model = m;
-        }
+    public void Save()
+    {
+        list.Save("jogo.bin");
+    }
+    #endregion
 
-        public void Save()
+    #region Functions
+    public void GetAllJogos()
+    {
+        int index = 0;
+        if (view != null)
         {
-            list.Save("jogo.bin");
-        }
-        #endregion
-
-        #region Functions
-        public void GetAllJogos()
-        {
-            int index = 0;
-            if (view != null)
+            if (list != null)
             {
-                if (list != null)
+                List<IJogo> jogos = list.GiveList();
+                foreach (IJogo i in jogos)
                 {
-                    foreach (IJogo i in list.GiveList())
+                    index++;
+                    view.ShowAll(i, index);
+                }
+            }
+        }
+    }
+    public bool ProcurarJogo(int id)
+    {
+        IJogo jogo;
+        if (list != null)
+        {
+                jogo = list.Find(id);
+
+            if (jogo != null)
+            {
+                SetModel(jogo);
+                return true;
+            }
+        }
+        return false;
+    }
+    public void SetJogo()
+    {
+        if (view != null)
+        {
+            view.AddJogo();
+        }
+    }
+    public void Add(IJogo jogo)
+    {
+        list.Add(jogo);
+    }
+
+    public void GetJogo()
+    {
+        if (view != null)
+        {
+            view.GetJogo();
+        }
+    }
+    public void Find(int id)
+    {
+        if (list != null)
+        {
+            IJogo jogo = new Jogo();
+            List<IArbitro> arbitro = new List<IArbitro>();
+            List<IArbitro> newArbitro = new List<IArbitro>();
+
+            jogo = list.Find(id);
+            arbitro = listArbitro.GiveList();
+
+            foreach (int e in jogo.Arbitros)
+            {
+                int index = 0;
+                foreach (IArbitro j in arbitro)
+                {
+                    index++;
+                    if (e == index)
                     {
-                        index++;
-                        view.ShowAllJogos(i, index);
+                            newArbitro.Add(j);
+                        break;
                     }
                 }
             }
-        }
-        public List<IArbitro> GetArbitros(List<int> id)
-        {
-            List <IArbitro> list = new List<IArbitro>();
-            IGuardaArbitro arbitros = new GuardaArbitro();
-            arbitros.Load("arbitros.bin");
-            foreach (int x in id)
-            {
-                IArbitro a = arbitros.Find(x);
-                list.Add(a);
-            }
-            return list;
-        }
-        public List<IEquipa> GetEquipas(int idA, int idB)
-        {
-            List <IEquipa> list = new List<IEquipa>();
-            IGuardaEquipa equipas = new GuardaEquipa();
-            equipas.Load("equipas.bin");
-            IEquipa e = equipas.Find(idA);
-            list.Add(e);
-            e = equipas.Find(idB);
-            list.Add(e);
-            return list;
-        }
-        public int CheckFirstEquipas(List<IEquipa> list, int a, int b)
-        {
-            IGuardaEquipa guardar = new GuardaEquipa();
-            if(list[0] == guardar.Find(a))
-            {
-                return 1;
-            }
-            if (list[0] == guardar.Find(b))
-            {
-                return -1;
-            }
-            return 0;
-        }
 
-        public List<IArbitro> GetArbitrosList()
-        {
-            IGuardaArbitro arbitro = new GuardaArbitro();
-            arbitro.Load("arbitro.bin");
-            return arbitro.GiveList();
+            view.ShowOne(jogo, newArbitro);
         }
-        public List<IEquipa> GetEquipasList()
-        {
-            IGuardaEquipa equipas = new GuardaEquipa();
-            equipas.Load("equipas.bin");
-            return equipas.GiveList();
-        }
-        public List<IJogador> GetJogadoresList()
-        {
-            IGuardaJogador jogadores = new GuardaJogador();
-            jogadores.Load("jogador.bin");
-            return jogadores.GiveList();
-        }
-        public bool ProcurarJogo(int id)
-        {
-            IJogo jogo;
-            if (list != null)
-            {
-                jogo = list.Find(id);
-
-                if (jogo != null)
-                {
-                    SetModel(jogo);
-                    return true;
-                }
-            }
-            return false;
-        }
-        public void SetJogo()
-        {
-            if (view != null)
-            {
-                view.AddJogo();
-            }
-        }
-        public void Add(IJogo jogo) 
-        {
-            list.Add(jogo);
-        }
-
-        public void GetJogo()
-        {
-            if (view != null)
-            {
-                view.GetJogo();
-            }
-        }
-        public void Find(int id)
-        {
-            if (list != null)
-            {
-                view.ShowOne(list.Find(id));
-            }
-        }
-        public void UpdateJogo()
-        {
-            if (view != null)
-            {
-                view.UpdateJogo();
-            }
-        }
-        public void Update(IJogo jogo)
-        {
-            if (list != null)
-            {
-                model.UpdateJogo(jogo);
-            }
-        }
-        
-        #endregion
     }
+    public void UpdateJogo()
+    {
+        if (view != null)
+        {
+            view.UpdateJogo();
+        }
+    }
+    public void Update(IJogo jogo)
+    {
+        if (list != null)
+        {
+            model.UpdateJogo(jogo);
+        }
+    }
+
+    public void UpdateArbitro()
+    {
+        if (view != null)
+        {
+            view.UpdateArbitro();
+        }
+    }
+    public void UpdateArbitroModel(int id)
+    {
+        if (list != null)
+        {
+            model.UpdateArbitro(id);
+        }
+    }
+    public bool ProcurarArbitro(int id)
+    {
+        if (list != null)
+        {
+            return list.FindArbitro(id);
+        }
+        return false;
+    }
+
+    public void DeleteArbitro()
+    {
+        if (view != null)
+        {
+            view.DeleteArbitro();
+        }
+    }
+    public void DeleteArbitroModel(int id)
+    {
+        if (list != null)
+        {
+            model.DeleteArbitro(id);
+        }
+    }
+    #endregion
+}
 }

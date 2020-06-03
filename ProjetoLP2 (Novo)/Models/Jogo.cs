@@ -7,65 +7,43 @@ using ProjetoLP2.Models;
 
 namespace ProjetoLP2.Models
 {
-    [Serializable]
-    public enum Evento
-    {
-        GOLO = 1, CA, CV
-    }
-    [Serializable]
-    public struct EventoJogo
-    {
-        public EventoJogo(Evento e, int j)
-        {
-            TipoEvento = e;
-            Jogador = j;
-        }
-        public Evento TipoEvento { get; set; }
-        public int Jogador { get; set; }
-    }
     public interface IJogo
     {
         int EquipaA { get; set; }
         int EquipaB { get; set; }
         List<int> Arbitros { get; set; }
-        List<EventoJogo> EventoA { get; set; }
-        List<EventoJogo> EventoB { get; set; }
+        int ResultadoA { get; set; }
+        int ResultadoB { get; set; }
+
 
         void UpdateJogo(IJogo jogo);
+        void UpdateArbitro(int id);
+        void DeleteArbitro(int id);
     }
+
     [Serializable]
     public class Jogo : IJogo
     {
-
         #region MEMBER VARIABLES
-        
         private int equipaA;
         private int equipaB;
         private List<int> arbitros;
-
-        
+        private int resultadoA;
+        private int resultadoB;
         #endregion
 
-
         #region CONSTRUCTORS
-
-        /// <summary>
-        /// The Default Constructur.
-        /// </summary>
         public Jogo()
         {
             EquipaA = 0;
             EquipaB = 0;
             Arbitros = new List<int>();
-            EventoA = new List<EventoJogo>();
-            EventoB = new List<EventoJogo>();
+            ResultadoA = 0;
+            ResultadoB = 0;
         }
-
         #endregion
 
-
         #region PROPERTIES
-        
         /// <summary>
         /// Manipula o atributo "equipaA"
         /// </summary>
@@ -80,23 +58,33 @@ namespace ProjetoLP2.Models
         /// Manipula o atributo "Arbitros"
         /// </summary>
         public List<int> Arbitros { get; set; }
-        public List<EventoJogo> EventoA { get; set; }
-        public List<EventoJogo> EventoB { get; set; }
-
+        public int ResultadoA { get; set; }
+        public int ResultadoB { get; set; }
         #endregion
 
-
         #region FUNCTIONS
-
         public void UpdateJogo(IJogo jogo)
         {
             EquipaA = jogo.EquipaA;
             EquipaB = jogo.EquipaB;
-            Arbitros = jogo.Arbitros;
-            EventoA = jogo.EventoA;
-            EventoB = jogo.EventoB;
+            ResultadoA = jogo.ResultadoA;
+            ResultadoB = jogo.ResultadoB;
         }
 
+        public void UpdateArbitro(int id)
+        {
+            if (Arbitros == null)
+            {
+                Arbitros = new List<int>();
+            }
+
+            Arbitros.Add(id);
+        }
+
+        public void DeleteArbitro(int id)
+        {
+            Arbitros.Remove(id);
+        }
         #endregion
 
     }

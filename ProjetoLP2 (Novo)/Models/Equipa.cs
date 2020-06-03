@@ -79,7 +79,6 @@ namespace ProjetoLP2.Models
             Jogadores.Add(id);
         }
 
-
         public void DeleteJogador(int id)
         {
             Jogadores.Remove(id);

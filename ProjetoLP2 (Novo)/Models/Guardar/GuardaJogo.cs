@@ -14,17 +14,16 @@ namespace ProjetoLP2.Models.Guardar
         bool Add(IJogo i);
         bool Save(string fileName);
         bool Load(string fileName);
-        List<IJogo> GiveList();
         IJogo Find(int id);
+        bool FindArbitro(int id);
+        List<IJogo> GiveList();
     }
+
     [Serializable]
     public class GuardaJogo : IGuardaJogo
     {
-
         #region Member Values
-        
         public List<IJogo> list;
-        
         #endregion
 
         #region Constructors
@@ -100,22 +99,41 @@ namespace ProjetoLP2.Models.Guardar
         public IJogo Find(int id)
         {
             int index = 0;
-            IJogo p = new Jogo();
+            IJogo e = new Jogo();
 
             foreach (IJogo i in list)
             {
                 index++;
                 if (index == id)
                 {
-                    p = i;
+                    e = i;
+                    break;
                 }
             }
-            return p;
+            return e;
         }
 
         public List<IJogo> GiveList()
         {
             return list;
+        }
+
+        public bool FindArbitro(int id)
+        {
+            foreach (IJogo i in list)
+            {
+                if (i.Arbitros != null)
+                {
+                    foreach (int j in i.Arbitros)
+                    {
+                        if (j == id)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
         #endregion
     }

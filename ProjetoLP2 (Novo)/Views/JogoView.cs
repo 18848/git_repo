@@ -12,22 +12,22 @@ namespace ProjetoLP2.Views
 {
     public interface IJogoView
     {
-        void ShowAllJogos(IJogo i, int id);
-        void ShowOne(IJogo i);
+        void ShowAll(IJogo i, int id);
+        void ShowOne(IJogo i, List<IArbitro> arbitros);
         void AddJogo();
         void GetJogo();
         void UpdateJogo();
+        void UpdateArbitro();
+        void DeleteArbitro();
     }
     public class JogoView : IJogoView
     {
         #region Member Values
-        
         private IJogoController controller;
-        
         #endregion
 
         #region Constructor
-        public JogoView(IJogoController c) 
+        public JogoView(IJogoController c)
         {
             controller = c;
             controller.SetView(this);
@@ -35,162 +35,40 @@ namespace ProjetoLP2.Views
         #endregion
 
         #region Functions
-
-        public void ShowAllJogos(IJogo i, int id)
+        public void ShowAll(IJogo i, int id)
         {
-            #region Contar golos para cada Equipa
-            int golosA = 0, golosB = 0;
-            foreach (EventoJogo item in i.EventoA)
-            {
-                if (item.TipoEvento == Evento.GOLO) golosA++;
-            }
-            foreach (EventoJogo item in i.EventoB)
-            {
-                if (item.TipoEvento == Evento.GOLO) golosB++;
-            }
-            #endregion
-            
-            Console.WriteLine("\nID: " + id);
-
-            #region Apresentar Equipas
-            Console.WriteLine("Equipas:");
-            List<IEquipa> listEquipas = controller.GetEquipas(i.EquipaA, i.EquipaB);
-            // Verificar qual equipa aparece primeiro no array das equipas referentes ao jogo
-            if (controller.CheckFirstEquipas(listEquipas, i.EquipaA, i.EquipaB) == 1) // EquipaA primeiro
-            {
-                Console.WriteLine("\tEquipa da Casa: " + listEquipas[0].Nome + " : " + golosA.ToString());
-                Console.WriteLine("\tEquipa Visitante: " + listEquipas[1].Nome + " : " + golosB.ToString());
-            }
-            // EquipaB primeiro
-            else
-            {
-                Console.WriteLine("\tEquipa da Casa: " + listEquipas[1].Nome + " : " + golosA.ToString());
-                Console.WriteLine("\tEquipa Visitante: " + listEquipas[0].Nome + " : " + golosB.ToString());
-            }
-            #endregion
-
-            #region Arbitros
-            Console.WriteLine("Arbitros:");
-            //  Forçar Ordem dos ID's da Lista de Árbitros
-            i.Arbitros.Sort();
-            List<IArbitro> listArbitros = controller.GetArbitros(i.Arbitros);
-            for (int c = 0; c < listArbitros.Count; c++)
-            {
-                Console.WriteLine("\t- " + i.Arbitros[c].ToString() + " - " + listArbitros[c].Nome + " - " + listArbitros[c].Categoria.ToString());
-            }
-            #endregion
+            Console.WriteLine("\nID: " + id.ToString());
+            Console.WriteLine(i.EquipaA + " " + i.ResultadoA + " - " + i.ResultadoB + " " + i.EquipaA);
         }
-        public void ShowOne(IJogo i)
+        public void ShowOne(IJogo i, List<IArbitro> arbitros)
         {
-            #region Contar golos para cada Equipa
-            int golosA = 0,  golosB = 0;
-            foreach (EventoJogo item in i.EventoA)
-            {
-                if (item.TipoEvento == Evento.GOLO) golosA++;
-            }
-            foreach (EventoJogo item in i.EventoB)
-            {
-                if (item.TipoEvento == Evento.GOLO) golosB++;
-            }
-            #endregion
+            Console.WriteLine(i.EquipaA + " " + i.ResultadoA + " - " + i.ResultadoB + " " + i.EquipaA);
 
-            #region Apresentar Equipas
-            Console.WriteLine("Equipas:");
-            List<IEquipa> listEquipas = controller.GetEquipas( i.EquipaA, i.EquipaB);
-            // Verificar qual equipa aparece primeiro no array das equipas referentes ao jogo
-            if (controller.CheckFirstEquipas( listEquipas, i.EquipaA, i.EquipaB) == 1) // EquipaA primeiro
+            if (arbitros != null)
             {
-                Console.WriteLine("\tEquipa da Casa: " + listEquipas[0].Nome + " : " + golosA.ToString() );
-                Console.WriteLine("\tEquipa Visitante: " + listEquipas[1].Nome + " : " + golosB.ToString());
+                foreach (IArbitro foo in arbitros)
+                {
+                    Console.WriteLine("Nome: " + foo.Nome);
+                }
             }
-            // EquipaB primeiro
-            else
-            {
-                Console.WriteLine("\tEquipa da Casa: " + listEquipas[1].Nome + " : " + golosA.ToString());
-                Console.WriteLine("\tEquipa Visitante: " + listEquipas[0].Nome + " : " + golosB.ToString());
-            }
-            #endregion
-
-            #region Arbitros
-            Console.WriteLine("Arbitros:");
-            //  Forçar Ordem dos ID's da Lista de Árbitros
-            i.Arbitros.Sort();
-            List<IArbitro> listArbitros = controller.GetArbitros(i.Arbitros);
-            for (int c = 0; c < listArbitros.Count; c++)
-            {
-                Console.WriteLine("\t- " + i.Arbitros[c].ToString() + " - " + listArbitros[c].Nome + " - " + listArbitros[c].Categoria.ToString());
-            }
-            #endregion
         }
         public void AddJogo()
         {
             IJogo x = new Jogo();
-            IEquipaController equipas = new EquipaController();
-            IArbitroController arbitros = new ArbitroController();
-            //List<IArbitro> arbitros = controller.GetArbitrosList();
+
             try
             {
-                int c;
-                do
-                {
-                    Console.Clear();
-                    Console.WriteLine("Equipas: ");
-                    equipas.GetAllEquipas();
-                    Console.Write("\nEquipa da Casa: ");
-                    x.EquipaA = int.Parse(Console.ReadLine());
-                    Console.Write("\nEquipa Visitante: ");
-                    x.EquipaB = int.Parse(Console.ReadLine());
-                    if(x.EquipaA == x.EquipaB)
-                        Console.WriteLine("Equipas devem ser diferentes.");
-                } while (x.EquipaA == x.EquipaB);
+                Console.Write("\nEquipa A: ");
+                x.EquipaA = int.Parse(Console.ReadLine());
 
-                c = 0;
-                Console.WriteLine("\nArbitros: ");
-                arbitros.GetAllArbitros();
-                do
-                {
-                    Console.Write($"\n\tID-{c.ToString()}: ");
-                    x.Arbitros.Add(int.Parse(Console.ReadLine()));
-                    c++;
-                } while (c < 5);
-                int counter = 0;
-                do
-                {
-                    string evento;
-                    Console.Clear();
-                    if(counter==0)
-                        Console.WriteLine("Eventos Equipa: " + x.EquipaA.ToString());
-                    if(counter==1)
-                        Console.WriteLine("Eventos Equipa: " + x.EquipaA.ToString());
-                    Console.WriteLine("Prima 0 para sair: ");
-                    Console.WriteLine("Eventos: ");
-                    EventoJogo newEvento = new EventoJogo();
-                    Console.WriteLine("\t Tipos de Evento: ");
-                    foreach ( string e in Enum.GetNames(typeof(Evento)))
-                    {
-                        Console.WriteLine("{0} = {1:D}", e,
-                                                     Enum.Parse(typeof(Evento), e));
-                    }
-                    Console.Write("\tTipo do Evento: ");
-                    evento = Console.ReadLine();
-                    if (0 == int.Parse(evento))
-                    {
-                        counter++;
-                    }
-                    newEvento.TipoEvento = (Evento)Enum.Parse(typeof(Evento), evento);
+                Console.Write("\nEquipa B: ");
+                x.EquipaB = int.Parse(Console.ReadLine());
 
-                    Console.WriteLine("Jogadores:");
-                    IJogadorController jC= new JogadorController();
-                    jC.GetAllJogadores();
+                Console.Write("\nGolos Equipa A: ");
+                x.ResultadoA = int.Parse(Console.ReadLine());
 
-                    Console.Write("\tJogador em Causa: ");
-                    newEvento.Jogador = int.Parse(Console.ReadLine());
-                    
-                    if(counter==0)
-                        x.EventoA.Add(newEvento);
-                    else if(counter==1)
-                        x.EventoB.Add(newEvento);
-                } while (counter < 2);
+                Console.Write("\nnGolos Equipa B: ");
+                x.ResultadoB = int.Parse(Console.ReadLine());
 
                 controller.Add(x);
             }
@@ -203,14 +81,53 @@ namespace ProjetoLP2.Views
                 throw e;
             }
         }
+
         public void GetJogo()
         {
             try
             {
-                Console.WriteLine("ID: ");
+                Console.Write("ID: ");
                 int.TryParse(Console.ReadLine(), out int id);
 
                 controller.Find(id);
+            }
+            catch (FormatException e)
+            {
+                throw e;
+            }
+            catch (OverflowException e)
+            {
+                throw e;
+            }
+        }
+
+        public void UpdateJogo()
+        {
+            IJogo x = new Jogo();
+            bool validar;
+
+            try
+            {
+                Console.Write("ID: ");
+                int.TryParse(Console.ReadLine(), out int id);
+                validar = controller.ProcurarJogo(id);
+
+                if (validar)
+                {
+                    Console.Write("\nEquipa A: ");
+                    x.EquipaA = int.Parse(Console.ReadLine());
+
+                    Console.Write("\nEquipa B: ");
+                    x.EquipaB = int.Parse(Console.ReadLine());
+
+                    Console.Write("\nGolos Equipa A: ");
+                    x.ResultadoA = int.Parse(Console.ReadLine());
+
+                    Console.Write("\nnGolos Equipa B: ");
+                    x.ResultadoB = int.Parse(Console.ReadLine());
+
+                    controller.Update(x);
+                }
 
             }
             catch (FormatException e)
@@ -222,28 +139,91 @@ namespace ProjetoLP2.Views
                 throw e;
             }
         }
-        public void UpdateJogo()
+
+        public void UpdateArbitro()
         {
-            IJogo x = new Jogo();
-            bool validar;
+            bool validarE, validarJ, sair = false;
 
             try
             {
-                Console.WriteLine("ID: ");
-                int.TryParse(Console.ReadLine(), out int id);
-                validar = controller.ProcurarJogo(id);
+                Console.Write("ID do Jogo: ");
+                int.TryParse(Console.ReadLine(), out int x);
+                validarE = controller.ProcurarJogo(x);
 
-                if (validar)
+                if (validarE)
                 {
-                    Console.WriteLine("\nEquipa da Casa: ");
-                    x.EquipaA = int.Parse(Console.ReadLine());
+                    while (!sair)
+                    {
+                        Console.Write("\nID do Arbitro: ");
+                        int.TryParse(Console.ReadLine(), out int id);
 
-                    Console.WriteLine("Equipa Visitante: ");
-                    x.EquipaB = int.Parse(Console.ReadLine());
+                        if (id != 0)
+                        {
+                            validarJ = controller.ProcurarArbitro(id);
 
-                    //Arbitros
+                            if (validarJ)
+                            {
+                                controller.UpdateArbitroModel(id);
+                                Console.WriteLine("Inserido com sucesso");
+                            }
+                            else
+                            {
+                                Console.WriteLine("O Arbitro não pode ser selecionado");
+                            }
+                        }
+                        else
+                        {
+                            sair = true;
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("O Jogo não pode ser selecionado");
+                    Console.ReadKey();
+                }
 
-                    controller.Update(x);
+            }
+            catch (FormatException e)
+            {
+                throw e;
+            }
+            catch (OverflowException e)
+            {
+                throw e;
+            }
+        }
+        public void DeleteArbitro()
+        {
+            bool validarE, validarJ;
+
+            try
+            {
+                Console.Write("ID do Jogo: ");
+                int.TryParse(Console.ReadLine(), out int x);
+                validarE = controller.ProcurarJogo(x);
+
+                if (validarE)
+                {
+                    Console.Write("\nID do Arbitro: ");
+                    int.TryParse(Console.ReadLine(), out int id);
+
+                    validarJ = controller.ProcurarArbitro(id);
+
+                    if (!validarJ)
+                    {
+                        controller.DeleteArbitroModel(id);
+                        Console.WriteLine("Removido com sucesso");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Arbitro nao encontrado");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("O jogo não pode ser selecionado");
+                    Console.ReadKey();
                 }
 
             }
