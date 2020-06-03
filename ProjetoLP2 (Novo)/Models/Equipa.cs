@@ -15,8 +15,11 @@ namespace ProjetoLP2.Models
 
         void UpdateEquipa(IEquipa equipa);
         void DeleteEquipa();
+        void UpdateJogador(int id);
+        void DeleteJogador(int id);
     }
 
+    [Serializable]
     public class Equipa : IEquipa
     {
         #region MEMBER VARIABLES
@@ -69,6 +72,22 @@ namespace ProjetoLP2.Models
         public void DeleteEquipa()
         {
             Active = false;
+        }
+
+        public void UpdateJogador(int id)
+        {
+            if(jogadores == null)
+            {
+                jogadores = new List<int>();
+            }
+            
+            Jogadores.Add(id);
+        }
+
+
+        public void DeleteJogador(int id)
+        {
+            Jogadores.Remove(id);
         }
         #endregion
     }

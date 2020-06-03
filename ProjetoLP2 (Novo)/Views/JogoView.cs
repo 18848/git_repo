@@ -34,7 +34,7 @@ namespace ProjetoLP2.Views
         #endregion
 
         #region Functions
-        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
         public void ShowAllJogos(IJogo i, int id)
         {
             List<IArbitro> arbitros = controller.GetArbitros(i.Arbitros);
@@ -123,7 +123,6 @@ namespace ProjetoLP2.Views
                 throw e;
             }
         }
-
         public void GetJogo()
         {
             try
@@ -143,7 +142,6 @@ namespace ProjetoLP2.Views
                 throw e;
             }
         }
-
         public void UpdateJogo()
         {
             IJogo x = new Jogo();

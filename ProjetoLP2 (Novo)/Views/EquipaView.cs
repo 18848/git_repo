@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProjetoLP2.Controllers;
+﻿using ProjetoLP2.Controllers;
 using ProjetoLP2.Models;
+using System;
 
 namespace ProjetoLP2.Views
 {
@@ -16,6 +12,8 @@ namespace ProjetoLP2.Views
         void GetEquipa();
         void UpdateEquipa();
         void DeleteEquipa();
+        void UpdateJogador();
+        void DeleteJogador();
     }
 
     class EquipaView : IEquipaView
@@ -48,6 +46,15 @@ namespace ProjetoLP2.Views
             {
                 Console.WriteLine("Nome: " + i.Nome);
                 Console.WriteLine("Data de Fundacao: " + i.Fundacao.Date);
+
+                /*if (i.Jogadores != null)
+                {
+                    foreach (int foo in i.Jogadores)
+                    {
+                        Console.WriteLine("ID: " + foo);
+                    }
+                }*/
+                controller
             }
         }
         public void AddEquipa()
@@ -80,7 +87,7 @@ namespace ProjetoLP2.Views
         {
             try
             {
-                Console.WriteLine("ID: ");
+                Console.Write("ID: ");
                 int.TryParse(Console.ReadLine(), out int id);
 
                 controller.Find(id);
@@ -102,7 +109,7 @@ namespace ProjetoLP2.Views
 
             try
             {
-                Console.WriteLine("ID: ");
+                Console.Write("ID: ");
                 int.TryParse(Console.ReadLine(), out int id);
                 validar = controller.ProcurarEquipa(id);
 
@@ -143,6 +150,103 @@ namespace ProjetoLP2.Views
                 if (validar)
                 {
                     controller.Delete();
+                }
+
+            }
+            catch (FormatException e)
+            {
+                throw e;
+            }
+            catch (OverflowException e)
+            {
+                throw e;
+            }
+        }
+
+        public void UpdateJogador()
+        {
+            bool validarE, validarJ, sair = false;
+
+            try
+            {
+                Console.Write("ID da Equipa: ");
+                int.TryParse(Console.ReadLine(), out int x);
+                validarE = controller.ProcurarEquipa(x);
+
+                if (validarE)
+                {
+                    while (!sair)
+                    {
+                        Console.Write("\nID do Jogador: ");
+                        int.TryParse(Console.ReadLine(), out int id);
+                    
+                        if(id != 0)
+                        {
+                            validarJ = controller.ProcurarJogador(id);
+
+                            if (validarJ)
+                            {
+                                controller.UpdateJogadorModel(id);
+                                Console.WriteLine("Inserido com sucesso");
+                            }
+                            else
+                            {
+                                Console.WriteLine("O jogador não pode ser selecionado");
+                            }
+                        }
+                        else
+                        {
+                            sair = true;
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("A equipa não pode ser selecionada");
+                    Console.ReadKey();
+                }
+                
+            }
+            catch (FormatException e)
+            {
+                throw e;
+            }
+            catch (OverflowException e)
+            {
+                throw e;
+            }
+        }
+        public void DeleteJogador()
+        {
+            bool validarE, validarJ;
+
+            try
+            {
+                Console.Write("ID da Equipa: ");
+                int.TryParse(Console.ReadLine(), out int x);
+                validarE = controller.ProcurarEquipa(x);
+
+                if (validarE)
+                {
+                    Console.Write("\nID do Jogador: ");
+                    int.TryParse(Console.ReadLine(), out int id);
+
+                    validarJ = controller.ProcurarJogador(id);
+
+                    if (!validarJ)
+                    {
+                        controller.DeleteJogadorModel(id);
+                        Console.WriteLine("Removido com sucesso");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Jogador nao encontrado");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("A equipa não pode ser selecionada");
+                    Console.ReadKey();
                 }
 
             }

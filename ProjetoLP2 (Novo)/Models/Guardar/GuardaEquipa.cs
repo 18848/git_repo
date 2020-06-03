@@ -14,6 +14,7 @@ namespace ProjetoLP2.Models.Guardar
         bool Save(string fileName);
         bool Load(string fileName);
         IEquipa Find(int id);
+        bool FindJogador(int id);
         List<IEquipa> GiveList();
     }
 
@@ -115,6 +116,24 @@ namespace ProjetoLP2.Models.Guardar
         public List<IEquipa> GiveList()
         {
             return list;
+        }
+
+        public bool FindJogador(int id)
+        {
+            foreach (IEquipa i in list)
+            {
+                if(i.Jogadores != null)
+                {
+                    foreach (int j in i.Jogadores)
+                    {
+                        if (j == id)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
         #endregion
     }
