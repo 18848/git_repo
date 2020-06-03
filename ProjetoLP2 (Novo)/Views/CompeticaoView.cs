@@ -149,7 +149,7 @@ namespace ProjetoLP2.Views
             }
         }
 
-        public void DeleteEquipa()
+        public void DeleteCompeticao()
         {
             bool validar;
 
@@ -198,7 +198,7 @@ namespace ProjetoLP2.Views
 
                             if (validarJ)
                             {
-                                controller.UpdateJogadorModel(id);
+                                controller.UpdateEquipaModel(id);
                                 Console.WriteLine("Inserido com sucesso");
                             }
                             else

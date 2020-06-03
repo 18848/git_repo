@@ -33,7 +33,6 @@ namespace ProjetoLP2.Controllers
     }
     public class CompeticaoController : ICompeticaoController
     {
-
         #region Member Values
         private ICompeticao model;
         private ICompeticaoView view;
@@ -63,7 +62,7 @@ namespace ProjetoLP2.Controllers
         {
             list = m;
         }
-        public void SetModelJogador(IGuardaEquipa m)
+        public void SetModelEquipa(IGuardaEquipa m)
         {
             listEquipa = m;
         }
@@ -74,19 +73,19 @@ namespace ProjetoLP2.Controllers
 
         public void Save()
         {
-            list.Save("equipa.bin");
+            list.Save("competicao.bin");
         }
         #endregion
 
         #region Functions
-        public void GetAllEquipas()
+        public void GetAllCompeticoes()
         {
             int index = 0;
             if (view != null)
             {
                 if (list != null)
                 {
-                    foreach (IEquipa i in list.GiveList())
+                    foreach (ICompeticao i in list.GiveList())
                     {
                         index++;
                         if (i.Active)
@@ -97,68 +96,97 @@ namespace ProjetoLP2.Controllers
                 }
             }
         }
-        public bool ProcurarEquipa(int id)
+        public bool ProcurarCompeticao(int id)
         {
-            IEquipa equipa;
+            ICompeticao competicao;
             if (list != null)
             {
-                equipa = list.Find(id);
+                competicao = list.Find(id);
 
-                if (equipa != null)
+                if (competicao != null)
                 {
-                    SetModel(equipa);
+                    SetModel(competicao);
                     return true;
                 }
             }
             return false;
         }
-        public void SetEquipa()
+        public void SetCompeticao()
         {
             if (view != null)
             {
-                view.AddEquipa();
+                view.AddCompeticao();
             }
         }
-        public void Add(IEquipa equipa)
+        public void Add(ICompeticao competicao)
         {
-            list.Add(equipa);
+            list.Add(competicao);
         }
 
-        public void GetEquipa()
+        public void GetCompeticao()
         {
             if (view != null)
             {
-                view.GetEquipa();
+                view.GetCompeticao();
             }
         }
         public void Find(int id)
         {
             if (list != null)
             {
-                IEquipa equipa = new Equipa();
-                List<IJogador> jogador = new List<IJogador>();
-                List<IJogador> newJogador = new List<IJogador>();
+                ICompeticao competicao = new Competicao();
+                List<IEquipa> equipa = new List<IEquipa>();
+                List<IEquipa> newEquipa = new List<IEquipa>();
 
-                equipa = list.Find(id);
-                jogador = listJogador.GiveList();
+                competicao = list.Find(id);
+                equipa = listEquipa.GiveList();
 
-                foreach (int e in equipa.Jogadores)
+                foreach (int c in competicao.Equipas)
                 {
                     int index = 0;
-                    foreach (IJogador j in jogador)
+                    foreach (IEquipa i in equipa)
                     {
                         index++;
-                        if (e == index)
+                        if (c == index)
                         {
-                            newJogador.Add(j);
+                            newEquipa.Add(i);
                             break;
                         }
                     }
                 }
 
-                view.ShowOne(equipa, newJogador);
+                view.ShowOne(competicao, newEquipa);
             }
         }
+        public void UpdateCompeticao()
+        {
+            if (view != null)
+            {
+                view.UpdateCompeticao();
+            }
+        }
+        public void Update(ICompeticao competicao)
+        {
+            if (list != null)
+            {
+                model.UpdateCompeticao(competicao);
+            }
+        }
+        public void DeleteCompeticao()
+        {
+            if (view != null)
+            {
+                view.DeleteCompeticao();
+            }
+        }
+        public void Delete()
+        {
+            if (list != null)
+            {
+                model.DeleteCompeticao();
+            }
+        }
+
         public void UpdateEquipa()
         {
             if (view != null)
@@ -166,13 +194,22 @@ namespace ProjetoLP2.Controllers
                 view.UpdateEquipa();
             }
         }
-        public void Update(IEquipa equipa)
+        public void UpdateEquipaModel(int id)
         {
             if (list != null)
             {
-                model.UpdateEquipa(equipa);
+                model.UpdateEquipa(id);
             }
         }
+        public bool ProcurarEquipa(int id)
+        {
+            if (list != null)
+            {
+                return list.FindEquipa(id);
+            }
+            return false;
+        }
+
         public void DeleteEquipa()
         {
             if (view != null)
@@ -180,49 +217,11 @@ namespace ProjetoLP2.Controllers
                 view.DeleteEquipa();
             }
         }
-        public void Delete()
+        public void DeleteEquipaModel(int id)
         {
             if (list != null)
             {
-                model.DeleteEquipa();
-            }
-        }
-
-        public void UpdateJogador()
-        {
-            if (view != null)
-            {
-                view.UpdateJogador();
-            }
-        }
-        public void UpdateJogadorModel(int id)
-        {
-            if (list != null)
-            {
-                model.UpdateJogador(id);
-            }
-        }
-        public bool ProcurarJogador(int id)
-        {
-            if (list != null)
-            {
-                return list.FindJogador(id);
-            }
-            return false;
-        }
-
-        public void DeleteJogador()
-        {
-            if (view != null)
-            {
-                view.DeleteJogador();
-            }
-        }
-        public void DeleteJogadorModel(int id)
-        {
-            if (list != null)
-            {
-                model.DeleteJogador(id);
+                model.DeleteEquipa(id);
             }
         }
         #endregion

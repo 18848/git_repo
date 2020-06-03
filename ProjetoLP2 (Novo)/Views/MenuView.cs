@@ -13,7 +13,8 @@ namespace ProjetoLP2.Views
         void ArbitroMenu();
         void JogadorMenu();
         void EquipaMenu();
-        void JogoMenu();
+        void JogoMenu(); 
+        void CompeticaoMenu();
     }
 
     class MenuView : IMenuView
@@ -89,7 +90,7 @@ namespace ProjetoLP2.Views
                         JogoMenu();
                         break;
                     case 7:
-                        //CompeticaoMenu();
+                        CompeticaoMenu();
                         break;
                 }
             } while (op != 0);
@@ -283,6 +284,7 @@ namespace ProjetoLP2.Views
 
             } while (op != 0);
         }
+
         public void JogoMenu()
         {
             int op = 0;
@@ -329,6 +331,75 @@ namespace ProjetoLP2.Views
                         break;
                 }
                 jogo.Save();
+
+            } while (op != 0);
+        }
+        public void CompeticaoMenu()
+        {
+            int op = 0;
+
+            do
+            {
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("-------------------- Menu --------------------");
+                    Console.WriteLine("----------------- Competicao -----------------");
+                    Console.WriteLine("\n1: Ver Lista de Competicoes");
+                    Console.WriteLine("2: Ver Equipas da Competicao");
+                    Console.WriteLine("3: Inserir Competicao");
+                    Console.WriteLine("4: Inserir Equipa");
+                    Console.WriteLine("5: Editar Competicao");
+                    Console.WriteLine("6: Remover Competicao");
+                    Console.WriteLine("7: Remover Equipas da Competicao");
+                    Console.WriteLine("0: Voltar");
+                    Console.Write("\nOpcao: ");
+                    int.TryParse(Console.ReadLine(), out op);
+                    Console.Clear();
+                }
+                catch (FormatException e)
+                {
+                    throw e;
+                }
+                catch (OverflowException e)
+                {
+                    throw e;
+                }
+
+                switch (op)
+                {
+                    case 1:
+                        Console.WriteLine("Lista de Competicoes:");
+                        competicao.GetAllCompeticoes();
+                        Console.ReadKey();
+                        break;
+                    case 2:
+                        Console.WriteLine("Clubes na Competicao:");
+                        competicao.GetCompeticao();
+                        Console.ReadKey();
+                        break;
+                    case 3:
+                        Console.WriteLine("Adicionar Competicao:");
+                        competicao.SetCompeticao();
+                        break;
+                    case 4:
+                        Console.WriteLine("Adicionar Clubes: (0 para sair)");
+                        competicao.UpdateEquipa();
+                        break;
+                    case 5:
+                        Console.WriteLine("Editar Competicao:");
+                        competicao.UpdateCompeticao();
+                        break;
+                    case 6:
+                        Console.WriteLine("Remover Competicao:");
+                        competicao.DeleteCompeticao();
+                        break;
+                    case 7:
+                        Console.WriteLine("Remover Equipa da Competicao:");
+                        competicao.DeleteEquipa();
+                        break;
+                }
+                competicao.Save();
 
             } while (op != 0);
         }

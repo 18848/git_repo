@@ -19,6 +19,8 @@ namespace ProjetoLP2.Models
         void UpdateEquipa(int id);
         void DeleteEquipa(int id);
     }
+
+    [Serializable]
     public class Competicao : ICompeticao
     {
         #region MEMBER VARIABLES
