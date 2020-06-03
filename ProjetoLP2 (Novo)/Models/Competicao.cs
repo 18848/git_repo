@@ -12,12 +12,15 @@ namespace ProjetoLP2.Models
         DateTime Inicio { get; set; }
         DateTime Fim { get; set; }
         List<int> Equipas { get; set; }
+        List<int> Jogos { get; set; }
         bool Active { get; set; }
 
         void UpdateCompeticao(ICompeticao competicao);
         void DeleteCompeticao();
         void UpdateEquipa(int id);
         void DeleteEquipa(int id);
+        void UpdateJogo(int id);
+        void DeleteJogo(int id);
     }
 
     [Serializable]
@@ -28,6 +31,7 @@ namespace ProjetoLP2.Models
         private DateTime inicio;
         private DateTime fim;
         private List<int> equipas;
+        private List<int> jogos;
         private bool active;
         #endregion
 
@@ -59,6 +63,11 @@ namespace ProjetoLP2.Models
             get { return equipas; }
             set { equipas = value; }
         }
+        public List<int> Jogos
+        {
+            get { return jogos; }
+            set { jogos = value; }
+        }
         public bool Active
         {
             get { return active; }
@@ -89,10 +98,24 @@ namespace ProjetoLP2.Models
             Equipas.Add(id);
         }
 
-
         public void DeleteEquipa(int id)
         {
             Equipas.Remove(id);
+        }
+
+        public void UpdateJogo(int id)
+        {
+            if (Jogos == null)
+            {
+                Jogos = new List<int>();
+            }
+
+            Jogos.Add(id);
+        }
+
+        public void DeleteJogo(int id)
+        {
+            Jogos.Remove(id);
         }
         #endregion
 

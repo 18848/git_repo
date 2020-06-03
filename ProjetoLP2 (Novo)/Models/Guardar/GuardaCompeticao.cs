@@ -15,6 +15,7 @@ namespace ProjetoLP2.Models.Guardar
         bool Load(string fileName);
         ICompeticao Find(int id);
         bool FindEquipa(int id);
+        bool FindJogo(int id);
         List<ICompeticao> GiveList();
     }
 
@@ -124,6 +125,24 @@ namespace ProjetoLP2.Models.Guardar
                 if (i.Equipas != null)
                 {
                     foreach (int j in i.Equipas)
+                    {
+                        if (j == id)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+        public bool FindJogo(int id)
+        {
+            foreach (ICompeticao i in list)
+            {
+                if (i.Jogos != null)
+                {
+                    foreach (int j in i.Jogos)
                     {
                         if (j == id)
                         {
