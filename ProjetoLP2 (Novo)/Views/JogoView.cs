@@ -37,22 +37,51 @@ namespace ProjetoLP2.Views
 
         public void ShowAllJogos(IJogo i, int id)
         {
-            List<IArbitro> arbitros = controller.GetArbitros(i.Arbitros);
-
+            #region Contar golos para cada Equipa
+            int golosA = 0, golosB = 0;
+            foreach (EventoJogo item in i.EventoA)
+            {
+                if (item.TipoEvento == Evento.GOLO) golosA++;
+            }
+            foreach (EventoJogo item in i.EventoB)
+            {
+                if (item.TipoEvento == Evento.GOLO) golosB++;
+            }
+            #endregion
+            
             Console.WriteLine("\nID: " + id);
 
-            Console.WriteLine("Equipa da Casa: " + i.EquipaA);
-            Console.WriteLine("Equipa Visitante: " + i.EquipaB);
-            Console.WriteLine("Equipa de Arbitros: ");
-            for(int c = 0;  c < i.Arbitros.Count(); c++)
+            #region Apresentar Equipas
+            Console.WriteLine("Equipas:");
+            List<IEquipa> listEquipas = controller.GetEquipas(i.EquipaA, i.EquipaB);
+            // Verificar qual equipa aparece primeiro no array das equipas referentes ao jogo
+            if (controller.CheckFirstEquipas(listEquipas, i.EquipaA, i.EquipaB) == 1) // EquipaA primeiro
             {
-                Console.WriteLine(i.Arbitros[c].ToString() + " - " + arbitros[c].Nome);
+                Console.WriteLine("\tEquipa da Casa: " + listEquipas[0].Nome + " : " + golosA.ToString());
+                Console.WriteLine("\tEquipa Visitante: " + listEquipas[1].Nome + " : " + golosB.ToString());
             }
+            // EquipaB primeiro
+            else
+            {
+                Console.WriteLine("\tEquipa da Casa: " + listEquipas[1].Nome + " : " + golosA.ToString());
+                Console.WriteLine("\tEquipa Visitante: " + listEquipas[0].Nome + " : " + golosB.ToString());
+            }
+            #endregion
+
+            #region Arbitros
+            Console.WriteLine("Arbitros:");
+            //  Forçar Ordem dos ID's da Lista de Árbitros
+            i.Arbitros.Sort();
+            List<IArbitro> listArbitros = controller.GetArbitros(i.Arbitros);
+            for (int c = 0; c < listArbitros.Count; c++)
+            {
+                Console.WriteLine("\t- " + i.Arbitros[c].ToString() + " - " + listArbitros[c].Nome + " - " + listArbitros[c].Categoria.ToString());
+            }
+            #endregion
         }
         public void ShowOne(IJogo i)
         {
-            
-            //  Contar golos para cada Equipa
+            #region Contar golos para cada Equipa
             int golosA = 0,  golosB = 0;
             foreach (EventoJogo item in i.EventoA)
             {
@@ -62,7 +91,9 @@ namespace ProjetoLP2.Views
             {
                 if (item.TipoEvento == Evento.GOLO) golosB++;
             }
+            #endregion
 
+            #region Apresentar Equipas
             Console.WriteLine("Equipas:");
             List<IEquipa> listEquipas = controller.GetEquipas( i.EquipaA, i.EquipaB);
             // Verificar qual equipa aparece primeiro no array das equipas referentes ao jogo
@@ -77,7 +108,9 @@ namespace ProjetoLP2.Views
                 Console.WriteLine("\tEquipa da Casa: " + listEquipas[1].Nome + " : " + golosA.ToString());
                 Console.WriteLine("\tEquipa Visitante: " + listEquipas[0].Nome + " : " + golosB.ToString());
             }
+            #endregion
 
+            #region Arbitros
             Console.WriteLine("Arbitros:");
             //  Forçar Ordem dos ID's da Lista de Árbitros
             i.Arbitros.Sort();
@@ -86,6 +119,7 @@ namespace ProjetoLP2.Views
             {
                 Console.WriteLine("\t- " + i.Arbitros[c].ToString() + " - " + listArbitros[c].Nome + " - " + listArbitros[c].Categoria.ToString());
             }
+            #endregion
         }
         public void AddJogo()
         {
