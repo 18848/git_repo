@@ -56,12 +56,14 @@
     <Compile Include="Models\Guardar\GuardaJogador.cs" />
     <Compile Include="Models\Guardar\GuardaJogo.cs" />
     <Compile Include="Models\Guardar\GuardaEquipa.cs" />
+    <Compile Include="Models\Guardar\GuardarCompeticao.cs" />
     <Compile Include="Models\Jogador.cs" />
     <Compile Include="Models\Jogo.cs" />
     <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\ArbitroView.cs" />
+    <Compile Include="Views\CompeticaoView.cs" />
     <Compile Include="Views\EquipaView.cs" />
     <Compile Include="Views\JogadorView.cs" />
     <Compile Include="Views\JogoView.cs" />

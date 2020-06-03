@@ -21,7 +21,6 @@ namespace ProjetoLP2.Models.Guardar
     [Serializable]
     class GuardaEquipa : IGuardaEquipa
     {
-
         #region Member Values
         public List<IEquipa> list;
         #endregion

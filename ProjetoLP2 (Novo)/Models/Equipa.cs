@@ -55,7 +55,6 @@ namespace ProjetoLP2.Models
             get { return active; }
             set { active = value; }
         }
-
         #endregion
 
         #region FUNCTIONS
