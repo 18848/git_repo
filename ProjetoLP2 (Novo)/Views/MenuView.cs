@@ -347,11 +347,13 @@ namespace ProjetoLP2.Views
                     Console.WriteLine("----------------- Competicao -----------------");
                     Console.WriteLine("\n1: Ver Lista de Competicoes");
                     Console.WriteLine("2: Ver Equipas da Competicao");
-                    Console.WriteLine("3: Inserir Competicao");
-                    Console.WriteLine("4: Inserir Equipa");
-                    Console.WriteLine("5: Editar Competicao");
-                    Console.WriteLine("6: Remover Competicao");
-                    Console.WriteLine("7: Remover Equipas da Competicao");
+                    Console.WriteLine("3: Ver Jogos da Competicao");
+                    Console.WriteLine("4: Inserir Competicao");
+                    Console.WriteLine("5: Inserir Equipa");
+                    Console.WriteLine("6: Editar Competicao");
+                    Console.WriteLine("7: Remover Competicao");
+                    Console.WriteLine("8: Remover Equipas da Competicao");
+                    Console.WriteLine("9: Remover Jogo da Competicao");
                     Console.WriteLine("0: Voltar");
                     Console.Write("\nOpcao: ");
                     int.TryParse(Console.ReadLine(), out op);
@@ -379,24 +381,33 @@ namespace ProjetoLP2.Views
                         Console.ReadKey();
                         break;
                     case 3:
+                        Console.WriteLine("Jogos na Competicao:");
+                        competicao.GetCompeticao();
+                        Console.ReadKey();
+                        break;
+                    case 4:
                         Console.WriteLine("Adicionar Competicao:");
                         competicao.SetCompeticao();
                         break;
-                    case 4:
+                    case 5:
                         Console.WriteLine("Adicionar Clubes: (0 para sair)");
                         competicao.UpdateEquipa();
                         break;
-                    case 5:
+                    case 6:
                         Console.WriteLine("Editar Competicao:");
                         competicao.UpdateCompeticao();
                         break;
-                    case 6:
+                    case 7:
                         Console.WriteLine("Remover Competicao:");
                         competicao.DeleteCompeticao();
                         break;
-                    case 7:
+                    case 8:
                         Console.WriteLine("Remover Equipa da Competicao:");
                         competicao.DeleteEquipa();
+                        break;
+                    case 9:
+                        Console.WriteLine("Remover Jogo da Competicao:");
+                        competicao.DeleteJogo();
                         break;
                 }
                 competicao.Save();

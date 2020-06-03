@@ -12,12 +12,15 @@ namespace ProjetoLP2.Views
     {
         void ShowAll(ICompeticao i, int id);
         void ShowOne(ICompeticao i, List<IEquipa> equipas);
+        void ShowOneJogo(ICompeticao i, List<IJogo> jogo);
         void AddCompeticao();
         void GetCompeticao();
+        void GetCompeticaoJogo();
         void UpdateCompeticao();
         void DeleteCompeticao();
         void UpdateEquipa();
         void DeleteEquipa();
+        void DeleteJogo();
     }
 
     class CompeticaoView : ICompeticaoView
@@ -63,6 +66,24 @@ namespace ProjetoLP2.Views
                 }
             }
         }
+        public void ShowOneJogo(ICompeticao i, List<IJogo> jogo)
+        {
+            if (i.Active == true)
+            {
+                Console.WriteLine("\nNome: " + i.Nome);
+                Console.WriteLine("Data de Inicio: " + i.Inicio.ToString("dd/MM/yyyy"));
+                Console.WriteLine("Data de Fim: " + i.Inicio.ToString("dd/MM/yyyy"));
+                Console.WriteLine("\nJogos:");
+
+                if (jogo != null)
+                {
+                    foreach (IJogo foo in jogo)
+                    {
+                        Console.WriteLine(foo.EquipaA + " - " + foo.EquipaB);
+                    }
+                }
+            }
+        }
         public void AddCompeticao()
         {
             ICompeticao x = new Competicao();
@@ -100,6 +121,25 @@ namespace ProjetoLP2.Views
                 int.TryParse(Console.ReadLine(), out int id);
 
                 controller.Find(id);
+            }
+            catch (FormatException e)
+            {
+                throw e;
+            }
+            catch (OverflowException e)
+            {
+                throw e;
+            }
+        }
+
+        public void GetCompeticaoJogo()
+        {
+            try
+            {
+                Console.Write("ID: ");
+                int.TryParse(Console.ReadLine(), out int id);
+
+                controller.FindJogo(id);
             }
             catch (FormatException e)
             {
@@ -253,6 +293,49 @@ namespace ProjetoLP2.Views
                     else
                     {
                         Console.WriteLine("Equipa nao encontrada");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("A competicao não pode ser selecionada");
+                    Console.ReadKey();
+                }
+
+            }
+            catch (FormatException e)
+            {
+                throw e;
+            }
+            catch (OverflowException e)
+            {
+                throw e;
+            }
+        }
+        public void DeleteJogo()
+        {
+            bool validarE, validarJ;
+
+            try
+            {
+                Console.Write("ID da Competicao: ");
+                int.TryParse(Console.ReadLine(), out int x);
+                validarE = controller.ProcurarCompeticao(x);
+
+                if (validarE)
+                {
+                    Console.Write("\nID do Jogo: ");
+                    int.TryParse(Console.ReadLine(), out int id);
+
+                    validarJ = controller.ProcurarJogo(id);
+
+                    if (!validarJ)
+                    {
+                        controller.DeleteJogoModel(id);
+                        Console.WriteLine("Removido com sucesso");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Jogo nao encontrado");
                     }
                 }
                 else

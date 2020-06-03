@@ -18,9 +18,11 @@ namespace ProjetoLP2.Controllers
         void GetAllCompeticoes();
         bool ProcurarCompeticao(int id);
         void SetCompeticao();
+        void GetCompeticaoJogo();
         void Add(ICompeticao competicao);
         void GetCompeticao();
         void Find(int id);
+        void FindJogo(int id);
         void UpdateCompeticao();
         void Update(ICompeticao competicao);
         void DeleteCompeticao();
@@ -30,6 +32,9 @@ namespace ProjetoLP2.Controllers
         void DeleteEquipa();
         void DeleteEquipaModel(int id);
         bool ProcurarEquipa(int id);
+        void DeleteJogo();
+        void DeleteJogoModel(int id);
+        bool ProcurarJogo(int id);
     }
     public class CompeticaoController : ICompeticaoController
     {
@@ -38,6 +43,7 @@ namespace ProjetoLP2.Controllers
         private ICompeticaoView view;
         private IGuardaCompeticao list;
         private IGuardaEquipa listEquipa;
+        private IGuardaJogo listJogo;
         #endregion
 
         #region Constructor
@@ -47,6 +53,8 @@ namespace ProjetoLP2.Controllers
             list.Load("competicao.bin");
             listEquipa = new GuardaEquipa();
             listEquipa.Load("equipa.bin");
+            listJogo = new GuardaJogo();
+            listJogo.Load("jogo.bin");
 
             view = new CompeticaoView(this);
         }
@@ -130,6 +138,15 @@ namespace ProjetoLP2.Controllers
                 view.GetCompeticao();
             }
         }
+
+        public void GetCompeticaoJogo()
+        {
+            if (view != null)
+            {
+                view.GetCompeticaoJogo();
+            }
+        }
+
         public void Find(int id)
         {
             if (list != null)
@@ -156,6 +173,34 @@ namespace ProjetoLP2.Controllers
                 }
 
                 view.ShowOne(competicao, newEquipa);
+            }
+        }
+        public void FindJogo(int id)
+        {
+            if (list != null)
+            {
+                ICompeticao competicao = new Competicao();
+                List<IJogo> jogo = new List<IJogo>();
+                List<IJogo> newJogo = new List<IJogo>();
+
+                competicao = list.Find(id);
+                jogo = listJogo.GiveList();
+
+                foreach (int c in competicao.Jogos)
+                {
+                    int index = 0;
+                    foreach (IJogo i in jogo)
+                    {
+                        index++;
+                        if (c == index)
+                        {
+                            newJogo.Add(i);
+                            break;
+                        }
+                    }
+                }
+
+                view.ShowOneJogo(competicao, newJogo);
             }
         }
         public void UpdateCompeticao()
@@ -222,6 +267,29 @@ namespace ProjetoLP2.Controllers
             if (list != null)
             {
                 model.DeleteEquipa(id);
+            }
+        }
+        public bool ProcurarJogo(int id)
+        {
+            if (list != null)
+            {
+                return list.FindJogo(id);
+            }
+            return false;
+        }
+
+        public void DeleteJogo()
+        {
+            if (view != null)
+            {
+                view.DeleteJogo();
+            }
+        }
+        public void DeleteJogoModel(int id)
+        {
+            if (list != null)
+            {
+                model.DeleteJogo(id);
             }
         }
         #endregion
