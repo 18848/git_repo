@@ -17,6 +17,7 @@ namespace ProjetoLP2.Models.Guardar
         List<IJogo> GiveList();
         IJogo Find(int id);
     }
+    [Serializable]
     public class GuardaJogo : IGuardaJogo
     {
 

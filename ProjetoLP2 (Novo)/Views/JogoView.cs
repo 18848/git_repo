@@ -90,20 +90,17 @@ namespace ProjetoLP2.Views
         public void AddJogo()
         {
             IJogo x = new Jogo();
-            List<IEquipa> equipas = controller.GetEquipasList();
-            List<IArbitro> arbitros = controller.GetArbitrosList();
+            IEquipaController equipas = new EquipaController();
+            IArbitroController arbitros = new ArbitroController();
+            //List<IArbitro> arbitros = controller.GetArbitrosList();
             try
             {
                 int c;
                 do
                 {
-                    for(c = 0; c < equipas.Count; c++)
-                    {
-                        if (equipas[c].Active)
-                        {
-                            Console.WriteLine(c.ToString() + " - " + equipas[c].Nome);
-                        }
-                    }
+                    Console.Clear();
+                    Console.WriteLine("Equipas: ");
+                    equipas.GetAllEquipas();
                     Console.Write("\nEquipa da Casa: ");
                     x.EquipaA = int.Parse(Console.ReadLine());
                     Console.Write("\nEquipa Visitante: ");
@@ -112,34 +109,43 @@ namespace ProjetoLP2.Views
                         Console.WriteLine("Equipas devem ser diferentes.");
                 } while (x.EquipaA == x.EquipaB);
 
+                c = 0;
+                Console.WriteLine("\nArbitros: ");
+                arbitros.GetAllArbitros();
                 do
                 {
-                    for (c = 0; c < arbitros.Count; c++)
-                    {
-                        if (arbitros[c].Active)
-                        {
-                            Console.WriteLine(c.ToString() + " - " + arbitros[c].Nome);
-                            Console.WriteLine("\t- " + arbitros[c].Categoria);
-                            Console.WriteLine("\t- " + arbitros[c].Categoria + "\n");
-                        }
-                    }
-                    Console.WriteLine();
-
+                    Console.Write($"\n\tID-{c.ToString()}: ");
+                    x.Arbitros.Add(int.Parse(Console.ReadLine()));
+                    c++;
                 } while (c < 5);
 
-                Console.WriteLine("Eventos: ");
                 do
                 {
-                    EventoJogo newEvento;
+                    string evento;
+                    Console.Clear();
+                    Console.WriteLine("Prima 0 para sair: ");
+                    Console.WriteLine("Eventos: ");
+                    EventoJogo newEvento = new EventoJogo();
                     Console.WriteLine("\t Tipos de Evento: ");
-                    foreach (string evento in Enum.GetNames(typeof(Evento)))
+                    foreach ( string e in Enum.GetNames(typeof(Evento)))
                     {
-                        Console.WriteLine("{0} = {1:D}", evento,
-                                                     Enum.Parse(typeof(Evento), evento));
+                        Console.WriteLine("{0} = {1:D}", e,
+                                                     Enum.Parse(typeof(Evento), e));
                     }
                     Console.Write("\tTipo do Evento: ");
-                    newEvento.TipoEvento = (Evento)Enum.Parse(typeof(Evento), Console.ReadLine());
-                    //x.EventoA.Add
+                    evento = Console.ReadLine();
+                    if (0 == int.Parse(evento)) 
+                        break;
+                    newEvento.TipoEvento = (Evento)Enum.Parse(typeof(Evento), evento);
+
+                    Console.WriteLine("Jogadores:");
+                    IJogadorController jC= new JogadorController();
+                    jC.GetAllJogadores();
+
+                    Console.Write("\tJogador em Causa: ");
+                    newEvento.Jogador = int.Parse(Console.ReadLine());
+
+                    x.EventoA.Add(newEvento);
                 } while (true);
 
                 controller.Add(x);

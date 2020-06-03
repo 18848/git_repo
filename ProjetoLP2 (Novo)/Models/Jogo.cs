@@ -7,19 +7,21 @@ using ProjetoLP2.Models;
 
 namespace ProjetoLP2.Models
 {
+    [Serializable]
     public enum Evento
     {
-        GOLO = 0, CA, CV
+        GOLO = 1, CA, CV
     }
+    [Serializable]
     public struct EventoJogo
     {
-        public EventoJogo(Evento e, IJogador j)
+        public EventoJogo(Evento e, int j)
         {
             TipoEvento = e;
             Jogador = j;
         }
         public Evento TipoEvento { get; set; }
-        public IJogador Jogador { get; set; }
+        public int Jogador { get; set; }
     }
     public interface IJogo
     {
@@ -31,7 +33,7 @@ namespace ProjetoLP2.Models
 
         void UpdateJogo(IJogo jogo);
     }
-
+    [Serializable]
     public class Jogo : IJogo
     {
 
@@ -56,7 +58,9 @@ namespace ProjetoLP2.Models
         {
             EquipaA = 0;
             EquipaB = 0;
-            Arbitros = null;
+            Arbitros = new List<int>();
+            EventoA = new List<EventoJogo>();
+            EventoB = new List<EventoJogo>();
         }
 
         #endregion

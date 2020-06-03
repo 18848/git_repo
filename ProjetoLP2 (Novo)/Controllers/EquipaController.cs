@@ -86,7 +86,8 @@ namespace ProjetoLP2.Controllers
             {
                 if (list != null)
                 {
-                    foreach (IEquipa i in list.GiveList())
+                    List<IEquipa> equipas = list.GiveList();
+                    foreach (IEquipa i in equipas)
                     {
                         index++;
                         if (i.Active)
