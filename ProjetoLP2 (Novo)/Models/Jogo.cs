@@ -41,8 +41,6 @@ namespace ProjetoLP2.Models
         
         private int equipaA;
         private int equipaB;
-        private int golosA;
-        private int golosB;
         private List<int> arbitros;
 
         

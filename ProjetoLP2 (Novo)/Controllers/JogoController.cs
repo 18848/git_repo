@@ -105,27 +105,22 @@ namespace ProjetoLP2.Controllers
             List <IEquipa> list = new List<IEquipa>();
             IGuardaEquipa equipas = new GuardaEquipa();
             equipas.Load("equipas.bin");
-            for (int c = idA; ; c = idB)
-            {
-                IEquipa e = equipas.Find(c);
-                list.Add(e);
-                if (list.Count == 2) break;
-            }
+            IEquipa e = equipas.Find(idA);
+            list.Add(e);
+            e = equipas.Find(idB);
+            list.Add(e);
             return list;
         }
         public int CheckFirstEquipas(List<IEquipa> list, int a, int b)
         {
-            for(int c=0; c < list.Count; c++)
+            IGuardaEquipa guardar = new GuardaEquipa();
+            if(list[0] == guardar.Find(a))
             {
-                if(list[c] == list[a])
-                {
-                    return 1;
-                }
-                if (list[c] == list[b])
-                {
-                    return -1;
-                }
-                else continue;
+                return 1;
+            }
+            if (list[0] == guardar.Find(b))
+            {
+                return -1;
             }
             return 0;
         }

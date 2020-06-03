@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ProjetoLP2.Models;
 using ProjetoLP2.Controllers;
 using ProjetoLP2.Models.Guardar;
+using System.Diagnostics;
 
 namespace ProjetoLP2.Views
 {
@@ -152,11 +153,15 @@ namespace ProjetoLP2.Views
                     x.Arbitros.Add(int.Parse(Console.ReadLine()));
                     c++;
                 } while (c < 5);
-
+                int counter = 0;
                 do
                 {
                     string evento;
                     Console.Clear();
+                    if(counter==0)
+                        Console.WriteLine("Eventos Equipa: " + x.EquipaA.ToString());
+                    if(counter==1)
+                        Console.WriteLine("Eventos Equipa: " + x.EquipaA.ToString());
                     Console.WriteLine("Prima 0 para sair: ");
                     Console.WriteLine("Eventos: ");
                     EventoJogo newEvento = new EventoJogo();
@@ -168,8 +173,10 @@ namespace ProjetoLP2.Views
                     }
                     Console.Write("\tTipo do Evento: ");
                     evento = Console.ReadLine();
-                    if (0 == int.Parse(evento)) 
-                        break;
+                    if (0 == int.Parse(evento))
+                    {
+                        counter++;
+                    }
                     newEvento.TipoEvento = (Evento)Enum.Parse(typeof(Evento), evento);
 
                     Console.WriteLine("Jogadores:");
@@ -178,9 +185,12 @@ namespace ProjetoLP2.Views
 
                     Console.Write("\tJogador em Causa: ");
                     newEvento.Jogador = int.Parse(Console.ReadLine());
-
-                    x.EventoA.Add(newEvento);
-                } while (true);
+                    
+                    if(counter==0)
+                        x.EventoA.Add(newEvento);
+                    else if(counter==1)
+                        x.EventoB.Add(newEvento);
+                } while (counter < 2);
 
                 controller.Add(x);
             }
