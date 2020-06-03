@@ -45,10 +45,11 @@ namespace ProjetoLP2.Views
         {
             if (i.Active == true)
             {
-                Console.WriteLine("Nome: " + i.Nome);
+                Console.WriteLine("\nNome: " + i.Nome);
                 Console.WriteLine("Data de Fundacao: " + i.Fundacao.ToString("dd/MM/yyyy"));
+                Console.WriteLine("\nPlantel:");
 
-                if (i.Jogadores != null)
+                if (jogadores != null)
                 {
                     foreach (IJogador foo in jogadores)
                     {

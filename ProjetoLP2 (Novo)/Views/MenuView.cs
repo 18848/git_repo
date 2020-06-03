@@ -70,13 +70,6 @@ namespace ProjetoLP2.Views
 
                 switch (op)
                 {
-                    case 0:
-                        arbitro.Save();
-                        jogador.Save();
-                        equipa.Save();
-                        jogo.Save();
-                        //competicao.Save();
-                        break;
                     case 1:
                         //ArbitroMenu();
                         break;
@@ -157,6 +150,8 @@ namespace ProjetoLP2.Views
                         arbitro.DeleteArbitro();
                         break;
                 }
+                arbitro.Save();
+
             } while (op != 0);
         }
 
@@ -215,6 +210,8 @@ namespace ProjetoLP2.Views
                         jogador.DeleteJogador();
                         break;
                 }
+                jogador.Save();
+
             } while (op != 0);
         }
         public void EquipaMenu()
@@ -282,6 +279,8 @@ namespace ProjetoLP2.Views
                         equipa.DeleteJogador();
                         break;
                 }
+                equipa.Save();
+
             } while (op != 0);
         }
         public void JogoMenu()
@@ -340,6 +339,8 @@ namespace ProjetoLP2.Views
                         jogador.DeleteJogador();
                         break;
                 }
+                jogo.Save();
+
             } while (op != 0);
         }
         #endregion
