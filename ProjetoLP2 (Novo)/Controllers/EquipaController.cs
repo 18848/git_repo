@@ -25,6 +25,8 @@ namespace ProjetoLP2.Controllers
         void Update(IEquipa equipa);
         void DeleteEquipa(); 
         void Delete();
+        void UpdateJogador();
+        void UpdateJogadorModel(int id);
     }
 
     class EquipaController : IEquipaController
@@ -61,7 +63,7 @@ namespace ProjetoLP2.Controllers
 
         public void Save()
         {
-            list.Save("jogador.bin");
+            list.Save("equipa.bin");
         }
         #endregion
 
@@ -151,6 +153,21 @@ namespace ProjetoLP2.Controllers
             if (list != null)
             {
                 model.DeleteEquipa();
+            }
+        }
+
+        public void UpdateJogador()
+        {
+            if (view != null)
+            {
+                view.UpdateJogador();
+            }
+        }
+        public void UpdateJogadorModel(int id)
+        {
+            if (list != null)
+            {
+                model.UpdateJogador(id);
             }
         }
         #endregion

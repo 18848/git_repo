@@ -16,6 +16,7 @@ namespace ProjetoLP2.Views
         void GetEquipa();
         void UpdateEquipa();
         void DeleteEquipa();
+        void UpdateJogador();
     }
 
     class EquipaView : IEquipaView
@@ -48,6 +49,14 @@ namespace ProjetoLP2.Views
             {
                 Console.WriteLine("Nome: " + i.Nome);
                 Console.WriteLine("Data de Fundacao: " + i.Fundacao.Date);
+
+                if(i.Jogadores != null)
+                {
+                    foreach (int foo in i.Jogadores)
+                    {
+                        Console.WriteLine("ID: " + foo);
+                    }
+                }
             }
         }
         public void AddEquipa()
@@ -102,7 +111,7 @@ namespace ProjetoLP2.Views
 
             try
             {
-                Console.WriteLine("ID: ");
+                Console.Write("ID: ");
                 int.TryParse(Console.ReadLine(), out int id);
                 validar = controller.ProcurarEquipa(id);
 
@@ -143,6 +152,35 @@ namespace ProjetoLP2.Views
                 if (validar)
                 {
                     controller.Delete();
+                }
+
+            }
+            catch (FormatException e)
+            {
+                throw e;
+            }
+            catch (OverflowException e)
+            {
+                throw e;
+            }
+        }
+
+        public void UpdateJogador()
+        {
+            bool validar;
+
+            try
+            {
+                Console.Write("ID da Equipa: ");
+                int.TryParse(Console.ReadLine(), out int x);
+                validar = controller.ProcurarEquipa(x);
+
+                if (validar)
+                {
+                    //print todos os jogadores
+                    Console.Write("\nID do Jogador: ");
+                    int.TryParse(Console.ReadLine(), out int id);
+                    controller.UpdateJogadorModel(id);
                 }
 
             }

@@ -11,6 +11,7 @@ namespace ProjetoLP2.Models
         string Alcunha { get; set; }
         int Numero { get; set; }
         POSICAO Posicao { get; set; }
+        int Golos { get; set; }
 
         void UpdateJogador(IJogador jogador);
         void DeleteJogador();
@@ -20,9 +21,12 @@ namespace ProjetoLP2.Models
     public class Jogador : Pessoa, IJogador
     {
         #region MEMBER VARIABLES
+
         private string alcunha;
         private int numero;
         private POSICAO posicao;
+        private int golos;
+
         #endregion
 
         #region Constructors
@@ -55,6 +59,10 @@ namespace ProjetoLP2.Models
         {
             get { return posicao; }
             set { posicao = value; }
+        }
+        public int Golos
+        {
+            get; set;
         }
         #endregion
 

@@ -86,13 +86,6 @@ namespace ProjetoLP2.Views
                     case 5:
                         EquipaMenu();
                         break;
-<<<<<<< HEAD
-                    case 6:
-                        break;
-                    case 7:
-                        JogoMenu();
-=======
-                        break;
                     case 6:
                         //JogoMenu();
                         break;
@@ -101,7 +94,6 @@ namespace ProjetoLP2.Views
                         break;
                     default:
                         Menu();
->>>>>>> da88bac8110f2759e54f1b91abdcf83853db699f
                         break;
                 }
             } while (op != 0);
@@ -236,7 +228,7 @@ namespace ProjetoLP2.Views
                     Console.WriteLine("\n1: Ver Lista de Equipas");
                     Console.WriteLine("2: Ver Plantel da Equipa");
                     Console.WriteLine("3: Inserir Equipa");
-                    Console.WriteLine("4: Inserir Jogador na Equipa");
+                    Console.WriteLine("4: Inserir Plantel");
                     Console.WriteLine("5: Editar Equipa");
                     Console.WriteLine("6: Remover Equipa");
                     Console.WriteLine("7: Remover Jogadores da Equipa");
@@ -270,64 +262,9 @@ namespace ProjetoLP2.Views
                         Console.WriteLine("Adicionar Equipa:");
                         equipa.SetEquipa();
                         break;
-                    case 5:
-                        Console.WriteLine("Editar Equipa:");
-                        equipa.UpdateEquipa();
-                        break;
-                    case 6:
-                        Console.WriteLine("Remover Equipa:");
-                        equipa.DeleteEquipa();
-                        break;
-                }
-            } while (op != 0);
-        }
-        public void JogoMenu()
-        {
-            int op = 0;
-
-            do
-            {
-                try
-                {
-                    Console.Clear();
-                    Console.WriteLine("-------------------- Menu --------------------");
-                    Console.WriteLine("------------------- Equipa -------------------");
-                    Console.WriteLine("\n1: Ver Lista de Equipas");
-                    Console.WriteLine("2: Ver Plantel da Equipa");
-                    Console.WriteLine("3: Inserir Equipa");
-                    Console.WriteLine("4: Inserir Jogador na Equipa");
-                    Console.WriteLine("5: Editar Equipa");
-                    Console.WriteLine("6: Remover Equipa");
-                    Console.WriteLine("7: Remover Jogadores da Equipa");
-                    Console.WriteLine("0: Voltar");
-                    Console.Write("\nOpcao: ");
-                    int.TryParse(Console.ReadLine(), out op);
-                    Console.Clear();
-                }
-                catch (FormatException e)
-                {
-                    throw e;
-                }
-                catch (OverflowException e)
-                {
-                    throw e;
-                }
-
-                switch (op)
-                {
-                    case 1:
-                        Console.WriteLine("Lista de Equipas:");
-                        equipa.GetAllEquipas();
-                        Console.ReadKey();
-                        break;
-                    case 2:
-                        Console.WriteLine("Plantel da Equipa:");
-                        equipa.GetEquipa();
-                        Console.ReadKey();
-                        break;
-                    case 3:
-                        Console.WriteLine("Adicionar Equipa:");
-                        equipa.SetEquipa();
+                    case 4:
+                        Console.WriteLine("Adicionar Plantel: (0 para sair)");
+                        equipa.UpdateJogador();
                         break;
                     case 5:
                         Console.WriteLine("Editar Equipa:");
