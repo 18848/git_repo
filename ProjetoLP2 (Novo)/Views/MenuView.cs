@@ -86,13 +86,6 @@ namespace ProjetoLP2.Views
                     case 5:
                         EquipaMenu();
                         break;
-<<<<<<< HEAD
-                    case 6:
-                        break;
-                    case 7:
-                        JogoMenu();
-=======
-                        break;
                     case 6:
                         //JogoMenu();
                         break;
@@ -101,7 +94,6 @@ namespace ProjetoLP2.Views
                         break;
                     default:
                         Menu();
->>>>>>> da88bac8110f2759e54f1b91abdcf83853db699f
                         break;
                 }
             } while (op != 0);
@@ -374,7 +366,7 @@ namespace ProjetoLP2.Views
                 switch (op)
                 {
                     case 1:
-                        Console.WriteLine("Lista de Jogadores:");
+                        Console.WriteLine("Lista de Jornadas:");
                         jogador.GetAllJogadores();
                         Console.ReadKey();
                         break;
