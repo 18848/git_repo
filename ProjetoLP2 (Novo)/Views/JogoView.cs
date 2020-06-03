@@ -132,10 +132,13 @@ namespace ProjetoLP2.Views
                 {
                     EventoJogo newEvento;
                     Console.WriteLine("\t Tipos de Evento: ");
-                    for (Evento e = 0; e < Evento.CA; e++)
-                        Console.WriteLine($"\t{int.Parse(e.ToString())} - {e.ToString()} ");
+                    foreach (string evento in Enum.GetNames(typeof(Evento)))
+                    {
+                        Console.WriteLine("{0} = {1:D}", evento,
+                                                     Enum.Parse(typeof(Evento), evento));
+                    }
                     Console.Write("\tTipo do Evento: ");
-                    //newEvento.TipoEvento = Enum.Parse(Console.ReadLine());
+                    newEvento.TipoEvento = (Evento)Enum.Parse(typeof(Evento), Console.ReadLine());
                     //x.EventoA.Add
                 } while (true);
 
