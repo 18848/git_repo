@@ -13,16 +13,21 @@ namespace ProjetoLP2.Models
     }
     public struct EventoJogo
     {
-        Evento evento;
-        IJogador jogador;
+        public EventoJogo(Evento e, IJogador j)
+        {
+            TipoEvento = e;
+            Jogador = j;
+        }
+        public Evento TipoEvento { get; set; }
+        public IJogador Jogador { get; set; }
     }
     public interface IJogo
     {
         int EquipaA { get; set; }
         int EquipaB { get; set; }
         List<int> Arbitros { get; set; }
-        EventoJogo EventoA { get; set; }
-        EventoJogo EventoB { get; set; }
+        List<EventoJogo> EventoA { get; set; }
+        List<EventoJogo> EventoB { get; set; }
 
         void UpdateJogo(IJogo jogo);
     }
@@ -62,31 +67,19 @@ namespace ProjetoLP2.Models
         /// <summary>
         /// Manipula o atributo "equipaA"
         /// </summary>
-        public int EquipaA
-        {
-            get { return equipaA; }
-            set { equipaA = value; }
-        }
+        public int EquipaA { get; set; }
 
         /// <summary>
         /// Manipula o atributo "EquipaB"
         /// </summary>
-        public int EquipaB
-        {
-            get { return equipaB; }
-            set { equipaB = value; }
-        }
+        public int EquipaB { get; set; }
 
         /// <summary>
         /// Manipula o atributo "Arbitros"
         /// </summary>
-        public List<int> Arbitros
-        {
-            get { return arbitros; }
-            set { arbitros = value; }
-        }
-        public EventoJogo EventoA { get; set; }
-        public EventoJogo EventoB { get; set; }
+        public List<int> Arbitros { get; set; }
+        public List<EventoJogo> EventoA { get; set; }
+        public List<EventoJogo> EventoB { get; set; }
 
         #endregion
 

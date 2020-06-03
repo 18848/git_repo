@@ -122,7 +122,7 @@ namespace ProjetoLP2.Views
         {
             try
             {
-                Console.WriteLine("ID: ");
+                Console.Write("\nID: ");
                 int.TryParse(Console.ReadLine(), out int id);
 
                 controller.Find(id);
@@ -144,7 +144,7 @@ namespace ProjetoLP2.Views
 
             try
             {
-                Console.WriteLine("ID: ");
+                Console.Write("\nID: ");
                 int.TryParse(Console.ReadLine(), out int id);
                 validar = controller.ProcurarJogador(id);
 
@@ -215,7 +215,7 @@ namespace ProjetoLP2.Views
 
             try
             {
-                Console.WriteLine("ID: ");
+                Console.Write("\nID: ");
                 int.TryParse(Console.ReadLine(), out int id);
                 validar = controller.ProcurarJogador(id);
 

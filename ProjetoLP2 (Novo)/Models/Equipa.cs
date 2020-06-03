@@ -34,7 +34,7 @@ namespace ProjetoLP2.Models
         {
             Nome = "";
             Fundacao = DateTime.Now;
-            Jogadores = null;
+            Jogadores = new List<int>();
         }
         #endregion
 
@@ -49,11 +49,7 @@ namespace ProjetoLP2.Models
             get { return fundacao; }
             set { fundacao = value; }
         }
-        public List<int> Jogadores
-        {
-            get { return jogadores; }
-            set { jogadores = value; }
-        }
+        public List<int> Jogadores { get; set; }
         public bool Active
         {
             get { return active; }

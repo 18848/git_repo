@@ -77,6 +77,12 @@ namespace ProjetoLP2.Views
                         jogo.Save();
                         //competicao.Save();
                         break;
+                    case 1:
+                        //ArbitroMenu();
+                        break;
+                    case 2:
+                        //ArbitroMenu();
+                        break;
                     case 3:
                         ArbitroMenu();
                         break;
@@ -91,9 +97,6 @@ namespace ProjetoLP2.Views
                         break;
                     case 7:
                         //CompeticaoMenu();
-                        break;
-                    default:
-                        Menu();
                         break;
                 }
             } while (op != 0);

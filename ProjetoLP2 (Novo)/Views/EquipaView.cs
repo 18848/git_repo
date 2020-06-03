@@ -1,13 +1,14 @@
 ﻿using ProjetoLP2.Controllers;
 using ProjetoLP2.Models;
 using System;
+using System.Collections.Generic;
 
 namespace ProjetoLP2.Views
 {
     public interface IEquipaView
     {
         void ShowAll(IEquipa i, int id);
-        void ShowOne(IEquipa i);
+        void ShowOne(IEquipa i, List<IJogador> jogadores);
         void AddEquipa();
         void GetEquipa();
         void UpdateEquipa();
@@ -35,26 +36,25 @@ namespace ProjetoLP2.Views
         {
             if (i.Active == true)
             {
-                Console.WriteLine("\nID: " + id);
+                Console.WriteLine("\nID: " + id.ToString());
                 Console.WriteLine("Nome: " + i.Nome);
-                Console.WriteLine("Data de Fundacao: " + i.Fundacao.Date);
+                Console.WriteLine("Data de Fundacao: " + i.Fundacao.ToString("dd/MM/yyyy"));
             }
         }
-        public void ShowOne(IEquipa i)
+        public void ShowOne(IEquipa i, List<IJogador> jogadores)
         {
             if (i.Active == true)
             {
                 Console.WriteLine("Nome: " + i.Nome);
-                Console.WriteLine("Data de Fundacao: " + i.Fundacao.Date);
+                Console.WriteLine("Data de Fundacao: " + i.Fundacao.ToString("dd/MM/yyyy"));
 
-                /*if (i.Jogadores != null)
+                if (i.Jogadores != null)
                 {
-                    foreach (int foo in i.Jogadores)
+                    foreach (IJogador foo in jogadores)
                     {
-                        Console.WriteLine("ID: " + foo);
+                        Console.WriteLine("Nome: " + foo.Nome + "\tNumero: " + foo.Numero + "\tPosicao: " + foo.Posicao);
                     }
-                }*/
-                controller
+                }
             }
         }
         public void AddEquipa()

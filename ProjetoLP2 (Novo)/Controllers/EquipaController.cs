@@ -13,8 +13,8 @@ namespace ProjetoLP2.Controllers
     {
         void SetView(IEquipaView v);
         void SetModel(IGuardaEquipa m);
+        void SetModelJogador(IGuardaJogador m);
         void SetModel(IEquipa m);
-
         void GetAllEquipas();
         bool ProcurarEquipa(int id);
         void SetEquipa();
@@ -38,7 +38,7 @@ namespace ProjetoLP2.Controllers
         private IEquipa model;
         private IEquipaView view;
         private IGuardaEquipa list; 
-        private IJogadorController jogadorC;
+        private IGuardaJogador listJogador;
         #endregion
 
         #region Constructor
@@ -46,6 +46,9 @@ namespace ProjetoLP2.Controllers
         {
             list = new GuardaEquipa();
             list.Load("equipa.bin");
+            listJogador = new GuardaJogador();
+            listJogador.Load("jogador.bin");
+
             view = new EquipaView(this);
         }
         #endregion
@@ -59,6 +62,10 @@ namespace ProjetoLP2.Controllers
         public void SetModel(IGuardaEquipa m)
         {
             list = m;
+        }
+        public void SetModelJogador(IGuardaJogador m)
+        {
+            listJogador = m;
         }
         public void SetModel(IEquipa m)
         {
@@ -128,7 +135,29 @@ namespace ProjetoLP2.Controllers
         {
             if (list != null)
             {
-                view.ShowOne(list.Find(id));
+                IEquipa equipa = new Equipa();
+                List<IJogador> jogador = new List<IJogador>();
+                List<IJogador> newJogador = new List<IJogador>();
+
+                equipa = list.Find(id);
+                jogador = listJogador.GiveList();
+
+                foreach (int e in equipa.Jogadores)
+                {
+                    int index = 0;
+                    foreach (IJogador j in jogador)
+                    {
+                        index++;
+
+                        if (e == index)
+                        {
+                            newJogador.Add(j);
+                            break;
+                        }
+                    }
+                }
+
+                view.ShowOne(equipa, newJogador);
             }
         }
         public void UpdateEquipa()
