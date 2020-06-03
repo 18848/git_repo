@@ -72,9 +72,9 @@ namespace ProjetoLP2.Models
 
         public void UpdateJogador(int id)
         {
-            if(jogadores == null)
+            if(Jogadores == null)
             {
-                jogadores = new List<int>();
+                Jogadores = new List<int>();
             }
             
             Jogadores.Add(id);

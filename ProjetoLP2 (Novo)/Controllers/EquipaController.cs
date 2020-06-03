@@ -148,7 +148,6 @@ namespace ProjetoLP2.Controllers
                     foreach (IJogador j in jogador)
                     {
                         index++;
-
                         if (e == index)
                         {
                             newJogador.Add(j);
