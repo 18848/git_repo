@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProjetoLP2.Controllers.ArbitroController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAoAACAAIgAICCAAAAAAAAAEIAAAQAQAAAACIAIA=</HashCode>
+      <FileName>Controllers\ArbitroController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Controllers.CompeticaoController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAYAF4AACQAIQBAAAAICABAAEAEIAEAQAQAAAARMCAI=</HashCode>
+      <FileName>Controllers\CompeticaoController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Controllers.EquipaController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYQAsAACAAKMFAABAACAAAAAAEIAEAQAQAAAAgIAAA=</HashCode>
+      <FileName>Controllers\EquipaController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Controllers.JogadorController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYEAsAACAAQEAAAAAAAAEAAAAEIAAAQAQAAAAAIAAA=</HashCode>
+      <FileName>Controllers\JogadorController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Controllers.JogoController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAYEYoAECAAIgAACAAAAAAAAgAAIAgAQAQAAAAAIAAA=</HashCode>
+      <FileName>Controllers\JogoController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Models.Arbitro" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAIAAgiAAAAIAAAAAAAAAAgAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Arbitro.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjetoLP2.Models.Competicao" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QUAAAQAAAIAIAACAAAACAAgAEAAIAAAggAAAIIVAAAA=</HashCode>
+      <FileName>Models\Competicao.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Models.Equipa" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAEAAABAIAAAQAAACAAAACAEAAAggAAAAIAEAAAA=</HashCode>
+      <FileName>Models\Equipa.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Models.Jogador" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAASAAAAEgAAEAAAAAAAFAAAABQAA=</HashCode>
+      <FileName>Models\Jogador.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjetoLP2.Models.Jogo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QADAkAAABAAIAAQCAAAAAAAAAAAAAACQAAAAAAAAwAA=</HashCode>
+      <FileName>Models\Jogo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Models.Pessoa" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAEEAAAFAAAABAAAAAgAAAAIAAAAgAAAAIAEAAAA=</HashCode>
+      <FileName>Models\Pessoa.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProjetoLP2.Models.Guardar.GuardaArbitro" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgoAAAAAAAAAAAAAAAEAAAAAIAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\Guardar\GuardaArbitro.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Models.Guardar.GuardaCompeticao" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIgoAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAABCAA=</HashCode>
+      <FileName>Models\Guardar\GuardaCompeticao.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Models.Guardar.GuardaEquipa" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgoAAAAAAAQAAAAAAAAAAAAAIAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\Guardar\GuardaEquipa.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Models.Guardar.GuardaJogador" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgoAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\Guardar\GuardaJogador.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Models.Guardar.GuardaJogo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgoAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\Guardar\GuardaJogo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Program" Collapsed="true">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetoLP2.Views.ArbitroView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAECCAAAAEAgAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ArbitroView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Views.CompeticaoView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAEwAAAAAIABEAQAACAAAAEAAAAAAAAAAAAARAAAA=</HashCode>
+      <FileName>Views\CompeticaoView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Views.EquipaView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAEAAAAAIIAEAAAACAAABAAEAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Views\EquipaView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Views.JogadorView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACEAEAAAAAAAAEAAAAAAAAAAAEAgAAAAAAAAABAAAA=</HashCode>
+      <FileName>Views\JogadorView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Views.JogoView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACEAAAAAAAIAAECAAAAAgAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Views\JogoView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetoLP2.Views.MenuView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAABAAgABAAEAAAAAgAMAAAAAAQQIAAAAAA=</HashCode>
+      <FileName>Views\MenuView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="ProjetoLP2.Controllers.IArbitroController" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAACAAIgAICCAAAAAAAAAEIAAAQAAAAAACAAIA=</HashCode>
+      <FileName>Controllers\ArbitroController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Controllers.ICompeticaoController" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAYAFQAACQAIQBAAAAACABAAEAEIAEAQAAAAAARMCAA=</HashCode>
+      <FileName>Controllers\CompeticaoController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Controllers.IEquipaController" Collapsed="true">
+    <Position X="7" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYQAEAACAAKMFAAAAACAAAAAAEIAEAQAAAAAAgAAAA=</HashCode>
+      <FileName>Controllers\EquipaController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Controllers.IJogadorController" Collapsed="true">
+    <Position X="10.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYEAEAACAAQEAAAAAAAAEAAAAEIAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\JogadorController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Controllers.IJogoController" Collapsed="true">
+    <Position X="7" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAYEYAAECAAIgAACAAAAAAAAgAAIAgAQAAAAAAAIAAA=</HashCode>
+      <FileName>Controllers\JogoController.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Models.IArbitro" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAIAAAiAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Arbitro.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Models.ICompeticao" Collapsed="true">
+    <Position X="8.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEAAAQAAAAAIAACAAAACAAAAEAAIAAAgAAAAAIUAAAA=</HashCode>
+      <FileName>Models\Competicao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Models.IEquipa" Collapsed="true">
+    <Position X="5.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAIAAAQAAACAAAAAAEAAAggAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Equipa.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Models.IJogador" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAACAAAAEAAAEAAAAAAAAAAAABQAA=</HashCode>
+      <FileName>Models\Jogador.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Models.IJogo" Collapsed="true">
+    <Position X="5.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAkAAAAAAIAAQCAAAAAAAAAAAAAAAAAAAAAAAAwAA=</HashCode>
+      <FileName>Models\Jogo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Models.IPessoa" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAFAAAAAAAAAAAAAAAIAAAAgAAAAAAEAAAA=</HashCode>
+      <FileName>Models\Pessoa.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Models.Guardar.IGuardaArbitro" Collapsed="true">
+    <Position X="10.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAEAAAAAIAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\Guardar\GuardaArbitro.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Models.Guardar.IGuardaCompeticao" Collapsed="true">
+    <Position X="12.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIgIAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAABCAA=</HashCode>
+      <FileName>Models\Guardar\GuardaCompeticao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Models.Guardar.IGuardaEquipa" Collapsed="true">
+    <Position X="5.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgIAAAAAAAQAAAAAAAAAAAAAIAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\Guardar\GuardaEquipa.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Models.Guardar.IGuardaJogador" Collapsed="true">
+    <Position X="7" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgIAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\Guardar\GuardaJogador.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Models.Guardar.IGuardaJogo" Collapsed="true">
+    <Position X="8.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgIAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\Guardar\GuardaJogo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Views.IArbitroView" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAACCAAAAEAgAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ArbitroView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Views.ICompeticaoView" Collapsed="true">
+    <Position X="12.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAEwAAAAAIABAAQAACAAAAEAAAAAAAAAAAAARAAAA=</HashCode>
+      <FileName>Views\CompeticaoView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Views.IEquipaView" Collapsed="true">
+    <Position X="8.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAEAAAAAIIAAAAAACAAABAAEAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Views\EquipaView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Views.IJogadorView" Collapsed="true">
+    <Position X="12.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACEAEAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAABAAAA=</HashCode>
+      <FileName>Views\JogadorView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Views.IJogoView" Collapsed="true">
+    <Position X="8.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACEAAAAAAAIAAACAAAAAgAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Views\JogoView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProjetoLP2.Views.IMenuView" Collapsed="true">
+    <Position X="10.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAABAAgAAAAAAAAAAAAMAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Views\MenuView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ProjetoLP2.CATEGORIA" Collapsed="true">
+    <Position X="7" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAMAAAAAAIAAAAAAAEAABAAAACAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ProjetoLP2.ASSOCIACAO" Collapsed="true">
+    <Position X="5.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIEFBAAABAAAAAEQiEAAAAAQCAQAQIAAADBAAEBAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ProjetoLP2.POSICAO" Collapsed="true">
+    <Position X="8.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAIEAAAAAAAAAAABAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
